@@ -1,0 +1,267 @@
+[gd_scene load_steps=18 format=3 uid="uid://b27rhh7755rbg"]
+
+[ext_resource type="Texture2D" uid="uid://xdsgc8bu05td" path="res://sprites/Untitled78_20240329161643.png" id="1_hfwvs"]
+[ext_resource type="Texture2D" uid="uid://blus3jct6drmr" path="res://sprites/Untitled78_20240409205301_edit_542478463116914.png" id="2_sbfc6"]
+[ext_resource type="Texture2D" uid="uid://20m5guxkq0lx" path="res://sprites/Untitled75_20240409205426.png" id="3_2170d"]
+[ext_resource type="FontFile" uid="uid://b41orlbfkxk7l" path="res://fonts/Chewy.ttf" id="4_fbd54"]
+[ext_resource type="Script" path="res://passsword_input.gd" id="6_03ldr"]
+[ext_resource type="Script" path="res://account_input.gd" id="6_xbme2"]
+[ext_resource type="Texture2D" uid="uid://dbrvipqkgnuko" path="res://sprites/Untitled80_20240416124703.png" id="7_pcqx6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bufsf"]
+bg_color = Color(0.431373, 0.431373, 0.431373, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6if7l"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gmfq7"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cyajj"]
+bg_color = Color(0.396078, 0.396078, 0.396078, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u83si"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_flof7"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_h1pyr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lu0wt"]
+font = SubResource("FontVariation_h1pyr")
+font_size = 14
+font_color = Color(0, 0, 0, 1)
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+
+[sub_resource type="FontVariation" id="FontVariation_2r1m3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v2wsb"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[node name="login_control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LoginScreen" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_hfwvs")
+expand_mode = 1
+
+[node name="Login" type="TextureRect" parent="LoginScreen"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 84.0
+offset_right = 567.0
+offset_bottom = 715.0
+texture = ExtResource("2_sbfc6")
+expand_mode = 1
+
+[node name="Logo" type="TextureRect" parent="LoginScreen"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = -100.0
+offset_right = 567.0
+offset_bottom = 359.0
+texture = ExtResource("3_2170d")
+expand_mode = 1
+
+[node name="vb_loginAccount" type="VBoxContainer" parent="LoginScreen"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 240.0
+offset_top = -113.0
+offset_right = -742.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 2
+
+[node name="Account" type="Label" parent="LoginScreen/vb_loginAccount"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_fbd54")
+theme_override_font_sizes/font_size = 18
+text = "Account
+"
+
+[node name="account_field" type="TextEdit" parent="LoginScreen/vb_loginAccount"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+theme_override_constants/line_spacing = 2
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_bufsf")
+
+[node name="account_input" type="LineEdit" parent="LoginScreen/vb_loginAccount/account_field"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_right = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_6if7l")
+theme_override_styles/focus = SubResource("StyleBoxFlat_gmfq7")
+placeholder_text = "Enter Account"
+max_length = 20
+caret_blink = true
+script = ExtResource("6_xbme2")
+
+[node name="vb_loginPassword" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.129
+anchor_bottom = 0.244
+offset_left = 240.0
+offset_top = 328.0
+offset_right = 303.2
+offset_bottom = 239.88
+theme_override_constants/separation = 2
+
+[node name="Password" type="Label" parent="vb_loginPassword"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_fbd54")
+text = "Password"
+
+[node name="password_field" type="TextEdit" parent="vb_loginPassword"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_cyajj")
+
+[node name="passsword_input" type="LineEdit" parent="vb_loginPassword/password_field"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = -2.0
+offset_right = -3.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_u83si")
+theme_override_styles/focus = SubResource("StyleBoxFlat_flof7")
+placeholder_text = "Enter Password"
+max_length = 20
+caret_blink = true
+script = ExtResource("6_03ldr")
+
+[node name="Options" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = 923.0
+offset_top = 538.0
+offset_right = 1159.0
+offset_bottom = 686.0
+texture = ExtResource("7_pcqx6")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Options"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.356
+anchor_top = 0.345
+anchor_right = 0.826
+anchor_bottom = 0.493
+offset_left = -0.0159988
+offset_top = -0.0600052
+offset_right = 0.0639954
+offset_bottom = 1.036
+text = "Sign Up"
+label_settings = SubResource("LabelSettings_lu0wt")
+
+[node name="sugnup_logo" type="TextureRect" parent="Options/Label"]
+layout_mode = 0
+offset_left = 62.0
+offset_right = 83.0
+offset_bottom = 22.0
+
+[node name="vb_loginbButton" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 257.0
+offset_top = 444.0
+offset_right = 450.0
+offset_bottom = 471.0
+theme_override_constants/separation = 7
+
+[node name="Login" type="Button" parent="vb_loginbButton"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.192157, 0.192157, 0.192157, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_constants/h_separation = 8
+theme_override_fonts/font = SubResource("FontVariation_2r1m3")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_v2wsb")
+text = "Log In"
+
+[node name="Label" type="Label" parent="vb_loginbButton"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_fbd54")
+theme_override_font_sizes/font_size = 18
+text = "Forgot Password?"
+horizontal_alignment = 1
+
+[connection signal="text_changed" from="LoginScreen/vb_loginAccount/account_field/account_input" to="LoginScreen/vb_loginAccount/account_field/account_input" method="_on_text_changed"]

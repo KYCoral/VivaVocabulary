@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://chxuxupwve713"]
+
+[ext_resource type="Texture2D" uid="uid://xdsgc8bu05td" path="res://sprites/Untitled78_20240329161643.png" id="1_lyhqg"]
+[ext_resource type="Texture2D" uid="uid://blus3jct6drmr" path="res://sprites/Untitled78_20240409205301_edit_542478463116914.png" id="2_suoel"]
+[ext_resource type="Texture2D" uid="uid://20m5guxkq0lx" path="res://sprites/Untitled75_20240409205426.png" id="3_qy4uv"]
+
+[node name="signup_control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="SignupScreen" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_lyhqg")
+expand_mode = 1
+
+[node name="signup" type="TextureRect" parent="MarginContainer/SignupScreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 130.0
+offset_top = 91.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_suoel")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Logo" type="TextureRect" parent="MarginContainer/SignupScreen"]
+offset_left = 130.0
+offset_top = -97.0
+offset_right = 567.0
+offset_bottom = 362.0
+texture = ExtResource("3_qy4uv")
+expand_mode = 1
