@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://addons/awesome_input_icons/editor/update_button.gd" id="1_n2nq1"]
 [ext_resource type="Script" path="res://addons/awesome_input_icons/editor/DownloadUpdate.gd" id="2_mpgh5"]
-[ext_resource type="Texture2D" uid="uid://bulhpn8sdvg6x" path="res://addons/awesome_input_icons/plugin_icon.png" id="3_watbi"]
+[ext_resource type="Texture2D" uid="uid://bulhpn8sdvg6x" path="res://addons/awesome_input_icons/assets/keyboard and mouse vector/plugin_icon.png" id="3_watbi"]
 
 [node name="UpdateButton" type="Button"]
 visible = false
