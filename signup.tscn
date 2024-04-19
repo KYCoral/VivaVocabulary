@@ -1,6 +1,6 @@
-[gd_scene load_steps=23 format=3 uid="uid://chxuxupwve713"]
+[gd_scene load_steps=28 format=3 uid="uid://chxuxupwve713"]
 
-[ext_resource type="Script" path="res://signup_control.gd" id="1_lqa13"]
+[ext_resource type="Script" path="res://signup.gd" id="1_ehfkp"]
 [ext_resource type="Texture2D" uid="uid://xdsgc8bu05td" path="res://sprites/Untitled78_20240329161643.png" id="1_lyhqg"]
 [ext_resource type="Texture2D" uid="uid://blus3jct6drmr" path="res://sprites/Untitled78_20240409205301_edit_542478463116914.png" id="2_suoel"]
 [ext_resource type="Texture2D" uid="uid://20m5guxkq0lx" path="res://sprites/Untitled75_20240409205426.png" id="3_qy4uv"]
@@ -11,12 +11,36 @@
 [ext_resource type="Texture2D" uid="uid://c0xts38mq0nu2" path="res://sprites/settings.png" id="7_3ie76"]
 [ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://fonts/FrancoisOne.ttf" id="7_33q5l"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dpij3"]
+draw_center = false
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ukic1"]
+draw_center = false
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hvsk7"]
+draw_center = false
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n5h1r"]
+draw_center = false
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nse2d"]
+draw_center = false
+border_color = Color(0.8, 0.8, 0.8, 0)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_717o6"]
 bg_color = Color(0, 0, 0, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_coowr"]
 bg_color = Color(0, 0, 0, 1)
@@ -76,7 +100,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_lqa13")
+script = ExtResource("1_ehfkp")
 
 [node name="mcSignup" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -93,10 +117,10 @@ expand_mode = 1
 
 [node name="Logo" type="TextureRect" parent="mcSignup/SignupScreen"]
 layout_mode = 0
-offset_left = 130.0
-offset_top = -97.0
-offset_right = 567.0
-offset_bottom = 362.0
+offset_left = 119.0
+offset_top = -109.0
+offset_right = 563.0
+offset_bottom = 384.0
 texture = ExtResource("3_qy4uv")
 expand_mode = 1
 
@@ -105,8 +129,9 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 130.0
-offset_top = 91.0
+offset_left = 133.0
+offset_top = 92.0
+offset_right = 3.0
 offset_bottom = -9.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -119,7 +144,7 @@ custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 offset_left = 224.0
 offset_top = 484.0
-offset_right = 459.0
+offset_right = 458.0
 offset_bottom = 629.0
 theme_override_constants/separation = 15
 
@@ -133,9 +158,36 @@ theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_un483")
-theme_override_font_sizes/font_size = 12
-text = "I agree to the terms and services."
-alignment = 1
+theme_override_font_sizes/font_size = 14
+text = "I agree to the "
+
+[node name="termsServices" type="Button" parent="mcSignup/SignupScreen/vb_signupButton/cbTerms"]
+layout_mode = 0
+offset_left = 113.0
+offset_top = 4.0
+offset_right = 236.0
+offset_bottom = 26.0
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.290196, 0.376471, 0.972549, 1)
+theme_override_colors/font_focus_color = Color(0.290196, 0.376471, 0.972549, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 1, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 1, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 1, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 1, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 1, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("5_un483")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_dpij3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ukic1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hvsk7")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_n5h1r")
+theme_override_styles/focus = SubResource("StyleBoxFlat_nse2d")
+text = "Terms and Services"
 
 [node name="signUp" type="Button" parent="mcSignup/SignupScreen/vb_signupButton"]
 custom_minimum_size = Vector2(0, 24)
@@ -147,9 +199,9 @@ text = "Sign Up"
 
 [node name="vb_confirmPassword" type="VBoxContainer" parent="mcSignup/SignupScreen"]
 layout_mode = 2
-offset_left = 225.0
+offset_left = 221.0
 offset_top = 342.0
-offset_right = 463.0
+offset_right = 459.0
 offset_bottom = 420.0
 
 [node name="ConfirmPassword" type="Label" parent="mcSignup/SignupScreen/vb_confirmPassword"]
@@ -179,9 +231,9 @@ secret_character = "✦"
 
 [node name="vb_password" type="VBoxContainer" parent="mcSignup/SignupScreen"]
 layout_mode = 2
-offset_left = 227.0
+offset_left = 223.0
 offset_top = 271.0
-offset_right = 464.0
+offset_right = 460.0
 offset_bottom = 335.0
 
 [node name="Password" type="Label" parent="mcSignup/SignupScreen/vb_password"]
@@ -211,10 +263,10 @@ secret_character = "✦"
 
 [node name="vb_account" type="VBoxContainer" parent="mcSignup/SignupScreen"]
 layout_mode = 2
-offset_left = 227.0
+offset_left = 223.0
 offset_top = 209.0
-offset_right = 465.0
-offset_bottom = 260.0
+offset_right = 461.0
+offset_bottom = 262.0
 
 [node name="Account" type="Label" parent="mcSignup/SignupScreen/vb_account"]
 layout_mode = 2
@@ -240,11 +292,11 @@ max_length = 50
 caret_blink = true
 
 [node name="Options" type="TextureRect" parent="mcSignup/SignupScreen"]
-custom_minimum_size = Vector2(0, 150)
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 0
-offset_left = 901.0
+offset_left = 1017.0
 offset_top = 531.0
-offset_right = 1137.0
+offset_right = 1260.0
 offset_bottom = 681.0
 texture = ExtResource("4_m880o")
 expand_mode = 1
@@ -256,10 +308,10 @@ offset_top = 46.0
 offset_right = 166.0
 offset_bottom = 66.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.345098, 0.176471, 0.0313726, 1)
+theme_override_colors/font_focus_color = Color(0.345098, 0.176471, 0.0313726, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
@@ -287,10 +339,10 @@ offset_top = 66.0
 offset_right = 167.0
 offset_bottom = 86.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.345098, 0.176471, 0.0313726, 1)
+theme_override_colors/font_focus_color = Color(0.345098, 0.176471, 0.0313726, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
@@ -318,10 +370,10 @@ offset_top = 86.0
 offset_right = 168.0
 offset_bottom = 106.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.345098, 0.176471, 0.0313726, 1)
+theme_override_colors/font_focus_color = Color(0.345098, 0.176471, 0.0313726, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
