@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://de2c0tnvuwk24"]
+[gd_scene load_steps=15 format=3 uid="uid://de2c0tnvuwk24"]
 
 [ext_resource type="Texture2D" uid="uid://dgpmyd1cn0eb3" path="res://sprites/bg.png" id="1_kmbbo"]
 [ext_resource type="Script" path="res://mainMenu.gd" id="1_lpwsb"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://nrhf6dop83yu" path="res://sprites/pencil.png" id="4_d346v"]
 [ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://fonts/FrancoisOne.ttf" id="4_uu1ny"]
 [ext_resource type="Texture2D" uid="uid://xyoly0ftan1i" path="res://sprites/book.png" id="5_u6l3a"]
+[ext_resource type="PackedScene" uid="uid://bbvwljfwmi2r" path="res://exit_popup.tscn" id="8_8uaj2"]
+[ext_resource type="PackedScene" uid="uid://clqmmtwcncaoj" path="res://settings_startup.tscn" id="9_mmwo0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7bj7x"]
 draw_center = false
@@ -57,7 +59,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 392.0
-offset_top = 438.0
+offset_top = 425.0
 offset_right = -389.0
 offset_bottom = -11.0
 grow_horizontal = 2
@@ -71,10 +73,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 784.0
-offset_top = 238.0
-offset_right = -87.0
-offset_bottom = -196.0
+offset_left = 920.0
+offset_top = 186.0
+offset_right = -113.0
+offset_bottom = -267.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.0139, 1.0072)
@@ -98,11 +100,18 @@ texture = ExtResource("5_u6l3a")
 expand_mode = 1
 
 [node name="Logo" type="TextureRect" parent="Background"]
-layout_mode = 0
-offset_left = 264.0
-offset_top = -164.0
-offset_right = 952.0
-offset_bottom = 590.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -317.0
+offset_top = -526.0
+offset_right = 335.0
+offset_bottom = 277.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("3_pkbu3")
 expand_mode = 1
 
@@ -239,3 +248,11 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_38opk")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_14ap8")
 theme_override_styles/focus = SubResource("StyleBoxFlat_t3k0n")
 text = "Exit"
+
+[node name="exit_control" parent="." instance=ExtResource("8_8uaj2")]
+visible = false
+layout_mode = 1
+
+[node name="settings_startup" parent="." instance=ExtResource("9_mmwo0")]
+visible = false
+layout_mode = 1

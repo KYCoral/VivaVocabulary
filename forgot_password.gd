@@ -8,7 +8,9 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	goBack.button_down.connect(on_goBack_pressed)
+	set_process(false)
 
 
 func on_goBack_pressed() -> void:
 	get_tree().change_scene_to_packed(login_page)
+	set_process(false)

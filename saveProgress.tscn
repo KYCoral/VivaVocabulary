@@ -1,8 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://cyimosmao67ii"]
+[gd_scene load_steps=11 format=3 uid="uid://cyimosmao67ii"]
 
 [ext_resource type="Script" path="res://saveProgress.gd" id="1_8qot3"]
 [ext_resource type="Texture2D" uid="uid://dknccekvublha" path="res://sprites/Untitled75_20240409205437.png" id="1_fq3wq"]
 [ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://fonts/FrancoisOne.ttf" id="2_vtlwj"]
+
+[sub_resource type="Gradient" id="Gradient_wdbty"]
+offsets = PackedFloat32Array(0.019544, 0.143322)
+colors = PackedColorArray(0, 0, 0, 0.392157, 0, 0, 0, 0.392157)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xg2sl"]
+gradient = SubResource("Gradient_wdbty")
+fill = 1
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j05qp"]
 bg_color = Color(0, 0, 0, 1)
@@ -80,6 +88,21 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -686.0
+offset_top = -355.0
+offset_right = 652.0
+offset_bottom = 383.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_stretch_ratio = 0.0
+texture = SubResource("GradientTexture2D_xg2sl")
+expand_mode = 1
 
 [node name="validation" type="TextureRect" parent="."]
 layout_mode = 1
