@@ -10,13 +10,18 @@ extends Control
 var exit_instance: Node
 @onready var settings: PackedScene = preload("res://settings_startup.tscn")
 var settings_instance: Node
+var userinfo = null
 
 func _ready():
 	# Connect signals for signup scene
 	loginSignup.button_down.connect(on_login_pressed)
 	settingSignup.button_down.connect(on_setting_pressed)
 	exitSignup.button_down.connect(on_exit_pressed)
-# Instantiate exit popup and add it to the scene tree
+	##Firebase.Auth.connect("signup_succeeded", self, "_on_FirebaseAuth_signup_succeeded")
+	##Firebase.Auth.connect("login_failed", self, "_on_FirebaseAuth_login_failed")
+	##Firebase.Auth.signup_succeeded.connect(_on_FirebaseAuth_signup_succeeded)
+	##Firebase.Auth.login_failed.connect(_on_FirebaseAuth_login_failed)
+	# Instantiate exit popup and add it to the scene tree
 	exit_instance = exitPopup.instantiate()
 	add_child(exit_instance)
 	exit_instance.hide()
@@ -24,7 +29,6 @@ func _ready():
 	settings_instance = settings.instantiate()
 	add_child(settings_instance)
 	settings_instance.hide()
-
 
 
 # Function to switch to login scene
@@ -40,3 +44,16 @@ func on_setting_pressed() -> void:
 func on_exit_pressed() -> void:
 	exit_instance.show()
 
+func _on_sign_up_button_up():
+	var email: String  = $mcSignup/SignupScreen/vb_account/Email/emailEnter.text
+	var password: String = $mcSignup/SignupScreen/vb_confirmPassword/confirmPassword/confirmPasswordEnter.text
+	Firebase.Auth.signup_with_email_and_password(email,password)
+
+func _on_FirebaseAuth_signup_succeeded(auth_info):
+	print("Signup successful " + str(auth_info))
+	userinfo = auth_info
+	Firebase.Auth.send_account_verification_email()
+
+func _on_FirebaseAuth_login_failed(error_code, message):
+	print("error code: " + str(error_code))
+	print("message: " + str(message))

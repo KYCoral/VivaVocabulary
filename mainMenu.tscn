@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://de2c0tnvuwk24"]
+[gd_scene load_steps=16 format=3 uid="uid://de2c0tnvuwk24"]
 
 [ext_resource type="Texture2D" uid="uid://dgpmyd1cn0eb3" path="res://sprites/bg.png" id="1_kmbbo"]
 [ext_resource type="Script" path="res://mainMenu.gd" id="1_lpwsb"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://xyoly0ftan1i" path="res://sprites/book.png" id="5_u6l3a"]
 [ext_resource type="PackedScene" uid="uid://bbvwljfwmi2r" path="res://exit_popup.tscn" id="8_8uaj2"]
 [ext_resource type="PackedScene" uid="uid://clqmmtwcncaoj" path="res://settings_startup.tscn" id="9_mmwo0"]
+[ext_resource type="PackedScene" uid="uid://jbb6tybts2rl" path="res://levelChoosing.tscn" id="10_jhk7u"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7bj7x"]
 draw_center = false
@@ -254,5 +255,9 @@ visible = false
 layout_mode = 1
 
 [node name="settings_startup" parent="." instance=ExtResource("9_mmwo0")]
+visible = false
+layout_mode = 1
+
+[node name="Control" parent="." instance=ExtResource("10_jhk7u")]
 visible = false
 layout_mode = 1

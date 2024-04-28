@@ -1,8 +1,8 @@
 [gd_scene load_steps=24 format=3 uid="uid://clqmmtwcncaoj"]
 
 [ext_resource type="Script" path="res://settings_startup.gd" id="1_3u6go"]
-[ext_resource type="Texture2D" uid="uid://dknccekvublha" path="res://sprites/Untitled75_20240409205437.png" id="1_ee0t7"]
 [ext_resource type="FontFile" uid="uid://bnw5ghde11g7m" path="res://fonts/Monoton-Regular.ttf" id="2_jeutm"]
+[ext_resource type="Texture2D" uid="uid://cavr31q6g6klu" path="res://sprites/Untitled91_20240422193627.png" id="2_slf5g"]
 [ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://fonts/FrancoisOne.ttf" id="3_scmp1"]
 
 [sub_resource type="Gradient" id="Gradient_6b521"]
@@ -169,20 +169,20 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -418.0
-offset_top = -423.0
+offset_top = -294.0
 offset_right = 394.0
-offset_bottom = 783.0
+offset_bottom = 392.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_ee0t7")
+texture = ExtResource("2_slf5g")
 expand_mode = 1
 
 [node name="SettingsLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 354.0
-offset_top = 191.0
-offset_right = 938.0
-offset_bottom = 232.0
+offset_left = 508.0
+offset_top = 167.0
+offset_right = 789.0
+offset_bottom = 208.0
 theme_override_fonts/font = ExtResource("2_jeutm")
 theme_override_font_sizes/font_size = 24
 text = "Settings"

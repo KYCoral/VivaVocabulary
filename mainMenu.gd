@@ -6,6 +6,7 @@ extends Control
 @onready var SandboxMode = $Background/Menu/sandboxMode as Button
 @onready var Settings = $Background/Menu/settings as Button
 @onready var Exit = $Background/Menu/exit as Button
+@onready var level_page: PackedScene = preload("res://levelChoosing.tscn")
 @onready var exitPopup: PackedScene = preload("res://exit_popup.tscn")
 var exit_instance: Node
 @onready var settings: PackedScene = preload("res://settings_menu.tscn")
@@ -14,6 +15,7 @@ var settings_instance: Node
 func _ready():
 	Exit.button_down.connect(on_exit_pressed)
 	Settings.button_down.connect(on_settings_pressed)
+	StartGame.button_down.connect(on_start_pressed)
 	# Instantiate exit popup and add it to the scene tree
 	exit_instance = exitPopup.instantiate()
 	add_child(exit_instance)
@@ -22,6 +24,9 @@ func _ready():
 	settings_instance = settings.instantiate()
 	add_child(settings_instance)
 	settings_instance.hide()
+
+func on_start_pressed() -> void:
+	get_tree().change_scene_to_packed(level_page)
 
 func on_exit_pressed() -> void:
 	exit_instance.show()

@@ -274,12 +274,12 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_un483")
 text = "E-mail"
 
-[node name="E-mail" type="TextEdit" parent="mcSignup/SignupScreen/vb_account"]
+[node name="Email" type="TextEdit" parent="mcSignup/SignupScreen/vb_account"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_jfftc")
 
-[node name="emailEnter" type="LineEdit" parent="mcSignup/SignupScreen/vb_account/E-mail"]
+[node name="emailEnter" type="LineEdit" parent="mcSignup/SignupScreen/vb_account/Email"]
 custom_minimum_size = Vector2(0, 18)
 layout_mode = 0
 offset_left = 4.0
@@ -394,3 +394,5 @@ icon = ExtResource("5_ximhw")
 alignment = 0
 icon_alignment = 2
 expand_icon = true
+
+[connection signal="button_up" from="mcSignup/SignupScreen/vb_signupButton/signUp" to="." method="_on_sign_up_button_up"]
