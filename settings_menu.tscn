@@ -1,9 +1,9 @@
-[gd_scene load_steps=30 format=3 uid="uid://bod25ef12q58o"]
+[gd_scene load_steps=32 format=3 uid="uid://bod25ef12q58o"]
 
 [ext_resource type="Script" path="res://settings_menu.gd" id="1_xuwg1"]
-[ext_resource type="FontFile" uid="uid://bnw5ghde11g7m" path="res://fonts/Monoton-Regular.ttf" id="2_huisb"]
-[ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://fonts/FrancoisOne.ttf" id="2_u1rsy"]
-[ext_resource type="Texture2D" uid="uid://cavr31q6g6klu" path="res://sprites/Untitled91_20240422193627.png" id="2_u6x7c"]
+[ext_resource type="FontFile" uid="uid://bnw5ghde11g7m" path="res://addons/fonts/Monoton-Regular.ttf" id="2_huisb"]
+[ext_resource type="Texture2D" uid="uid://c0xts38mq0nu2" path="res://sprites/settings.png" id="2_kxxwa"]
+[ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://addons/fonts/FrancoisOne.ttf" id="2_u1rsy"]
 
 [sub_resource type="Gradient" id="Gradient_lhprx"]
 offsets = PackedFloat32Array(0.019544, 0.143322)
@@ -177,6 +177,26 @@ corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
+[sub_resource type="Animation" id="Animation_vtkrf"]
+resource_name = "pop_up"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dycje"]
+_data = {
+"pop_up": SubResource("Animation_vtkrf")
+}
+
 [node name="settingsMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -184,6 +204,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(640, 360)
 script = ExtResource("1_xuwg1")
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -210,7 +231,7 @@ offset_right = 390.0
 offset_bottom = 389.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_u6x7c")
+texture = ExtResource("2_kxxwa")
 expand_mode = 1
 
 [node name="SettingsLabel" type="Label" parent="."]
@@ -466,3 +487,8 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_m1bcp")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_x8owl")
 theme_override_styles/focus = SubResource("StyleBoxFlat_e8h5d")
 text = "Cancel"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dycje")
+}

@@ -3,6 +3,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$AnimationPlayer.play("pop_up")
 	pass # Replace with function body.
 
 

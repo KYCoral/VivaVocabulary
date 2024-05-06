@@ -1,9 +1,9 @@
-[gd_scene load_steps=24 format=3 uid="uid://clqmmtwcncaoj"]
+[gd_scene load_steps=26 format=3 uid="uid://clqmmtwcncaoj"]
 
 [ext_resource type="Script" path="res://settings_startup.gd" id="1_3u6go"]
-[ext_resource type="FontFile" uid="uid://bnw5ghde11g7m" path="res://fonts/Monoton-Regular.ttf" id="2_jeutm"]
-[ext_resource type="Texture2D" uid="uid://cavr31q6g6klu" path="res://sprites/Untitled91_20240422193627.png" id="2_slf5g"]
-[ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://fonts/FrancoisOne.ttf" id="3_scmp1"]
+[ext_resource type="FontFile" uid="uid://bnw5ghde11g7m" path="res://addons/fonts/Monoton-Regular.ttf" id="2_jeutm"]
+[ext_resource type="Texture2D" uid="uid://c0xts38mq0nu2" path="res://sprites/settings.png" id="2_mkhut"]
+[ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://addons/fonts/FrancoisOne.ttf" id="3_scmp1"]
 
 [sub_resource type="Gradient" id="Gradient_6b521"]
 offsets = PackedFloat32Array(0.019544, 0.143322)
@@ -141,6 +141,26 @@ draw_center = false
 bg_color = Color(1, 1, 1, 1)
 draw_center = false
 
+[sub_resource type="Animation" id="Animation_dm402"]
+resource_name = "pop_up"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_18kue"]
+_data = {
+"pop_up": SubResource("Animation_dm402")
+}
+
 [node name="settings_startup" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -148,6 +168,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(640, 360)
 script = ExtResource("1_3u6go")
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -174,7 +196,7 @@ offset_right = 394.0
 offset_bottom = 392.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_slf5g")
+texture = ExtResource("2_mkhut")
 expand_mode = 1
 
 [node name="SettingsLabel" type="Label" parent="."]
@@ -342,3 +364,8 @@ offset_bottom = 22.0
 theme_override_styles/slider = SubResource("StyleBoxFlat_wic70")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_git7p")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_5q834")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_18kue")
+}
