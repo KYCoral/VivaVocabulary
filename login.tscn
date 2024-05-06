@@ -148,12 +148,12 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_7qned")
 text = "Account"
 
-[node name="E-mail" type="TextEdit" parent="mcLogin/LoginScreen/vb_account"]
+[node name="Email" type="TextEdit" parent="mcLogin/LoginScreen/vb_account"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_6ofam")
 
-[node name="emailEnter" type="LineEdit" parent="mcLogin/LoginScreen/vb_account/E-mail"]
+[node name="emailEnter" type="LineEdit" parent="mcLogin/LoginScreen/vb_account/Email"]
 custom_minimum_size = Vector2(0, 18)
 layout_mode = 0
 offset_left = 4.0
@@ -206,7 +206,7 @@ offset_right = 459.0
 offset_bottom = 629.0
 theme_override_constants/separation = 15
 
-[node name="signUp" type="Button" parent="mcLogin/LoginScreen/vb_loginButton"]
+[node name="Login" type="Button" parent="mcLogin/LoginScreen/vb_loginButton"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_7qned")
@@ -340,3 +340,5 @@ icon = ExtResource("9_gfvi5")
 alignment = 0
 icon_alignment = 2
 expand_icon = true
+
+[connection signal="button_up" from="mcLogin/LoginScreen/vb_loginButton/Login" to="." method="_on_login_button_up"]

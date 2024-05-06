@@ -10,9 +10,14 @@ class_name login_control extends Control
 @onready var exitPopup: PackedScene = preload("res://exit_popup.tscn")
 var exit_instance: Node
 @onready var settings: PackedScene = preload("res://settings_startup.tscn")
+##@onready var game_page: PackedScene = preload("res://game.tscn")
+@onready var menu_page: PackedScene = preload("res://World_Scene-school.tscn")
 var settings_instance: Node
+var userinfo = null
 
 func _ready():
+	Firebase.Auth.connect("login_succeeded", self._on_FirebaseAuth_login_succeeded)
+	Firebase.Auth.connect("login_failed", self._on_FirebaseAuth_login_failed)	
 	# Connect signals for login scene
 	forgotPassword.button_down.connect(on_forgotPassword_pressed)
 	signupLogin.button_down.connect(on_createAccount_pressed)
@@ -39,6 +44,24 @@ func on_createAccount_pressed() -> void:
 func on_setting_pressed() -> void:
 	settings_instance.show()
 
+
 # Function to show exit popup
 func on_exit_pressed() -> void:
 	exit_instance.show()
+
+
+func _on_login_button_up():
+	var email = $mcLogin/LoginScreen/vb_account/Email/emailEnter.text
+	var password = $mcLogin/LoginScreen/vb_password/password/passwordEnter.text
+	Firebase.Auth.login_with_email_and_password(email,password)
+
+func _on_FirebaseAuth_login_succeeded(auth_info):
+	print("Success!")
+	userinfo = auth_info
+	##GameManager.userInfo = userinfo
+	Firebase.Auth.save_auth(auth_info)
+	get_tree().change_scene_to_packed(menu_page)
+
+func _on_FirebaseAuth_login_failed(error_code, message):
+	print("error code: " + str(error_code))
+	print("message: " + str(message))

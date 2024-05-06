@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bg4gns5teoh7v" path="res://sprites/Untitled78_20240409205221.png" id="1_xaky4"]
 [ext_resource type="Texture2D" uid="uid://bpsppdi8aqpcf" path="res://sprites/Untitled78_20240418014742.png" id="2_qjj0b"]
-[ext_resource type="FontFile" uid="uid://dopkehm14mwxd" path="res://fonts/waltographUI.ttf" id="3_61c3t"]
+[ext_resource type="FontFile" uid="uid://dopkehm14mwxd" path="res://addons/fonts/waltographUI.ttf" id="3_61c3t"]
 
 [node name="maintenanceControl" type="Control"]
 layout_mode = 3

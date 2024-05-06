@@ -1,9 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmq10ba8md4ct"]
-
-[ext_resource type="Texture2D" uid="uid://66h5fq338hu1" path="res://sprites/Untitled95_20240423015247.png" id="1_pecvv"]
-[ext_resource type="Texture2D" uid="uid://db5iw03p1ulbv" path="res://sprites/Untitled94_20240423134455.png" id="2_ydhla"]
-[ext_resource type="Texture2D" uid="uid://d3d1p1mivv0w5" path="res://sprites/Untitled94_20240423225530_edit_1284601481776107.png" id="3_00p34"]
-[ext_resource type="Texture2D" uid="uid://cgdl6pisgog0n" path="res://sprites/Untitled94_20240423232824.png" id="4_0heos"]
+[gd_scene format=3 uid="uid://dmq10ba8md4ct"]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(4, 25)
@@ -29,7 +24,6 @@ follow_viewport_scale = 0.9
 [node name="Untitled9520240423015247" type="Sprite2D" parent="Node/background/-1"]
 position = Vector2(49, -17.7778)
 scale = Vector2(3.14258, 0.891892)
-texture = ExtResource("1_pecvv")
 
 [node name="0" type="CanvasLayer" parent="Node/background"]
 follow_viewport_enabled = true
@@ -37,7 +31,6 @@ follow_viewport_enabled = true
 [node name="Untitled9420240423134455" type="Sprite2D" parent="Node/background/0"]
 position = Vector2(7.99993, 216.562)
 scale = Vector2(1.0345, 0.191504)
-texture = ExtResource("2_ydhla")
 
 [node name="1" type="CanvasLayer" parent="Node/background"]
 follow_viewport_enabled = true
@@ -46,7 +39,6 @@ follow_viewport_scale = 1.1
 [node name="Untitled9420240423225530Edit1284601481776107" type="Sprite2D" parent="Node/background/1"]
 position = Vector2(-7.27266, -82.7273)
 scale = Vector2(0.312727, 0.394886)
-texture = ExtResource("3_00p34")
 
 [node name="2" type="CanvasLayer" parent="Node/background"]
 follow_viewport_enabled = true
@@ -55,4 +47,3 @@ follow_viewport_scale = 1.2
 [node name="Untitled9420240423232824" type="Sprite2D" parent="Node/background/2"]
 position = Vector2(-21.6668, 130)
 scale = Vector2(0.46625, 0.447917)
-texture = ExtResource("4_0heos")
