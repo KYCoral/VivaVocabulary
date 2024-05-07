@@ -17,5 +17,4 @@ func on_startEasy_pressed() -> void:
 	#get_tree().change_scene_to_packed(startEasy_page)
 
 func on_goBack_pressed() -> void:
-	pass
-	#get_tree().change_scene_to_packed(mainMenu)
+	hide()

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ilpxeruvhhtm" path="res://sprites/tree2.png" id="2_nrymj"]
 [ext_resource type="Texture2D" uid="uid://dfqxvgmxyjgv2" path="res://sprites/bush.png" id="3_rv0rd"]
 [ext_resource type="Texture2D" uid="uid://c3cybuud8otcf" path="res://sprites/ground.png" id="4_81q8j"]
-[ext_resource type="PackedScene" uid="uid://cpywe24jl20nq" path="res://player.tscn" id="5_127c5"]
+[ext_resource type="PackedScene" uid="uid://cpywe24jl20nq" path="res://Player.tscn" id="5_127c5"]
 [ext_resource type="Texture2D" uid="uid://cyma7fiuqrbg3" path="res://sprites/tree1.png" id="6_8x1nm"]
 [ext_resource type="Texture2D" uid="uid://cm83pg5mk8dub" path="res://sprites/rock (4).png" id="7_miv21"]
 [ext_resource type="Texture2D" uid="uid://dk80m88s1p6er" path="res://sprites/rock (2).png" id="8_nfy5p"]
@@ -41,28 +41,28 @@ follow_viewport_enabled = true
 follow_viewport_scale = 0.7
 
 [node name="Tree2" type="Sprite2D" parent="Visuals/-3"]
-position = Vector2(51.4286, 162.857)
-scale = Vector2(2.09459, 1.94788)
+position = Vector2(45.3563, 298.215)
+scale = Vector2(2.111, 1.58205)
 texture = ExtResource("2_nrymj")
 
 [node name="Tree3" type="Sprite2D" parent="Visuals/-3"]
-position = Vector2(1081.79, 162.527)
-scale = Vector2(2.21139, 2.02792)
+position = Vector2(1179.29, 326.429)
+scale = Vector2(1.94788, 1.58494)
 texture = ExtResource("2_nrymj")
 
 [node name="Tree4" type="Sprite2D" parent="Visuals/-3"]
-position = Vector2(2047.14, 154.982)
-scale = Vector2(2.10039, 1.97109)
+position = Vector2(2161.43, 319.285)
+scale = Vector2(1.7915, 1.52703)
 texture = ExtResource("2_nrymj")
 
 [node name="Tree5" type="Sprite2D" parent="Visuals/-3"]
-position = Vector2(-1485, 179.25)
-scale = Vector2(1.98649, 1.87075)
+position = Vector2(-1408.57, 302.857)
+scale = Vector2(1.77992, 1.53668)
 texture = ExtResource("2_nrymj")
 
 [node name="Tree6" type="Sprite2D" parent="Visuals/-3"]
-position = Vector2(3017.14, 149.268)
-scale = Vector2(2.16602, 1.99812)
+position = Vector2(3059.28, 311.429)
+scale = Vector2(2.05212, 1.55985)
 texture = ExtResource("2_nrymj")
 
 [node name="-2" type="CanvasLayer" parent="Visuals"]
@@ -80,23 +80,23 @@ scale = Vector2(0.691636, 0.712679)
 texture = ExtResource("3_rv0rd")
 
 [node name="Tree4" type="Sprite2D" parent="Visuals/-2"]
-position = Vector2(3176.25, 262.5)
-scale = Vector2(1.47804, 1.53938)
+position = Vector2(3272.81, 387.91)
+scale = Vector2(1.21706, 1.20043)
 texture = ExtResource("2_nrymj")
 
 [node name="Tree5" type="Sprite2D" parent="Visuals/-2"]
-position = Vector2(1811.7, 264.473)
-scale = Vector2(1.73094, 1.55263)
+position = Vector2(1871.7, 336.348)
+scale = Vector2(1.56878, 1.35837)
 texture = ExtResource("2_nrymj")
 
 [node name="Tree6" type="Sprite2D" parent="Visuals/-2"]
-position = Vector2(727.946, 277.071)
-scale = Vector2(1.48431, 1.60019)
+position = Vector2(685, 326.25)
+scale = Vector2(1.3131, 1.28938)
 texture = ExtResource("2_nrymj")
 
 [node name="Tree7" type="Sprite2D" parent="Visuals/-2"]
-position = Vector2(-657.054, 304.571)
-scale = Vector2(1.61269, 1.64749)
+position = Vector2(-577.277, 312.5)
+scale = Vector2(1.28776, 1.23702)
 texture = ExtResource("2_nrymj")
 
 [node name="Bush11" type="Sprite2D" parent="Visuals/-2"]
@@ -144,29 +144,24 @@ position = Vector2(-206.047, 635.475)
 scale = Vector2(0.597556, 0.718794)
 texture = ExtResource("3_rv0rd")
 
-[node name="Bush16" type="Sprite2D" parent="Visuals/-2"]
-position = Vector2(-1261.25, 608.75)
-scale = Vector2(0.55886, 0.620751)
-texture = ExtResource("3_rv0rd")
-
 [node name="-1" type="CanvasLayer" parent="Visuals"]
 follow_viewport_enabled = true
 follow_viewport_scale = 0.9
+
+[node name="Bush7" type="Sprite2D" parent="Visuals/-1"]
+position = Vector2(638.889, 595.556)
+scale = Vector2(0.634236, 0.635782)
+texture = ExtResource("3_rv0rd")
+
+[node name="Bush12" type="Sprite2D" parent="Visuals/-1/Bush7"]
+position = Vector2(-769.08, 8.73889)
+scale = Vector2(0.881155, 0.976358)
+texture = ExtResource("3_rv0rd")
 
 [node name="Ground" type="Sprite2D" parent="Visuals/-1"]
 position = Vector2(896.667, 465.556)
 scale = Vector2(1.31597, 0.587674)
 texture = ExtResource("4_81q8j")
-
-[node name="Bush6" type="Sprite2D" parent="Visuals/-1"]
-position = Vector2(58.8889, 565.556)
-scale = Vector2(0.55886, 0.620751)
-texture = ExtResource("3_rv0rd")
-
-[node name="Bush7" type="Sprite2D" parent="Visuals/-1"]
-position = Vector2(546.667, 560)
-scale = Vector2(0.634236, 0.635782)
-texture = ExtResource("3_rv0rd")
 
 [node name="Bush8" type="Sprite2D" parent="Visuals/-1"]
 position = Vector2(1084.44, 568.889)
@@ -205,6 +200,11 @@ texture = ExtResource("3_rv0rd")
 
 [node name="Bush15" type="Sprite2D" parent="Visuals/-1"]
 position = Vector2(-1528.89, 554.445)
+scale = Vector2(0.55886, 0.620751)
+texture = ExtResource("3_rv0rd")
+
+[node name="Bush16" type="Sprite2D" parent="Visuals/-1"]
+position = Vector2(-1261.25, 608.75)
 scale = Vector2(0.55886, 0.620751)
 texture = ExtResource("3_rv0rd")
 

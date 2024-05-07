@@ -49,10 +49,10 @@ func _on_sign_up_button_up():
 	var email = $mcSignup/SignupScreen/vb_account/Email/emailEnter.text
 	var password = $mcSignup/SignupScreen/vb_confirmPassword/confirmPassword/confirmPasswordEnter.text
 	var confirmPassword = $mcSignup/SignupScreen/vb_confirmPassword/confirmPassword/confirmPasswordEnter.text  # Get confirm password
-
 	Firebase.Auth.signup_with_email_and_password(email,password)
 
 func _on_FirebaseAuth_signup_succeeded(auth_info):
+	$TextureRect/AnimationPlayer.play("registered")
 	print("signup successful " + str(auth_info))
 	userinfo = auth_info
 	Firebase.Auth.send_account_verification_email()
@@ -60,3 +60,10 @@ func _on_FirebaseAuth_signup_succeeded(auth_info):
 func _on_FirebaseAuth_login_failed(error_code, message):
 	print("error code: " + str(error_code))
 	print("message: " + str(message))
+
+func _on_click(event):
+	# Stop the animation if it's playing
+	if has_node("$TextureRect/AnimationPlayer"):
+		var animation_player = $TextureRect/AnimationPlayer
+		if animation_player.is_playing():
+			animation_player.stop()

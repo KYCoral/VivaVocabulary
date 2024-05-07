@@ -1,11 +1,11 @@
 [gd_scene load_steps=12 format=3 uid="uid://jbb6tybts2rl"]
 
-[ext_resource type="Texture2D" uid="uid://dam3mdqswhn3d" path="res://sprites/Untitled95_20240423015123.png" id="1_icc28"]
 [ext_resource type="Script" path="res://levelChoosing.gd" id="1_wedqt"]
-[ext_resource type="FontFile" uid="uid://cknx0c7wbuh7u" path="res://fonts/MouseMemoirs-Regular.ttf" id="3_7cl11"]
-[ext_resource type="FontFile" uid="uid://x07w57hnrhsp" path="res://fonts/PL Benguiat Caslon/PL Benguiat Caslon.ttf" id="3_i23yc"]
-[ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://fonts/FrancoisOne.ttf" id="4_1bama"]
-[ext_resource type="FontFile" uid="uid://bnw5ghde11g7m" path="res://fonts/Monoton-Regular.ttf" id="5_xusb4"]
+[ext_resource type="Texture2D" uid="uid://bv8wb86e2b4b2" path="res://sprites/Untitled95_20240423015123.png" id="2_4n45s"]
+[ext_resource type="FontFile" uid="uid://cknx0c7wbuh7u" path="res://addons/fonts/MouseMemoirs-Regular.ttf" id="3_7cl11"]
+[ext_resource type="FontFile" uid="uid://x07w57hnrhsp" path="res://addons/fonts/PL Benguiat Caslon/PL Benguiat Caslon.ttf" id="3_i23yc"]
+[ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://addons/fonts/FrancoisOne.ttf" id="4_1bama"]
+[ext_resource type="FontFile" uid="uid://bnw5ghde11g7m" path="res://addons/fonts/Monoton-Regular.ttf" id="5_xusb4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_de8os"]
 draw_center = false
@@ -46,7 +46,7 @@ grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="vboxChoicesEasy"]
 layout_mode = 2
-texture = ExtResource("1_icc28")
+texture = ExtResource("2_4n45s")
 
 [node name="Label" type="Label" parent="vboxChoicesEasy/TextureRect"]
 layout_mode = 1
@@ -92,11 +92,12 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_xusb4")
 theme_override_font_sizes/font_size = 70
-text = "\"The Novice: 
-Beginners Challenge\""
+text = "\"The Novice: A
+Matchy Challenge\""
 horizontal_alignment = 1
 
 [node name="goBack" type="Button" parent="vboxChoicesEasy/TextureRect"]
+layout_mode = 0
 offset_left = 4.0
 offset_top = 24.0
 offset_right = 200.0
@@ -117,6 +118,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_2wasu")
 text = "↩ Go Back "
 
 [node name="play" type="Button" parent="vboxChoicesEasy/TextureRect"]
+layout_mode = 0
 offset_left = 1.0
 offset_top = 528.0
 offset_right = 1279.0

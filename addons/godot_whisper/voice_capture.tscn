@@ -19,6 +19,7 @@ offset_left = 385.0
 offset_top = 296.0
 offset_right = 812.0
 offset_bottom = 344.0
+bbcode_enabled = true
 script = ExtResource("2_j06aj")
 
 [connection signal="transcribed_msg" from="SpeechToText" to="RichTextLabel" method="_on_speech_to_text_transcribed_msg"]

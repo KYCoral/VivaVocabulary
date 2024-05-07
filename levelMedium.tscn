@@ -1,0 +1,208 @@
+[gd_scene load_steps=14 format=3 uid="uid://c82mevwvmruhv"]
+
+[ext_resource type="Script" path="res://levelMedium.gd" id="1_1gur2"]
+[ext_resource type="Texture2D" uid="uid://7hgng65mjh20" path="res://sprites/Hidden-Coin-On-Cuphead-DLC-Island-IV-Secret-Passage-Guide-Climber-Podium.jpg" id="1_k77yc"]
+[ext_resource type="FontFile" uid="uid://dv4rnn0ml62q3" path="res://addons/dialogue_nodes/themes/Poppins-Bold.ttf" id="3_o72wx"]
+[ext_resource type="FontFile" uid="uid://x07w57hnrhsp" path="res://addons/fonts/PL Benguiat Caslon/PL Benguiat Caslon.ttf" id="4_hkgif"]
+[ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://addons/fonts/FrancoisOne.ttf" id="5_un0h5"]
+[ext_resource type="PackedScene" uid="uid://iyjeg6ldipci" path="res://Enemy.tscn" id="6_et41b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8vqqn"]
+size = Vector2(76, 900)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_srbgh"]
+bg_color = Color(0.254902, 0.254902, 0.254902, 0.713726)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xbxyj"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qagrc"]
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8, 0.8, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jvcnq"]
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.505882, 0.427451, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0t4ou"]
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8, 0.8, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xojeu"]
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_1gur2")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 641.0
+offset_top = 373.0
+offset_right = 641.0
+offset_bottom = 373.0
+texture = ExtResource("1_k77yc")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="LoseArea" type="Area2D" parent="."]
+position = Vector2(30, 60)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LoseArea"]
+position = Vector2(-145, 311)
+shape = SubResource("RectangleShape2D_8vqqn")
+
+[node name="SpawnContainer" type="CanvasLayer" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="SpawnContainer"]
+
+[node name="Marker2D2" type="Marker2D" parent="SpawnContainer"]
+position = Vector2(1342, 407)
+
+[node name="Marker2D3" type="Marker2D" parent="SpawnContainer"]
+position = Vector2(1340, 597)
+
+[node name="Marker2D4" type="Marker2D" parent="SpawnContainer"]
+position = Vector2(1342, 283)
+
+[node name="EnemyContainer" type="Node2D" parent="."]
+position = Vector2(1345, 169)
+
+[node name="Enemy" parent="EnemyContainer" instance=ExtResource("6_et41b")]
+position = Vector2(-696, 175)
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="DifficultyTimer" type="Timer" parent="."]
+wait_time = 10.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopRow2" type="CenterContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TopRow" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/TopRow2"]
+layout_mode = 2
+
+[node name="EnemiesKilledLabel" type="Label" parent="CanvasLayer/VBoxContainer/TopRow2/TopRow"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_o72wx")
+theme_override_font_sizes/font_size = 24
+text = "Words:"
+
+[node name="EnemiesKilledValue" type="Label" parent="CanvasLayer/VBoxContainer/TopRow2/TopRow"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_o72wx")
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="MiddleRow" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BottomRow" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="DifficultyLabel" type="Label" parent="CanvasLayer/VBoxContainer/BottomRow"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_o72wx")
+theme_override_font_sizes/font_size = 24
+text = "Difficulty:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/BottomRow"]
+layout_mode = 2
+
+[node name="DifficultyValue" type="Label" parent="CanvasLayer/VBoxContainer/BottomRow/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_o72wx")
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="GameOverScreen" type="PanelContainer" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_srbgh")
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/GameOverScreen"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GameOverScreen/CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/GameOverScreen/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_hkgif")
+theme_override_font_sizes/font_size = 70
+text = "Game Over"
+
+[node name="RestartButton" type="Button" parent="CanvasLayer/GameOverScreen/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0.505882, 0.427451, 1, 1)
+theme_override_colors/font_hover_color = Color(0.8, 0.8, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.505882, 0.427451, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.8, 0.8, 1, 1)
+theme_override_fonts/font = ExtResource("5_un0h5")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_xbxyj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qagrc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jvcnq")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_0t4ou")
+theme_override_styles/focus = SubResource("StyleBoxFlat_xojeu")
+text = "Restart"
+
+[connection signal="body_entered" from="LoseArea" to="." method="_on_lose_area_body_entered"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="DifficultyTimer" to="." method="_on_difficulty_timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/GameOverScreen/CenterContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]

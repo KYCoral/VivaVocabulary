@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://br362lb6mafyc"]
 
-[ext_resource type="Texture2D" uid="uid://66h5fq338hu1" path="res://sprites/Untitled95_20240423015247.png" id="1_6pjhm"]
-[ext_resource type="FontFile" uid="uid://cknx0c7wbuh7u" path="res://fonts/MouseMemoirs-Regular.ttf" id="2_gto46"]
-[ext_resource type="FontFile" uid="uid://x07w57hnrhsp" path="res://fonts/PL Benguiat Caslon/PL Benguiat Caslon.ttf" id="3_s57ea"]
-[ext_resource type="FontFile" uid="uid://bnw5ghde11g7m" path="res://fonts/Monoton-Regular.ttf" id="4_b38ua"]
+[ext_resource type="Texture2D" uid="uid://b6iwypklehu5o" path="res://sprites/Untitled95_20240423015329.png" id="1_xn8uu"]
+[ext_resource type="FontFile" uid="uid://cknx0c7wbuh7u" path="res://addons/fonts/MouseMemoirs-Regular.ttf" id="2_gto46"]
+[ext_resource type="FontFile" uid="uid://x07w57hnrhsp" path="res://addons/fonts/PL Benguiat Caslon/PL Benguiat Caslon.ttf" id="3_s57ea"]
+[ext_resource type="FontFile" uid="uid://bnw5ghde11g7m" path="res://addons/fonts/Monoton-Regular.ttf" id="4_b38ua"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -23,7 +23,7 @@ grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="vboxChoicesMedium"]
 layout_mode = 2
-texture = ExtResource("1_6pjhm")
+texture = ExtResource("1_xn8uu")
 expand_mode = 1
 stretch_mode = 2
 
@@ -56,6 +56,6 @@ offset_right = 1279.0
 offset_bottom = 491.0
 theme_override_fonts/font = ExtResource("4_b38ua")
 theme_override_font_sizes/font_size = 70
-text = "\"Daily Conversation:
+text = "\"Daily Phrases:
 Medium Level\""
 horizontal_alignment = 1
