@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://6srmxixtcxcf"]
+[gd_scene load_steps=14 format=3 uid="uid://6srmxixtcxcf"]
 
 [ext_resource type="PackedScene" uid="uid://cpywe24jl20nq" path="res://Player.tscn" id="2_4emmn"]
 [ext_resource type="PackedScene" uid="uid://bgxuk5pudue4m" path="res://joystick.tscn" id="3_ln3cl"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ch2jtwiurs157" path="res://sprites/floor.png" id="7_mrwfb"]
 [ext_resource type="Texture2D" uid="uid://cqrg5l4r0iv1n" path="res://sprites/desk.png" id="8_5vo5r"]
 [ext_resource type="Texture2D" uid="uid://e5k3gnomhnur" path="res://sprites/board.png" id="9_bdql4"]
+[ext_resource type="Texture2D" uid="uid://cvd8g45tcxxf4" path="res://sprites/Untitled64_20240508124517.png" id="11_8qm6v"]
 [ext_resource type="Texture2D" uid="uid://cyfrle4wnpekw" path="res://sprites/window.png" id="11_dy6q1"]
 
 [sub_resource type="TileSet" id="TileSet_6iesn"]
@@ -142,6 +143,7 @@ scale = Vector2(1.28306, 0.263218)
 texture = ExtResource("4_o1crc")
 
 [node name="0" type="CanvasLayer" parent="Visuals"]
+visible = false
 follow_viewport_enabled = true
 
 [node name="player" parent="Visuals/0" instance=ExtResource("2_4emmn")]
@@ -160,4 +162,9 @@ follow_viewport_enabled = true
 follow_viewport_scale = 1.3
 
 [node name="joystick" parent="Visuals/3" instance=ExtResource("3_ln3cl")]
+visible = false
 position = Vector2(1029.23, 524.615)
+
+[node name="Untitled6420240508124517" type="Sprite2D" parent="."]
+position = Vector2(713, 532)
+texture = ExtResource("11_8qm6v")

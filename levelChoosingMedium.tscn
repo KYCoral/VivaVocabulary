@@ -1,9 +1,50 @@
-[gd_scene load_steps=5 format=3 uid="uid://br362lb6mafyc"]
+[gd_scene load_steps=16 format=3 uid="uid://br362lb6mafyc"]
 
 [ext_resource type="Texture2D" uid="uid://b6iwypklehu5o" path="res://sprites/Untitled95_20240423015329.png" id="1_xn8uu"]
 [ext_resource type="FontFile" uid="uid://cknx0c7wbuh7u" path="res://addons/fonts/MouseMemoirs-Regular.ttf" id="2_gto46"]
 [ext_resource type="FontFile" uid="uid://x07w57hnrhsp" path="res://addons/fonts/PL Benguiat Caslon/PL Benguiat Caslon.ttf" id="3_s57ea"]
 [ext_resource type="FontFile" uid="uid://bnw5ghde11g7m" path="res://addons/fonts/Monoton-Regular.ttf" id="4_b38ua"]
+[ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://addons/fonts/FrancoisOne.ttf" id="5_3cbk6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0hb8"]
+draw_center = false
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_seark"]
+draw_center = false
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o46tx"]
+draw_center = false
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0ird"]
+draw_center = false
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ccj0v"]
+draw_center = false
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4eyg1"]
+draw_center = false
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5i7t4"]
+draw_center = false
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vwq16"]
+draw_center = false
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_we5ry"]
+draw_center = false
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_klx4m"]
+draw_center = false
+border_color = Color(0.8, 0.8, 0.8, 0)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -56,6 +97,48 @@ offset_right = 1279.0
 offset_bottom = 491.0
 theme_override_fonts/font = ExtResource("4_b38ua")
 theme_override_font_sizes/font_size = 70
-text = "\"Daily Phrases:
-Medium Level\""
+text = "\"Level 2: 
+Daily Phrases\""
 horizontal_alignment = 1
+
+[node name="play" type="Button" parent="vboxChoicesMedium/TextureRect"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 528.0
+offset_right = 1279.0
+offset_bottom = 613.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.254902, 0.47451, 1, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_s57ea")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_v0hb8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_seark")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_o46tx")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_v0ird")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ccj0v")
+text = "Play Game"
+
+[node name="goBack" type="Button" parent="vboxChoicesMedium/TextureRect"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 24.0
+offset_right = 200.0
+offset_bottom = 66.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.254902, 0.47451, 1, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_3cbk6")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_4eyg1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5i7t4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vwq16")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_we5ry")
+theme_override_styles/focus = SubResource("StyleBoxFlat_klx4m")
+text = "↩ Go Back "

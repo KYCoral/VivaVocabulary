@@ -83,17 +83,17 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -635.0
-offset_top = 275.0
-offset_right = 641.0
-offset_bottom = 426.0
+offset_left = -633.0
+offset_top = 229.0
+offset_right = 643.0
+offset_bottom = 460.0
 grow_horizontal = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_xusb4")
 theme_override_font_sizes/font_size = 70
-text = "\"The Novice: A
-Matchy Challenge\""
+text = "\"Level 1: 
+A  Matchy Challenge\""
 horizontal_alignment = 1
 
 [node name="goBack" type="Button" parent="vboxChoicesEasy/TextureRect"]
