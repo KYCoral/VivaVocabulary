@@ -52,10 +52,26 @@ func _on_sign_up_button_up():
 	Firebase.Auth.signup_with_email_and_password(email,password)
 
 func _on_FirebaseAuth_signup_succeeded(auth_info):
-	$TextureRect/AnimationPlayer.play("registered")
+	#$TextureRect/AnimationPlayer.play("registered")
 	print("signup successful " + str(auth_info))
 	userinfo = auth_info
 	Firebase.Auth.send_account_verification_email()
+	
+	# adding user to firestore
+	var firestore_collection = Firebase.Firestore.collection("user_data")
+	var document = firestore_collection.get_doc("VivaVocabulario")
+	print(document)
+	var add_task = firestore_collection.add(userinfo.email, 
+	{
+		'Username': userinfo.email, 
+		'Level' : 0,
+		'Points' : 0,
+		'score': 0
+	})
+	var addedUser = await add_task
+	print("User added successfully:", addedUser)
+
+
 
 func _on_FirebaseAuth_login_failed(error_code, message):
 	print("error code: " + str(error_code))
