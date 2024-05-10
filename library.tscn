@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://dmq10ba8md4ct"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(4, 25)
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(21, 572)
+format = 2
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Node" type="Node" parent="."]
+
+[node name="background" type="CanvasLayer" parent="Node"]
+
+[node name="-2" type="CanvasLayer" parent="Node/background"]
+follow_viewport_enabled = true
+follow_viewport_scale = 0.8
+
+[node name="-1" type="CanvasLayer" parent="Node/background"]
+follow_viewport_enabled = true
+follow_viewport_scale = 0.9
+
+[node name="Untitled9520240423015247" type="Sprite2D" parent="Node/background/-1"]
+position = Vector2(49, -17.7778)
+scale = Vector2(3.14258, 0.891892)
+
+[node name="0" type="CanvasLayer" parent="Node/background"]
+follow_viewport_enabled = true
+
+[node name="Untitled9420240423134455" type="Sprite2D" parent="Node/background/0"]
+position = Vector2(7.99993, 216.562)
+scale = Vector2(1.0345, 0.191504)
+
+[node name="1" type="CanvasLayer" parent="Node/background"]
+follow_viewport_enabled = true
+follow_viewport_scale = 1.1
+
+[node name="Untitled9420240423225530Edit1284601481776107" type="Sprite2D" parent="Node/background/1"]
+position = Vector2(-7.27266, -82.7273)
+scale = Vector2(0.312727, 0.394886)
+
+[node name="2" type="CanvasLayer" parent="Node/background"]
+follow_viewport_enabled = true
+follow_viewport_scale = 1.2
+
+[node name="Untitled9420240423232824" type="Sprite2D" parent="Node/background/2"]
+position = Vector2(-21.6668, 130)
+scale = Vector2(0.46625, 0.447917)

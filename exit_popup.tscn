@@ -1,0 +1,200 @@
+[gd_scene load_steps=13 format=3 uid="uid://bbvwljfwmi2r"]
+
+[ext_resource type="Script" path="res://exit_popup.gd" id="1_2g4ui"]
+[ext_resource type="Texture2D" uid="uid://dknccekvublha" path="res://sprites/Untitled75_20240409205437.png" id="1_4dojf"]
+[ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://addons/fonts/FrancoisOne.ttf" id="2_3bcjm"]
+
+[sub_resource type="Gradient" id="Gradient_l7ibk"]
+offsets = PackedFloat32Array(0.019544, 0.143322)
+colors = PackedColorArray(0, 0, 0, 0.392157, 0, 0, 0, 0.392157)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uc5rk"]
+gradient = SubResource("Gradient_l7ibk")
+fill = 1
+
+[sub_resource type="Animation" id="Animation_1grch"]
+resource_name = "pop_up"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("validation:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.1, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_txx7q"]
+_data = {
+"pop_up": SubResource("Animation_1grch")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1xurt"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vjlei"]
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8, 0.8, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_83g08"]
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.505882, 0.427451, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_50kdw"]
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8, 0.8, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pesat"]
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="exit_control" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2g4ui")
+
+[node name="popUp" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -686.0
+offset_top = -355.0
+offset_right = 652.0
+offset_bottom = 383.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_stretch_ratio = 0.0
+texture = SubResource("GradientTexture2D_uc5rk")
+expand_mode = 1
+
+[node name="validation" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -253.0
+offset_top = -188.0
+offset_right = 241.0
+offset_bottom = 374.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+pivot_offset = Vector2(247, 200)
+texture = ExtResource("1_4dojf")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="validation"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_txx7q")
+}
+
+[node name="Label" type="Label" parent="validation"]
+layout_mode = 0
+offset_left = -62.0
+offset_top = 147.0
+offset_right = 578.0
+offset_bottom = 187.0
+theme_override_fonts/font = ExtResource("2_3bcjm")
+theme_override_font_sizes/font_size = 24
+text = "Are you sure you want to exit?"
+horizontal_alignment = 1
+
+[node name="Yes" type="Button" parent="validation"]
+layout_mode = 0
+offset_left = 107.0
+offset_top = 202.0
+offset_right = 243.0
+offset_bottom = 242.0
+theme_override_colors/font_pressed_color = Color(0.505882, 0.427451, 1, 1)
+theme_override_colors/font_hover_color = Color(0.8, 0.8, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.505882, 0.427451, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.8, 0.8, 1, 1)
+theme_override_fonts/font = ExtResource("2_3bcjm")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_1xurt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vjlei")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_83g08")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_50kdw")
+theme_override_styles/focus = SubResource("StyleBoxFlat_pesat")
+text = "Yes"
+
+[node name="No" type="Button" parent="validation"]
+layout_mode = 0
+offset_left = 271.0
+offset_top = 201.0
+offset_right = 406.0
+offset_bottom = 241.0
+theme_override_colors/font_pressed_color = Color(0.505882, 0.427451, 1, 1)
+theme_override_colors/font_hover_color = Color(0.8, 0.8, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.505882, 0.427451, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.8, 0.8, 1, 1)
+theme_override_fonts/font = ExtResource("2_3bcjm")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_1xurt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vjlei")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_83g08")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_50kdw")
+theme_override_styles/focus = SubResource("StyleBoxFlat_pesat")
+text = "No"

@@ -1,0 +1,80 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0e1du3ce4pw4"]
+
+[ext_resource type="Script" path="res://example_scores.gd" id="1_8dbmf"]
+[ext_resource type="FontFile" uid="uid://b41orlbfkxk7l" path="res://addons/fonts/Chewy.ttf" id="1_dpa1o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wyhh3"]
+bg_color = Color(0.6, 0.6, 0.992157, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_8dbmf")
+
+[node name="btn" type="Button" parent="."]
+offset_left = 202.0
+offset_top = 135.0
+offset_right = 687.0
+offset_bottom = 204.0
+theme_override_colors/font_color = Color(0.936829, 0.228136, 0.683261, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0.909804, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_dpa1o")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_wyhh3")
+text = "Add User
+"
+
+[node name="btn2" type="Button" parent="."]
+offset_left = 220.0
+offset_top = 251.0
+offset_right = 705.0
+offset_bottom = 320.0
+theme_override_colors/font_color = Color(0.936829, 0.228136, 0.683261, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0.909804, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_dpa1o")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_wyhh3")
+text = "Update Score
+"
+
+[node name="btn3" type="Button" parent="."]
+offset_left = 215.0
+offset_top = 353.0
+offset_right = 700.0
+offset_bottom = 422.0
+theme_override_colors/font_color = Color(0.936829, 0.228136, 0.683261, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0.909804, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_dpa1o")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_wyhh3")
+text = "Delete Document
+"
+
+[node name="btn4" type="Button" parent="."]
+offset_left = 219.0
+offset_top = 468.0
+offset_right = 704.0
+offset_bottom = 537.0
+theme_override_colors/font_color = Color(0.936829, 0.228136, 0.683261, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0.909804, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_dpa1o")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_wyhh3")
+text = "Get Top Score
+"
+
+[connection signal="button_up" from="btn" to="." method="_on_btn_button_up"]
+[connection signal="button_up" from="btn2" to="." method="_on_btn_2_button_up"]
+[connection signal="button_up" from="btn3" to="." method="_on_btn_3_button_up"]
+[connection signal="button_up" from="btn4" to="." method="_on_btn_4_button_up"]
