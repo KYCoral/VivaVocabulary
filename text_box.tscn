@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://7ujem0amdgm1"]
+
+[ext_resource type="Script" path="res://TextBox.gd" id="1_elrws"]
+[ext_resource type="Texture2D" uid="uid://gwkv8dgira30" path="res://sprites/Untitled80_20240416124711.png" id="2_tu2k1"]
+[ext_resource type="FontFile" uid="uid://dv4rnn0ml62q3" path="res://addons/dialogue_nodes/themes/Poppins-Bold.ttf" id="3_cc6lu"]
+
+[node name="TextBox" type="MarginContainer"]
+offset_right = 912.0
+offset_bottom = 416.0
+script = ExtResource("1_elrws")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_tu2k1")
+draw_center = false
+region_rect = Rect2(96, 168, 944, 432)
+patch_margin_left = 456
+patch_margin_top = 200
+patch_margin_right = 456
+patch_margin_bottom = 216
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 31.0
+offset_right = 824.0
+offset_bottom = 355.0
+
+[node name="Label" type="Label" parent="NinePatchRect/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_cc6lu")
+theme_override_font_sizes/font_size = 32
+text = "Some Text"
+horizontal_alignment = 1
+
+[node name="LetterDisplayTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="LetterDisplayTimer" to="." method="_on_letter_display_timer_timeout"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://c82mevwvmruhv"]
 
 [ext_resource type="Script" path="res://levelMedium.gd" id="1_1gur2"]
-[ext_resource type="Texture2D" uid="uid://bt2kjwpe0ufvd" path="res://sprites/water.png" id="2_wwid6"]
+[ext_resource type="Texture2D" uid="uid://bwhv1r02hs0ol" path="res://sprites/tresss.png" id="2_vx1qq"]
 [ext_resource type="FontFile" uid="uid://dv4rnn0ml62q3" path="res://addons/dialogue_nodes/themes/Poppins-Bold.ttf" id="3_o72wx"]
 [ext_resource type="FontFile" uid="uid://x07w57hnrhsp" path="res://addons/fonts/PL Benguiat Caslon/PL Benguiat Caslon.ttf" id="4_hkgif"]
 [ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://addons/fonts/FrancoisOne.ttf" id="5_un0h5"]
@@ -81,7 +81,7 @@ offset_left = 641.0
 offset_top = 373.0
 offset_right = 641.0
 offset_bottom = 373.0
-texture = ExtResource("2_wwid6")
+texture = ExtResource("2_vx1qq")
 expand_mode = 1
 stretch_mode = 3
 
@@ -97,16 +97,16 @@ shape = SubResource("RectangleShape2D_8vqqn")
 [node name="Marker2D" type="Marker2D" parent="SpawnContainer"]
 
 [node name="Marker2D2" type="Marker2D" parent="SpawnContainer"]
-position = Vector2(1342, 407)
+position = Vector2(1352, 325)
 
 [node name="Marker2D3" type="Marker2D" parent="SpawnContainer"]
-position = Vector2(1340, 597)
+position = Vector2(1351, 447)
 
 [node name="Marker2D4" type="Marker2D" parent="SpawnContainer"]
-position = Vector2(1342, 283)
+position = Vector2(1351, 221)
 
 [node name="EnemyContainer" type="Node2D" parent="."]
-position = Vector2(1345, 169)
+position = Vector2(1347, 120)
 
 [node name="Enemy" parent="EnemyContainer" instance=ExtResource("6_et41b")]
 position = Vector2(-696, 175)

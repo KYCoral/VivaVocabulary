@@ -3,10 +3,9 @@ extends Control
 
 @onready var StartGame = $Background/Menu/startGame as Button
 @onready var NewGame = $Background/Menu/newGame as Button
-@onready var SandboxMode = $Background/Menu/sandboxMode as Button
 @onready var Settings = $Background/Menu/settings as Button
 @onready var Exit = $Background/Menu/exit as Button
-@onready var level_page: PackedScene = preload("res://levelChoosing.tscn")
+@onready var map_page: PackedScene = preload("res://World_Scene_Map.tscn")
 @onready var exitPopup: PackedScene = preload("res://exit_popup.tscn")
 var exit_instance: Node
 @onready var settings: PackedScene = preload("res://settings_menu.tscn")
@@ -26,7 +25,7 @@ func _ready():
 	settings_instance.hide()
 
 func on_start_pressed() -> void:
-	get_tree().change_scene_to_packed(level_page)
+	get_tree().change_scene_to_packed(map_page)
 
 func on_exit_pressed() -> void:
 	exit_instance.show()

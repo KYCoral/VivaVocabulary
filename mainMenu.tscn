@@ -1,15 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://de2c0tnvuwk24"]
+[gd_scene load_steps=15 format=3 uid="uid://de2c0tnvuwk24"]
 
 [ext_resource type="Texture2D" uid="uid://dgpmyd1cn0eb3" path="res://sprites/bg.png" id="1_kmbbo"]
 [ext_resource type="Script" path="res://mainMenu.gd" id="1_lpwsb"]
-[ext_resource type="Texture2D" uid="uid://20m5guxkq0lx" path="res://sprites/Untitled75_20240409205426.png" id="3_pkbu3"]
 [ext_resource type="Texture2D" uid="uid://bpsppdi8aqpcf" path="res://sprites/Untitled78_20240418014742.png" id="3_wl84s"]
 [ext_resource type="Texture2D" uid="uid://nrhf6dop83yu" path="res://sprites/pencil.png" id="4_d346v"]
-[ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://fonts/FrancoisOne.ttf" id="4_uu1ny"]
+[ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://addons/fonts/FrancoisOne.ttf" id="4_uu1ny"]
 [ext_resource type="Texture2D" uid="uid://xyoly0ftan1i" path="res://sprites/book.png" id="5_u6l3a"]
 [ext_resource type="PackedScene" uid="uid://bbvwljfwmi2r" path="res://exit_popup.tscn" id="8_8uaj2"]
 [ext_resource type="PackedScene" uid="uid://clqmmtwcncaoj" path="res://settings_startup.tscn" id="9_mmwo0"]
-[ext_resource type="PackedScene" uid="uid://jbb6tybts2rl" path="res://levelChoosing.tscn" id="10_jhk7u"]
+[ext_resource type="FontFile" uid="uid://bnw5ghde11g7m" path="res://addons/fonts/Monoton-Regular.ttf" id="9_r47v4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7bj7x"]
 draw_center = false
@@ -100,22 +99,6 @@ scale = Vector2(1.0139, 1.0072)
 texture = ExtResource("5_u6l3a")
 expand_mode = 1
 
-[node name="Logo" type="TextureRect" parent="Background"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -317.0
-offset_top = -526.0
-offset_right = 335.0
-offset_bottom = 277.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_pkbu3")
-expand_mode = 1
-
 [node name="Menu" type="VBoxContainer" parent="Background"]
 layout_mode = 1
 anchors_preset = 8
@@ -178,30 +161,6 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_14ap8")
 theme_override_styles/focus = SubResource("StyleBoxFlat_t3k0n")
 text = "New Game"
 
-[node name="sandboxMode" type="Button" parent="Background/Menu"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(0.396078, 0, 0.00392157, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.396078, 0, 0.00392157, 1)
-theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_uu1ny")
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_7bj7x")
-theme_override_styles/hover = SubResource("StyleBoxFlat_xb4ja")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_38opk")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_14ap8")
-theme_override_styles/focus = SubResource("StyleBoxFlat_t3k0n")
-text = "Sandbox Mode"
-
 [node name="settings" type="Button" parent="Background/Menu"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -258,6 +217,13 @@ layout_mode = 1
 visible = false
 layout_mode = 1
 
-[node name="Control" parent="." instance=ExtResource("10_jhk7u")]
-visible = false
-layout_mode = 1
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 307.0
+offset_top = 74.0
+offset_right = 987.0
+offset_bottom = 177.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_r47v4")
+theme_override_font_sizes/font_size = 60
+text = "VivaVocabulario"

@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://duqncxev6bfmg"]
+[gd_scene load_steps=12 format=3 uid="uid://duqncxev6bfmg"]
 
 [ext_resource type="Texture2D" uid="uid://ilpxeruvhhtm" path="res://sprites/tree2.png" id="2_nrymj"]
 [ext_resource type="Texture2D" uid="uid://dfqxvgmxyjgv2" path="res://sprites/bush.png" id="3_rv0rd"]
 [ext_resource type="Texture2D" uid="uid://c3cybuud8otcf" path="res://sprites/ground.png" id="4_81q8j"]
+[ext_resource type="Texture2D" uid="uid://bckj3h3rewgxf" path="res://icon.svg" id="4_o8e6s"]
 [ext_resource type="PackedScene" uid="uid://cpywe24jl20nq" path="res://Player.tscn" id="5_127c5"]
 [ext_resource type="Texture2D" uid="uid://cyma7fiuqrbg3" path="res://sprites/tree1.png" id="6_8x1nm"]
 [ext_resource type="Texture2D" uid="uid://cm83pg5mk8dub" path="res://sprites/rock (4).png" id="7_miv21"]
@@ -211,8 +212,19 @@ texture = ExtResource("3_rv0rd")
 [node name="0" type="CanvasLayer" parent="Visuals"]
 follow_viewport_enabled = true
 
+[node name="???" type="Sprite2D" parent="Visuals/0"]
+position = Vector2(2083, 522)
+texture = ExtResource("4_o8e6s")
+
 [node name="player" parent="Visuals/0" instance=ExtResource("5_127c5")]
 position = Vector2(87, 607)
+
+[node name="Camera2D" type="Camera2D" parent="Visuals/0/player"]
+position = Vector2(238, -232)
+editor_draw_limits = true
+
+[node name="joystick" parent="Visuals/0/player" instance=ExtResource("9_2psfa")]
+position = Vector2(736, -5)
 
 [node name="1" type="CanvasLayer" parent="Visuals"]
 follow_viewport_enabled = true

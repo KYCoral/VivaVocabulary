@@ -3,13 +3,13 @@
 [ext_resource type="Script" path="res://signup.gd" id="1_ehfkp"]
 [ext_resource type="Texture2D" uid="uid://xdsgc8bu05td" path="res://sprites/Untitled78_20240329161643.png" id="1_lyhqg"]
 [ext_resource type="Texture2D" uid="uid://blus3jct6drmr" path="res://sprites/Untitled78_20240409205301_edit_542478463116914.png" id="2_suoel"]
-[ext_resource type="Texture2D" uid="uid://20m5guxkq0lx" path="res://sprites/Untitled75_20240409205426.png" id="3_qy4uv"]
 [ext_resource type="Texture2D" uid="uid://dbrvipqkgnuko" path="res://sprites/Untitled80_20240416124703.png" id="4_m880o"]
 [ext_resource type="FontFile" uid="uid://cxo00kjcsmt7t" path="res://addons/fonts/BalooBhaijaan-Regular.ttf" id="5_un483"]
 [ext_resource type="Texture2D" uid="uid://dm46g3rno6bkd" path="res://sprites/exit.png" id="5_ximhw"]
 [ext_resource type="Texture2D" uid="uid://cjo2l4jc4ile1" path="res://sprites/user.png" id="6_jwxjd"]
 [ext_resource type="Texture2D" uid="uid://c0xts38mq0nu2" path="res://sprites/settings.png" id="7_3ie76"]
 [ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://addons/fonts/FrancoisOne.ttf" id="7_33q5l"]
+[ext_resource type="FontFile" uid="uid://bnw5ghde11g7m" path="res://addons/fonts/Monoton-Regular.ttf" id="11_ehahw"]
 [ext_resource type="Texture2D" uid="uid://dtc8iouhvajh5" path="res://sprites/accountresgisteredSuccess.jpg" id="11_o7plq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dpij3"]
@@ -151,15 +151,6 @@ grow_vertical = 2
 [node name="SignupScreen" type="TextureRect" parent="mcSignup"]
 layout_mode = 2
 texture = ExtResource("1_lyhqg")
-expand_mode = 1
-
-[node name="Logo" type="TextureRect" parent="mcSignup/SignupScreen"]
-layout_mode = 0
-offset_left = 119.0
-offset_top = -109.0
-offset_right = 563.0
-offset_bottom = 384.0
-texture = ExtResource("3_qy4uv")
 expand_mode = 1
 
 [node name="signup" type="TextureRect" parent="mcSignup/SignupScreen"]
@@ -434,6 +425,7 @@ icon_alignment = 2
 expand_icon = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = 76.0
 offset_top = 50.0
 offset_right = 1233.0
@@ -447,5 +439,28 @@ expand_mode = 1
 libraries = {
 "": SubResource("AnimationLibrary_43h4q")
 }
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 30.0
+offset_right = 568.0
+offset_bottom = 104.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("11_ehahw")
+theme_override_font_sizes/font_size = 42
+text = "VivaVocabulario"
+
+[node name="errorMessage" type="Label" parent="."]
+layout_mode = 0
+offset_left = 229.0
+offset_top = 412.0
+offset_right = 455.0
+offset_bottom = 458.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_33q5l")
+horizontal_alignment = 1
+autowrap_mode = 1
+justification_flags = 161
 
 [connection signal="button_up" from="mcSignup/SignupScreen/vb_signupButton/signUp" to="." method="_on_sign_up_button_up"]

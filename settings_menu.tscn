@@ -1,9 +1,11 @@
-[gd_scene load_steps=32 format=3 uid="uid://bod25ef12q58o"]
+[gd_scene load_steps=34 format=3 uid="uid://bod25ef12q58o"]
 
 [ext_resource type="Script" path="res://settings_menu.gd" id="1_xuwg1"]
 [ext_resource type="FontFile" uid="uid://bnw5ghde11g7m" path="res://addons/fonts/Monoton-Regular.ttf" id="2_huisb"]
 [ext_resource type="Texture2D" uid="uid://c0xts38mq0nu2" path="res://sprites/settings.png" id="2_kxxwa"]
 [ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://addons/fonts/FrancoisOne.ttf" id="2_u1rsy"]
+[ext_resource type="PackedScene" uid="uid://cyimosmao67ii" path="res://saveProgress.tscn" id="5_sy8vu"]
+[ext_resource type="PackedScene" uid="uid://bpr0xtooc7ikl" path="res://removeAccount.tscn" id="6_v4ioh"]
 
 [sub_resource type="Gradient" id="Gradient_lhprx"]
 offsets = PackedFloat32Array(0.019544, 0.143322)
@@ -189,7 +191,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(1.2, 1.2), Vector2(1, 1)]
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dycje"]
@@ -204,6 +206,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
 pivot_offset = Vector2(640, 360)
 script = ExtResource("1_xuwg1")
 
@@ -299,6 +302,10 @@ grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/General/MarginContainer"]
 layout_mode = 2
+
+[node name="delete" type="Button" parent="TabContainer/General/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Delete Account"
 
 [node name="Audio" type="TabBar" parent="TabContainer"]
 visible = false
@@ -491,3 +498,13 @@ text = "Cancel"
 libraries = {
 "": SubResource("AnimationLibrary_dycje")
 }
+
+[node name="Control" parent="." instance=ExtResource("5_sy8vu")]
+visible = false
+layout_mode = 1
+
+[node name="Control2" parent="." instance=ExtResource("6_v4ioh")]
+visible = false
+layout_mode = 1
+
+[connection signal="button_up" from="TabContainer/General/MarginContainer/VBoxContainer/delete" to="." method="_on_delete_button_up"]

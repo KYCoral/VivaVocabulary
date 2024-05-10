@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://br362lb6mafyc"]
+[gd_scene load_steps=17 format=3 uid="uid://br362lb6mafyc"]
 
+[ext_resource type="Script" path="res://levelChoosingMedium.gd" id="1_mcsfr"]
 [ext_resource type="Texture2D" uid="uid://b6iwypklehu5o" path="res://sprites/Untitled95_20240423015329.png" id="1_xn8uu"]
 [ext_resource type="FontFile" uid="uid://cknx0c7wbuh7u" path="res://addons/fonts/MouseMemoirs-Regular.ttf" id="2_gto46"]
 [ext_resource type="FontFile" uid="uid://x07w57hnrhsp" path="res://addons/fonts/PL Benguiat Caslon/PL Benguiat Caslon.ttf" id="3_s57ea"]
@@ -53,6 +54,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_mcsfr")
 
 [node name="vboxChoicesMedium" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -142,3 +144,6 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_vwq16")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_we5ry")
 theme_override_styles/focus = SubResource("StyleBoxFlat_klx4m")
 text = "↩ Go Back "
+
+[connection signal="button_up" from="vboxChoicesMedium/TextureRect/play" to="." method="_on_play_button_up"]
+[connection signal="button_up" from="vboxChoicesMedium/TextureRect/goBack" to="." method="_on_go_back_button_up"]

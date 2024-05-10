@@ -46,9 +46,9 @@ func _on_btn_2_button_up():
 	#var document = firestore_collection.get_doc("VivaVocabulario")
 	firestore_collection.update(userinfo.email, 
 	{
-		'Username': userinfo.email, 
-		'Level' : 2,
-		'Points' : 3,
+		'username': userinfo.email, 
+		'level' : 1,
+		'points' : 3,
 		'score': 30
 	})
 	#var document : FirestoreDocument = up_task.get("task_finished")
@@ -79,5 +79,4 @@ func removeDocumentData():
 func _on_btn_4_button_up():
 	QueryDB()
 	pass # Replace with function body.
-
 

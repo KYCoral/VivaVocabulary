@@ -137,3 +137,6 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_13cry")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_b3ij4")
 theme_override_styles/focus = SubResource("StyleBoxFlat_2wasu")
 text = "Play Game"
+
+[connection signal="button_up" from="vboxChoicesEasy/TextureRect/goBack" to="." method="_on_go_back_button_up"]
+[connection signal="button_up" from="vboxChoicesEasy/TextureRect/play" to="." method="_on_play_button_up"]
