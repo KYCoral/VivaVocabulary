@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cpywe24jl20nq"]
+[gd_scene load_steps=9 format=3 uid="uid://dkp2roas4in2e"]
 
 [ext_resource type="Script" path="res://player_scene.gd" id="1_agrkw"]
 [ext_resource type="Texture2D" uid="uid://bs8mfg2mj4i7s" path="res://sprites/4.png" id="2_ye0sn"]
@@ -7,8 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://bg11ouasv3reb" path="res://sprites/5.png" id="5_qxlua"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rh7ww"]
-radius = 70.0
-height = 264.0
+radius = 34.0
+height = 156.0
 
 [sub_resource type="Animation" id="Animation_q7kgj"]
 resource_name = "idle"
@@ -37,12 +37,12 @@ position = Vector2(-166, 61)
 script = ExtResource("1_agrkw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(137.5, -100.75)
-scale = Vector2(0.385135, 0.412838)
+position = Vector2(124, -104)
+scale = Vector2(0.204054, 0.229054)
 texture = ExtResource("3_lvjv6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(138, -91)
+position = Vector2(115, -104)
 shape = SubResource("CapsuleShape2D_rh7ww")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -1,11 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://c82mevwvmruhv"]
+[gd_scene load_steps=14 format=3 uid="uid://bw2r4ddjs74b7"]
 
 [ext_resource type="Script" path="res://levelMedium.gd" id="1_1gur2"]
 [ext_resource type="Texture2D" uid="uid://bwhv1r02hs0ol" path="res://sprites/tresss.png" id="2_vx1qq"]
-[ext_resource type="FontFile" uid="uid://dv4rnn0ml62q3" path="res://addons/dialogue_nodes/themes/Poppins-Bold.ttf" id="3_o72wx"]
-[ext_resource type="FontFile" uid="uid://x07w57hnrhsp" path="res://addons/fonts/PL Benguiat Caslon/PL Benguiat Caslon.ttf" id="4_hkgif"]
-[ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://addons/fonts/FrancoisOne.ttf" id="5_un0h5"]
-[ext_resource type="PackedScene" uid="uid://iyjeg6ldipci" path="res://Enemy.tscn" id="6_et41b"]
+[ext_resource type="FontFile" path="res://addons/dialogue_nodes/themes/Poppins-Bold.ttf" id="3_o72wx"]
+[ext_resource type="FontFile" path="res://addons/fonts/PL Benguiat Caslon/PL Benguiat Caslon.ttf" id="4_hkgif"]
+[ext_resource type="FontFile" path="res://addons/fonts/FrancoisOne.ttf" id="5_un0h5"]
+[ext_resource type="PackedScene" uid="uid://xxgebdo03rqu" path="res://Enemy.tscn" id="6_et41b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8vqqn"]
 size = Vector2(76, 900)

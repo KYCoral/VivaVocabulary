@@ -82,3 +82,5 @@ func _on_FirebaseAuth_login_failed(error_code, message):
 	$errorMessage.show()
 	print("error code: " + str(error_code))
 	print("message: " + str(message))
+	
+

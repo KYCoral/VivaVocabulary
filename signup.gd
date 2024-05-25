@@ -74,6 +74,7 @@ func _on_FirebaseAuth_signup_succeeded(auth_info):
 	userinfo = auth_info
 	Firebase.Auth.send_account_verification_email()
 	$errorMessage.text = "Email was sent for email verification."
+	$errorMessage.show()
 	
 	# adding user to firestore
 	var firestore_collection = Firebase.Firestore.collection("user_data")
@@ -96,11 +97,3 @@ func _on_click(event):
 		var animation_player = $TextureRect/AnimationPlayer
 		if animation_player.is_playing():
 			animation_player.stop()
-
-
-func is_valid_email(email: String) -> bool:
-	# Improved regular expression for email validation
-	var pattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
-	return email.match(pattern) != null
-
-

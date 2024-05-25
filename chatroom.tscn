@@ -1,0 +1,94 @@
+[gd_scene load_steps=5 format=3 uid="uid://pfg5bcrlh364"]
+
+[ext_resource type="FontFile" uid="uid://bcg26eik2m2o8" path="res://addons/dialogue_nodes/themes/Poppins-Italic.ttf" id="1_b0u4c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r76wt"]
+bg_color = Color(0, 0, 0, 0.215686)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8n85f"]
+bg_color = Color(0.470588, 0.113725, 0.117647, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_57wju"]
+bg_color = Color(0.415773, 0.281908, 0.152859, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_r76wt")
+
+[node name="CHATROOMLABEL" type="Label" parent="."]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 25.0
+offset_right = 343.0
+offset_bottom = 77.0
+theme_override_fonts/font = ExtResource("1_b0u4c")
+theme_override_font_sizes/font_size = 37
+theme_override_styles/normal = SubResource("StyleBoxFlat_8n85f")
+text = "CHATROOMS
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="chatrooms" type="ItemList" parent="."]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 91.0
+offset_right = 341.0
+offset_bottom = 689.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_57wju")
+
+[node name="Label" type="Label" parent="chatrooms"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 246.0
+offset_right = 310.0
+offset_bottom = 368.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "THERE ARE NO
+ AVAILABLE CHATROOMS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="chat" type="ItemList" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 381.0
+offset_top = 35.0
+offset_right = -36.0
+offset_bottom = -144.0

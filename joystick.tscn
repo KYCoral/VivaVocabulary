@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bgxuk5pudue4m"]
+[gd_scene load_steps=5 format=3 uid="uid://cg35stl1ymfvk"]
 
 [ext_resource type="Script" path="res://joystick.gd" id="1_2yqdd"]
 [ext_resource type="Texture2D" uid="uid://rlnw2vu6enf7" path="res://sprites/joystick.png" id="2_ioafp"]
@@ -11,22 +11,22 @@ scale = Vector2(2, 2)
 script = ExtResource("1_2yqdd")
 
 [node name="joystick" type="Sprite2D" parent="."]
-position = Vector2(2.67029e-05, 0.999989)
-scale = Vector2(0.146484, 0.138672)
+position = Vector2(-0.499985, 2.00001)
+scale = Vector2(0.0823566, 0.0777996)
 texture = ExtResource("2_ioafp")
 
 [node name="knob" type="Sprite2D" parent="."]
-position = Vector2(1.00002, 3.8147e-06)
-scale = Vector2(0.0782877, 0.077311)
+position = Vector2(0, 0.999985)
+scale = Vector2(0.0449625, 0.0437418)
 texture = ExtResource("3_np8qr")
 script = ExtResource("4_knk8r")
 
 [node name="Button" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0)
-offset_left = -49.0
-offset_top = -50.0
-offset_right = 51.0
-offset_bottom = 43.0
+offset_left = -27.0
+offset_top = -27.0
+offset_right = 28.0
+offset_bottom = 25.0
 
 [connection signal="button_down" from="Button" to="knob" method="_on_button_button_down"]
 [connection signal="button_up" from="Button" to="knob" method="_on_button_button_up"]
