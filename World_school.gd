@@ -1,8 +1,9 @@
-extends Node2D
+extends BaseScene
 
 
 @onready var level2: Button = $level2/CollisionShape2D/level2
 @onready var level2_page: PackedScene = preload("res://levelChoosingMedium.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	level2.button_down.connect(_on_level_2_button_up)	
@@ -10,8 +11,9 @@ func _ready():
 	#level2_instance = level2_page.instantiate()
 	#add_child(level2_instance)
 	#level2_instance.hide()
-	
-	pass # Replace with function body.
+
+	pass # Replace with function body.r.player:
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
