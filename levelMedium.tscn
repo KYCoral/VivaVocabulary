@@ -1,14 +1,15 @@
-[gd_scene load_steps=14 format=3 uid="uid://bw2r4ddjs74b7"]
+[gd_scene load_steps=15 format=3 uid="uid://bw2r4ddjs74b7"]
 
 [ext_resource type="Script" path="res://levelMedium.gd" id="1_1gur2"]
-[ext_resource type="Texture2D" uid="uid://bwhv1r02hs0ol" path="res://sprites/tresss.png" id="2_vx1qq"]
-[ext_resource type="FontFile" path="res://addons/dialogue_nodes/themes/Poppins-Bold.ttf" id="3_o72wx"]
-[ext_resource type="FontFile" path="res://addons/fonts/PL Benguiat Caslon/PL Benguiat Caslon.ttf" id="4_hkgif"]
-[ext_resource type="FontFile" path="res://addons/fonts/FrancoisOne.ttf" id="5_un0h5"]
-[ext_resource type="PackedScene" uid="uid://xxgebdo03rqu" path="res://Enemy.tscn" id="6_et41b"]
+[ext_resource type="FontFile" uid="uid://dv4rnn0ml62q3" path="res://addons/dialogue_nodes/themes/Poppins-Bold.ttf" id="3_o72wx"]
+[ext_resource type="FontFile" uid="uid://x07w57hnrhsp" path="res://addons/fonts/PL Benguiat Caslon/PL Benguiat Caslon.ttf" id="4_hkgif"]
+[ext_resource type="FontFile" uid="uid://cxo00kjcsmt7t" path="res://addons/fonts/BalooBhaijaan-Regular.ttf" id="4_uxog4"]
+[ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://addons/fonts/FrancoisOne.ttf" id="5_un0h5"]
+[ext_resource type="PackedScene" uid="uid://iyjeg6ldipci" path="res://Enemy.tscn" id="6_et41b"]
+[ext_resource type="Texture2D" uid="uid://c5i6mfte4gr7j" path="res://sprites/1-back.png" id="7_10swi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8vqqn"]
-size = Vector2(76, 900)
+size = Vector2(96, 1410)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_srbgh"]
 bg_color = Color(0.254902, 0.254902, 0.254902, 0.713726)
@@ -76,40 +77,20 @@ corner_radius_bottom_left = 15
 [node name="Main" type="Node2D"]
 script = ExtResource("1_1gur2")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_left = 641.0
-offset_top = 373.0
-offset_right = 641.0
-offset_bottom = 373.0
-texture = ExtResource("2_vx1qq")
-expand_mode = 1
-stretch_mode = 3
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 2811.0
+offset_bottom = 1318.0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("7_10swi")
 
 [node name="LoseArea" type="Area2D" parent="."]
 position = Vector2(30, 60)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LoseArea"]
-position = Vector2(-91, 305)
+position = Vector2(-81, 560)
 shape = SubResource("RectangleShape2D_8vqqn")
-
-[node name="SpawnContainer" type="CanvasLayer" parent="."]
-
-[node name="Marker2D" type="Marker2D" parent="SpawnContainer"]
-
-[node name="Marker2D2" type="Marker2D" parent="SpawnContainer"]
-position = Vector2(1352, 325)
-
-[node name="Marker2D3" type="Marker2D" parent="SpawnContainer"]
-position = Vector2(1351, 447)
-
-[node name="Marker2D4" type="Marker2D" parent="SpawnContainer"]
-position = Vector2(1351, 221)
-
-[node name="EnemyContainer" type="Node2D" parent="."]
-position = Vector2(1347, 120)
-
-[node name="Enemy" parent="EnemyContainer" instance=ExtResource("6_et41b")]
-position = Vector2(-696, 175)
 
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 5.0
@@ -135,13 +116,13 @@ layout_mode = 2
 [node name="EnemiesKilledLabel" type="Label" parent="CanvasLayer/VBoxContainer/TopRow2/TopRow"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_o72wx")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 40
 text = "Words:"
 
 [node name="EnemiesKilledValue" type="Label" parent="CanvasLayer/VBoxContainer/TopRow2/TopRow"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_o72wx")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 40
 text = "0"
 
 [node name="MiddleRow" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
@@ -154,7 +135,7 @@ layout_mode = 2
 [node name="DifficultyLabel" type="Label" parent="CanvasLayer/VBoxContainer/BottomRow"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_o72wx")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 40
 text = "Difficulty:"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/BottomRow"]
@@ -163,7 +144,7 @@ layout_mode = 2
 [node name="DifficultyValue" type="Label" parent="CanvasLayer/VBoxContainer/BottomRow/HBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_o72wx")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 40
 text = "0"
 
 [node name="GameOverScreen" type="PanelContainer" parent="CanvasLayer"]
@@ -181,10 +162,22 @@ layout_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GameOverScreen/CenterContainer"]
 layout_mode = 2
 
+[node name="Label2" type="Label" parent="CanvasLayer/GameOverScreen/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_uxog4")
+theme_override_font_sizes/font_size = 80
+text = "WORD"
+horizontal_alignment = 1
+
+[node name="WordCount" type="Label" parent="CanvasLayer/GameOverScreen/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+horizontal_alignment = 1
+
 [node name="Label" type="Label" parent="CanvasLayer/GameOverScreen/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_hkgif")
-theme_override_font_sizes/font_size = 70
+theme_override_font_sizes/font_size = 120
 text = "Game Over"
 
 [node name="RestartButton" type="Button" parent="CanvasLayer/GameOverScreen/CenterContainer/VBoxContainer"]
@@ -194,7 +187,7 @@ theme_override_colors/font_hover_color = Color(0.8, 0.8, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.505882, 0.427451, 1, 1)
 theme_override_colors/font_disabled_color = Color(0.8, 0.8, 1, 1)
 theme_override_fonts/font = ExtResource("5_un0h5")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_xbxyj")
 theme_override_styles/hover = SubResource("StyleBoxFlat_qagrc")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_jvcnq")
@@ -209,13 +202,33 @@ theme_override_colors/font_hover_color = Color(0.8, 0.8, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.505882, 0.427451, 1, 1)
 theme_override_colors/font_disabled_color = Color(0.8, 0.8, 1, 1)
 theme_override_fonts/font = ExtResource("5_un0h5")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_xbxyj")
 theme_override_styles/hover = SubResource("StyleBoxFlat_qagrc")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_jvcnq")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_0t4ou")
 theme_override_styles/focus = SubResource("StyleBoxFlat_xojeu")
 text = "Back to Map"
+
+[node name="SpawnContainer" type="CanvasLayer" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="SpawnContainer"]
+position = Vector2(2818, 211)
+
+[node name="Marker2D2" type="Marker2D" parent="SpawnContainer"]
+position = Vector2(2816, 392)
+
+[node name="Marker2D4" type="Marker2D" parent="SpawnContainer"]
+position = Vector2(2817, 601)
+
+[node name="Marker2D3" type="Marker2D" parent="SpawnContainer"]
+position = Vector2(2813, 865)
+
+[node name="EnemyContainer" type="Node2D" parent="."]
+position = Vector2(1430, 228)
+
+[node name="Enemy" parent="EnemyContainer" instance=ExtResource("6_et41b")]
+position = Vector2(-3053, 1)
 
 [connection signal="body_entered" from="LoseArea" to="." method="_on_lose_area_body_entered"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

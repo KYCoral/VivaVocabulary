@@ -6,27 +6,28 @@
 [ext_resource type="Script" path="res://Knob.gd" id="4_knk8r"]
 
 [node name="joystick" type="Node2D"]
+z_index = 24
 position = Vector2(1065, 524)
 scale = Vector2(2, 2)
 script = ExtResource("1_2yqdd")
 
 [node name="joystick" type="Sprite2D" parent="."]
-position = Vector2(-0.499985, 2.00001)
-scale = Vector2(0.0823566, 0.0777996)
+position = Vector2(63.2188, 0.53124)
+scale = Vector2(0.0866699, 0.0741374)
 texture = ExtResource("2_ioafp")
 
 [node name="knob" type="Sprite2D" parent="."]
-position = Vector2(0, 0.999985)
-scale = Vector2(0.0449625, 0.0437418)
+position = Vector2(64, 1.00001)
+scale = Vector2(0.0677948, 0.0573883)
 texture = ExtResource("3_np8qr")
 script = ExtResource("4_knk8r")
 
 [node name="Button" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0)
-offset_left = -27.0
-offset_top = -27.0
-offset_right = 28.0
-offset_bottom = 25.0
+offset_left = 33.5
+offset_top = -28.0
+offset_right = 95.5
+offset_bottom = 23.0
 
 [connection signal="button_down" from="Button" to="knob" method="_on_button_button_down"]
 [connection signal="button_up" from="Button" to="knob" method="_on_button_button_up"]

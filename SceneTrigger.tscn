@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbeurcd3epkvs"]
+
+[sub_resource type="GDScript" id="GDScript_tphn0"]
+script/source = "class_name SceneTrigger extends Area2D
+
+
+@export var connected_scene: String #name of scene to change
+
+func _on_body_entered(body):
+	if body is Player:
+		scene_manager.change_scene(owner , connected_scene)
+ 
+"
+
+[node name="SceneTrigger" type="Area2D"]
+collision_layer = 0
+collision_mask = 8
+script = SubResource("GDScript_tphn0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

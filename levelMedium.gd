@@ -1,6 +1,5 @@
 extends Node2D
 
-
 @onready var Enemy: PackedScene = preload("res://Enemy.tscn")
 
 @onready var enemy_container = $EnemyContainer
@@ -12,7 +11,10 @@ extends Node2D
 @onready var killed_value = $CanvasLayer/VBoxContainer/TopRow2/TopRow/EnemiesKilledValue
 @onready var game_over_screen = $CanvasLayer/GameOverScreen
 
-var active_enemy = null
+
+@onready var gameOver_value = $CanvasLayer/GameOverScreen/CenterContainer/VBoxContainer/WordCount
+
+var active_enemy: Node = null
 var current_letter_index: int = -1
 
 var difficulty: int = 0
@@ -20,23 +22,25 @@ var enemies_killed: int = 0
 
 
 
+func _ready():
+	# Connect the timers to their respective functions
+	spawn_timer.timeout.connect(_on_spawn_timer_timeout)
+	difficulty_timer.timeout.connect(_on_difficulty_timer_timeout)
+
 func find_new_active_enemy(typed_character: String):
 	for enemy in enemy_container.get_children():
 		var prompt = enemy.get_prompt()
 		var next_character = prompt.substr(0, 1)
 		if next_character == typed_character:
-			print("found new enemy that starts with %s" % next_character)
+			print("Found new enemy that starts with %s" % next_character)
 			active_enemy = enemy
 			current_letter_index = 1
 			active_enemy.set_next_character(current_letter_index)
 			return
 
-
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.is_pressed() and not event.is_echo():
 		var typed_event = event as InputEventKey
-		##var key_typed = PoolByteArray([typed_event.unicode]).get_string_from_utf8()
-		##var key_typed = PackedStringArray([typed_event.unicode])
 		var key_typed = PackedByteArray([typed_event.unicode]).get_string_from_utf8()
 
 		if active_enemy == null:
@@ -45,23 +49,21 @@ func _unhandled_input(event: InputEvent) -> void:
 			var prompt = active_enemy.get_prompt()
 			var next_character = prompt.substr(current_letter_index, 1)
 			if key_typed == next_character:
-				print("successfully typed %s" % key_typed)
+				print("Successfully typed %s" % key_typed)
 				current_letter_index += 1
 				active_enemy.set_next_character(current_letter_index)
 				if current_letter_index == prompt.length():
-					print("done")
+					print("Done")
 					current_letter_index = -1
 					active_enemy.queue_free()
 					active_enemy = null
 					enemies_killed += 1
 					killed_value.text = str(enemies_killed)
 			else:
-				print("incorrectly typed %s instead of %s" % [key_typed, next_character])
-
+				print("Incorrectly typed %s instead of %s" % [key_typed, next_character])
 
 func _on_spawn_timer_timeout() -> void:
 	spawn_enemy()
-
 
 func spawn_enemy():
 	var enemy_instance = Enemy.instantiate()
@@ -70,7 +72,6 @@ func spawn_enemy():
 	enemy_instance.global_position = spawns[index].global_position
 	enemy_container.add_child(enemy_instance)
 	enemy_instance.set_difficulty(difficulty)
-
 
 func _on_difficulty_timer_timeout():
 	difficulty += 1
@@ -85,7 +86,6 @@ func _on_difficulty_timer_timeout():
 		difficulty = 20
 		return
 
-
 func _on_lose_area_body_entered(_body: Node) -> void:
 	game_over()
 
@@ -95,9 +95,9 @@ func game_over():
 	difficulty_timer.stop()
 	active_enemy = null
 	current_letter_index = -1
+	gameOver_value.text = str(enemies_killed)
 	for enemy in enemy_container.get_children():
 		enemy.queue_free()
-
 
 func start_game():
 	game_over_screen.hide()
@@ -109,7 +109,6 @@ func start_game():
 	spawn_timer.start()
 	difficulty_timer.start()
 	spawn_enemy()
-
 
 func _on_restart_button_pressed():
 	start_game()
