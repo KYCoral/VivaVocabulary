@@ -2,7 +2,7 @@ extends Node
 
 var words = [
 "Hola", 
-"Adiós",
+"Adios",
 "Gracias",
 "Por favor",
 "Si",
@@ -18,7 +18,7 @@ var words = [
 "Feliz" ,
 "Triste", 
 "Grande", 
-"Pequeño" ,
+"Pequeno" ,
 "Hombre", 
 "Mujer" 
 ]
@@ -26,7 +26,8 @@ var words = [
 var special_characters = [
 	".",
 	"!",
-	"?"
+	"?",
+	""
 ]
 
 

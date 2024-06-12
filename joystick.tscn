@@ -7,26 +7,26 @@
 
 [node name="joystick" type="Node2D"]
 z_index = 24
-position = Vector2(1065, 524)
+position = Vector2(1794, 899)
 scale = Vector2(2, 2)
 script = ExtResource("1_2yqdd")
 
 [node name="joystick" type="Sprite2D" parent="."]
-position = Vector2(63.2188, 0.53124)
+position = Vector2(-7.62939e-06, -9.95398e-06)
 scale = Vector2(0.0866699, 0.0741374)
 texture = ExtResource("2_ioafp")
 
 [node name="knob" type="Sprite2D" parent="."]
-position = Vector2(64, 1.00001)
-scale = Vector2(0.0677948, 0.0573883)
+position = Vector2(0.500025, 0.500002)
+scale = Vector2(0.0644964, 0.0553868)
 texture = ExtResource("3_np8qr")
 script = ExtResource("4_knk8r")
 
 [node name="Button" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0)
-offset_left = 33.5
+offset_left = -29.5
 offset_top = -28.0
-offset_right = 95.5
+offset_right = 32.5
 offset_bottom = 23.0
 
 [connection signal="button_down" from="Button" to="knob" method="_on_button_button_down"]

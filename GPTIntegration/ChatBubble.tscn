@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://ca5s07d1g583d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uhgp1"]
+bg_color = Color(0.113725, 0.101961, 0.25098, 0.721569)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cpdk0"]
+bg_color = Color(0.113725, 0.101961, 0.25098, 0.721569)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[node name="ChatBubble" type="PanelContainer"]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.255
+offset_bottom = -0.240021
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_uhgp1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cpdk0")
+text = "test wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest wordstest words"
+fit_content = true
