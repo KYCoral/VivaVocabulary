@@ -1,10 +1,13 @@
-[gd_scene load_steps=21 format=3 uid="uid://bawuge7vjoal3"]
+[gd_scene load_steps=26 format=3 uid="uid://bawuge7vjoal3"]
 
 [ext_resource type="Texture2D" uid="uid://j2y6m8u8cvwb" path="res://sprites/room.png" id="1_6c3sy"]
 [ext_resource type="Script" path="res://World_school.gd" id="1_n8u3a"]
 [ext_resource type="Texture2D" uid="uid://cojphe5yqds77" path="res://sprites/asset1.png" id="2_sjb8w"]
 [ext_resource type="PackedScene" uid="uid://bbeurcd3epkvs" path="res://SceneTrigger.tscn" id="4_86hcx"]
 [ext_resource type="Texture2D" uid="uid://btka86n3im6kk" path="res://sprites/asset_library.png" id="4_ttjba"]
+[ext_resource type="Texture2D" uid="uid://n2v8rowgnpn8" path="res://sprites/Untitled127_20240510130540.png" id="6_ube2v"]
+[ext_resource type="PackedScene" uid="uid://c1vm1qdjdao4y" path="res://World-player.tscn" id="7_ovfp1"]
+[ext_resource type="PackedScene" uid="uid://cg35stl1ymfvk" path="res://joystick.tscn" id="8_xnxrw"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_ikx3x"]
 tile_data = PackedInt32Array(262144, 3276802, 36, 327680, 3276802, 37, 393216, 3276802, 38, 196609, 3342338, 35, 262145, 3342338, 36, 327681, 3342338, 37, 393217, 3342338, 38, 458753, 3342338, 39, 196610, 3407874, 35, 262146, 3407874, 36, 327682, 3407874, 37, 393218, 3407874, 38, 131075, 3473410, 34, 196611, 3473410, 35, 262147, 3473410, 36, 327683, 3473410, 37, 393219, 3473410, 38, 131076, 3538946, 34, 196612, 3538946, 35, 262148, 3538946, 36, 327684, 3538946, 37, 65541, 3473410, 34, 131077, 3473410, 35, 196613, 3473410, 36, 262149, 3473410, 37, 327685, 3604482, 37, 65542, 3538946, 34, 131078, 3538946, 35, 196614, 3538946, 36, 262150, 3538946, 37, 7, 3604482, 33, 65543, 3604482, 34, 131079, 3604482, 35, 196615, 3604482, 36, 262151, 3604482, 37, 65544, 3670018, 34, 131080, 3670018, 35, 196616, 3670018, 36)
@@ -10925,6 +10928,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(32.5623, 40.4386)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Untitled12720240510130540/interact:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-176.625, -546.08)]
+}
 
 [sub_resource type="Animation" id="Animation_yjrn4"]
 resource_name = "level2"
@@ -10943,9 +10958,27 @@ tracks/0/keys = {
 "values": [Vector2(30, 40), Vector2(30, 50), Vector2(30, 60), Vector2(30, 50), Vector2(30, 40)]
 }
 
+[sub_resource type="Animation" id="Animation_ymffo"]
+resource_name = "interact"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Untitled12720240510130540/interact:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.9, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-164.444, -546.08), Vector2(-176.625, -651.572), Vector2(-164.444, -546.08)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2ofy0"]
 _data = {
 "RESET": SubResource("Animation_g6huy"),
+"interact": SubResource("Animation_ymffo"),
 "level2": SubResource("Animation_yjrn4")
 }
 
@@ -10975,6 +11008,9 @@ border_color = Color(0.8, 0.8, 0.8, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vvbn7"]
 size = Vector2(75, 48)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_72vwf"]
+radius = 425.963
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_n8u3a")
@@ -11057,10 +11093,53 @@ polygon = PackedVector2Array(140, 399, 133, 159, 589, -34, 1174, 245, 1151, 461,
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Area2D"]
 polygon = PackedVector2Array(173, 385, 285, 445, 199, 499, 297, 542, 373, 483, 541, 569, 425, 637, 466, 654, 589, 590, 718, 654, 1146, 447, 1179, 537, 689, 823, 28, 480)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(650, 365)
+[node name="Untitled12720240510130540" type="Sprite2D" parent="."]
+position = Vector2(544, 230)
+scale = Vector2(0.164189, 0.161149)
+texture = ExtResource("6_ube2v")
+
+[node name="interact_detection" type="Area2D" parent="Untitled12720240510130540"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Untitled12720240510130540/interact_detection"]
+position = Vector2(6.09048, 291.656)
+shape = SubResource("CircleShape2D_72vwf")
+
+[node name="interact" type="Button" parent="Untitled12720240510130540"]
+offset_left = -176.625
+offset_top = -546.08
+offset_right = 169.375
+offset_bottom = -319.08
+rotation = 0.0349066
+size_flags_stretch_ratio = 1.36
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxFlat_ppcu8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kbixc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fkcs3")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_wljur")
+theme_override_styles/focus = SubResource("StyleBoxFlat_716ja")
+text = "Interact
+⇩"
+
+[node name="worldPlayer" parent="." instance=ExtResource("7_ovfp1")]
+position = Vector2(52, 117)
+
+[node name="Camera2D" type="Camera2D" parent="worldPlayer"]
+position = Vector2(329, 262)
 zoom = Vector2(2, 2)
+
+[node name="joystick" parent="worldPlayer/Camera2D" instance=ExtResource("8_xnxrw")]
+position = Vector2(555, 247)
 
 [connection signal="body_entered" from="level2" to="." method="_on_level_2_body_entered"]
 [connection signal="body_exited" from="level2" to="." method="_on_level_2_body_exited"]
 [connection signal="button_up" from="level2/CollisionShape2D/level2" to="." method="_on_level_2_button_up"]
+[connection signal="body_entered" from="Untitled12720240510130540/interact_detection" to="." method="_on_interact_detection_body_entered"]
+[connection signal="body_exited" from="Untitled12720240510130540/interact_detection" to="." method="_on_interact_detection_body_exited"]
+[connection signal="button_up" from="Untitled12720240510130540/interact" to="." method="_on_interact_button_up"]

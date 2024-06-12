@@ -37,20 +37,6 @@ border_color = Color(0.8, 0.8, 0.8, 0)
 draw_center = false
 border_color = Color(0.8, 0.8, 0.8, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c4orr"]
-bg_color = Color(0, 0, 0, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qya8g"]
-bg_color = Color(0, 0, 0, 1)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_04ftm"]
 draw_center = false
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -90,6 +76,20 @@ border_color = Color(0.8, 0.8, 0.8, 0)
 draw_center = false
 border_color = Color(0.8, 0.8, 0.8, 0)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c4orr"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qya8g"]
+bg_color = Color(0, 0, 0, 1)
+
 [node name="login_control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -117,70 +117,90 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 133.0
-offset_top = 92.0
-offset_right = 3.0
-offset_bottom = -9.0
+offset_left = 330.0
+offset_top = 150.0
+offset_right = -1424.0
+offset_bottom = -34.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_0h6jy")
 expand_mode = 1
-stretch_mode = 4
 
 [node name="vb_account" type="VBoxContainer" parent="mcLogin/LoginScreen"]
 layout_mode = 2
-offset_left = 222.0
-offset_top = 246.0
-offset_right = 460.0
-offset_bottom = 299.0
+offset_left = 550.0
+offset_top = 373.0
+offset_right = 1149.0
+offset_bottom = 508.0
 
 [node name="Account" type="Label" parent="mcLogin/LoginScreen/vb_account"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_7qned")
+theme_override_font_sizes/font_size = 40
 text = "Account"
 
-[node name="Email" type="TextEdit" parent="mcLogin/LoginScreen/vb_account"]
+[node name="Email" type="TextEdit" parent="mcLogin/LoginScreen/vb_account/Account"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
+offset_left = 2.0
+offset_top = 63.0
+offset_right = 602.0
+offset_bottom = 123.0
+size_flags_stretch_ratio = 0.0
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_6ofam")
+placeholder_text = " "
+draw_control_chars = true
+draw_tabs = true
+draw_spaces = true
 
-[node name="emailEnter" type="LineEdit" parent="mcLogin/LoginScreen/vb_account/Email"]
+[node name="emailEnter" type="LineEdit" parent="mcLogin/LoginScreen/vb_account/Account/Email"]
 custom_minimum_size = Vector2(0, 18)
 layout_mode = 0
-offset_left = 4.0
-offset_right = 233.0
-offset_bottom = 23.0
+offset_left = 6.0
+offset_top = 4.0
+offset_right = 590.0
+offset_bottom = 59.0
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_4qapi")
 theme_override_styles/focus = SubResource("StyleBoxFlat_1i2xe")
 placeholder_text = "Enter Account"
 max_length = 50
 caret_blink = true
+structured_text_bidi_override = 3
 
 [node name="vb_password" type="VBoxContainer" parent="mcLogin/LoginScreen"]
 layout_mode = 2
-offset_left = 222.0
-offset_top = 304.0
-offset_right = 459.0
-offset_bottom = 365.0
+offset_left = 543.0
+offset_top = 551.0
+offset_right = 1152.0
+offset_bottom = 695.0
 
 [node name="Password" type="Label" parent="mcLogin/LoginScreen/vb_password"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_7qned")
+theme_override_font_sizes/font_size = 40
 text = "Password"
 
-[node name="password" type="TextEdit" parent="mcLogin/LoginScreen/vb_password"]
+[node name="password" type="TextEdit" parent="mcLogin/LoginScreen/vb_password/Password"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
+offset_left = 10.0
+offset_top = 69.0
+offset_right = 611.0
+offset_bottom = 126.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_6ofam")
 
-[node name="passwordEnter" type="LineEdit" parent="mcLogin/LoginScreen/vb_password/password"]
+[node name="passwordEnter" type="LineEdit" parent="mcLogin/LoginScreen/vb_password/Password/password"]
 custom_minimum_size = Vector2(0, 18)
 layout_mode = 0
-offset_left = 4.0
-offset_right = 232.0
-offset_bottom = 23.0
+offset_left = 12.0
+offset_top = 3.0
+offset_right = 593.0
+offset_bottom = 58.0
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_4qapi")
 theme_override_styles/focus = SubResource("StyleBoxFlat_u1orn")
 placeholder_text = "Enter Password"
@@ -192,19 +212,11 @@ secret_character = "✦"
 [node name="vb_loginButton" type="VBoxContainer" parent="mcLogin/LoginScreen"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
-offset_left = 224.0
-offset_top = 484.0
-offset_right = 459.0
-offset_bottom = 629.0
-theme_override_constants/separation = 15
-
-[node name="Login" type="Button" parent="mcLogin/LoginScreen/vb_loginButton"]
-custom_minimum_size = Vector2(0, 24)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("4_7qned")
-theme_override_styles/normal = SubResource("StyleBoxFlat_c4orr")
-theme_override_styles/hover = SubResource("StyleBoxFlat_qya8g")
-text = "Log In"
+offset_left = 561.0
+offset_top = 1010.0
+offset_right = 1145.0
+offset_bottom = 1105.0
+theme_override_constants/separation = 40
 
 [node name="forgotPassword" type="Button" parent="mcLogin/LoginScreen/vb_loginButton"]
 layout_mode = 2
@@ -222,6 +234,7 @@ theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_7qned")
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_04ftm")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5rgar")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_7pi3v")
@@ -232,19 +245,19 @@ text = "Forgot Password?"
 [node name="Options" type="TextureRect" parent="mcLogin/LoginScreen"]
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 0
-offset_left = 1017.0
-offset_top = 531.0
-offset_right = 1260.0
-offset_bottom = 681.0
+offset_left = 1969.0
+offset_top = 760.0
+offset_right = 2672.0
+offset_bottom = 1215.0
 texture = ExtResource("5_x8etg")
 expand_mode = 1
 
 [node name="createAccount" type="Button" parent="mcLogin/LoginScreen/Options"]
 layout_mode = 0
-offset_left = 58.0
-offset_top = 48.0
-offset_right = 167.0
-offset_bottom = 68.0
+offset_left = 189.0
+offset_top = 147.0
+offset_right = 531.0
+offset_bottom = 211.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.345098, 0.176471, 0.0313726, 1)
@@ -259,7 +272,7 @@ theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_y8exg")
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_75q5s")
 theme_override_styles/hover = SubResource("StyleBoxTexture_qjy2l")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ufaa2")
@@ -272,10 +285,10 @@ expand_icon = true
 
 [node name="Settings" type="Button" parent="mcLogin/LoginScreen/Options"]
 layout_mode = 0
-offset_left = 98.0
-offset_top = 66.0
-offset_right = 167.0
-offset_bottom = 86.0
+offset_left = 273.0
+offset_top = 212.0
+offset_right = 537.0
+offset_bottom = 271.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.345098, 0.176471, 0.0313726, 1)
@@ -290,7 +303,7 @@ theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_y8exg")
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_75q5s")
 theme_override_styles/hover = SubResource("StyleBoxTexture_qjy2l")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ufaa2")
@@ -303,10 +316,10 @@ expand_icon = true
 
 [node name="Exit" type="Button" parent="mcLogin/LoginScreen/Options"]
 layout_mode = 0
-offset_left = 126.0
-offset_top = 86.0
-offset_right = 168.0
-offset_bottom = 106.0
+offset_left = 380.0
+offset_top = 272.0
+offset_right = 532.0
+offset_bottom = 329.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.345098, 0.176471, 0.0313726, 1)
@@ -321,7 +334,7 @@ theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_y8exg")
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_75q5s")
 theme_override_styles/hover = SubResource("StyleBoxTexture_qjy2l")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ufaa2")
@@ -333,30 +346,44 @@ alignment = 0
 icon_alignment = 2
 expand_icon = true
 
+[node name="Login" type="Button" parent="mcLogin/LoginScreen/Options"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+offset_left = -1414.0
+offset_top = 187.0
+offset_right = -830.0
+offset_bottom = 252.0
+theme_override_fonts/font = ExtResource("4_7qned")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_c4orr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qya8g")
+text = "Log In"
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 120.0
-offset_top = 26.0
-offset_right = 690.0
-offset_bottom = 113.0
+offset_left = 12.0
+offset_top = 30.0
+offset_right = 1692.0
+offset_bottom = 171.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("10_yfotg")
-theme_override_font_sizes/font_size = 45
+theme_override_font_sizes/font_size = 90
 text = "VivaVocabulario"
+horizontal_alignment = 1
 
 [node name="errorMessage" type="Label" parent="."]
 layout_mode = 0
-offset_left = 231.0
-offset_top = 442.0
-offset_right = 444.0
-offset_bottom = 474.0
+offset_left = 561.0
+offset_top = 763.0
+offset_right = 1148.0
+offset_bottom = 820.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_y8exg")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 40
 horizontal_alignment = 1
 
 [node name="signup_control" parent="." instance=ExtResource("11_41wpn")]
 visible = false
 layout_mode = 1
 
-[connection signal="button_up" from="mcLogin/LoginScreen/vb_loginButton/Login" to="." method="_on_login_button_up"]
+[connection signal="button_up" from="mcLogin/LoginScreen/Options/Login" to="." method="_on_login_button_up"]

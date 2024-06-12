@@ -8,7 +8,6 @@ var userinfo = null
 func _ready():
 	Firebase.Auth.login_with_email_and_password(email,password)
 	Firebase.Auth.connect("login_succeeded", self._on_FirebaseAuth_login_succeeded)
-	$AnimationPlayer.play("pop_up")
 	no.button_down.connect(no_pressed)
 	pass # Replace with function body.
 

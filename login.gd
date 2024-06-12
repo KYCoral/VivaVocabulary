@@ -5,16 +5,13 @@ class_name login_control extends Control
 var forgotPassword_instance : Node
 @onready var signupLogin: Button = $mcLogin/LoginScreen/Options/createAccount
 var signUp_instance: Node
-@onready var settingLogin: Button = $mcLogin/LoginScreen/Options/Settings
 @onready var exitLogin: Button = $mcLogin/LoginScreen/Options/Exit
 @onready var forgotPassword_page: PackedScene = preload("res://forgot_password.tscn")
 @onready var signup_page: PackedScene = preload("res://signup.tscn")
 @onready var exitPopup: PackedScene = preload("res://exit_popup.tscn")
 var exit_instance: Node
-@onready var settings: PackedScene = preload("res://settings_startup.tscn")
 ##@onready var game_page: PackedScene = preload("res://game.tscn")
 @onready var menu_page: PackedScene = preload("res://mainMenu.tscn")
-var settings_instance: Node
 var userinfo = null
 
 func _ready():
@@ -23,7 +20,6 @@ func _ready():
 	# Connect signals for login scene
 	forgotPassword.button_down.connect(on_forgotPassword_pressed)
 	signupLogin.button_down.connect(on_createAccount_pressed)
-	settingLogin.button_down.connect(on_setting_pressed)
 	exitLogin.button_down.connect(on_exit_pressed)
 	
 	signUp_instance = signup_page.instantiate()
@@ -38,10 +34,6 @@ func _ready():
 	exit_instance = exitPopup.instantiate()
 	add_child(exit_instance)
 	exit_instance.hide()
-# Instantiate settings popup and add it to the scene tree
-	settings_instance = settings.instantiate()
-	add_child(settings_instance)
-	settings_instance.hide()
 
 
 # Function to switch to forgot password scene
@@ -53,10 +45,6 @@ func on_forgotPassword_pressed() -> void:
 func on_createAccount_pressed() -> void:
 	#get_tree().change_scene_to_packed(signup_page)
 	signUp_instance.show()
-
-# Placeholder function for setting button action
-func on_setting_pressed() -> void:
-	settings_instance.show()
 
 
 # Function to show exit popup
@@ -82,5 +70,3 @@ func _on_FirebaseAuth_login_failed(error_code, message):
 	$errorMessage.show()
 	print("error code: " + str(error_code))
 	print("message: " + str(message))
-	
-

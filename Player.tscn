@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dkp2roas4in2e"]
+[gd_scene load_steps=10 format=3 uid="uid://dkp2roas4in2e"]
 
 [ext_resource type="Script" path="res://player_scene.gd" id="1_agrkw"]
 [ext_resource type="Texture2D" uid="uid://bs8mfg2mj4i7s" path="res://sprites/4.png" id="2_ye0sn"]
@@ -26,9 +26,37 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("3_lvjv6"), ExtResource("4_oa3oa"), ExtResource("2_ye0sn"), ExtResource("2_ye0sn"), ExtResource("3_lvjv6"), ExtResource("5_qxlua")]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_lltgo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wv3fw"]
 _data = {
+"RESET": SubResource("Animation_lltgo"),
 "idle": SubResource("Animation_q7kgj")
 }
 
@@ -37,12 +65,13 @@ position = Vector2(-166, 61)
 script = ExtResource("1_agrkw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(124, -104)
-scale = Vector2(0.204054, 0.229054)
+position = Vector2(130.25, -104)
+scale = Vector2(0.220946, 0.229054)
 texture = ExtResource("3_lvjv6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(115, -104)
+visible = false
+position = Vector2(123, -100)
 shape = SubResource("CapsuleShape2D_rh7ww")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
