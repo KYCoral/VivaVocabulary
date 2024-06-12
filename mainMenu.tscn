@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dk1l5qlky77hy"]
+[gd_scene load_steps=14 format=3 uid="uid://dk1l5qlky77hy"]
 
 [ext_resource type="Script" path="res://mainMenu.gd" id="1_lpwsb"]
 [ext_resource type="Texture2D" uid="uid://dgpmyd1cn0eb3" path="res://sprites/bg.png" id="2_1frax"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://bbvwljfwmi2r" path="res://exit_popup.tscn" id="8_8uaj2"]
 [ext_resource type="Texture2D" uid="uid://xyoly0ftan1i" path="res://sprites/book.png" id="8_esiel"]
 [ext_resource type="Texture2D" uid="uid://nrhf6dop83yu" path="res://sprites/pencil.png" id="9_hkmgr"]
-[ext_resource type="PackedScene" uid="uid://clqmmtwcncaoj" path="res://settings_startup.tscn" id="9_mmwo0"]
 [ext_resource type="FontFile" uid="uid://bnw5ghde11g7m" path="res://addons/fonts/Monoton-Regular.ttf" id="9_r47v4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7bj7x"]
@@ -49,6 +48,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = -3.0
+offset_right = -3.0
+offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_1frax")
@@ -168,15 +171,11 @@ text = "Exit"
 visible = false
 layout_mode = 1
 
-[node name="settings_startup" parent="." instance=ExtResource("9_mmwo0")]
-visible = false
-layout_mode = 1
-
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 1.0
 offset_top = 103.0
-offset_right = 2787.0
+offset_right = 2558.0
 offset_bottom = 291.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("9_r47v4")
@@ -185,8 +184,8 @@ text = "VivaVocabulario"
 horizontal_alignment = 1
 
 [node name="Untitled7820240418014742" type="Sprite2D" parent="."]
-position = Vector2(1380.5, 1040)
-scale = Vector2(0.850997, 0.836178)
+position = Vector2(1273, 1040)
+scale = Vector2(0.837356, 0.836178)
 texture = ExtResource("7_4k4ik")
 
 [node name="Book" type="Sprite2D" parent="."]
@@ -194,7 +193,7 @@ position = Vector2(482, 667)
 texture = ExtResource("8_esiel")
 
 [node name="Pencil" type="Sprite2D" parent="."]
-position = Vector2(2369.5, 613.5)
+position = Vector2(2181, 667)
 rotation = 0.483456
 scale = Vector2(0.931111, 0.952869)
 texture = ExtResource("9_hkmgr")

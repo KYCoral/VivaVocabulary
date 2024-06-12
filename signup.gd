@@ -9,6 +9,11 @@ extends Control
 @onready var exitPopup: PackedScene = preload("res://exit_popup.tscn")
 var exit_instance: Node
 
+
+@onready var terms : Button = $mcSignup/SignupScreen/signup/vb_confirmPassword/ConfirmPassword/vb_signupButton/cbTerms/termsServices
+@onready var terms_page: PackedScene = preload("res://terms_services.tscn")
+var terms_instance : Node
+
 @onready var signup_complete : CanvasLayer = $CanvasLayer
 
 var userinfo = null
@@ -28,6 +33,17 @@ func _ready():
 	exit_instance.hide()
 	
 	signup_complete.hide()
+	
+	terms.button_down.connect(_on_terms_services_pressed)
+	terms_instance = terms_page.instantiate()
+	add_child(terms_instance)
+	terms_instance.hide()
+
+
+
+func _on_terms_services_pressed() -> void:
+	terms_instance.show()
+	pass # Replace with function body.
 
 
 
@@ -86,3 +102,4 @@ func _on_FirebaseAuth_signup_succeeded(auth_info):
 func _on_close_button_down():
 	signup_complete.hide()
 	pass # Replace with function body.
+

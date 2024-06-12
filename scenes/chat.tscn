@@ -178,14 +178,14 @@ draw_center = false
 draw_center = false
 
 [node name="chat" type="Node2D"]
-position = Vector2(1907, 271)
+position = Vector2(1662, 279)
 script = ExtResource("1_yspck")
 
 [node name="bg" type="TextureRect" parent="."]
-offset_left = -2235.0
-offset_top = -669.0
-offset_right = 898.0
-offset_bottom = 1265.0
+offset_left = -2035.0
+offset_top = -680.0
+offset_right = 1098.0
+offset_bottom = 1254.0
 texture = ExtResource("2_nty2j")
 expand_mode = 1
 

@@ -31,7 +31,7 @@ scene_manager="*res://scene_manager.gd"
 
 [display]
 
-window/size/viewport_width=2796
+window/size/viewport_width=2575
 window/size/viewport_height=1290
 window/stretch/mode="viewport"
 
