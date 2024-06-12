@@ -25,8 +25,8 @@ Firebase="*res://addons/godot-firebase/firebase/firebase.tscn"
 PromptList="*res://PromptList.gd"
 GlobalSignals="*res://GlobalSignals.gd"
 global="*res://global.gd"
-DialogManager="res://DialogManager.gd"
-InteractionManager="res://InteractionManager.tscn"
+DialogManager="*res://DialogManager.gd"
+InteractionManager="*res://InteractionManager.tscn"
 scene_manager="*res://scene_manager.gd"
 
 [display]
@@ -37,7 +37,7 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/HTTPSSEClient/plugin.cfg", "res://addons/http-sse-client/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot-firebase/plugin.cfg", "res://addons/http-sse-client/plugin.cfg")
 
 [firebase]
 

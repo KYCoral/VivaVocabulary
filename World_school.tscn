@@ -11128,14 +11128,14 @@ text = "Interact
 ⇩"
 
 [node name="worldPlayer" parent="." instance=ExtResource("7_ovfp1")]
-position = Vector2(52, 117)
+position = Vector2(206, 279)
 
 [node name="Camera2D" type="Camera2D" parent="worldPlayer"]
-position = Vector2(329, 262)
-zoom = Vector2(2, 2)
+position = Vector2(347, 262)
+zoom = Vector2(3, 3)
 
 [node name="joystick" parent="worldPlayer/Camera2D" instance=ExtResource("8_xnxrw")]
-position = Vector2(555, 247)
+position = Vector2(371, 145)
 
 [connection signal="body_entered" from="level2" to="." method="_on_level_2_body_entered"]
 [connection signal="body_exited" from="level2" to="." method="_on_level_2_body_exited"]

@@ -7,16 +7,16 @@ signal ElevenLabs_voices_fetched(names: Array, name_to_voice_id: Dictionary)
 signal ElevenLabs_generated_speech
 
 # Your Eleven Labs API key
-@export var api_key = "sk-proj-H11hk7YGB0XwEzxTzoLNT3BlbkFJjsQv8edqICMBuCePdg5p"#"sk_2f38c83c3b58c59bb793e74842b6a8286b0b7c370025154c"
+@export var api_key = "sk_2edd7bd484f115842154f00e531f822e4edd15ac41ebf745"#"sk-proj-H11hk7YGB0XwEzxTzoLNT3BlbkFJjsQv8edqICMBuCePdg5p"#"sk_2f38c83c3b58c59bb793e74842b6a8286b0b7c370025154c"
 
 # Character code used for voice to use
 var voice_id : String = ""
 
 # Whether to use audio stream endpoint
-@export var use_stream_mode: bool = true
+@export var use_stream_mode: bool = false
 
 # The endpoint will actually include the character code below
-var endpoint : String = "https://api.elevenlabs.io/v1/text-to-speech"
+var endpoint : String = "https://api.elevenlabs.io/v1/text-to-speech/"
 var endpoint_voice_list : String = "https://api.elevenlabs.io/v1/voices"
 
 # The headers for the request required by Eleven Labs

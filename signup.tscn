@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://chxuxupwve713"]
+[gd_scene load_steps=29 format=3 uid="uid://chxuxupwve713"]
 
 [ext_resource type="Script" path="res://signup.gd" id="1_ehfkp"]
 [ext_resource type="Texture2D" uid="uid://xdsgc8bu05td" path="res://sprites/Untitled78_20240329161643.png" id="1_lyhqg"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dm46g3rno6bkd" path="res://sprites/exit.png" id="5_ximhw"]
 [ext_resource type="Texture2D" uid="uid://cjo2l4jc4ile1" path="res://sprites/user.png" id="6_jwxjd"]
 [ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://addons/fonts/FrancoisOne.ttf" id="7_33q5l"]
+[ext_resource type="FontFile" uid="uid://bpid28mjg4jgt" path="res://addons/dialogue_nodes/themes/C&C Red Alert [INET].ttf" id="10_gemgf"]
 [ext_resource type="FontFile" uid="uid://bnw5ghde11g7m" path="res://addons/fonts/Monoton-Regular.ttf" id="11_ehahw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dpij3"]
@@ -91,6 +92,9 @@ border_color = Color(0.8, 0.8, 0.8, 0)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0c8yk"]
 draw_center = false
 border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wfusi"]
+bg_color = Color(0.0901961, 0.0901961, 0.0901961, 0.937255)
 
 [node name="signup_control" type="Control"]
 layout_mode = 3
@@ -464,3 +468,35 @@ horizontal_alignment = 1
 autowrap_mode = 1
 justification_flags = 161
 metadata/_edit_use_anchors_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+offset_right = 2787.0
+offset_bottom = 1285.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_wfusi")
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/CenterContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_gemgf")
+theme_override_font_sizes/font_size = 180
+text = "Signup Complete"
+
+[node name="Close" type="Button" parent="CanvasLayer"]
+custom_minimum_size = Vector2(0, 24)
+offset_left = 1033.0
+offset_top = 748.0
+offset_right = 1730.0
+offset_bottom = 873.0
+theme_override_fonts/font = ExtResource("5_un483")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxFlat_717o6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_coowr")
+text = "Close
+"
+
+[connection signal="button_down" from="CanvasLayer/Close" to="." method="_on_close_button_down"]

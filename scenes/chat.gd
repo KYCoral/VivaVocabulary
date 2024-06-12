@@ -1,9 +1,9 @@
 extends Node2D
 
-@export var api_key = "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"
-# var max_tokens = 1024
+@export var api_key = "AIzaSyA24uv8pVwaSNqwHG_2TLhnxyxDjxW6UN0"##"sk-proj-H11hk7YGB0XwEzxTzoLNT3BlbkFJjsQv8edqICMBuCePdg5p"#"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"
+var max_tokens = 1024
 @export var temperature = 0.5
-@export var model = "gpt-3.5-turbo"
+@export var model = "gemini-1.5-flash"##"gpt-3.5-turbo"
 @export var stream : bool = true
 
 # The HTTPSSE client doesn't support paralallel requests, so we need to keep
@@ -164,8 +164,8 @@ func _call_gpt(prompt: String, ai_status_message: RichTextLabel) -> void:
 	var new_message = {"role": "user", "content": prompt} 
 	messages.append(new_message) # we append now the prompt too.
 	
-	var host = "https://api.openai.com"
-	var path = "/v1/chat/completions"
+	var host = "https://generativelanguage.googleapis.com"#"https://api.openai.com"
+	var path = "/v1beta/models/gemini-1.5-flash-latest:generateContent"#"/v1/chat/completions"#
 	var url = host+path
 
 	var headers = [
@@ -180,7 +180,7 @@ func _call_gpt(prompt: String, ai_status_message: RichTextLabel) -> void:
 			"stream": stream,
 	})
 	
-	print("Body of the message sent to ChatGPT: ", body)
+	print("Body of the message sent to Gemini: ", body)##("Body of the message sent to ChatGPT: ", body)
 	
 	if stream:
 		$HTTPSSEClient.connect_to_host(host, path, headers, body, ai_status_message, 443)
@@ -240,12 +240,12 @@ func _insert_welcome_messages() -> void:
 	await get_tree().create_timer(1).timeout
 	
 	# await get_tree().process_frame
-	text="[wave amp=20.0 freq=5.0]Hello there![/wave]"
+	text="[wave amp=20.0 freq=5.0]Hey Y'all![/wave]"
 	_insert_message(ai_message,text,types.GODOT)
 	await get_tree().create_timer(1).timeout
 	var ai_message2 = message_ai.instantiate()
 	ai_message2.bbcode_enabled = false
-	text = "This is ChatGPT. How can I help you today?"
+	text = "How can I help you today?"
 	_insert_message(ai_message2,text,types.GODOT)
 
 

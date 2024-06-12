@@ -9,6 +9,8 @@ extends Control
 @onready var exitPopup: PackedScene = preload("res://exit_popup.tscn")
 var exit_instance: Node
 
+@onready var signup_complete : CanvasLayer = $CanvasLayer
+
 var userinfo = null
 signal signup_succeeded(user_info)  
 
@@ -16,6 +18,7 @@ func _ready():
 	# Connect signals for signup scene
 	loginSignup.button_down.connect(on_login_pressed)
 	exitSignup.button_down.connect(on_exit_pressed)
+	
 	##Firebase.Auth.connect("signup_succeeded", self, "_on_FirebaseAuth_signup_succeeded")
 	Firebase.Auth.connect("signup_succeeded", self._on_FirebaseAuth_signup_succeeded)
 
@@ -23,6 +26,8 @@ func _ready():
 	exit_instance = exitPopup.instantiate()
 	add_child(exit_instance)
 	exit_instance.hide()
+	
+	signup_complete.hide()
 
 
 
@@ -75,4 +80,9 @@ func _on_FirebaseAuth_signup_succeeded(auth_info):
 	})
 	var addedUser = add_task
 	print("User added successfully:", addedUser)
+	signup_complete.show()
 
+
+func _on_close_button_down():
+	signup_complete.hide()
+	pass # Replace with function body.
