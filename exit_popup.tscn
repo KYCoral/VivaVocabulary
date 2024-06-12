@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bbvwljfwmi2r"]
+[gd_scene load_steps=11 format=3 uid="uid://bbvwljfwmi2r"]
 
 [ext_resource type="Script" path="res://exit_popup.gd" id="1_2g4ui"]
 [ext_resource type="Texture2D" uid="uid://dknccekvublha" path="res://sprites/Untitled75_20240409205437.png" id="1_4dojf"]
@@ -11,26 +11,6 @@ colors = PackedColorArray(0, 0, 0, 0.392157, 0, 0, 0, 0.392157)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_uc5rk"]
 gradient = SubResource("Gradient_l7ibk")
 fill = 1
-
-[sub_resource type="Animation" id="Animation_1grch"]
-resource_name = "pop_up"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("validation:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(-0.1, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(1.2, 1.2), Vector2(1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_txx7q"]
-_data = {
-"pop_up": SubResource("Animation_1grch")
-}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1xurt"]
 bg_color = Color(0, 0, 0, 1)
@@ -116,10 +96,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -686.0
-offset_top = -355.0
-offset_right = 652.0
-offset_bottom = 383.0
+offset_left = -1422.0
+offset_top = -657.0
+offset_right = 1420.0
+offset_bottom = 669.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_stretch_ratio = 0.0
@@ -133,10 +113,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -253.0
-offset_top = -188.0
-offset_right = 241.0
-offset_bottom = 374.0
+offset_left = -1144.0
+offset_top = -697.0
+offset_right = 5350.0
+offset_bottom = 4800.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.3, 0.3)
@@ -144,35 +124,29 @@ pivot_offset = Vector2(247, 200)
 texture = ExtResource("1_4dojf")
 expand_mode = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="validation"]
-root_node = NodePath("../..")
-libraries = {
-"": SubResource("AnimationLibrary_txx7q")
-}
-
 [node name="Label" type="Label" parent="validation"]
 layout_mode = 0
-offset_left = -62.0
-offset_top = 147.0
-offset_right = 578.0
-offset_bottom = 187.0
+offset_left = 2147.0
+offset_top = 1340.0
+offset_right = 4677.0
+offset_bottom = 1509.0
 theme_override_fonts/font = ExtResource("2_3bcjm")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 180
 text = "Are you sure you want to exit?"
 horizontal_alignment = 1
 
 [node name="Yes" type="Button" parent="validation"]
 layout_mode = 0
-offset_left = 107.0
-offset_top = 202.0
-offset_right = 243.0
-offset_bottom = 242.0
+offset_left = 1590.33
+offset_top = 1950.0
+offset_right = 3213.33
+offset_bottom = 2407.0
 theme_override_colors/font_pressed_color = Color(0.505882, 0.427451, 1, 1)
 theme_override_colors/font_hover_color = Color(0.8, 0.8, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.505882, 0.427451, 1, 1)
 theme_override_colors/font_disabled_color = Color(0.8, 0.8, 1, 1)
 theme_override_fonts/font = ExtResource("2_3bcjm")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 180
 theme_override_styles/normal = SubResource("StyleBoxFlat_1xurt")
 theme_override_styles/hover = SubResource("StyleBoxFlat_vjlei")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_83g08")
@@ -182,16 +156,16 @@ text = "Yes"
 
 [node name="No" type="Button" parent="validation"]
 layout_mode = 0
-offset_left = 271.0
-offset_top = 201.0
-offset_right = 406.0
-offset_bottom = 241.0
+offset_left = 3504.0
+offset_top = 1953.0
+offset_right = 5014.0
+offset_bottom = 2403.0
 theme_override_colors/font_pressed_color = Color(0.505882, 0.427451, 1, 1)
 theme_override_colors/font_hover_color = Color(0.8, 0.8, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.505882, 0.427451, 1, 1)
 theme_override_colors/font_disabled_color = Color(0.8, 0.8, 1, 1)
 theme_override_fonts/font = ExtResource("2_3bcjm")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 180
 theme_override_styles/normal = SubResource("StyleBoxFlat_1xurt")
 theme_override_styles/hover = SubResource("StyleBoxFlat_vjlei")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_83g08")

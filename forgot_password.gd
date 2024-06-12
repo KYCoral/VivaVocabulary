@@ -17,8 +17,7 @@ func _ready():
 
 func on_goBack_pressed() -> void:
 	#get_tree().change_scene_to_packed(login_page)
-	#login_instance.show()
-	hide()
+	login_instance.show()
 	pass
 
 

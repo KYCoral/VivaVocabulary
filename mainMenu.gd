@@ -5,7 +5,7 @@ extends Control
 @onready var NewGame = $Background/Menu/newGame as Button
 @onready var Settings = $Background/Menu/settings as Button
 @onready var Exit = $Background/Menu/exit as Button
-@onready var map_page: PackedScene = preload("res://World_Scene_Map.tscn")
+@onready var map_page: PackedScene = preload("res://World.tscn")
 @onready var exitPopup: PackedScene = preload("res://exit_popup.tscn")
 var exit_instance: Node
 @onready var settings: PackedScene = preload("res://settings_menu.tscn")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://chxuxupwve713"]
+[gd_scene load_steps=27 format=3 uid="uid://chxuxupwve713"]
 
 [ext_resource type="Script" path="res://signup.gd" id="1_ehfkp"]
 [ext_resource type="Texture2D" uid="uid://xdsgc8bu05td" path="res://sprites/Untitled78_20240329161643.png" id="1_lyhqg"]
@@ -7,10 +7,8 @@
 [ext_resource type="FontFile" uid="uid://cxo00kjcsmt7t" path="res://addons/fonts/BalooBhaijaan-Regular.ttf" id="5_un483"]
 [ext_resource type="Texture2D" uid="uid://dm46g3rno6bkd" path="res://sprites/exit.png" id="5_ximhw"]
 [ext_resource type="Texture2D" uid="uid://cjo2l4jc4ile1" path="res://sprites/user.png" id="6_jwxjd"]
-[ext_resource type="Texture2D" uid="uid://c0xts38mq0nu2" path="res://sprites/settings.png" id="7_3ie76"]
 [ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://addons/fonts/FrancoisOne.ttf" id="7_33q5l"]
 [ext_resource type="FontFile" uid="uid://bnw5ghde11g7m" path="res://addons/fonts/Monoton-Regular.ttf" id="11_ehahw"]
-[ext_resource type="Texture2D" uid="uid://dtc8iouhvajh5" path="res://sprites/accountresgisteredSuccess.jpg" id="11_o7plq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dpij3"]
 draw_center = false
@@ -94,43 +92,6 @@ border_color = Color(0.8, 0.8, 0.8, 0)
 draw_center = false
 border_color = Color(0.8, 0.8, 0.8, 0)
 
-[sub_resource type="Animation" id="Animation_vispn"]
-resource_name = "registered"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 2,
-"values": [Vector2(0, 0), Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_cy306"]
-resource_name = "reversed"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.7),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_43h4q"]
-_data = {
-"registered": SubResource("Animation_vispn"),
-"reversed": SubResource("Animation_cy306")
-}
-
 [node name="signup_control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -157,32 +118,54 @@ expand_mode = 1
 [node name="signup" type="TextureRect" parent="mcSignup/SignupScreen"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.00546875
-anchor_top = -0.0166667
-anchor_right = 0.994531
-anchor_bottom = 0.983333
+anchor_left = 0.0693848
+anchor_top = 0.0457364
+anchor_right = 0.52289
+anchor_bottom = 0.97907
 offset_left = 133.0
 offset_top = 92.0
-offset_right = 3.0
-offset_bottom = -9.0
+offset_right = -84.0
+offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_suoel")
 expand_mode = 1
-stretch_mode = 4
 metadata/_edit_use_anchors_ = true
 
-[node name="vb_signupButton" type="VBoxContainer" parent="mcSignup/SignupScreen/signup"]
+[node name="vb_confirmPassword" type="VBoxContainer" parent="mcSignup/SignupScreen/signup"]
+layout_mode = 2
+anchor_left = 0.126546
+anchor_top = 0.163653
+anchor_right = 0.480495
+anchor_bottom = 0.504521
+offset_left = 88.0
+offset_top = 250.0
+offset_right = 326.0
+offset_bottom = 328.0
+metadata/_edit_use_anchors_ = true
+
+[node name="ConfirmPassword" type="Label" parent="mcSignup/SignupScreen/signup/vb_confirmPassword"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_un483")
+theme_override_font_sizes/font_size = 40
+text = "Confirm Password"
+
+[node name="vb_signupButton" type="VBoxContainer" parent="mcSignup/SignupScreen/signup/vb_confirmPassword/ConfirmPassword"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
-offset_left = 91.0
-offset_top = 392.0
-offset_right = 325.0
-offset_bottom = 537.0
+anchor_left = -0.225608
+anchor_top = -0.996923
+anchor_right = 0.405187
+anchor_bottom = -0.390366
+offset_left = 125.267
+offset_top = 408.812
+offset_right = 359.267
+offset_bottom = 553.812
 theme_override_constants/separation = 15
 metadata/_edit_use_anchors_ = true
 
-[node name="cbTerms" type="CheckBox" parent="mcSignup/SignupScreen/signup/vb_signupButton"]
+[node name="cbTerms" type="CheckBox" parent="mcSignup/SignupScreen/signup/vb_confirmPassword/ConfirmPassword/vb_signupButton"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
@@ -192,15 +175,15 @@ theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_un483")
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 35
 text = "I agree to the "
 
-[node name="termsServices" type="Button" parent="mcSignup/SignupScreen/signup/vb_signupButton/cbTerms"]
+[node name="termsServices" type="Button" parent="mcSignup/SignupScreen/signup/vb_confirmPassword/ConfirmPassword/vb_signupButton/cbTerms"]
 layout_mode = 0
-offset_left = 113.0
-offset_top = 4.0
-offset_right = 236.0
-offset_bottom = 26.0
+offset_left = 218.354
+offset_top = 2.00037
+offset_right = 582.354
+offset_bottom = 63.0004
 theme_override_colors/font_color = Color(0, 0, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.290196, 0.376471, 0.972549, 1)
@@ -215,7 +198,7 @@ theme_override_colors/icon_hover_pressed_color = Color(0, 0, 1, 1)
 theme_override_colors/icon_focus_color = Color(0, 0, 1, 1)
 theme_override_colors/icon_disabled_color = Color(0, 0, 1, 1)
 theme_override_fonts/font = ExtResource("5_un483")
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxFlat_dpij3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ukic1")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_hvsk7")
@@ -223,39 +206,33 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_n5h1r")
 theme_override_styles/focus = SubResource("StyleBoxFlat_nse2d")
 text = "Terms and Services"
 
-[node name="signUp" type="Button" parent="mcSignup/SignupScreen/signup/vb_signupButton"]
+[node name="signUp" type="Button" parent="mcSignup/SignupScreen/signup/vb_confirmPassword/ConfirmPassword/vb_signupButton"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_un483")
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_717o6")
 theme_override_styles/hover = SubResource("StyleBoxFlat_coowr")
 text = "Sign Up"
 
-[node name="vb_confirmPassword" type="VBoxContainer" parent="mcSignup/SignupScreen/signup"]
-layout_mode = 2
-offset_left = 88.0
-offset_top = 250.0
-offset_right = 326.0
-offset_bottom = 328.0
-metadata/_edit_use_anchors_ = true
-
-[node name="ConfirmPassword" type="Label" parent="mcSignup/SignupScreen/signup/vb_confirmPassword"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_un483")
-text = "Confirm Password"
-
-[node name="confirmPassword" type="TextEdit" parent="mcSignup/SignupScreen/signup/vb_confirmPassword"]
+[node name="confirmPassword" type="TextEdit" parent="mcSignup/SignupScreen/signup/vb_confirmPassword/ConfirmPassword"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
+offset_top = 65.0
+offset_right = 604.0
+offset_bottom = 119.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_jfftc")
 
-[node name="confirmPasswordEnter" type="LineEdit" parent="mcSignup/SignupScreen/signup/vb_confirmPassword/confirmPassword"]
+[node name="confirmPasswordEnter" type="LineEdit" parent="mcSignup/SignupScreen/signup/vb_confirmPassword/ConfirmPassword/confirmPassword"]
 custom_minimum_size = Vector2(0, 18)
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.60596
+anchor_bottom = 0.592593
 offset_left = 4.0
 offset_right = 233.0
 offset_bottom = 23.0
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_5q2sd")
 theme_override_styles/focus = SubResource("StyleBoxFlat_pvk5i")
 placeholder_text = "Confirm Password"
@@ -267,6 +244,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="vb_password" type="VBoxContainer" parent="mcSignup/SignupScreen/signup"]
 layout_mode = 2
+anchor_left = 0.128846
+anchor_top = 0.0822785
+anchor_right = 0.475
+anchor_bottom = 0.167269
 offset_left = 90.0
 offset_top = 179.0
 offset_right = 327.0
@@ -277,19 +258,29 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_un483")
+theme_override_font_sizes/font_size = 40
 text = "Password"
 
-[node name="password" type="TextEdit" parent="mcSignup/SignupScreen/signup/vb_password"]
+[node name="password" type="TextEdit" parent="mcSignup/SignupScreen/signup/vb_password/Password"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
+offset_top = 65.0
+offset_right = 597.0
+offset_bottom = 123.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_jfftc")
 
-[node name="passwordEnter" type="LineEdit" parent="mcSignup/SignupScreen/signup/vb_password/password"]
+[node name="passwordEnter" type="LineEdit" parent="mcSignup/SignupScreen/signup/vb_password/Password/password"]
 custom_minimum_size = Vector2(0, 18)
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00502513
+anchor_top = 0.0517241
+anchor_right = 0.60134
+anchor_bottom = 0.517241
 offset_left = 4.0
 offset_right = 232.0
 offset_bottom = 23.0
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_5q2sd")
 theme_override_styles/focus = SubResource("StyleBoxFlat_efbwi")
 placeholder_text = "Enter Password"
@@ -301,6 +292,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="vb_account" type="VBoxContainer" parent="mcSignup/SignupScreen/signup"]
 layout_mode = 2
+anchor_left = 0.125962
+anchor_top = 0.00994575
+anchor_right = 0.477885
+anchor_bottom = 0.0660036
 offset_left = 90.0
 offset_top = 117.0
 offset_right = 328.0
@@ -311,19 +306,43 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_un483")
+theme_override_font_sizes/font_size = 40
 text = "E-mail"
 
-[node name="Email" type="TextEdit" parent="mcSignup/SignupScreen/signup/vb_account"]
+[node name="signup" type="TextureRect" parent="mcSignup/SignupScreen/signup/vb_account/Account"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 330.0
+offset_top = 150.0
+offset_right = -1424.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_suoel")
+expand_mode = 1
+
+[node name="Email" type="TextEdit" parent="mcSignup/SignupScreen/signup/vb_account/Account/signup"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
+offset_left = 250.0
+offset_top = -23.0
+offset_right = 844.0
+offset_bottom = 32.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_jfftc")
 
-[node name="emailEnter" type="LineEdit" parent="mcSignup/SignupScreen/signup/vb_account/Email"]
-custom_minimum_size = Vector2(0, 18)
-layout_mode = 0
+[node name="emailEnter" type="LineEdit" parent="mcSignup/SignupScreen/signup/vb_account/Account/signup/Email"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.0175439
+anchor_right = 0.602329
+anchor_bottom = 0.578947
 offset_left = 4.0
 offset_right = 233.0
 offset_bottom = 23.0
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_5q2sd")
 theme_override_styles/focus = SubResource("StyleBoxFlat_shc6u")
 placeholder_text = "Enter E-mail Account"
@@ -335,10 +354,10 @@ metadata/_edit_use_anchors_ = true
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.808594
-anchor_top = 0.761111
-anchor_right = 0.869531
-anchor_bottom = 0.761111
+anchor_left = 1.72491
+anchor_top = 0.749663
+anchor_right = 2.0389
+anchor_bottom = 0.861779
 offset_left = -27.8828
 offset_top = -15.1278
 offset_right = 122.117
@@ -349,10 +368,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Login" type="Button" parent="mcSignup/SignupScreen/signup/Options"]
 layout_mode = 0
-offset_left = 111.0
-offset_top = 46.0
-offset_right = 166.0
-offset_bottom = 66.0
+offset_left = 194.0
+offset_top = 87.0
+offset_right = 332.0
+offset_bottom = 144.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.345098, 0.176471, 0.0313726, 1)
@@ -367,7 +386,7 @@ theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_33q5l")
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_0q7vo")
 theme_override_styles/hover = SubResource("StyleBoxTexture_uxq1w")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_pl8n4")
@@ -378,43 +397,12 @@ icon = ExtResource("6_jwxjd")
 icon_alignment = 2
 expand_icon = true
 
-[node name="Settings" type="Button" parent="mcSignup/SignupScreen/signup/Options"]
-layout_mode = 0
-offset_left = 98.0
-offset_top = 66.0
-offset_right = 167.0
-offset_bottom = 86.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(0.345098, 0.176471, 0.0313726, 1)
-theme_override_colors/font_focus_color = Color(0.345098, 0.176471, 0.0313726, 1)
-theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("7_33q5l")
-theme_override_font_sizes/font_size = 14
-theme_override_styles/normal = SubResource("StyleBoxFlat_0q7vo")
-theme_override_styles/hover = SubResource("StyleBoxTexture_uxq1w")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_pl8n4")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_0v5qc")
-theme_override_styles/focus = SubResource("StyleBoxFlat_0c8yk")
-text = "Settings"
-icon = ExtResource("7_3ie76")
-icon_alignment = 2
-expand_icon = true
-
 [node name="Exit" type="Button" parent="mcSignup/SignupScreen/signup/Options"]
 layout_mode = 0
-offset_left = 126.0
-offset_top = 86.0
-offset_right = 168.0
-offset_bottom = 106.0
+offset_left = 234.0
+offset_top = 135.0
+offset_right = 336.0
+offset_bottom = 192.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.345098, 0.176471, 0.0313726, 1)
@@ -429,7 +417,7 @@ theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_33q5l")
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_0q7vo")
 theme_override_styles/hover = SubResource("StyleBoxTexture_uxq1w")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_pl8n4")
@@ -441,46 +429,38 @@ alignment = 0
 icon_alignment = 2
 expand_icon = true
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 76.0
-offset_top = 50.0
-offset_right = 1233.0
-offset_bottom = 180.0
-scale = Vector2(1e-05, 1e-05)
-pivot_offset = Vector2(600, -300)
-texture = ExtResource("11_o7plq")
-expand_mode = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect"]
-libraries = {
-"": SubResource("AnimationLibrary_43h4q")
-}
-
 [node name="Label" type="Label" parent="."]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0307582
+anchor_right = 0.394492
+anchor_bottom = 0.051938
 offset_left = 108.0
 offset_top = 30.0
 offset_right = 578.0
 offset_bottom = 104.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("11_ehahw")
-theme_override_font_sizes/font_size = 42
+theme_override_font_sizes/font_size = 90
 text = "VivaVocabulario"
+horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="errorMessage" type="Label" parent="."]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.118026
+anchor_top = 0.206977
+anchor_right = 0.244993
+anchor_bottom = 0.278295
 offset_left = 229.0
 offset_top = 412.0
 offset_right = 455.0
 offset_bottom = 458.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_33q5l")
+theme_override_font_sizes/font_size = 40
 horizontal_alignment = 1
 autowrap_mode = 1
 justification_flags = 161
 metadata/_edit_use_anchors_ = true
-
-[connection signal="button_up" from="mcSignup/SignupScreen/signup/vb_signupButton/signUp" to="." method="_on_sign_up_button_up"]
