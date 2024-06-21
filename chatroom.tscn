@@ -1,18 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://pfg5bcrlh364"]
+[gd_scene load_steps=12 format=3 uid="uid://pfg5bcrlh364"]
 
 [ext_resource type="FontFile" uid="uid://bcg26eik2m2o8" path="res://addons/dialogue_nodes/themes/Poppins-Italic.ttf" id="1_b0u4c"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r76wt"]
-bg_color = Color(0, 0, 0, 0.215686)
+bg_color = Color(0, 0, 0, 0.356863)
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
 border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 15
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-corner_radius_bottom_left = 15
+corner_radius_top_left = 50
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 5
 expand_margin_left = 5.0
 expand_margin_top = 5.0
 expand_margin_right = 5.0
@@ -31,6 +31,111 @@ corner_radius_top_left = 15
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wd7wp"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7teb7"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1lpfo"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o8m6l"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k6x3f"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l8u1w"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6s6vs"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -68,18 +173,22 @@ layout_mode = 0
 offset_left = 23.0
 offset_top = 91.0
 offset_right = 341.0
-offset_bottom = 689.0
+offset_bottom = 669.0
+theme_override_font_sizes/font_size = 40
 theme_override_styles/panel = SubResource("StyleBoxFlat_57wju")
 
 [node name="Label" type="Label" parent="chatrooms"]
 layout_mode = 0
-offset_left = 5.0
-offset_top = 246.0
-offset_right = 310.0
-offset_bottom = 368.0
+offset_left = 8.0
+offset_top = 198.0
+offset_right = 315.0
+offset_bottom = 427.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "THERE ARE NO
- AVAILABLE CHATROOMS"
+theme_override_font_sizes/font_size = 40
+text = "THERE ARE
+ NO
+ AVAILABLE 
+CHATROOMS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -92,3 +201,10 @@ offset_left = 381.0
 offset_top = 35.0
 offset_right = -36.0
 offset_bottom = -144.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_wd7wp")
+theme_override_styles/focus = SubResource("StyleBoxFlat_7teb7")
+theme_override_styles/hovered = SubResource("StyleBoxFlat_1lpfo")
+theme_override_styles/selected = SubResource("StyleBoxFlat_o8m6l")
+theme_override_styles/selected_focus = SubResource("StyleBoxFlat_k6x3f")
+theme_override_styles/cursor = SubResource("StyleBoxFlat_l8u1w")
+theme_override_styles/cursor_unfocused = SubResource("StyleBoxFlat_6s6vs")

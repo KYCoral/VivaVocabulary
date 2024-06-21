@@ -21,3 +21,11 @@ texture = ExtResource("1_kswxk")
 position = Vector2(351, 323)
 scale = Vector2(0.200195, 0.198438)
 shape = SubResource("CapsuleShape2D_6sgnq")
+
+[node name="id" type="Label" parent="."]
+offset_left = 276.0
+offset_top = 241.0
+offset_right = 425.0
+offset_bottom = 264.0
+horizontal_alignment = 1
+vertical_alignment = 1

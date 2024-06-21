@@ -499,4 +499,5 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_coowr")
 text = "Close
 "
 
+[connection signal="button_up" from="mcSignup/SignupScreen/signup/vb_confirmPassword/ConfirmPassword/vb_signupButton/signUp" to="." method="_on_sign_up_button_up"]
 [connection signal="button_down" from="CanvasLayer/Close" to="." method="_on_close_button_down"]

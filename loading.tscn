@@ -1,0 +1,83 @@
+[gd_scene load_steps=6 format=3 uid="uid://dn0s2hvkt6axd"]
+
+[ext_resource type="Texture2D" uid="uid://dgpmyd1cn0eb3" path="res://sprites/bg.png" id="1_704t8"]
+[ext_resource type="FontFile" uid="uid://x07w57hnrhsp" path="res://addons/fonts/PL Benguiat Caslon/PL Benguiat Caslon.ttf" id="2_vja6w"]
+
+[sub_resource type="Animation" id="Animation_i3gq0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("loading:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.746]
+}
+
+[sub_resource type="Animation" id="Animation_8kqcy"]
+resource_name = "loading"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("loading:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.746, 0.882, 0.924, 1.0, 0.924, 0.882, 0.746, 0.746, 0.882, 0.924, 1.0, 0.924, 0.882, 0.746, 0.882, 0.924]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t3m6n"]
+_data = {
+"RESET": SubResource("Animation_i3gq0"),
+"loading": SubResource("Animation_8kqcy")
+}
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bg" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_704t8")
+expand_mode = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="loading" type="Label" parent="CenterContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.992157)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_vja6w")
+theme_override_font_sizes/font_size = 90
+text = "Loading..."
+visible_characters = 7
+visible_ratio = 0.746
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer"]
+libraries = {
+"": SubResource("AnimationLibrary_t3m6n")
+}

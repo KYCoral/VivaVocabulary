@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://qjrersny5ypx"]
+[gd_scene load_steps=27 format=3 uid="uid://qjrersny5ypx"]
 
 [ext_resource type="Texture2D" uid="uid://xdsgc8bu05td" path="res://sprites/Untitled78_20240329161643.png" id="1_3ovxe"]
 [ext_resource type="Script" path="res://login.gd" id="1_q0dq4"]
@@ -118,7 +118,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 330.0
 offset_top = 150.0
-offset_right = -1424.0
+offset_right = -1192.0
 offset_bottom = -34.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -244,19 +244,19 @@ text = "Forgot Password?"
 [node name="Options" type="TextureRect" parent="mcLogin/LoginScreen"]
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 0
-offset_left = 1969.0
-offset_top = 760.0
-offset_right = 2672.0
-offset_bottom = 1215.0
+offset_left = 2017.0
+offset_top = 973.0
+offset_right = 2496.0
+offset_bottom = 1249.0
 texture = ExtResource("5_x8etg")
 expand_mode = 1
 
 [node name="createAccount" type="Button" parent="mcLogin/LoginScreen/Options"]
 layout_mode = 0
-offset_left = 189.0
-offset_top = 147.0
-offset_right = 531.0
-offset_bottom = 211.0
+offset_left = 101.0
+offset_top = 86.0
+offset_right = 398.0
+offset_bottom = 143.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.345098, 0.176471, 0.0313726, 1)
@@ -282,13 +282,12 @@ icon = ExtResource("7_2g346")
 icon_alignment = 2
 expand_icon = true
 
-
 [node name="Exit" type="Button" parent="mcLogin/LoginScreen/Options"]
 layout_mode = 0
-offset_left = 380.0
-offset_top = 272.0
-offset_right = 532.0
-offset_bottom = 329.0
+offset_left = 294.0
+offset_top = 139.0
+offset_right = 398.0
+offset_bottom = 196.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.345098, 0.176471, 0.0313726, 1)
@@ -318,10 +317,10 @@ expand_icon = true
 [node name="Login" type="Button" parent="mcLogin/LoginScreen/Options"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
-offset_left = -1414.0
-offset_top = 187.0
-offset_right = -830.0
-offset_bottom = 252.0
+offset_left = -1451.0
+offset_top = -37.0
+offset_right = -867.0
+offset_bottom = 28.0
 theme_override_fonts/font = ExtResource("4_7qned")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_c4orr")

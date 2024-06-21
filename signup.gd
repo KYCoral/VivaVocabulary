@@ -2,7 +2,7 @@ class_name signup_control
 extends Control
 
 # Define variables for signup scene
-@onready var agree_checkbox: CheckBox = $mcSignup/SignupScreen/signup/vb_signupButton/cbTerms
+@onready var agree_checkbox: CheckBox = $mcSignup/SignupScreen/signup/vb_confirmPassword/ConfirmPassword/vb_signupButton/cbTerms
 @onready var loginSignup: Button = $mcSignup/SignupScreen/signup/Options/Login
 @onready var exitSignup: Button = $mcSignup/SignupScreen/signup/Options/Exit
 @onready var login_page: PackedScene = preload("res://login.tscn")
@@ -14,6 +14,8 @@ var exit_instance: Node
 @onready var terms_page: PackedScene = preload("res://terms_services.tscn")
 var terms_instance : Node
 
+@onready var signup : Button = $mcSignup/SignupScreen/signup/vb_confirmPassword/ConfirmPassword/vb_signupButton/signUp
+
 @onready var signup_complete : CanvasLayer = $CanvasLayer
 
 var userinfo = null
@@ -23,7 +25,7 @@ func _ready():
 	# Connect signals for signup scene
 	loginSignup.button_down.connect(on_login_pressed)
 	exitSignup.button_down.connect(on_exit_pressed)
-	
+	signup.button_up.connect(_on_sign_up_button_up)
 	##Firebase.Auth.connect("signup_succeeded", self, "_on_FirebaseAuth_signup_succeeded")
 	Firebase.Auth.connect("signup_succeeded", self._on_FirebaseAuth_signup_succeeded)
 
@@ -62,7 +64,9 @@ func _on_sign_up_button_up():
 	$errorMessage.hide()
 	var email = $mcSignup/SignupScreen/signup/vb_account/Account/signup/Email/emailEnter.text
 	var password = $mcSignup/SignupScreen/signup/vb_password/Password/password/passwordEnter.text
-	var confirmPassword = $mcSignup/SignupScreen/signup/vb_confirmPassword/ConfirmPassword/confirmPassword.text 
+	var confirmPassword = $mcSignup/SignupScreen/signup/vb_confirmPassword/ConfirmPassword/confirmPassword/confirmPasswordEnter.text 
+	var username = str(email).split("@")[-1]
+	print(username)
 	 # Get confirm password
 	if password != confirmPassword:
 		$errorMessage.text = "Password does not match"
@@ -73,6 +77,9 @@ func _on_sign_up_button_up():
 		$errorMessage.show()
 		# Display error message (e.g., "Please agree to terms")
 		return  # Exit the function if checkbox is not checked
+	elif username != "iskolarngbayan.pup.edu.com":
+		$errorMessage.text = "Email must be in the pup account format."
+		$errorMessage.show()
 	else:
 		Firebase.Auth.signup_with_email_and_password(email,password)
 

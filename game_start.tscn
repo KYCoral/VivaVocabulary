@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://coudef1pdbav7"]
+
+[ext_resource type="Texture2D" uid="uid://cih0mp17223ac" path="res://sprites/Untitled124_20240510122530.png" id="1_7sjwh"]
+[ext_resource type="Texture2D" uid="uid://yyqtqyjwblg7" path="res://sprites/Untitled124_20240510122533.png" id="2_y40tx"]
+[ext_resource type="Texture2D" uid="uid://0iawi8b0js8x" path="res://sprites/Untitled124_20240510122542.png" id="3_iaj5q"]
+[ext_resource type="Texture2D" uid="uid://bywy0u8awxucj" path="res://sprites/Untitled124_20240510122539.png" id="4_ea4ku"]
+
+[sub_resource type="Animation" id="Animation_0rscw"]
+resource_name = "set_play"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CenterContainer/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_7sjwh"), ExtResource("2_y40tx"), ExtResource("1_7sjwh"), ExtResource("2_y40tx"), ExtResource("1_7sjwh"), ExtResource("2_y40tx"), ExtResource("1_7sjwh"), ExtResource("2_y40tx"), ExtResource("1_7sjwh"), ExtResource("1_7sjwh"), ExtResource("3_iaj5q"), ExtResource("4_ea4ku"), ExtResource("3_iaj5q"), ExtResource("4_ea4ku"), ExtResource("3_iaj5q"), ExtResource("4_ea4ku"), ExtResource("3_iaj5q"), ExtResource("4_ea4ku"), ExtResource("3_iaj5q"), ExtResource("3_iaj5q"), ExtResource("3_iaj5q")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m77qg"]
+_data = {
+"set_play": SubResource("Animation_0rscw")
+}
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_m77qg")
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer"]
+layout_mode = 2
+texture = ExtResource("3_iaj5q")
+stretch_mode = 3

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bstnmruoashay"]
+[gd_scene load_steps=36 format=3 uid="uid://bstnmruoashay"]
 
 [ext_resource type="Script" path="res://scenes/chat.gd" id="1_yspck"]
 [ext_resource type="Script" path="res://scenes/user_prompt.gd" id="2_lse07"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://scenes/send_button.gd" id="3_mbnij"]
 [ext_resource type="Script" path="res://scenes/conversation_container.gd" id="4_5r13d"]
 [ext_resource type="Script" path="res://addons/HTTPSSEClient/HTTPSSEClient_modified.gd" id="5_r7tt6"]
-[ext_resource type="FontFile" uid="uid://dv4rnn0ml62q3" path="res://addons/dialogue_nodes/themes/Poppins-Bold.ttf" id="6_i1b47"]
 [ext_resource type="PackedScene" uid="uid://c43fwhvdko2se" path="res://scenes/godot-elevenlabs-tts/ElevenLabsTTS.tscn" id="6_y77mm"]
 [ext_resource type="Script" path="res://scenes/godot-elevenlabs-tts/ElevenLabsTTS_modified.gd" id="7_xhtff"]
 
@@ -283,7 +282,6 @@ theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("6_i1b47")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/focus = SubResource("StyleBoxFlat_tnyup")
 theme_override_styles/normal = SubResource("StyleBoxFlat_m2nop")
