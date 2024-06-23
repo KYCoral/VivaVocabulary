@@ -1,12 +1,12 @@
-[gd_scene load_steps=33 format=3 uid="uid://bod25ef12q58o"]
+[gd_scene load_steps=33 format=3 uid="uid://cnaqyiybtpf2g"]
 
 [ext_resource type="Script" path="res://settings_menu.gd" id="1_xuwg1"]
 [ext_resource type="Texture2D" uid="uid://cspevjom8avp8" path="res://sprites/Untitled123_20240510122556.png" id="2_bdw0f"]
 [ext_resource type="FontFile" uid="uid://bnw5ghde11g7m" path="res://addons/fonts/Monoton-Regular.ttf" id="2_huisb"]
 [ext_resource type="Texture2D" uid="uid://c0xts38mq0nu2" path="res://sprites/settings.png" id="2_kxxwa"]
 [ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://addons/fonts/FrancoisOne.ttf" id="2_u1rsy"]
-[ext_resource type="PackedScene" uid="uid://cyimosmao67ii" path="res://saveProgress.tscn" id="5_sy8vu"]
-[ext_resource type="PackedScene" uid="uid://bpr0xtooc7ikl" path="res://removeAccount.tscn" id="6_v4ioh"]
+[ext_resource type="PackedScene" uid="uid://b75ehoyht7hor" path="res://saveProgress.tscn" id="5_sy8vu"]
+[ext_resource type="PackedScene" uid="uid://q33onbcdu2ev" path="res://removeAccount.tscn" id="6_v4ioh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ebwy"]
 content_margin_left = 25.0
@@ -148,12 +148,14 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_76jjg"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u3848"]
+content_margin_left = 5.0
 draw_center = false
 border_color = Color(0.8, 0.8, 0.8, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u3848"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_76jjg"]
+content_margin_left = 5.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
 draw_center = false
 border_color = Color(0.8, 0.8, 0.8, 0)
 
@@ -386,8 +388,9 @@ offset_top = -1.0
 offset_right = 1057.0
 offset_bottom = 58.0
 theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_76jjg")
+theme_override_styles/normal = SubResource("StyleBoxFlat_u3848")
 theme_override_styles/focus = SubResource("StyleBoxFlat_u3848")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_u3848")
 placeholder_text = " Username"
 max_length = 20
 caret_blink = true
@@ -423,8 +426,9 @@ offset_bottom = 62.0
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_76jjg")
 theme_override_styles/focus = SubResource("StyleBoxFlat_u3848")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_u3848")
 placeholder_text = " Email"
-max_length = 20
+max_length = 50
 caret_blink = true
 
 [node name="saveChanges" type="Button" parent="TabContainer/Profile"]

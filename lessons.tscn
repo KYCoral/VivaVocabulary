@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bc7sy8tk26a7k"]
+
+[ext_resource type="Script" path="res://lessons.gd" id="1_67haf"]
+
+[node name="lessons" type="Button"]
+offset_left = 20.0
+offset_top = 38.0
+offset_right = 561.0
+offset_bottom = 174.0
+text = "generate lessons"
+script = ExtResource("1_67haf")

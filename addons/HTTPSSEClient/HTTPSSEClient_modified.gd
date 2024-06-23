@@ -20,7 +20,6 @@ var is_requested = false
 var response_body = PackedByteArray()
 
 var ai_status_message
-
 func connect_to_host(domain : String, url_after_domain : String, headers: PackedStringArray, body: String, ai_message: ChatMessageAI, port : int = -1):
 	self.domain = domain
 	self.url_after_domain = url_after_domain

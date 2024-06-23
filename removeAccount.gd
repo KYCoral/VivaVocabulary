@@ -1,10 +1,17 @@
 extends Control
 
 @onready var no : Button = $validation/No
+
 @export var email := ""
 @export var password := ""
 var userinfo = null
+
+#@export var email : String = "kazumirimurutempest@gmail.com"
+#@export var password : String = "password123"
+#var userinfo = null
+
 # Called when the node enters the scene tree for the first time.
+
 func _ready():
 	Firebase.Auth.login_with_email_and_password(email,password)
 	Firebase.Auth.connect("login_succeeded", self._on_FirebaseAuth_login_succeeded)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bpr0xtooc7ikl"]
+[gd_scene load_steps=11 format=3 uid="uid://q33onbcdu2ev"]
 
 [ext_resource type="Script" path="res://removeAccount.gd" id="1_jlgj7"]
 [ext_resource type="Texture2D" uid="uid://dknccekvublha" path="res://sprites/Untitled75_20240409205437.png" id="2_7g48c"]

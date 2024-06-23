@@ -1,0 +1,126 @@
+[gd_scene load_steps=7 format=3 uid="uid://bsn7sigh43nfv"]
+
+[ext_resource type="Texture2D" uid="uid://c83d5aewtdtpn" path="res://sprites/classroom.jpg" id="1_0cxs4"]
+[ext_resource type="Script" path="res://lesson_classroom.gd" id="1_m7vfd"]
+[ext_resource type="PackedScene" uid="uid://bc7sy8tk26a7k" path="res://lessons.tscn" id="3_gqvj3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_houv5"]
+bg_color = Color(0, 0, 0, 0.470588)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q3qy7"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_krcyl"]
+bg_color = Color(0, 0, 0, 0.67451)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="lessonClassroom" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m7vfd")
+
+[node name="bg" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -171.0
+offset_top = -918.0
+offset_right = 2032.0
+offset_bottom = 1350.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_0cxs4")
+
+[node name="lessonView" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 785.0
+offset_top = 17.0
+offset_right = 2533.0
+offset_bottom = 1263.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_houv5")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="lessonView"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = 17.0
+offset_right = -34.0
+offset_bottom = -55.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 40
+theme_override_font_sizes/bold_font_size = 40
+theme_override_font_sizes/italics_font_size = 40
+theme_override_font_sizes/bold_italics_font_size = 40
+theme_override_font_sizes/mono_font_size = 40
+
+[node name="lessons" type="Label" parent="."]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 68.0
+offset_right = 668.0
+offset_bottom = 243.0
+theme_override_font_sizes/font_size = 120
+theme_override_styles/normal = SubResource("StyleBoxFlat_q3qy7")
+text = "Lessons"
+horizontal_alignment = 1
+
+[node name="LESSONrooms" type="ItemList" parent="."]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 298.0
+offset_right = 666.0
+offset_bottom = 1264.0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/panel = SubResource("StyleBoxFlat_krcyl")
+
+[node name="Label" type="Label" parent="LESSONrooms"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 40
+text = "THERE ARE
+ NO
+ AVAILABLE 
+LESSONS
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="lesons" parent="." instance=ExtResource("3_gqvj3")]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 310.0
+offset_right = 649.0
+offset_bottom = 446.0

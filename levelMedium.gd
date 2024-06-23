@@ -1,5 +1,10 @@
 extends Node2D
 
+@export var email : String = "kazumirimurutempest@gmail.com"
+@export var password : String = "password123"
+var userinfo = null
+var COLLECTION_ID = "user_data"
+
 @onready var Enemy: PackedScene = preload("res://Enemy.tscn")
 
 @onready var buttonStart: Button = $CanvasLayer2/startGame/CenterContainer/VBoxContainer/start
@@ -119,6 +124,24 @@ func start_game() -> void:
 
 func _on_restart_button_pressed() -> void:
 	start_game()
+	save_data()
+
+
+func save_data():
+	var auth = Firebase.Auth.auth
+	if auth.localid:
+		var collection: FirestoreCollection = Firebase.Firestore.collection(COLLECTION_ID)
+		var task: FirestoreTask = collection.get_doc(email)
+		var finished_task: FirestoreTask = await task.task_finished
+		var document = finished_task.document
+		if document && document.doc_fields:
+			if document.doc_fields.points:
+				var data: Dictionary = {
+			"points": document.doc_fields.points + 5
+			}
+				@warning_ignore("unused_variable")
+				var update: FirestoreTask = collection.update(email, data)
+
 
 func _on_start_button_down() -> void:
 	start_screen.hide()

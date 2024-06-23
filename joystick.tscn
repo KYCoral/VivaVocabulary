@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cg35stl1ymfvk"]
+[gd_scene load_steps=5 format=3 uid="uid://terav7u15oa6"]
 
 [ext_resource type="Script" path="res://joystick.gd" id="1_2yqdd"]
 [ext_resource type="Texture2D" uid="uid://rlnw2vu6enf7" path="res://sprites/joystick.png" id="2_ioafp"]

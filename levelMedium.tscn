@@ -1,10 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://bw2r4ddjs74b7"]
+[gd_scene load_steps=14 format=3 uid="uid://dl1od1gcmhude"]
 
 [ext_resource type="Script" path="res://levelMedium.gd" id="1_1gur2"]
-[ext_resource type="FontFile" uid="uid://dv4rnn0ml62q3" path="res://addons/dialogue_nodes/themes/Poppins-Bold.ttf" id="3_o72wx"]
 [ext_resource type="FontFile" uid="uid://x07w57hnrhsp" path="res://addons/fonts/PL Benguiat Caslon/PL Benguiat Caslon.ttf" id="4_hkgif"]
 [ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://addons/fonts/FrancoisOne.ttf" id="5_un0h5"]
-[ext_resource type="PackedScene" uid="uid://iyjeg6ldipci" path="res://Enemy.tscn" id="6_et41b"]
+[ext_resource type="FontFile" uid="uid://cxo00kjcsmt7t" path="res://addons/fonts/BalooBhaijaan-Regular.ttf" id="6_0ekk2"]
+[ext_resource type="PackedScene" path="res://Enemy.tscn" id="6_et41b"]
 [ext_resource type="Texture2D" uid="uid://c5i6mfte4gr7j" path="res://sprites/1-back.png" id="7_10swi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8vqqn"]
@@ -114,13 +114,11 @@ layout_mode = 2
 
 [node name="EnemiesKilledLabel" type="Label" parent="CanvasLayer/VBoxContainer/TopRow2/TopRow"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_o72wx")
 theme_override_font_sizes/font_size = 40
 text = "Words:"
 
 [node name="EnemiesKilledValue" type="Label" parent="CanvasLayer/VBoxContainer/TopRow2/TopRow"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_o72wx")
 theme_override_font_sizes/font_size = 40
 text = "0"
 
@@ -153,7 +151,6 @@ layout_mode = 2
 
 [node name="DifficultyLabel" type="Label" parent="CanvasLayer/VBoxContainer/BottomRow"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_o72wx")
 theme_override_font_sizes/font_size = 40
 text = "Difficulty:"
 
@@ -162,7 +159,6 @@ layout_mode = 2
 
 [node name="DifficultyValue" type="Label" parent="CanvasLayer/VBoxContainer/BottomRow/HBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_o72wx")
 theme_override_font_sizes/font_size = 40
 text = "0"
 
@@ -230,6 +226,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_xojeu")
 text = "Back to Map"
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="startGame" type="PanelContainer" parent="CanvasLayer2"]
 offset_right = 2819.0
@@ -243,8 +240,10 @@ layout_mode = 2
 
 [node name="level2" type="Label" parent="CanvasLayer2/startGame/CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("6_0ekk2")
 theme_override_font_sizes/font_size = 80
-text = "Level 2"
+text = "Game Challenge:
+Basic Phrases"
 horizontal_alignment = 1
 vertical_alignment = 1
 

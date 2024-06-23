@@ -1,6 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://pfg5bcrlh364"]
-
-[ext_resource type="FontFile" uid="uid://bcg26eik2m2o8" path="res://addons/dialogue_nodes/themes/Poppins-Italic.ttf" id="1_b0u4c"]
+[gd_scene load_steps=11 format=3 uid="uid://bowtkmlwoioiu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r76wt"]
 bg_color = Color(0, 0, 0, 0.356863)
@@ -160,7 +158,6 @@ offset_left = 15.0
 offset_top = 25.0
 offset_right = 343.0
 offset_bottom = 77.0
-theme_override_fonts/font = ExtResource("1_b0u4c")
 theme_override_font_sizes/font_size = 37
 theme_override_styles/normal = SubResource("StyleBoxFlat_8n85f")
 text = "CHATROOMS

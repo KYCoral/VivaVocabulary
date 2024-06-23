@@ -1,5 +1,6 @@
 class_name login_control extends Control
 
+
 # Define variables for login scene
 @onready var forgotPassword: Button = $mcLogin/LoginScreen/vb_loginButton/forgotPassword
 var forgotPassword_instance : Node
@@ -45,6 +46,7 @@ func on_forgotPassword_pressed() -> void:
 func on_createAccount_pressed() -> void:
 	#get_tree().change_scene_to_packed(signup_page)
 	signUp_instance.show()
+	#hide()
 
 
 # Function to show exit popup
@@ -56,7 +58,11 @@ func _on_login_button_up():
 	$errorMessage.hide()
 	var email = $mcLogin/LoginScreen/vb_account/Account/Email/emailEnter.text
 	var password = $mcLogin/LoginScreen/vb_password/Password/password/passwordEnter.text
+	$mcLogin/LoginScreen/vb_account/Account/Email/emailEnter.clear()
+	$mcLogin/LoginScreen/vb_password/Password/password/passwordEnter.clear()
+
 	Firebase.Auth.login_with_email_and_password(email,password)
+
 
 func _on_FirebaseAuth_login_succeeded(auth_info):
 	print("Success!")
@@ -64,6 +70,7 @@ func _on_FirebaseAuth_login_succeeded(auth_info):
 	##GameManager.userInfo = userinfo
 	Firebase.Auth.save_auth(auth_info)
 	get_tree().change_scene_to_packed(menu_page)
+	
 
 func _on_FirebaseAuth_login_failed(error_code, message):
 	$errorMessage.text = str(message)

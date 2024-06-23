@@ -3,7 +3,7 @@ extends Node2D
 @export var api_key = "AIzaSyA24uv8pVwaSNqwHG_2TLhnxyxDjxW6UN0"#sk-viva-user-lT9N86fa2e6J9FPTyCleT3BlbkFJd3p0TQJaka3TRnKGP2Xw"#"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"##"sk-proj-H11hk7YGB0XwEzxTzoLNT3BlbkFJjsQv8edqICMBuCePdg5p"#
 var max_tokens = 1024
 @export var temperature = 0.5
-@export var model = "gemini-1.5-flash"#"gpt-3.5-turbo""v1/models/gemini-1.5-pro#
+@export var model = "v1beta/models/gemini-1.5-pro-latest"#"gpt-3.5-turbo""v1/models/gemini-1.5-pro#
 @export var stream : bool = true
 
 
@@ -86,7 +86,7 @@ func _ready():
 		$HTTPSSEClient.new_sse_event.connect(_on_new_sse_event)
 	
 	# Prepare the system message
-	system_message = {"role":"system", "content": "You are a helpful virtual assistant."}
+	system_message = {"role":"system", "content": "You are a spanish traveler"}
 	
 	_insert_welcome_messages()
 
@@ -108,7 +108,7 @@ func _on_new_sse_event(partial_reply: Array, ai_status_message: ChatMessageAI):
 				stream_reply_buffer = ""
 				
 			# We append the whole message to our internal chat
-			chat.append({"role": "assistant", "content":stream_reply_final})
+			chat.append({"role": "assistant", "parts":stream_reply_final})
 			# We reset the reply, ready for the next stream
 			stream_reply_final = ""
 			stream_used_status_ai_message = false
@@ -165,13 +165,13 @@ func _call_gpt(prompt: String, ai_status_message: RichTextLabel) -> void:
 	var new_message = {"role": "user", "content": prompt} 
 	messages.append(new_message) # we append now the prompt too.
 	
-	var host = "https://generativelanguage.googleapis.com"#"https://generativelanguage.googleapis.com"#"https://api.openai.com"#
-	var path = "/v1/models/gemini-1.5-flash:streamGenerateContent" #""# "v1/chat/completions"#
+	var host = "https://generativelanguage.googleapis.com"#"https://generativelanguage.googleapis.com"#"https://generativelanguage.googleapis.com"#"https://api.openai.com"#
+	var path = "/%s:generateContent?key=%s"%[model,api_key]#"/v1/models/gemini-pro:generateContent?key=%s"%api_key#"/v1/models/gemini-1.5-flash:streamGenerateContent" #""# "v1/chat/completions"#
 	var url = host+path
 
 	var headers = [
 		"Content-Type: application/json",
-		"Authorization: Bearer " + api_key
+		"Authorization: Bearer %s" %api_key
 	]
 
 	var body = JSON.stringify({
@@ -243,12 +243,12 @@ func _insert_welcome_messages() -> void:
 	await get_tree().create_timer(1).timeout
 	
 	# await get_tree().process_frame
-	text="[wave amp=20.0 freq=5.0]Hello there![/wave]"
+	text="[wave amp=20.0 freq=5.0]Hola, ¡qué tal![/wave]"
 	_insert_message(ai_message,text,types.GODOT)
 	await get_tree().create_timer(1).timeout
 	var ai_message2 = message_ai.instantiate()
 	ai_message2.bbcode_enabled = false
-	text = "This is ChatGPT. How can I help you today?"
+	text = "¿En qué puedo servirle hoy?"
 	_insert_message(ai_message2,text,types.GODOT)
 
 

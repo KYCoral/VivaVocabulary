@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0e1du3ce4pw4"]
+[gd_scene load_steps=4 format=3 uid="uid://c4vhbwvbctod5"]
 
 [ext_resource type="Script" path="res://example_scores.gd" id="1_8dbmf"]
 [ext_resource type="FontFile" uid="uid://b41orlbfkxk7l" path="res://addons/fonts/Chewy.ttf" id="1_dpa1o"]

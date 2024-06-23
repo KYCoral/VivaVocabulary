@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://qjrersny5ypx"]
+[gd_scene load_steps=27 format=3 uid="uid://djd63bs3m84o3"]
 
 [ext_resource type="Texture2D" uid="uid://xdsgc8bu05td" path="res://sprites/Untitled78_20240329161643.png" id="1_3ovxe"]
 [ext_resource type="Script" path="res://login.gd" id="1_q0dq4"]
@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cjo2l4jc4ile1" path="res://sprites/user.png" id="7_2g346"]
 [ext_resource type="Texture2D" uid="uid://dm46g3rno6bkd" path="res://sprites/exit.png" id="9_gfvi5"]
 [ext_resource type="FontFile" uid="uid://bnw5ghde11g7m" path="res://addons/fonts/Monoton-Regular.ttf" id="10_yfotg"]
-[ext_resource type="PackedScene" uid="uid://chxuxupwve713" path="res://signup.tscn" id="11_41wpn"]
+[ext_resource type="PackedScene" uid="uid://4fc1nvn8uu46" path="res://signup.tscn" id="11_41wpn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ofam"]
 bg_color = Color(0.556863, 0.556863, 0.556863, 1)
@@ -342,12 +342,12 @@ horizontal_alignment = 1
 [node name="errorMessage" type="Label" parent="."]
 layout_mode = 0
 offset_left = 561.0
-offset_top = 763.0
+offset_top = 733.0
 offset_right = 1148.0
-offset_bottom = 820.0
+offset_bottom = 889.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_y8exg")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 30
 horizontal_alignment = 1
 
 [node name="signup_control" parent="." instance=ExtResource("11_41wpn")]

@@ -3,7 +3,7 @@ extends Node2D
 @export var email : String = "kazumirimurutempest@gmail.com"
 @export var password : String = "password123"
 var userinfo = null
-
+var COLLECTION_ID = "user_data"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Firebase.Auth.login_with_email_and_password(email, password)
@@ -24,10 +24,10 @@ func _on_FirebaseAuth_login_succeeded(auth_info):
 
 
 func _on_btn_button_up():
-	# adding user to firestore
+	#adding user to firestore
 	var firestore_collection = Firebase.Firestore.collection("user_data")
 	var document = firestore_collection.get_doc("VivaVocabulario")
-	print(document)
+	print(document.data)
 	var add_task = firestore_collection.add(userinfo.email, 
 	{
 		'username': userinfo.email, 
@@ -35,39 +35,45 @@ func _on_btn_button_up():
 		'points' : 0,
 		'score': 0
 	})
-	var addedUser = add_task
+	
+	var addedUser = add_task.data
 	print("User added successfully:", addedUser)
 
 
 
 
+
 func _on_btn_2_button_up():
-	var firestore_collection = Firebase.Firestore.collection("user_data")
-	#var document = firestore_collection.get_doc("VivaVocabulario")
-	firestore_collection.update(userinfo.email, 
-	{
-		'username': userinfo.email, 
-		'level' : 1,
-		'points' : 3,
-		'score': 30
-	})
-	#var document : FirestoreDocument = up_task.get("task_finished")
+	
+	save_data()
+	
 
-
-func _on_btn_3_button_up():
-	removeDocumentData()
+func save_data():
+	var auth = Firebase.Auth.auth
+	if auth.localid:
+		var collection: FirestoreCollection = Firebase.Firestore.collection(COLLECTION_ID)
+		var task: FirestoreTask = collection.get_doc(email)
+		var finished_task: FirestoreTask = await task.task_finished
+		var document = finished_task.document
+		if document && document.doc_fields:
+			if document.doc_fields.points:
+				var data: Dictionary = {
+			"points": document.doc_fields.points + 5
+			}
+				@warning_ignore("unused_variable")
+				var update: FirestoreTask = collection.update(email, data)
 
 
 #query for limiting input of user data to firestore
 
 func QueryDB():
 	var query : FirestoreQuery = FirestoreQuery.new()
-	query.from('user_data')
-	query.order_by('score', FirestoreQuery.DIRECTION.DESCENDING)
-	query.limit(3)
+	query.from('professor')
+	#query.order_by('score', FirestoreQuery.DIRECTION.DESCENDING)
+	#query.limit(3)
 	var query_task :FirestoreTask = Firebase.Firestore.query(query)
 	var result = query_task #,"task_finished"
-	print(result)
+	print(result.data)
 
 #remopving document from firestore
 func removeDocumentData():
@@ -80,3 +86,7 @@ func _on_btn_4_button_up():
 	QueryDB()
 	pass # Replace with function body.
 
+
+
+func _on_btn_3_button_up():
+	pass # Replace with function body.

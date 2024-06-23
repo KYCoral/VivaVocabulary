@@ -78,7 +78,7 @@ func _on_sign_up_button_up():
 		# Display error message (e.g., "Please agree to terms")
 		return  # Exit the function if checkbox is not checked
 	elif username != "iskolarngbayan.pup.edu.com":
-		$errorMessage.text = "Email must be in the pup account format."
+		$errorMessage.text = "Email entered is not an iskolarngbayan account."
 		$errorMessage.show()
 	else:
 		Firebase.Auth.signup_with_email_and_password(email,password)

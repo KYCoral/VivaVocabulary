@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://chxuxupwve713"]
+[gd_scene load_steps=30 format=3 uid="uid://4fc1nvn8uu46"]
 
 [ext_resource type="Script" path="res://signup.gd" id="1_ehfkp"]
 [ext_resource type="Texture2D" uid="uid://xdsgc8bu05td" path="res://sprites/Untitled78_20240329161643.png" id="1_lyhqg"]
@@ -8,8 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://dm46g3rno6bkd" path="res://sprites/exit.png" id="5_ximhw"]
 [ext_resource type="Texture2D" uid="uid://cjo2l4jc4ile1" path="res://sprites/user.png" id="6_jwxjd"]
 [ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://addons/fonts/FrancoisOne.ttf" id="7_33q5l"]
-[ext_resource type="FontFile" uid="uid://bpid28mjg4jgt" path="res://addons/dialogue_nodes/themes/C&C Red Alert [INET].ttf" id="10_gemgf"]
+[ext_resource type="PackedScene" path="res://terms_services.tscn" id="10_cahgs"]
 [ext_resource type="FontFile" uid="uid://bnw5ghde11g7m" path="res://addons/fonts/Monoton-Regular.ttf" id="11_ehahw"]
+[ext_resource type="PackedScene" path="res://exit_popup.tscn" id="11_rvlbj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dpij3"]
 draw_center = false
@@ -463,7 +464,7 @@ offset_right = 455.0
 offset_bottom = 458.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_33q5l")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 30
 horizontal_alignment = 1
 autowrap_mode = 1
 justification_flags = 161
@@ -482,7 +483,6 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/PanelContainer/CenterContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("10_gemgf")
 theme_override_font_sizes/font_size = 180
 text = "Signup Complete"
 
@@ -498,6 +498,13 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_717o6")
 theme_override_styles/hover = SubResource("StyleBoxFlat_coowr")
 text = "Close
 "
+
+[node name="Node2D" parent="." instance=ExtResource("10_cahgs")]
+visible = false
+
+[node name="exit_control" parent="." instance=ExtResource("11_rvlbj")]
+visible = false
+layout_mode = 1
 
 [connection signal="button_up" from="mcSignup/SignupScreen/signup/vb_confirmPassword/ConfirmPassword/vb_signupButton/signUp" to="." method="_on_sign_up_button_up"]
 [connection signal="button_down" from="CanvasLayer/Close" to="." method="_on_close_button_down"]
