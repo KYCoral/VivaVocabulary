@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dk1l5qlky77hy"]
+[gd_scene load_steps=15 format=3 uid="uid://dk1l5qlky77hy"]
 
 [ext_resource type="Script" path="res://mainMenu.gd" id="1_lpwsb"]
 [ext_resource type="Texture2D" uid="uid://dgpmyd1cn0eb3" path="res://sprites/bg.png" id="2_1frax"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bpsppdi8aqpcf" path="res://sprites/Untitled78_20240418014742.png" id="7_4k4ik"]
 [ext_resource type="PackedScene" uid="uid://bbvwljfwmi2r" path="res://exit_popup.tscn" id="8_8uaj2"]
 [ext_resource type="Texture2D" uid="uid://xyoly0ftan1i" path="res://sprites/book.png" id="8_esiel"]
+[ext_resource type="PackedScene" uid="uid://bod25ef12q58o" path="res://settings_menu.tscn" id="9_biw5t"]
 [ext_resource type="Texture2D" uid="uid://nrhf6dop83yu" path="res://sprites/pencil.png" id="9_hkmgr"]
 [ext_resource type="FontFile" uid="uid://bnw5ghde11g7m" path="res://addons/fonts/Monoton-Regular.ttf" id="9_r47v4"]
 
@@ -197,3 +198,11 @@ position = Vector2(2181, 667)
 rotation = 0.483456
 scale = Vector2(0.931111, 0.952869)
 texture = ExtResource("9_hkmgr")
+
+[node name="settingsMenu" parent="." instance=ExtResource("9_biw5t")]
+visible = false
+layout_mode = 1
+offset_left = -3.0
+offset_top = 2.0
+offset_right = -3.0
+offset_bottom = 2.0

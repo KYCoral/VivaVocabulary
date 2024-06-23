@@ -30,6 +30,14 @@ DialogManager="*res://DialogManager.gd"
 InteractionManager="*res://InteractionManager.tscn"
 scene_manager="*res://scene_manager.gd"
 
+[compression]
+
+formats/zstd/long_distance_matching=true
+
+[debug]
+
+file_logging/enable_file_logging=true
+
 [display]
 
 window/size/viewport_width=2575
@@ -39,6 +47,10 @@ window/stretch/aspect="ignore"
 window/ios/hide_home_indicator=false
 window/ios/hide_status_bar=false
 window/ios/suppress_ui_gesture=false
+
+[editor]
+
+naming/scene_name_casing=0
 
 [editor_plugins]
 
@@ -84,6 +96,11 @@ interact={
 ]
 }
 
+[input_devices]
+
+pointing/android/enable_long_press_as_right_click=true
+pointing/android/enable_pan_and_scale_gestures=true
+
 [layer_names]
 
 2d_physics/layer_1="base"
@@ -95,9 +112,13 @@ interact={
 
 limits/message_queue/max_size_mb=60
 
+[network]
+
+limits/tcp/connect_timeout_seconds=60
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
+renderer/rendering_method="mobile"
+renderer/rendering_method.web="mobile"
 textures/vram_compression/import_etc2_astc=true
