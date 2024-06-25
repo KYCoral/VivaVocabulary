@@ -92,8 +92,8 @@ func _on_sign_up_button_up():
 		$errorMessage.text = "Not a valid email address."
 		$errorMessage.show()
 	else:
-		if username != "iskolarngbayan.pup.edu.ph":
-			$errorMessage.text = "Email must be in the pup account format."
+		if username != "gmail.com":
+			$errorMessage.text = "Not valid email format: ex. Email@gmail.com"
 			$errorMessage.show()
 		else:
 			Firebase.Auth.signup_with_email_and_password(email,password)

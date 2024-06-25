@@ -5,8 +5,8 @@ extends Control
 
 @onready var goBack : Button = $goBack
 @onready var school_page: PackedScene = preload("res://World_school.tscn")
-@export var email : String = "kazumirimurutempest@gmail.com"
-@export var password : String = "password123"
+@export var email : String = Global.login_data.username
+@export var password : String = Global.login_data.password
 var userinfo = null
 var COLLECTION_ID = "professor"
 #@onready var notes: RichTextLabel = $lessonView/RichTextLabel

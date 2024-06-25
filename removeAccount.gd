@@ -2,8 +2,8 @@ extends Control
 
 @onready var no : Button = $validation/No
 
-@export var email := ""
-@export var password := ""
+@export var email : String = Global.login_data.username
+@export var password : String = Global.login_data.password
 var userinfo = null
 
 #@export var email : String = "kazumirimurutempest@gmail.com"

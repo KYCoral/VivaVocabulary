@@ -2,8 +2,8 @@ class_name School_grounds extends BaseScene
 
 
 
-@export var email : String = "kazumirimurutempest@gmail.com"
-@export var password : String = "password123"
+@export var email : String = Global.login_data.username
+@export var password : String = Global.login_data.password
 var userinfo = null
 var COLLECTION_ID = "user_data"
 ##@onready var locationPointer : Label = $locationPointer/CollisionShape2D/Label

@@ -60,7 +60,7 @@ func _on_login_button_up():
 	var password = $mcLogin/LoginScreen/vb_password/Password/password/passwordEnter.text
 	$mcLogin/LoginScreen/vb_account/Account/Email/emailEnter.clear()
 	$mcLogin/LoginScreen/vb_password/Password/password/passwordEnter.clear()
-
+	Global.set_login_data(email,password)
 	Firebase.Auth.login_with_email_and_password(email,password)
 
 
@@ -72,8 +72,10 @@ func _on_FirebaseAuth_login_succeeded(auth_info):
 	get_tree().change_scene_to_packed(menu_page)
 	
 
-func _on_FirebaseAuth_login_failed(error_code, message):
-	$errorMessage.text = str(message)
+func _on_FirebaseAuth_login_failed(error_code, message,auth_info):
+	$errorMessage.text = "Invalid email address. Please try again."
 	$errorMessage.show()
 	print("error code: " + str(error_code))
 	print("message: " + str(message))
+
+

@@ -5,8 +5,8 @@ extends Control
 
 
 # Called when the node enters the scene tree for the first time.
-@export var email : String = "kazumirimurutempest@gmail.com"
-@export var password : String = "password123"
+@export var email : String = Global.login_data.username
+@export var password : String = Global.login_data.password
 var userinfo = null
 var COLLECTION_ID = "user_data"
 
@@ -52,7 +52,7 @@ func _on_FirebaseAuth_login_succeeded(auth_info):
 	
 	##GameManager.userInfo = userinfo
 	#Firebase.Auth.save_auth(auth_info)
-	var auth = Firebase.Auth.authinfo
+	var auth = Firebase.Auth.auth
 	if auth.localid:
 		var collection: FirestoreCollection = Firebase.Firestore.collection(COLLECTION_ID)
 		

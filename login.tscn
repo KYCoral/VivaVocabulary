@@ -139,6 +139,16 @@ theme_override_fonts/font = ExtResource("4_7qned")
 theme_override_font_sizes/font_size = 40
 text = "Account"
 
+[node name="indicator" type="Label" parent="mcLogin/LoginScreen/vb_account/Account"]
+layout_mode = 2
+offset_left = 145.0
+offset_top = -2.0
+offset_right = 211.0
+offset_bottom = 53.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "*"
+
 [node name="Email" type="TextEdit" parent="mcLogin/LoginScreen/vb_account/Account"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
@@ -182,6 +192,16 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_7qned")
 theme_override_font_sizes/font_size = 40
 text = "Password"
+
+[node name="indicator2" type="Label" parent="mcLogin/LoginScreen/vb_password/Password"]
+layout_mode = 2
+offset_left = 177.0
+offset_top = -2.0
+offset_right = 208.0
+offset_bottom = 53.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "*"
 
 [node name="password" type="TextEdit" parent="mcLogin/LoginScreen/vb_password/Password"]
 custom_minimum_size = Vector2(0, 24)
@@ -349,6 +369,7 @@ theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_y8exg")
 theme_override_font_sizes/font_size = 30
 horizontal_alignment = 1
+autowrap_mode = 3
 
 [node name="signup_control" parent="." instance=ExtResource("11_41wpn")]
 visible = false
