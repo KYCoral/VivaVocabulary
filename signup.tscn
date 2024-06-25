@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dm46g3rno6bkd" path="res://sprites/exit.png" id="5_ximhw"]
 [ext_resource type="Texture2D" uid="uid://cjo2l4jc4ile1" path="res://sprites/user.png" id="6_jwxjd"]
 [ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://addons/fonts/FrancoisOne.ttf" id="7_33q5l"]
-[ext_resource type="PackedScene" path="res://terms_services.tscn" id="10_cahgs"]
+[ext_resource type="PackedScene" uid="uid://bb07iiqaksx8n" path="res://terms_services.tscn" id="10_cahgs"]
 [ext_resource type="FontFile" uid="uid://bnw5ghde11g7m" path="res://addons/fonts/Monoton-Regular.ttf" id="11_ehahw"]
 [ext_resource type="PackedScene" path="res://exit_popup.tscn" id="11_rvlbj"]
 [ext_resource type="Texture2D" uid="uid://b70i01bly4f06" path="res://sprites/panel.png" id="12_5efag"]

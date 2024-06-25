@@ -1,15 +1,16 @@
-[gd_scene load_steps=27 format=3 uid="uid://djd63bs3m84o3"]
+[gd_scene load_steps=28 format=3 uid="uid://djd63bs3m84o3"]
 
 [ext_resource type="Texture2D" uid="uid://xdsgc8bu05td" path="res://sprites/Untitled78_20240329161643.png" id="1_3ovxe"]
 [ext_resource type="Script" path="res://login.gd" id="1_q0dq4"]
 [ext_resource type="Texture2D" uid="uid://blus3jct6drmr" path="res://sprites/Untitled78_20240409205301_edit_542478463116914.png" id="3_0h6jy"]
 [ext_resource type="FontFile" uid="uid://cxo00kjcsmt7t" path="res://addons/fonts/BalooBhaijaan-Regular.ttf" id="4_7qned"]
-[ext_resource type="Texture2D" uid="uid://dbrvipqkgnuko" path="res://sprites/Untitled80_20240416124703.png" id="5_x8etg"]
+[ext_resource type="Texture2D" uid="uid://gwkv8dgira30" path="res://sprites/Untitled80_20240416124711.png" id="5_kowwg"]
 [ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://addons/fonts/FrancoisOne.ttf" id="6_y8exg"]
 [ext_resource type="Texture2D" uid="uid://cjo2l4jc4ile1" path="res://sprites/user.png" id="7_2g346"]
 [ext_resource type="Texture2D" uid="uid://dm46g3rno6bkd" path="res://sprites/exit.png" id="9_gfvi5"]
 [ext_resource type="FontFile" uid="uid://bnw5ghde11g7m" path="res://addons/fonts/Monoton-Regular.ttf" id="10_yfotg"]
 [ext_resource type="PackedScene" uid="uid://4fc1nvn8uu46" path="res://signup.tscn" id="11_41wpn"]
+[ext_resource type="Texture2D" uid="uid://b70i01bly4f06" path="res://sprites/panel.png" id="11_rt8o8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ofam"]
 bg_color = Color(0.556863, 0.556863, 0.556863, 1)
@@ -268,7 +269,7 @@ offset_left = 2017.0
 offset_top = 973.0
 offset_right = 2496.0
 offset_bottom = 1249.0
-texture = ExtResource("5_x8etg")
+texture = ExtResource("5_kowwg")
 expand_mode = 1
 
 [node name="createAccount" type="Button" parent="mcLogin/LoginScreen/Options"]
@@ -374,5 +375,23 @@ autowrap_mode = 3
 [node name="signup_control" parent="." instance=ExtResource("11_41wpn")]
 visible = false
 layout_mode = 1
+
+[node name="Panel" type="Sprite2D" parent="."]
+position = Vector2(858, 264)
+scale = Vector2(0.432184, 0.106645)
+texture = ExtResource("11_rt8o8")
+
+[node name="login" type="Label" parent="."]
+layout_mode = 0
+offset_left = 673.0
+offset_top = 232.0
+offset_right = 1042.0
+offset_bottom = 301.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_y8exg")
+theme_override_font_sizes/font_size = 40
+text = "Log In"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="button_up" from="mcLogin/LoginScreen/Options/Login" to="." method="_on_login_button_up"]
