@@ -35,6 +35,7 @@ func _ready():
 	settings_instance = settings.instantiate()
 	add_child(settings_instance)
 	settings_instance.hide()
+	Continue.disabled = true
 
 func on_start_pressed() -> void:
 	get_tree().change_scene_to_packed(map_page)
