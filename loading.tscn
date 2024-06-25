@@ -1,42 +1,51 @@
-[gd_scene load_steps=6 format=3 uid="uid://dn0s2hvkt6axd"]
+[gd_scene load_steps=11 format=3 uid="uid://brvhmdiaxfp52"]
 
 [ext_resource type="Texture2D" uid="uid://dgpmyd1cn0eb3" path="res://sprites/bg.png" id="1_704t8"]
+[ext_resource type="Texture2D" uid="uid://chs3kl71oemqu" path="res://sprites/1.png" id="2_jktbp"]
 [ext_resource type="FontFile" uid="uid://x07w57hnrhsp" path="res://addons/fonts/PL Benguiat Caslon/PL Benguiat Caslon.ttf" id="2_vja6w"]
+[ext_resource type="Texture2D" uid="uid://dts8ih5n5tnhd" path="res://sprites/3.png" id="3_5pmot"]
+[ext_resource type="Texture2D" uid="uid://bs8mfg2mj4i7s" path="res://sprites/4.png" id="4_5gs3l"]
+[ext_resource type="Texture2D" uid="uid://bg11ouasv3reb" path="res://sprites/5.png" id="5_3u5pc"]
 
 [sub_resource type="Animation" id="Animation_i3gq0"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("loading:visible_ratio")
+tracks/0/path = NodePath("1:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.746]
+"update": 1,
+"values": [ExtResource("2_jktbp")]
 }
+
+[sub_resource type="Animation" id="Animation_07re5"]
+resource_name = "idle"
 
 [sub_resource type="Animation" id="Animation_8kqcy"]
 resource_name = "loading"
-length = 3.0
+length = 1.1
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("loading:visible_ratio")
+tracks/0/path = NodePath("1:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.746, 0.882, 0.924, 1.0, 0.924, 0.882, 0.746, 0.746, 0.882, 0.924, 1.0, 0.924, 0.882, 0.746, 0.882, 0.924]
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_jktbp"), ExtResource("3_5pmot"), ExtResource("4_5gs3l"), ExtResource("5_3u5pc"), ExtResource("4_5gs3l"), ExtResource("3_5pmot")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t3m6n"]
 _data = {
 "RESET": SubResource("Animation_i3gq0"),
+"idle": SubResource("Animation_07re5"),
 "loading": SubResource("Animation_8kqcy")
 }
 
@@ -66,18 +75,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer"]
+libraries = {
+"": SubResource("AnimationLibrary_t3m6n")
+}
+
+[node name="1" type="Sprite2D" parent="CenterContainer"]
+position = Vector2(142, 1163)
+scale = Vector2(0.293243, 0.278378)
+texture = ExtResource("2_jktbp")
+
 [node name="loading" type="Label" parent="CenterContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.992157)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_vja6w")
-theme_override_font_sizes/font_size = 90
+theme_override_font_sizes/font_size = 200
 text = "Loading..."
-visible_characters = 7
-visible_ratio = 0.746
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer"]
-libraries = {
-"": SubResource("AnimationLibrary_t3m6n")
-}
+metadata/_edit_lock_ = true

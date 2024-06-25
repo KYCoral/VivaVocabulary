@@ -1,17 +1,18 @@
 [gd_scene load_steps=12 format=3 uid="uid://bb07iiqaksx8n"]
 
 [ext_resource type="Script" path="res://terms_services.gd" id="1_03n8r"]
-[ext_resource type="Texture2D" uid="uid://7ympmf8u77u0" path="res://sprites/Untitled64_20240516114802.png" id="1_7agho"]
+[ext_resource type="Texture2D" uid="uid://dxyfsny2ph1vm" path="res://sprites/Untitled95_20240423015247.png" id="2_0pkd0"]
 [ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://addons/fonts/FrancoisOne.ttf" id="2_813gp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o11ag"]
-bg_color = Color(0, 0, 0, 0.258824)
+bg_color = Color(0, 0, 0, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kq8qu"]
 content_margin_left = 15.0
 content_margin_top = 15.0
 content_margin_right = 15.0
 content_margin_bottom = 15.0
+bg_color = Color(0.364706, 0.364706, 0.364706, 1)
 draw_center = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ycdh"]
@@ -19,6 +20,7 @@ content_margin_left = 15.0
 content_margin_top = 15.0
 content_margin_right = 15.0
 content_margin_bottom = 15.0
+bg_color = Color(0.255659, 0.255659, 0.255659, 1)
 draw_center = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nayqn"]
@@ -45,9 +47,16 @@ border_color = Color(0.8, 0.8, 0.8, 0)
 script = ExtResource("1_03n8r")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 5752.0
-offset_bottom = 4434.0
-texture = ExtResource("1_7agho")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -551.0
+offset_top = -213.0
+offset_right = 2996.0
+offset_bottom = 1868.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_0pkd0")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 offset_left = 39.0
@@ -58,7 +67,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_o11ag")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer"]
 layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/default_color = Color(0.637843, 0.637843, 0.637843, 1)
 theme_override_font_sizes/normal_font_size = 35
 theme_override_font_sizes/bold_font_size = 35
 theme_override_font_sizes/italics_font_size = 35
@@ -66,7 +75,7 @@ theme_override_font_sizes/bold_italics_font_size = 35
 theme_override_font_sizes/mono_font_size = 35
 theme_override_styles/focus = SubResource("StyleBoxFlat_kq8qu")
 theme_override_styles/normal = SubResource("StyleBoxFlat_3ycdh")
-text = "VivaVocabulary Terms and Services
+text = "VivaVocabulario Terms and Services
 1. Introduction
 Welcome to VivaVocabulary! These Terms and Services (\"Terms\") govern your use of our mobile application (\"App\"). By accessing or using VivaVocabulary, you agree to comply with and be bound by these Terms. If you do not agree with these Terms, please do not use the App.
 
@@ -126,7 +135,7 @@ offset_left = 42.0
 offset_top = 133.0
 offset_right = 411.0
 offset_bottom = 216.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 40
 text = "Terms and Services"
 

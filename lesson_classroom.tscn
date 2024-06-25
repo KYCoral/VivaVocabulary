@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bsn7sigh43nfv"]
+[gd_scene load_steps=20 format=3 uid="uid://bsn7sigh43nfv"]
 
 [ext_resource type="Texture2D" uid="uid://c83d5aewtdtpn" path="res://sprites/classroom.jpg" id="1_0cxs4"]
 [ext_resource type="Script" path="res://lesson_classroom.gd" id="1_m7vfd"]
 [ext_resource type="PackedScene" uid="uid://bc7sy8tk26a7k" path="res://lessons.tscn" id="3_gqvj3"]
+[ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://addons/fonts/FrancoisOne.ttf" id="4_g4bo0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_houv5"]
 bg_color = Color(0, 0, 0, 0.470588)
@@ -10,6 +11,20 @@ corner_radius_top_left = 25
 corner_radius_top_right = 25
 corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xy2ux"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1hems"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q3qy7"]
 content_margin_left = 5.0
@@ -26,12 +41,110 @@ corner_radius_top_right = 25
 corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_krcyl"]
-bg_color = Color(0, 0, 0, 0.67451)
-corner_radius_top_left = 15
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p5gk6"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0, 0, 0, 0.34902)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ire03"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.445879, 0.455727, 0.469108, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
-corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xfoqj"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.445879, 0.455727, 0.469108, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ydu0i"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.445879, 0.455727, 0.469108, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m3cdr"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.445879, 0.455727, 0.469108, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_th7uy"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.445879, 0.455727, 0.469108, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ygwsg"]
+draw_center = false
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_515fg"]
+draw_center = false
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yd7vn"]
+draw_center = false
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2x1p2"]
+draw_center = false
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hrlf6"]
+draw_center = false
+border_color = Color(0.8, 0.8, 0.8, 0)
 
 [node name="lessonClassroom" type="Control"]
 layout_mode = 3
@@ -68,10 +181,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 30.0
-offset_top = 17.0
-offset_right = -34.0
-offset_bottom = -55.0
+offset_left = 3.0
+offset_top = 3.0
+offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 40
@@ -79,33 +191,29 @@ theme_override_font_sizes/bold_font_size = 40
 theme_override_font_sizes/italics_font_size = 40
 theme_override_font_sizes/bold_italics_font_size = 40
 theme_override_font_sizes/mono_font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxFlat_xy2ux")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1hems")
+fit_content = true
+scroll_following = true
 
 [node name="lessons" type="Label" parent="."]
 layout_mode = 0
-offset_left = 81.0
-offset_top = 68.0
-offset_right = 668.0
-offset_bottom = 243.0
-theme_override_font_sizes/font_size = 120
+offset_left = 59.0
+offset_top = 153.0
+offset_right = 375.0
+offset_bottom = 274.0
+theme_override_font_sizes/font_size = 80
 theme_override_styles/normal = SubResource("StyleBoxFlat_q3qy7")
 text = "Lessons"
 horizontal_alignment = 1
 
-[node name="LESSONrooms" type="ItemList" parent="."]
-layout_mode = 0
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 2
 offset_left = 99.0
 offset_top = 298.0
-offset_right = 666.0
-offset_bottom = 1264.0
-theme_override_font_sizes/font_size = 40
-theme_override_styles/panel = SubResource("StyleBoxFlat_krcyl")
-
-[node name="Label" type="Label" parent="LESSONrooms"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+offset_right = 316.0
+offset_bottom = 527.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -118,9 +226,46 @@ LESSONS
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="lesons" parent="." instance=ExtResource("3_gqvj3")]
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+offset_left = 73.0
+offset_top = 294.0
+offset_right = 369.0
+offset_bottom = 1240.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_p5gk6")
+
+[node name="lesons" parent="ScrollContainer" instance=ExtResource("3_gqvj3")]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_g4bo0")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_ire03")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xfoqj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ydu0i")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_m3cdr")
+theme_override_styles/focus = SubResource("StyleBoxFlat_th7uy")
+
+[node name="goBack" type="Button" parent="."]
 layout_mode = 0
-offset_left = 108.0
-offset_top = 310.0
-offset_right = 649.0
-offset_bottom = 446.0
+offset_left = 15.0
+offset_top = -9.0
+offset_right = 228.0
+offset_bottom = 76.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.254902, 0.47451, 1, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_g4bo0")
+theme_override_font_sizes/font_size = 34
+theme_override_styles/normal = SubResource("StyleBoxFlat_ygwsg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_515fg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_yd7vn")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_2x1p2")
+theme_override_styles/focus = SubResource("StyleBoxFlat_hrlf6")
+text = "↩ Go Back"
+
+[connection signal="pressed" from="ScrollContainer/lesons" to="." method="_on_lesons_pressed"]

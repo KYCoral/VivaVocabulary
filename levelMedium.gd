@@ -124,7 +124,8 @@ func start_game() -> void:
 
 func _on_restart_button_pressed() -> void:
 	start_game()
-	save_data()
+	if killed_value.text > 10:
+		save_data()
 
 
 func save_data():
@@ -136,7 +137,7 @@ func save_data():
 		var document = finished_task.document
 		if document && document.doc_fields:
 			if document.doc_fields.points:
-				var data: Dictionary = {
+				var data: Dictionary  = {
 			"points": document.doc_fields.points + 5
 			}
 				@warning_ignore("unused_variable")

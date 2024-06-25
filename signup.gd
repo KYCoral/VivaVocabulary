@@ -56,6 +56,8 @@ func _on_terms_services_pressed() -> void:
 func on_login_pressed() -> void:
 	#get_tree().change_scene_to_packed(login_page)
 	login_instance.show()
+	#hide()
+	#get_tree().change_scene_to_file("res://login.tscn")
 	pass
 
 
@@ -64,7 +66,6 @@ func on_exit_pressed() -> void:
 	exit_instance.show()
 
 func _on_sign_up_button_up():
-	
 	$errorMessage.hide()
 	var email = $mcSignup/SignupScreen/signup/vb_account/Account/signup/Email/emailEnter.text
 	var password = $mcSignup/SignupScreen/signup/vb_password/Password/password/passwordEnter.text

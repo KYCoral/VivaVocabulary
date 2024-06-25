@@ -47,6 +47,7 @@ func on_settings_pressed() -> void:
 	settings_instance.show()
 
 
+@warning_ignore("unused_parameter")
 func _on_FirebaseAuth_login_succeeded(auth_info):
 	print("Success!")
 	#userinfo = auth_info

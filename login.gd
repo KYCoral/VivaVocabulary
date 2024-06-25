@@ -46,6 +46,7 @@ func on_forgotPassword_pressed() -> void:
 func on_createAccount_pressed() -> void:
 	#get_tree().change_scene_to_packed(signup_page)
 	signUp_instance.show()
+	#get_tree().change_scene_to_file("res://signup.tscn")
 	#hide()
 
 
@@ -72,8 +73,8 @@ func _on_FirebaseAuth_login_succeeded(auth_info):
 	get_tree().change_scene_to_packed(menu_page)
 	
 
-func _on_FirebaseAuth_login_failed(error_code, message,auth_info):
-	$errorMessage.text = "Invalid email address. Please try again."
+func _on_FirebaseAuth_login_failed(error_code, message):
+	$errorMessage.text = "Invalid Email. Please try again."
 	$errorMessage.show()
 	print("error code: " + str(error_code))
 	print("message: " + str(message))

@@ -1,8 +1,8 @@
 extends Node2D
 
 @onready var goBack : Button = $goBack
-@onready var signup_page: PackedScene = preload("res://signup.tscn")
-var sign_instance : Node
+#@onready var signup_page: PackedScene = preload("res://signup.tscn")
+#var sign_instance : Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,5 +14,6 @@ func _ready():
 
 func _on_go_back_pressed() -> void:
 	#sign_instance.show()
-	hide()
+	#hide()
+	get_tree().change_scene_to_file("res://signup.tscn")
 	pass # Replace with function body.

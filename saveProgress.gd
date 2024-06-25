@@ -2,8 +2,8 @@ extends Control
 
 
 
-@export var email : String = "kazumirimurutempest@gmail.com"
-@export var password : String = "password123"
+@export var email : String = Global.login_data.username
+@export var password : String = Global.login_data.password
 var userinfo = null
 var COLLECTION_ID = "user_data"
 
@@ -49,13 +49,13 @@ func save_data():
 	if auth.localid:
 		var collection: FirestoreCollection = Firebase.Firestore.collection(COLLECTION_ID)
 		var username = $TabContainer/Profile/vb_username/Username/TextEdit/usernameInput.text 
-		#var emailAdress = $TabContainer/Profile/vb_email/Email/TextEdit/emailInput.text
+		var emailAdress = $TabContainer/Profile/vb_email/Email/TextEdit/emailInput.text
 		#var document = firestore_collection.get_doc("VivaVocabulario")
 		#collection.update(userinfo.emailAdress, 
 		var data: Dictionary = {
 		'username': username, 
 	}
-		
+		Firebase.Auth.change_user_email(emailAdress)
 		var task: FirestoreTask = collection.update(auth.localid, data)
 
 

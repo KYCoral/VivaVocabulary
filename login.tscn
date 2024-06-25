@@ -372,10 +372,6 @@ theme_override_font_sizes/font_size = 30
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="signup_control" parent="." instance=ExtResource("11_41wpn")]
-visible = false
-layout_mode = 1
-
 [node name="Panel" type="Sprite2D" parent="."]
 position = Vector2(858, 264)
 scale = Vector2(0.432184, 0.106645)
@@ -393,5 +389,9 @@ theme_override_font_sizes/font_size = 40
 text = "Log In"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="signup_control" parent="." instance=ExtResource("11_41wpn")]
+visible = false
+layout_mode = 1
 
 [connection signal="button_up" from="mcLogin/LoginScreen/Options/Login" to="." method="_on_login_button_up"]

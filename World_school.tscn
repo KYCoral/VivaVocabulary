@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://c5a3vah170vnn"]
+[gd_scene load_steps=40 format=3 uid="uid://c5a3vah170vnn"]
 
 [ext_resource type="Texture2D" uid="uid://j2y6m8u8cvwb" path="res://sprites/room.png" id="1_6c3sy"]
 [ext_resource type="Script" path="res://World_school.gd" id="1_n8u3a"]
@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://c70hr2a3q7rnt" path="res://sprites/Untitled75_20240409205456_edit_943665059587675.png" id="9_b2k61"]
 [ext_resource type="FontFile" uid="uid://x07w57hnrhsp" path="res://addons/fonts/PL Benguiat Caslon/PL Benguiat Caslon.ttf" id="10_jnnjw"]
 [ext_resource type="Texture2D" uid="uid://b1jnmt4pxltk6" path="res://sprites/Untitled80_20240416124734.png" id="11_yypxt"]
+[ext_resource type="Texture2D" uid="uid://cblswhmnd5dj" path="res://sprites/Untitled127_20240510130545.png" id="13_v00g1"]
+[ext_resource type="Texture2D" uid="uid://1umat3ha0r8b" path="res://sprites/Untitled127_20240510130543.png" id="14_lbxrp"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_ikx3x"]
 tile_data = PackedInt32Array(262144, 3276802, 36, 327680, 3276802, 37, 393216, 3276802, 38, 196609, 3342338, 35, 262145, 3342338, 36, 327681, 3342338, 37, 393217, 3342338, 38, 458753, 3342338, 39, 196610, 3407874, 35, 262146, 3407874, 36, 327682, 3407874, 37, 393218, 3407874, 38, 131075, 3473410, 34, 196611, 3473410, 35, 262147, 3473410, 36, 327683, 3473410, 37, 393219, 3473410, 38, 131076, 3538946, 34, 196612, 3538946, 35, 262148, 3538946, 36, 327684, 3538946, 37, 65541, 3473410, 34, 131077, 3473410, 35, 196613, 3473410, 36, 262149, 3473410, 37, 327685, 3604482, 37, 65542, 3538946, 34, 131078, 3538946, 35, 196614, 3538946, 36, 262150, 3538946, 37, 7, 3604482, 33, 65543, 3604482, 34, 131079, 3604482, 35, 196615, 3604482, 36, 262151, 3604482, 37, 65544, 3670018, 34, 131080, 3670018, 35, 196616, 3670018, 36)
@@ -21803,6 +21805,34 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(-176.625, -546.08)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Untitled12720240510130540:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_ube2v")]
+}
+
+[sub_resource type="Animation" id="Animation_4ftsd"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Untitled12720240510130540:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.4, 0.6, 0.7, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("6_ube2v"), ExtResource("6_ube2v"), ExtResource("13_v00g1"), ExtResource("13_v00g1"), ExtResource("14_lbxrp"), ExtResource("14_lbxrp"), ExtResource("6_ube2v"), ExtResource("6_ube2v")]
+}
 
 [sub_resource type="Animation" id="Animation_ymffo"]
 resource_name = "interact"
@@ -21841,6 +21871,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2ofy0"]
 _data = {
 "RESET": SubResource("Animation_g6huy"),
+"idle": SubResource("Animation_4ftsd"),
 "interact": SubResource("Animation_ymffo"),
 "level2": SubResource("Animation_yjrn4")
 }

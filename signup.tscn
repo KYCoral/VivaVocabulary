@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://4fc1nvn8uu46"]
+[gd_scene load_steps=32 format=3 uid="uid://4fc1nvn8uu46"]
 
 [ext_resource type="Script" path="res://signup.gd" id="1_ehfkp"]
 [ext_resource type="Texture2D" uid="uid://xdsgc8bu05td" path="res://sprites/Untitled78_20240329161643.png" id="1_lyhqg"]
@@ -12,6 +12,7 @@
 [ext_resource type="FontFile" uid="uid://bnw5ghde11g7m" path="res://addons/fonts/Monoton-Regular.ttf" id="11_ehahw"]
 [ext_resource type="PackedScene" path="res://exit_popup.tscn" id="11_rvlbj"]
 [ext_resource type="Texture2D" uid="uid://b70i01bly4f06" path="res://sprites/panel.png" id="12_5efag"]
+[ext_resource type="PackedScene" uid="uid://djd63bs3m84o3" path="res://login.tscn" id="13_t5q2v"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dpij3"]
 draw_center = false
@@ -158,6 +159,7 @@ theme_override_font_sizes/font_size = 40
 text = "Confirm Password"
 
 [node name="indicator" type="Label" parent="mcSignup/SignupScreen/signup/vb_confirmPassword/ConfirmPassword"]
+layout_mode = 0
 offset_left = 330.0
 offset_top = -2.0
 offset_right = 365.0
@@ -306,6 +308,7 @@ secret_character = "✦"
 metadata/_edit_use_anchors_ = true
 
 [node name="indicator" type="Label" parent="mcSignup/SignupScreen/signup/vb_password/Password"]
+layout_mode = 0
 offset_left = 178.0
 offset_top = -2.0
 offset_right = 204.0
@@ -553,6 +556,10 @@ theme_override_font_sizes/font_size = 40
 text = "Create Account"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="login_control" parent="." instance=ExtResource("13_t5q2v")]
+visible = false
+layout_mode = 1
 
 [connection signal="button_up" from="mcSignup/SignupScreen/signup/vb_confirmPassword/ConfirmPassword/vb_signupButton/signUp" to="." method="_on_sign_up_button_up"]
 [connection signal="button_down" from="CanvasLayer/Close" to="." method="_on_close_button_down"]
