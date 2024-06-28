@@ -31,3 +31,4 @@ func _on_yes_button_up():
 	var firestore_collection : FirestoreCollection = Firebase.Firestore.collection('user_data')
 	firestore_collection.delete(userinfo.email)
 	print("Document deleted successfully")
+	get_tree().change_scene_to_file("res://login.tscn")

@@ -1,11 +1,80 @@
-[gd_scene load_steps=2 format=3 uid="uid://bc7sy8tk26a7k"]
+[gd_scene load_steps=8 format=3 uid="uid://bc7sy8tk26a7k"]
 
 [ext_resource type="Script" path="res://lessons.gd" id="1_67haf"]
+[ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://addons/fonts/FrancoisOne.ttf" id="1_ww1s5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lvbat"]
+bg_color = Color(0.362829, 0.362829, 0.362829, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a8itl"]
+bg_color = Color(0.341176, 0.627451, 0.227451, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_28ra0"]
+bg_color = Color(0.364706, 1, 0.364706, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a3mqq"]
+bg_color = Color(0.362829, 0.362829, 0.362829, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_easi3"]
+bg_color = Color(0.362829, 0.362829, 0.362829, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
 [node name="lessons" type="Button"]
 offset_left = 20.0
 offset_top = 38.0
 offset_right = 561.0
 offset_bottom = 174.0
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_ww1s5")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_lvbat")
+theme_override_styles/hover = SubResource("StyleBoxFlat_a8itl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_28ra0")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_a3mqq")
+theme_override_styles/focus = SubResource("StyleBoxFlat_easi3")
 text = "generate lessons"
 script = ExtResource("1_67haf")

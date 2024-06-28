@@ -4,22 +4,24 @@ extends Node2D
 @export var password : String = Global.login_data.password
 var userinfo = null
 var COLLECTION_ID = "user_data"
-
+@onready var Resume : Button = $CanvasLayer2/Paused/CenterContainer/VBoxContainer2/Resume
+@onready var Restart : Button = $CanvasLayer2/Paused/CenterContainer/VBoxContainer2/Restart
+@onready var Map : Button = $CanvasLayer2/Paused/CenterContainer/VBoxContainer2/Map
 @onready var Enemy: PackedScene = preload("res://Enemy.tscn")
-
 @onready var buttonStart: Button = $CanvasLayer2/startGame/CenterContainer/VBoxContainer/start
 @onready var enemy_container = $CanvasLayer/VBoxContainer/MiddleRow/EnemyContainer
 @onready var spawn_container = $CanvasLayer/VBoxContainer/MiddleRow/SpawnContainer
 @onready var spawn_timer: Timer = $SpawnTimer
 @onready var difficulty_timer: Timer = $DifficultyTimer
-
+@onready var pause : Button = $CanvasLayer/option
+@onready var pause_screen = $CanvasLayer2/Paused
 @onready var difficulty_value = $CanvasLayer/VBoxContainer/BottomRow/HBoxContainer/DifficultyValue
 @onready var killed_value = $CanvasLayer/VBoxContainer/TopRow2/TopRow/EnemiesKilledValue
 @onready var game_over_screen = $CanvasLayer/GameOverScreen
 @onready var start_screen = $CanvasLayer2/startGame
 
 @onready var gameOver_value = $CanvasLayer/GameOverScreen/CenterContainer/VBoxContainer/WordCount
-
+@onready var SETTINGS = $settingsMenu
 var active_enemy: Node = null
 var current_letter_index: int = -1
 
@@ -28,6 +30,12 @@ var enemies_killed: int = 0
 
 func _ready() -> void:
 	# Connect the timers to their respective functions
+	Firebase.Auth.login_with_email_and_password(email, password)
+	Firebase.Auth.connect("login_succeeded", self._on_FirebaseAuth_login_succeeded)
+	Resume.button_down.connect(self._on_resume_button_down)
+	Restart.button_down.connect(self._on_restart_button_pressed)
+	Map.button_down.connect(self._on_map_button_down)
+	pause.button_down.connect(self._on_option_button_down)
 	spawn_timer.timeout.connect(self._on_spawn_timer_timeout)
 	difficulty_timer.timeout.connect(self._on_difficulty_timer_timeout)
 	buttonStart.button_down.connect(self._on_start_button_down)
@@ -36,9 +44,12 @@ func _ready() -> void:
 	difficulty_timer.stop()
 	active_enemy = null
 	current_letter_index = -1
-	gameOver_value.text = str(enemies_killed)
 	for enemy in enemy_container.get_children():
 		enemy.queue_free()
+
+
+func _on_FirebaseAuth_login_succeeded(auth_info):
+	print("Firebase login success!")
 
 func find_new_active_enemy(typed_character: String) -> void:
 	for enemy in enemy_container.get_children():
@@ -141,7 +152,7 @@ func save_data():
 			"points": document.doc_fields.points + 5
 			}
 				@warning_ignore("unused_variable")
-				var update: FirestoreTask = collection.update(email, data)
+				#var update: FirestoreDocument = await collection.update(doc_fields.points)
 
 
 func _on_start_button_down() -> void:
@@ -156,4 +167,23 @@ func _on_start_button_down() -> void:
 	spawn_enemy()
 
 func _on_map_button_down() -> void:
+	get_tree().change_scene_to_file("res://World_school.tscn")
+	pass # Replace with function body.
+
+
+func _on_option_button_down():
+	pause_screen.show()
+	#get_tree().paused = true
+	pass # Replace with function body.
+
+
+func _on_resume_button_down():
+	#get_tree().paused = false
+	pause_screen.hide()
+	pass # Replace with function body.
+	
+
+
+func _on_restart_button_down():
+	start_game()
 	pass # Replace with function body.

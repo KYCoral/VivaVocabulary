@@ -1,24 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://c1vm1qdjdao4y"]
+[gd_scene load_steps=4 format=3 uid="uid://ddesem15hfna1"]
 
 [ext_resource type="Texture2D" uid="uid://ud2n87pqc5b1" path="res://sprites/topviewSprite.png" id="1_kswxk"]
 [ext_resource type="Script" path="res://World-player.gd" id="2_muvss"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6sgnq"]
-radius = 90.7085
-height = 181.417
+radius = 85.6692
+height = 171.338
 
 [node name="worldPlayer" type="CharacterBody2D"]
-position = Vector2(321, 103)
+position = Vector2(706, 488)
 collision_layer = 9
 script = ExtResource("2_muvss")
 
 [node name="TopviewSprite" type="Sprite2D" parent="."]
-position = Vector2(353.883, 303)
+position = Vector2(2, -10)
 scale = Vector2(0.074817, 0.0734375)
 texture = ExtResource("1_kswxk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(351, 323)
+position = Vector2(-0.999971, 2)
 scale = Vector2(0.200195, 0.198438)
 shape = SubResource("CapsuleShape2D_6sgnq")
 

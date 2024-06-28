@@ -56,7 +56,9 @@ func save_data():
 		'username': username, 
 	}
 		Firebase.Auth.change_user_email(emailAdress)
-		var task: FirestoreTask = collection.update(auth.localid, data)
+		@warning_ignore("unused_variable")
+		var task: FirestoreTask = collection.update(auth.localid,data)
+		hide()
 
 
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://bstnmruoashay"]
+[gd_scene load_steps=24 format=3 uid="uid://bstnmruoashay"]
 
 [ext_resource type="Script" path="res://chat_text1_5.gd" id="1_8vjfb"]
 [ext_resource type="Texture2D" uid="uid://7ympmf8u77u0" path="res://sprites/Untitled64_20240516114802.png" id="2_nty2j"]
-[ext_resource type="Texture2D" uid="uid://dh6on7rqw6k7r" path="res://sprites/Untitled77_20240510125917.png" id="9_1nki4"]
+[ext_resource type="Texture2D" uid="uid://bki8hvqf7sbvm" path="res://sprites/11.png" id="3_5cyuw"]
+[ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://addons/fonts/FrancoisOne.ttf" id="4_ku61i"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_msekt"]
 content_margin_left = 10.0
@@ -48,6 +49,27 @@ corner_radius_top_left = 25
 corner_radius_top_right = 25
 corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r57kl"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t7q3p"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_if5g5"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+draw_center = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nneum"]
 content_margin_left = 10.0
@@ -154,43 +176,75 @@ corner_radius_top_right = 25
 corner_radius_bottom_right = 25
 corner_radius_bottom_left = 5
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oowpy"]
+draw_center = false
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8u433"]
+draw_center = false
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hwgfk"]
+draw_center = false
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jd7ls"]
+draw_center = false
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f4vi0"]
+draw_center = false
+border_color = Color(0.8, 0.8, 0.8, 0)
+
 [node name="chat" type="Node2D"]
 position = Vector2(1662, 279)
 script = ExtResource("1_8vjfb")
 
 [node name="bg" type="TextureRect" parent="."]
-offset_left = -1984.0
-offset_top = -436.0
-offset_right = 1149.0
-offset_bottom = 1498.0
+offset_left = -2072.0
+offset_top = -444.0
+offset_right = 1061.0
+offset_bottom = 1490.0
 texture = ExtResource("2_nty2j")
 expand_mode = 1
 
-[node name="aiko" type="Sprite2D" parent="bg"]
-position = Vector2(966, 1739)
-scale = Vector2(0.964844, 0.919759)
-texture = ExtResource("9_1nki4")
+[node name="11" type="Sprite2D" parent="."]
+position = Vector2(-1143, 417)
+scale = Vector2(0.414063, 0.395833)
+texture = ExtResource("3_5cyuw")
 
 [node name="InputEdit" type="TextEdit" parent="."]
 custom_minimum_size = Vector2(240, 280)
-offset_left = -329.0
-offset_top = 666.0
-offset_right = 555.0
-offset_bottom = 946.0
+offset_left = -485.0
+offset_top = 649.0
+offset_right = 879.0
+offset_bottom = 984.0
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_msekt")
 theme_override_styles/focus = SubResource("StyleBoxFlat_n0ihw")
 theme_override_styles/read_only = SubResource("StyleBoxFlat_yyii3")
-placeholder_text = "Add a question for Aiko..."
+editable = false
+wrap_mode = 1
+
+[node name="LineEdit" type="TextEdit" parent="InputEdit"]
+offset_left = 25.0
+offset_top = 27.0
+offset_right = 1237.0
+offset_bottom = 314.0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_r57kl")
+theme_override_styles/focus = SubResource("StyleBoxFlat_t7q3p")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_if5g5")
+placeholder_text = "Ask anything..."
 wrap_mode = 1
 
 [node name="ResponseEdit" type="TextEdit" parent="."]
 custom_minimum_size = Vector2(250, 280)
-offset_left = -346.0
-offset_top = -184.0
-offset_right = 732.0
-offset_bottom = 652.0
+offset_left = -634.0
+offset_top = -247.0
+offset_right = 894.0
+offset_bottom = 607.0
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
@@ -204,10 +258,10 @@ editable = false
 wrap_mode = 1
 
 [node name="SendButton" type="Button" parent="."]
-offset_left = 600.0
-offset_top = 739.0
-offset_right = 729.0
-offset_bottom = 870.0
+offset_left = 770.0
+offset_top = 887.0
+offset_right = 844.0
+offset_bottom = 956.0
 mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0.8, 0.8, 1)
@@ -230,4 +284,25 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_dgafw")
 theme_override_styles/focus = SubResource("StyleBoxFlat_q02kw")
 text = "➤"
 
+[node name="goBack" type="Button" parent="."]
+offset_left = -1634.0
+offset_top = -242.0
+offset_right = -1421.0
+offset_bottom = -157.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.254902, 0.47451, 1, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ku61i")
+theme_override_font_sizes/font_size = 34
+theme_override_styles/normal = SubResource("StyleBoxFlat_oowpy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8u433")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hwgfk")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_jd7ls")
+theme_override_styles/focus = SubResource("StyleBoxFlat_f4vi0")
+text = "↩ Go Back"
+
 [connection signal="pressed" from="SendButton" to="." method="_on_send_button_pressed"]
+[connection signal="pressed" from="goBack" to="." method="_on_go_back_pressed"]

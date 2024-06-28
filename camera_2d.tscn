@@ -1,0 +1,263 @@
+[gd_scene load_steps=22 format=3 uid="uid://ca1fa2mfpl1mg"]
+
+[ext_resource type="Script" path="res://Camera2D.gd" id="1_l3l3i"]
+[ext_resource type="Texture2D" uid="uid://c70hr2a3q7rnt" path="res://sprites/Untitled75_20240409205456_edit_943665059587675.png" id="2_qjksh"]
+[ext_resource type="FontFile" uid="uid://x07w57hnrhsp" path="res://addons/fonts/PL Benguiat Caslon/PL Benguiat Caslon.ttf" id="3_3db5c"]
+[ext_resource type="Texture2D" uid="uid://b1jnmt4pxltk6" path="res://sprites/Untitled80_20240416124734.png" id="4_0itwl"]
+[ext_resource type="PackedScene" uid="uid://terav7u15oa6" path="res://joystick.tscn" id="5_3mtry"]
+[ext_resource type="Texture2D" uid="uid://bksm6qj8vs12y" path="res://sprites/pause.png" id="7_clpdx"]
+[ext_resource type="Texture2D" uid="uid://cspevjom8avp8" path="res://sprites/Untitled123_20240510122556.png" id="7_eu3mo"]
+[ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://addons/fonts/FrancoisOne.ttf" id="8_ttuw4"]
+[ext_resource type="FontFile" uid="uid://cnff5mjjigvl" path="res://addons/fonts/PoiretOne-Regular.ttf" id="9_685wy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5hsfc"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_top = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i7xbx"]
+draw_center = false
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tcn4w"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ritk0"]
+draw_center = false
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_il4s7"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_67q1v"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a3wao"]
+bg_color = Color(0.254902, 0.254902, 0.254902, 0.713726)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_miy61"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m2etk"]
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8, 0.8, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_30cto"]
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.505882, 0.427451, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uf73d"]
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8, 0.8, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xvk46"]
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="Camera2D" type="Camera2D"]
+position = Vector2(379, 232)
+zoom = Vector2(3, 3)
+script = ExtResource("1_l3l3i")
+
+[node name="profile" type="Sprite2D" parent="."]
+z_index = 24
+position = Vector2(-235, -156)
+scale = Vector2(0.540039, 0.442231)
+texture = ExtResource("2_qjksh")
+
+[node name="username" type="Label" parent="profile"]
+offset_left = -128.0
+offset_top = -79.0
+offset_right = 278.0
+offset_bottom = 29.0
+theme_override_fonts/font = ExtResource("3_3db5c")
+theme_override_font_sizes/font_size = 33
+text = "[Name of User]"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="points" type="Label" parent="profile"]
+offset_left = -303.0
+offset_top = 6.0
+offset_right = -183.0
+offset_bottom = 56.0
+theme_override_font_sizes/font_size = 42
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelPoints" type="Label" parent="profile"]
+offset_left = -309.0
+offset_top = -102.0
+offset_right = -140.0
+offset_bottom = -79.0
+rotation = 1.5708
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_5hsfc")
+text = "POINTS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="pointsLogo" type="Sprite2D" parent="profile"]
+position = Vector2(-242.806, -48.7041)
+scale = Vector2(0.122887, 0.15145)
+texture = ExtResource("4_0itwl")
+
+[node name="joystick" parent="." instance=ExtResource("5_3mtry")]
+position = Vector2(350, 151)
+
+[node name="option" type="Button" parent="."]
+offset_left = 350.0
+offset_top = -197.0
+offset_right = 408.0
+offset_bottom = -151.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.345098, 0.176471, 0.0313726, 1)
+theme_override_colors/font_focus_color = Color(0.345098, 0.176471, 0.0313726, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("8_ttuw4")
+theme_override_font_sizes/font_size = 29
+theme_override_styles/normal = SubResource("StyleBoxFlat_i7xbx")
+theme_override_styles/hover = SubResource("StyleBoxTexture_tcn4w")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ritk0")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_il4s7")
+theme_override_styles/focus = SubResource("StyleBoxFlat_67q1v")
+icon = ExtResource("7_clpdx")
+icon_alignment = 2
+expand_icon = true
+
+[node name="menu" type="TextureRect" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.764706)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -640.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_eu3mo")
+stretch_mode = 2
+
+[node name="Paused" type="PanelContainer" parent="menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_a3wao")
+
+[node name="CenterContainer" type="CenterContainer" parent="menu/Paused"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="menu/Paused/CenterContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_constants/separation = 11
+
+[node name="Label" type="Label" parent="menu/Paused/CenterContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_685wy")
+theme_override_font_sizes/font_size = 70
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="Resume" type="Button" parent="menu/Paused/CenterContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0.505882, 0.427451, 1, 1)
+theme_override_colors/font_hover_color = Color(0.8, 0.8, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.505882, 0.427451, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.8, 0.8, 1, 1)
+theme_override_fonts/font = ExtResource("8_ttuw4")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_miy61")
+theme_override_styles/hover = SubResource("StyleBoxFlat_m2etk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_30cto")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_uf73d")
+theme_override_styles/focus = SubResource("StyleBoxFlat_xvk46")
+text = "Resume"
+
+[node name="Settings" type="Button" parent="menu/Paused/CenterContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0.505882, 0.427451, 1, 1)
+theme_override_colors/font_hover_color = Color(0.8, 0.8, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.505882, 0.427451, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.8, 0.8, 1, 1)
+theme_override_fonts/font = ExtResource("8_ttuw4")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_miy61")
+theme_override_styles/hover = SubResource("StyleBoxFlat_m2etk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_30cto")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_uf73d")
+theme_override_styles/focus = SubResource("StyleBoxFlat_xvk46")
+text = "Settings"
+
+[node name="Map" type="Button" parent="menu/Paused/CenterContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0.505882, 0.427451, 1, 1)
+theme_override_colors/font_hover_color = Color(0.8, 0.8, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.505882, 0.427451, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.8, 0.8, 1, 1)
+theme_override_fonts/font = ExtResource("8_ttuw4")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_miy61")
+theme_override_styles/hover = SubResource("StyleBoxFlat_m2etk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_30cto")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_uf73d")
+theme_override_styles/focus = SubResource("StyleBoxFlat_xvk46")
+text = "QUIT"
+
+[connection signal="button_down" from="option" to="." method="_on_option_button_down"]

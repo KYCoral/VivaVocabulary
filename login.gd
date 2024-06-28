@@ -11,14 +11,16 @@ var signUp_instance: Node
 @onready var signup_page: PackedScene = preload("res://signup.tscn")
 @onready var exitPopup: PackedScene = preload("res://exit_popup.tscn")
 var exit_instance: Node
+@onready var login : Button = $mcLogin/LoginScreen/Options/Login
 ##@onready var game_page: PackedScene = preload("res://game.tscn")
-@onready var menu_page: PackedScene = preload("res://mainMenu.tscn")
+#@onready var menu_page: PackedScene = preload("res://mainMenu.tscn")
 var userinfo = null
 
 func _ready():
 	Firebase.Auth.connect("login_succeeded", self._on_FirebaseAuth_login_succeeded)
 	Firebase.Auth.connect("login_failed", self._on_FirebaseAuth_login_failed)	
 	# Connect signals for login scene
+	login.button_down.connect(_on_login_button_up)
 	forgotPassword.button_down.connect(on_forgotPassword_pressed)
 	signupLogin.button_down.connect(on_createAccount_pressed)
 	exitLogin.button_down.connect(on_exit_pressed)
@@ -68,9 +70,8 @@ func _on_login_button_up():
 func _on_FirebaseAuth_login_succeeded(auth_info):
 	print("Success!")
 	userinfo = auth_info
-	##GameManager.userInfo = userinfo
 	Firebase.Auth.save_auth(auth_info)
-	get_tree().change_scene_to_packed(menu_page)
+	get_tree().change_scene_to_file("res://mainMenu.tscn")
 	
 
 func _on_FirebaseAuth_login_failed(error_code, message):

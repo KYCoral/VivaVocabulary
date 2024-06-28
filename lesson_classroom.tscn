@@ -1,8 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://bsn7sigh43nfv"]
+[gd_scene load_steps=14 format=3 uid="uid://bsn7sigh43nfv"]
 
 [ext_resource type="Texture2D" uid="uid://c83d5aewtdtpn" path="res://sprites/classroom.jpg" id="1_0cxs4"]
 [ext_resource type="Script" path="res://lesson_classroom.gd" id="1_m7vfd"]
-[ext_resource type="PackedScene" uid="uid://bc7sy8tk26a7k" path="res://lessons.tscn" id="3_gqvj3"]
 [ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://addons/fonts/FrancoisOne.ttf" id="4_g4bo0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_houv5"]
@@ -55,76 +54,6 @@ corner_radius_top_left = 25
 corner_radius_top_right = 25
 corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ire03"]
-content_margin_left = 10.0
-content_margin_top = 10.0
-content_margin_right = 10.0
-content_margin_bottom = 10.0
-bg_color = Color(0.445879, 0.455727, 0.469108, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xfoqj"]
-content_margin_left = 10.0
-content_margin_top = 10.0
-content_margin_right = 10.0
-content_margin_bottom = 10.0
-bg_color = Color(0.445879, 0.455727, 0.469108, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ydu0i"]
-content_margin_left = 10.0
-content_margin_top = 10.0
-content_margin_right = 10.0
-content_margin_bottom = 10.0
-bg_color = Color(0.445879, 0.455727, 0.469108, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m3cdr"]
-content_margin_left = 10.0
-content_margin_top = 10.0
-content_margin_right = 10.0
-content_margin_bottom = 10.0
-bg_color = Color(0.445879, 0.455727, 0.469108, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_th7uy"]
-content_margin_left = 10.0
-content_margin_top = 10.0
-content_margin_right = 10.0
-content_margin_bottom = 10.0
-bg_color = Color(0.445879, 0.455727, 0.469108, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ygwsg"]
 draw_center = false
@@ -200,7 +129,7 @@ scroll_following = true
 layout_mode = 0
 offset_left = 59.0
 offset_top = 153.0
-offset_right = 375.0
+offset_right = 594.0
 offset_bottom = 274.0
 theme_override_font_sizes/font_size = 80
 theme_override_styles/normal = SubResource("StyleBoxFlat_q3qy7")
@@ -230,22 +159,16 @@ vertical_alignment = 1
 layout_mode = 2
 offset_left = 73.0
 offset_top = 294.0
-offset_right = 369.0
+offset_right = 597.0
 offset_bottom = 1240.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_p5gk6")
 
-[node name="lesons" parent="ScrollContainer" instance=ExtResource("3_gqvj3")]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("4_g4bo0")
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_ire03")
-theme_override_styles/hover = SubResource("StyleBoxFlat_xfoqj")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ydu0i")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_m3cdr")
-theme_override_styles/focus = SubResource("StyleBoxFlat_th7uy")
+size_flags_vertical = 3
 
 [node name="goBack" type="Button" parent="."]
 layout_mode = 0
@@ -267,5 +190,3 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_yd7vn")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_2x1p2")
 theme_override_styles/focus = SubResource("StyleBoxFlat_hrlf6")
 text = "↩ Go Back"
-
-[connection signal="pressed" from="ScrollContainer/lesons" to="." method="_on_lesons_pressed"]

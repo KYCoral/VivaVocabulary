@@ -71,10 +71,7 @@ func _on_sign_up_button_up():
 	var password = $mcSignup/SignupScreen/signup/vb_password/Password/password/passwordEnter.text
 	var confirmPassword = $mcSignup/SignupScreen/signup/vb_confirmPassword/ConfirmPassword/confirmPassword/confirmPasswordEnter.text 
 	var username = str(email).split("@")[-1]
-	$mcSignup/SignupScreen/signup/vb_account/Account/signup/Email/emailEnter.clear()
-	$mcSignup/SignupScreen/signup/vb_password/Password/password/passwordEnter.clear()
-	$mcSignup/SignupScreen/signup/vb_confirmPassword/ConfirmPassword/confirmPassword/confirmPasswordEnter.clear()
-	#$mcSignup/SignupScreen/signup/vb_confirmPassword/ConfirmPassword/vb_signupButton/cbTerms.button_pressed = false
+
 	print(username)
 	var valid = email.find("@")
 	#var invalid_characters = [" ", "!", "#", "$", "%", "^", "&", "*", "(", ")", "+", "=", "{", "}", "|", "\\", ":", ";", "'", "\"", "<", ">", ",", "/", "?", "`", "~"]
@@ -100,15 +97,18 @@ func _on_sign_up_button_up():
 			Firebase.Auth.signup_with_email_and_password(email,password)
 
 func _on_FirebaseAuth_signup_succeeded(auth_info):
-	#$TextureRect/AnimationPlayer.play("registered")
+	$mcSignup/SignupScreen/signup/vb_account/Account/signup/Email/emailEnter.clear()
+	$mcSignup/SignupScreen/signup/vb_password/Password/password/passwordEnter.clear()
+	$mcSignup/SignupScreen/signup/vb_confirmPassword/ConfirmPassword/confirmPassword/confirmPasswordEnter.clear()
+	$mcSignup/SignupScreen/signup/vb_confirmPassword/ConfirmPassword/vb_signupButton/cbTerms.button_pressed = false
 	print("signup successful " + str(auth_info))
 	userinfo = auth_info
 	Firebase.Auth.send_account_verification_email()
-	$errorMessage.text = "Email was sent for email verification."
+	#$errorMessage.text = "Email was sent for email verification."
 	
 	# adding user to firestore
 	var firestore_collection = Firebase.Firestore.collection("user_data")
-	var document = firestore_collection.get_doc("VivaVocabulario")
+	var document: FirestoreTask = await firestore_collection.get_doc("VivaVocabulario")
 	print(document)
 	var add_task = firestore_collection.add(userinfo.email, 
 	{

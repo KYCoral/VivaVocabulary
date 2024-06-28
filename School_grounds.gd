@@ -1,34 +1,24 @@
 class_name School_grounds extends BaseScene
 
-
-
 @export var email : String = Global.login_data.username
 @export var password : String = Global.login_data.password
 var userinfo = null
 var COLLECTION_ID = "user_data"
-##@onready var locationPointer : Label = $locationPointer/CollisionShape2D/Label
 @onready var tile_map = $TileMap
-#@onready var rooftop: Area2D = $rooftop
-#@onready var entrance: Area2D = $entrance
-#var username = $worldPlayer/Camera2D/profile/username.text
-
-
+@onready var camera: Camera2D = $worldPlayer/Camera2D
+@onready var convo = $worldPlayer/convo
+@onready var talkButton : Button = $"../../NPC/interact"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Firebase.Auth.login_with_email_and_password(email, password)
 	Firebase.Auth.connect("login_succeeded", self._on_FirebaseAuth_login_succeeded)
+	convo.hide()
 	#pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
 
 
 func _on_FirebaseAuth_login_succeeded(auth_info):
 	print("Success!")
 	userinfo = auth_info
-	##GameManager.userInfo = userinfo
 	
 	Firebase.Auth.save_auth(auth_info)
 	var auth = Firebase.Auth.auth
@@ -52,23 +42,8 @@ func _on_settings_button_down():
 	$Camera2D/menu.hide()
 	$Camera2D/settingsMenu.show()
 
-
 func _on_map_button_down():
 	$Camera2D/menu.hide()
-
-
-#func _on_entrance_body_entered(body):
-#	if body is Player:
-#		tile_map.set_layer_enabled(7, false)
-#	pass # Replace with function body.
-
-
-
-#func _on_entrance_body_exited(body):
-#	if body is Player:
-#		tile_map.set_layer_enabled(7, true)
-#	pass # Replace with function body.
-
 
 func _on_area_2d_body_exited(body):
 	if body is Player:
@@ -85,20 +60,34 @@ func change_scene():
 
 func _on_roof_body_entered(body):
 	if body is Player :
-		tile_map. set_layer_enabled(7, false)
+		tile_map. set_layer_enabled(5, false)
 	pass # Replace with function body.
 
 
 
 func _on_roof_body_exited(body):
 	if body is Player:
-		tile_map.set_layer_enabled(7, true)
+		tile_map.set_layer_enabled(5, true)
 	pass # Replace with function body.
 
 
 func _on_scene_trigger_body_entered(body):
 	if body is Player:
-		get_tree().change_scene_to_file("res://World_school.tscn")
 		change_scene()
-		pass # Replace with function body.
+
 	pass # Replace with function body.
+
+
+func _on_interact_pressed():
+	camera.visible = false
+	convo.show()
+	pass # Replace with function body.
+
+
+func _on_done_pressed():
+	camera.visible = true
+	convo.hide()
+	$worldPlayer/convo/InputEdit/LineEdit.clear()
+	$worldPlayer/convo/ResponseEdit.clear()
+	pass # Replace with function body.
+

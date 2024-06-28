@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dl1od1gcmhude"]
+[gd_scene load_steps=27 format=3 uid="uid://dl1od1gcmhude"]
 
 [ext_resource type="Script" path="res://levelMedium.gd" id="1_1gur2"]
 [ext_resource type="FontFile" uid="uid://x07w57hnrhsp" path="res://addons/fonts/PL Benguiat Caslon/PL Benguiat Caslon.ttf" id="4_hkgif"]
@@ -6,6 +6,8 @@
 [ext_resource type="FontFile" uid="uid://cxo00kjcsmt7t" path="res://addons/fonts/BalooBhaijaan-Regular.ttf" id="6_0ekk2"]
 [ext_resource type="PackedScene" path="res://Enemy.tscn" id="6_et41b"]
 [ext_resource type="Texture2D" uid="uid://c5i6mfte4gr7j" path="res://sprites/1-back.png" id="7_10swi"]
+[ext_resource type="FontFile" uid="uid://cnff5mjjigvl" path="res://addons/fonts/PoiretOne-Regular.ttf" id="8_7woce"]
+[ext_resource type="Texture2D" uid="uid://bksm6qj8vs12y" path="res://sprites/pause.png" id="10_hogn5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8vqqn"]
 size = Vector2(96, 1410)
@@ -73,6 +75,86 @@ corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oe7rk"]
+draw_center = false
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w6l2n"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ydod0"]
+draw_center = false
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aqtej"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p3jic"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4rvbm"]
+bg_color = Color(0.254902, 0.254902, 0.254902, 0.713726)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r8tlm"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nr5hk"]
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8, 0.8, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ejv3i"]
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.505882, 0.427451, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vxj16"]
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8, 0.8, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hh6b5"]
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
 [node name="Main" type="Node2D"]
 script = ExtResource("1_1gur2")
 
@@ -92,7 +174,7 @@ position = Vector2(-81, 560)
 shape = SubResource("RectangleShape2D_8vqqn")
 
 [node name="SpawnTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 15.0
 
 [node name="DifficultyTimer" type="Timer" parent="."]
 wait_time = 12.0
@@ -103,6 +185,8 @@ wait_time = 12.0
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 211.0
+offset_bottom = -14.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -167,6 +251,8 @@ visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 5.0
+offset_bottom = 5.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_srbgh")
@@ -225,11 +311,39 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_0t4ou")
 theme_override_styles/focus = SubResource("StyleBoxFlat_xojeu")
 text = "Back to Map"
 
+[node name="option" type="Button" parent="CanvasLayer"]
+offset_left = 2439.0
+offset_top = 24.0
+offset_right = 2508.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.345098, 0.176471, 0.0313726, 1)
+theme_override_colors/font_focus_color = Color(0.345098, 0.176471, 0.0313726, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_un0h5")
+theme_override_font_sizes/font_size = 29
+theme_override_styles/normal = SubResource("StyleBoxFlat_oe7rk")
+theme_override_styles/hover = SubResource("StyleBoxTexture_w6l2n")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ydod0")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_aqtej")
+theme_override_styles/focus = SubResource("StyleBoxFlat_p3jic")
+icon = ExtResource("10_hogn5")
+icon_alignment = 2
+expand_icon = true
+
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="startGame" type="PanelContainer" parent="CanvasLayer2"]
-offset_right = 2819.0
+offset_right = 2582.0
 offset_bottom = 1285.0
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer2/startGame"]
@@ -262,9 +376,86 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_0t4ou")
 theme_override_styles/focus = SubResource("StyleBoxFlat_xojeu")
 text = "Start Game"
 
+[node name="Paused" type="PanelContainer" parent="CanvasLayer2"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -34.0
+offset_top = -24.0
+offset_right = 27.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4rvbm")
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer2/Paused"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer2/Paused/CenterContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_constants/separation = 11
+
+[node name="Label" type="Label" parent="CanvasLayer2/Paused/CenterContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_7woce")
+theme_override_font_sizes/font_size = 120
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="Resume" type="Button" parent="CanvasLayer2/Paused/CenterContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0.505882, 0.427451, 1, 1)
+theme_override_colors/font_hover_color = Color(0.8, 0.8, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.505882, 0.427451, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.8, 0.8, 1, 1)
+theme_override_fonts/font = ExtResource("5_un0h5")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_r8tlm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nr5hk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ejv3i")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_vxj16")
+theme_override_styles/focus = SubResource("StyleBoxFlat_hh6b5")
+text = "Resume"
+
+[node name="Restart" type="Button" parent="CanvasLayer2/Paused/CenterContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0.505882, 0.427451, 1, 1)
+theme_override_colors/font_hover_color = Color(0.8, 0.8, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.505882, 0.427451, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.8, 0.8, 1, 1)
+theme_override_fonts/font = ExtResource("5_un0h5")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_r8tlm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nr5hk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ejv3i")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_vxj16")
+theme_override_styles/focus = SubResource("StyleBoxFlat_hh6b5")
+text = "Restart"
+
+[node name="Map" type="Button" parent="CanvasLayer2/Paused/CenterContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0.505882, 0.427451, 1, 1)
+theme_override_colors/font_hover_color = Color(0.8, 0.8, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.505882, 0.427451, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.8, 0.8, 1, 1)
+theme_override_fonts/font = ExtResource("5_un0h5")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_r8tlm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nr5hk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ejv3i")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_vxj16")
+theme_override_styles/focus = SubResource("StyleBoxFlat_hh6b5")
+text = "QUIT"
+
 [connection signal="body_entered" from="LoseArea" to="." method="_on_lose_area_body_entered"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="DifficultyTimer" to="." method="_on_difficulty_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/GameOverScreen/CenterContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="button_down" from="CanvasLayer/GameOverScreen/CenterContainer/VBoxContainer/Map" to="." method="_on_map_button_down"]
+[connection signal="button_down" from="CanvasLayer/option" to="." method="_on_option_button_down"]
 [connection signal="button_down" from="CanvasLayer2/startGame/CenterContainer/VBoxContainer/start" to="." method="_on_start_button_down"]
+[connection signal="button_down" from="CanvasLayer2/Paused/CenterContainer/VBoxContainer2/Resume" to="." method="_on_resume_button_down"]
+[connection signal="button_down" from="CanvasLayer2/Paused/CenterContainer/VBoxContainer2/Restart" to="." method="_on_restart_button_down"]
+[connection signal="button_down" from="CanvasLayer2/Paused/CenterContainer/VBoxContainer2/Map" to="." method="_on_map_button_down"]

@@ -167,10 +167,6 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_14ap8")
 theme_override_styles/focus = SubResource("StyleBoxFlat_t3k0n")
 text = "Exit"
 
-[node name="exit_control" parent="." instance=ExtResource("8_8uaj2")]
-visible = false
-layout_mode = 1
-
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 1.0
@@ -197,5 +193,9 @@ position = Vector2(2181, 667)
 rotation = 0.483456
 scale = Vector2(0.931111, 0.952869)
 texture = ExtResource("9_hkmgr")
+
+[node name="exit_control" parent="." instance=ExtResource("8_8uaj2")]
+visible = false
+layout_mode = 1
 
 [connection signal="button_up" from="Background/Menu/newGame" to="." method="_on_new_game_button_up"]

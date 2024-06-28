@@ -4,10 +4,8 @@ extends BaseScene
 @export var password : String = Global.login_data.password
 var userinfo = null
 var COLLECTION_ID = "user_data"
-
 @onready var level2: Button = $level2/CollisionShape2D/level2
 @onready var level2_page: PackedScene = preload("res://levelMedium.tscn")
-
 @onready var interact : Button = $Untitled12720240510130540/interact
 @onready var chat_page: PackedScene = preload("res://scenes/chat.tscn")
 
@@ -17,7 +15,7 @@ func _ready():
 	Firebase.Auth.connect("login_succeeded", self._on_FirebaseAuth_login_succeeded)
 	level2.button_up.connect(_on_level_2_button_up)	
 	interact.button_down.connect(_on_interact_button_up)
-		# Instantiate exit popup and add it to the scene tree
+	# Instantiate exit popup and add it to the scene tree
 	#level2_instance = level2_page.instantiate()
 	#add_child(level2_instance)
 	#level2_instance.hide()
@@ -27,10 +25,6 @@ func _ready():
 	#add_child(level2_instance)
 	#level2_instance.hide()
 	pass # Replace with function body.r.player:
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
 
 
 func _on_FirebaseAuth_login_succeeded(auth_info):
@@ -86,4 +80,9 @@ func _on_interact_detection_body_entered(_body):
 func _on_interact_detection_body_exited(_body):
 	interact.hide()
 	$level2/level2_play.stop()
+	pass # Replace with function body.
+
+
+func _on_lessons_pressed():
+	get_tree().change_scene_to_file("res://lesson_classroom.tscn")
 	pass # Replace with function body.

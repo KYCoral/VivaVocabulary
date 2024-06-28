@@ -58,7 +58,7 @@ func _on_FirebaseAuth_login_succeeded(auth_info):
 	if auth.localid:
 		var collection: FirestoreCollection = Firebase.Firestore.collection(COLLECTION_ID)
 		
-		var task: FirestoreTask = collection.get_doc(email)
+		var task: FirestoreTask = await collection.get_doc(email)
 		var finished_task: FirestoreTask = await task.task_finished
 		var document = finished_task.document
 		if document && document.doc_fields:
@@ -73,9 +73,6 @@ func _on_new_game_button_up():
 	var auth = Firebase.Auth.auth
 	if auth.localid:
 		var collection: FirestoreCollection = Firebase.Firestore.collection(COLLECTION_ID)
-		#var emailAdress = $TabContainer/Profile/vb_email/Email/TextEdit/emailInput.text
-		#var document = firestore_collection.get_doc("VivaVocabulario")
-		#collection.update(userinfo.emailAdress, 
 		var data: Dictionary = {
 		'level' : 0,
 		'points' : 1,
@@ -83,7 +80,7 @@ func _on_new_game_button_up():
 	}
 		
 		@warning_ignore("unused_variable")
-		var task: FirestoreTask = collection.update(auth.localid, data)
+		var task: FirestoreTask = await collection.update(auth.localid,data)
 		
 	get_tree().change_scene_to_packed(map_page)
 	pass # Replace with function body.
