@@ -1,7 +1,7 @@
 extends Node2D
 
-@export var email : String = "kazumirimurutempest@gmail.com"#Global.login_data.username
-@export var password : String = "password123"#Global.login_data.password
+@export var email : String = Global.login_data.username
+@export var password : String = Global.login_data.password
 var userinfo = null
 var COLLECTION_ID = "user_data"
 
