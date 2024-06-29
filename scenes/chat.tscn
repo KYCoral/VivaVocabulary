@@ -228,6 +228,7 @@ editable = false
 wrap_mode = 1
 
 [node name="LineEdit" type="TextEdit" parent="InputEdit"]
+layout_mode = 0
 offset_left = 25.0
 offset_top = 27.0
 offset_right = 1237.0

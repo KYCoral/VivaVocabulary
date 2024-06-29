@@ -14,6 +14,7 @@ config/name="VivaVocabulary"
 run/main_scene="res://login.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 run/max_fps=240
+boot_splash/bg_color=Color(0.294486, 0.621597, 0.792346, 1)
 boot_splash/image="res://sprites/viva-logo.png"
 boot_splash/use_filter=false
 config/icon="res://sprites/head.png"

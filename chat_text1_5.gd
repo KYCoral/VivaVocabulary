@@ -1,7 +1,7 @@
 extends Node2D
 
-@export var email : String = Global.login_data.username
-@export var password : String = Global.login_data.password
+@export var email : String = "kazumirimurutempest@gmail.com"#Global.login_data.username
+@export var password : String = "password123"#Global.login_data.password
 var userinfo = null
 var COLLECTION_ID = "user_data"
 
@@ -13,7 +13,7 @@ var api_key = "AIzaSyA24uv8pVwaSNqwHG_2TLhnxyxDjxW6UN0"
 var http_request
 var conversations = []
 var last_user_prompt
-@export var target_model = "v1beta/models/gemini-1.5-pro-latest"
+@export var target_model = "v1beta/models/gemini-1.5-flash-latest"
 
 @onready var goBack : Button = $goBack
 

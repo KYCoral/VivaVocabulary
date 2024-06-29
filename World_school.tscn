@@ -22637,7 +22637,6 @@ position = Vector2(-649, -400)
 polygon = PackedVector2Array(173, 385, 285, 445, 199, 499, 297, 542, 373, 483, 541, 569, 425, 637, 466, 654, 589, 590, 718, 654, 1146, 447, 1179, 537, 689, 823, 28, 480)
 
 [node name="worldPlayer" parent="." instance=ExtResource("7_ovfp1")]
-visible = false
 position = Vector2(94, 100)
 
 [node name="Camera2D" parent="worldPlayer" instance=ExtResource("8_ir6r1")]
