@@ -22445,7 +22445,7 @@ size = Vector2(89.5998, 48)
 radius = 731.523
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kob1b"]
-bg_color = Color(0, 0.354789, 0.354831, 1)
+bg_color = Color(1, 1, 1, 1)
 draw_center = false
 border_color = Color(0.8, 0.8, 0.8, 0)
 
@@ -22638,7 +22638,6 @@ position = Vector2(-8, 9)
 
 [node name="Camera2D" parent="worldPlayer" instance=ExtResource("8_ir6r1")]
 position = Vector2(-7, -31)
-script = null
 
 [node name="Untitled12720240510130540" type="Sprite2D" parent="."]
 position = Vector2(181, -234)
@@ -22656,7 +22655,7 @@ shape = SubResource("CircleShape2D_5aihr")
 visible = false
 offset_left = -176.625
 offset_top = -546.08
-offset_right = 169.375
+offset_right = 312.375
 offset_bottom = -328.08
 rotation = 0.0349066
 size_flags_stretch_ratio = 1.36
@@ -22673,42 +22672,8 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_5btfm")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ie51p")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_kfgch")
 theme_override_styles/focus = SubResource("StyleBoxFlat_w3r2b")
-text = "Interact
-⇩"
-
-[node name="lessons" type="Area2D" parent="."]
-position = Vector2(313, 259)
-rotation = -0.0872665
-skew = 0.0506145
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="lessons"]
-position = Vector2(-564.986, -686.703)
-rotation = -0.331613
-scale = Vector2(1, 1)
-skew = 0.389208
-shape = SubResource("RectangleShape2D_7e1aq")
-
-[node name="lessons" type="Button" parent="lessons/CollisionShape2D"]
-offset_left = -40.3297
-offset_top = -24.3791
-offset_right = 58.6703
-offset_bottom = 57.6209
-rotation = 0.0349066
-size_flags_stretch_ratio = 1.36
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
-theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 1, 0, 1)
-theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_u3us6")
-theme_override_styles/hover = SubResource("StyleBoxFlat_m8ht2")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ix0mg")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_6kblf")
-theme_override_styles/focus = SubResource("StyleBoxFlat_dhlqy")
-text = "Lessons
-⇩"
+text = "Press to Talk
+"
 
 [node name="level2" type="Area2D" parent="."]
 position = Vector2(363, -130)
@@ -22739,8 +22704,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_m8ht2")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ix0mg")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_6kblf")
 theme_override_styles/focus = SubResource("StyleBoxFlat_dhlqy")
-text = "Press to Play
-⇩"
+text = "Press to Play"
 
 [node name="level2_play" type="AnimationPlayer" parent="level2"]
 root_node = NodePath("../..")
@@ -22750,6 +22714,5 @@ libraries = {
 
 [connection signal="body_entered" from="Untitled12720240510130540/interact_detection" to="." method="_on_interact_detection_body_entered"]
 [connection signal="body_exited" from="Untitled12720240510130540/interact_detection" to="." method="_on_interact_detection_body_exited"]
-[connection signal="pressed" from="lessons/CollisionShape2D/lessons" to="." method="_on_lessons_pressed"]
 [connection signal="body_entered" from="level2" to="." method="_on_level_2_body_entered"]
 [connection signal="body_exited" from="level2" to="." method="_on_level_2_body_exited"]

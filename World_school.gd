@@ -15,15 +15,9 @@ func _ready():
 	Firebase.Auth.connect("login_succeeded", self._on_FirebaseAuth_login_succeeded)
 	level2.button_up.connect(_on_level_2_button_up)	
 	interact.button_down.connect(_on_interact_button_up)
-	# Instantiate exit popup and add it to the scene tree
-	#level2_instance = level2_page.instantiate()
-	#add_child(level2_instance)
-	#level2_instance.hide()
+
 	interact.hide()
 	$level2/level2_play.stop()
-	#level2_instance = level2_page.instantiate()
-	#add_child(level2_instance)
-	#level2_instance.hide()
 	pass # Replace with function body.r.player:
 
 
@@ -42,8 +36,8 @@ func _on_FirebaseAuth_login_succeeded(auth_info):
 		if document && document.doc_fields:
 			if document.doc_fields.username:
 				$worldPlayer/Camera2D/profile/username.text = document.doc_fields.username
-			elif document.doc_fields.points:
-				var points= document.doc_fields.points
+			if document.doc_fields.points:
+				var points= str(document.doc_fields.points)
 				$worldPlayer/Camera2D/profile/points.text = points
 			print(finished_task.error)
 
@@ -83,6 +77,3 @@ func _on_interact_detection_body_exited(_body):
 	pass # Replace with function body.
 
 
-func _on_lessons_pressed():
-	get_tree().change_scene_to_file("res://lesson_classroom.tscn")
-	pass # Replace with function body.

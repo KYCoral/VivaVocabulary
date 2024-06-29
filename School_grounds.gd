@@ -8,12 +8,24 @@ var COLLECTION_ID = "user_data"
 @onready var camera: Camera2D = $worldPlayer/Camera2D
 @onready var convo = $worldPlayer/convo
 @onready var talkButton : Button = $"../../NPC/interact"
+@onready  var talk: Button = $NPC/interact
+
+
+#enntancemarker where user is loaded
+#@onready var entrance_marker : Marker2D = $EntranceMarkers/any
+#var Camera_scene : PackedScene = preload("res://camera_2d.tscn")
+#var Player : PackedScene = preload("res://World-player.tscn")
 # Called when the node enters the scene tree for the first time.
+
 func _ready():
 	Firebase.Auth.login_with_email_and_password(email, password)
 	Firebase.Auth.connect("login_succeeded", self._on_FirebaseAuth_login_succeeded)
 	convo.hide()
-	#pass # Replace with function body.
+	#var player = Player.instantiate()
+	#var Camera = Camera_scene.instantiate()
+	#entrance_marker.add_child(player)
+	#entrance_marker.add_child(Camera)
+	pass # Replace with function body.
 
 
 func _on_FirebaseAuth_login_succeeded(auth_info):
@@ -30,6 +42,9 @@ func _on_FirebaseAuth_login_succeeded(auth_info):
 		if document && document.doc_fields:
 			if document.doc_fields.username:
 				$worldPlayer/Camera2D/profile/username.text = document.doc_fields.username
+			if document.doc_fields.points:
+				var points= str(document.doc_fields.points)
+				$worldPlayer/Camera2D/profile/points.text = points
 			print(finished_task.error)
 
 
@@ -60,21 +75,21 @@ func change_scene():
 
 func _on_roof_body_entered(body):
 	if body is Player :
-		tile_map. set_layer_enabled(5, false)
+		tile_map. set_layer_enabled(4, false)
 	pass # Replace with function body.
 
 
 
 func _on_roof_body_exited(body):
 	if body is Player:
-		tile_map.set_layer_enabled(5, true)
+		tile_map.set_layer_enabled(4, true)
 	pass # Replace with function body.
 
 
 func _on_scene_trigger_body_entered(body):
 	if body is Player:
 		change_scene()
-
+ 
 	pass # Replace with function body.
 
 
@@ -91,3 +106,13 @@ func _on_done_pressed():
 	$worldPlayer/convo/ResponseEdit.clear()
 	pass # Replace with function body.
 
+
+
+func _on_interact_detection_body_entered(body):
+	talk.show()
+	pass # Replace with function body.
+
+
+func _on_interact_detection_body_exited(body):
+	talk.hide()
+	pass # Replace with function body.

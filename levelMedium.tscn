@@ -449,6 +449,15 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_vxj16")
 theme_override_styles/focus = SubResource("StyleBoxFlat_hh6b5")
 text = "QUIT"
 
+[node name="keyboard" type="TextEdit" parent="."]
+visible = false
+offset_left = -20.0
+offset_top = -7.0
+offset_right = 2595.0
+offset_bottom = 1296.0
+editable = false
+selecting_enabled = false
+
 [connection signal="body_entered" from="LoseArea" to="." method="_on_lose_area_body_entered"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="DifficultyTimer" to="." method="_on_difficulty_timer_timeout"]

@@ -42,13 +42,14 @@ func _ready():
 # Function to switch to forgot password scene
 func on_forgotPassword_pressed() -> void:
 	#get_tree().change_scene_to_packed(forgotPassword_page)
-	forgotPassword_instance.show()
+	get_tree().change_scene_to_file("res://forgot_password.tscn")
+	#forgotPassword_instance.show()
 
 # Function to switch to signup scene
 func on_createAccount_pressed() -> void:
 	#get_tree().change_scene_to_packed(signup_page)
-	signUp_instance.show()
-	#get_tree().change_scene_to_file("res://signup.tscn")
+	#signUp_instance.show()
+	get_tree().change_scene_to_file("res://signup.tscn")
 	#hide()
 
 

@@ -13,7 +13,8 @@ config_version=5
 config/name="VivaVocabulary"
 run/main_scene="res://login.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-run/max_fps=240
+run/max_fps=20
+run/delta_smoothing=false
 boot_splash/bg_color=Color(0.294486, 0.621597, 0.792346, 1)
 boot_splash/image="res://sprites/viva-logo.png"
 boot_splash/use_filter=false
@@ -32,6 +33,15 @@ scene_manager="*res://scene_manager.gd"
 PromptList="*res://PromptList.gd"
 Global="*res://global.gd"
 GameManager="*res://GameManager.gd"
+
+[debug]
+
+settings/physics_ticks_per_second=20
+settings/max_physics_steps_per_frame=1
+settings/lossless_compression/force_png=false
+settings/delta_smoothing=true
+settings/low_processor_mode=false
+settings/max_fps=240
 
 [display]
 
@@ -68,6 +78,21 @@ enabled=PackedStringArray("res://addons/HTTPSSEClient/plugin.cfg", "res://addons
 
 import/blender/enabled=false
 
+[firebase]
+
+environment_variables/apiKey="AIzaSyCkFYCYwU0E8DAO386akDgU4KKA1W4cRFQ"
+environment_variables/authDomain="vivavocabulario-70a1a.firebaseapp.com"
+environment_variables/databaseURL=""
+environment_variables/projectId="vivavocabulario-70a1a"
+environment_variables/storageBucket="vivavocabulario-70a1a.appspot.com"
+environment_variables/messagingSenderId="217019085358"
+environment_variables/appId="1:217019085358:web:56af4a3ca1253baffb65bf"
+environment_variables/measurementId="G-XG2VEJ0SNE"
+environment_variables/clientId=""
+environment_variables/clientSecret=""
+environment_variables/domainUriPrefix=""
+environment_variables/cacheLocation="user://.firebase_cache"
+
 [importer_defaults]
 
 animation_library={
@@ -76,7 +101,7 @@ animation_library={
 
 [physics]
 
-common/physics_ticks_per_second=20
+common/physics_ticks_per_second=30
 common/max_physics_steps_per_frame=1
 
 [rendering]
@@ -84,4 +109,5 @@ common/max_physics_steps_per_frame=1
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
+textures/lossless_compression/force_png=true
 occlusion_culling/use_occlusion_culling=true

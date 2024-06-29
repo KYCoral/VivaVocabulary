@@ -55,9 +55,9 @@ func _on_terms_services_pressed() -> void:
 # Function to switch to login scene
 func on_login_pressed() -> void:
 	#get_tree().change_scene_to_packed(login_page)
-	login_instance.show()
+	#login_instance.show()
 	#hide()
-	#get_tree().change_scene_to_file("res://login.tscn")
+	get_tree().change_scene_to_file("res://login.tscn")
 	pass
 
 
@@ -123,6 +123,7 @@ func _on_FirebaseAuth_signup_succeeded(auth_info):
 
 
 func _on_close_button_down():
-	signup_complete.hide()
+	get_tree().change_scene_to_file("res://login.tscn")
+	#signup_complete.hide()
 	pass # Replace with function body.
 

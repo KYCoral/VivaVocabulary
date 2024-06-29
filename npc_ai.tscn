@@ -180,6 +180,7 @@ offset_bottom = 40.0
 texture = ExtResource("1_7ecmt")
 
 [node name="goBack" type="Button" parent="bg"]
+layout_mode = 0
 offset_left = 89.0
 offset_top = 41.0
 offset_right = 302.0
@@ -285,6 +286,7 @@ theme_override_font_sizes/font_size = 40
 text = "Score:"
 
 [node name="SendButton" type="Button" parent="answer"]
+layout_mode = 0
 offset_left = 297.0
 offset_top = 653.0
 offset_right = 1273.0

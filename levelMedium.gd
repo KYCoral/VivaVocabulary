@@ -48,6 +48,8 @@ func _ready() -> void:
 		enemy.queue_free()
 
 
+
+
 func _on_FirebaseAuth_login_succeeded(auth_info):
 	print("Firebase login success!")
 
@@ -63,6 +65,7 @@ func find_new_active_enemy(typed_character: String) -> void:
 			return
 
 func _unhandled_input(event: InputEvent) -> void:
+	#Input.show_virtual_keyboard()
 	if event is InputEventKey and event.pressed and not event.echo:
 		var typed_event = event as InputEventKey
 		var key_typed = PackedByteArray([typed_event.unicode]).get_string_from_utf8()

@@ -1,6 +1,5 @@
-[gd_scene load_steps=22 format=3 uid="uid://ca1fa2mfpl1mg"]
+[gd_scene load_steps=21 format=3 uid="uid://ca1fa2mfpl1mg"]
 
-[ext_resource type="Script" path="res://Camera2D.gd" id="1_l3l3i"]
 [ext_resource type="Texture2D" uid="uid://c70hr2a3q7rnt" path="res://sprites/Untitled75_20240409205456_edit_943665059587675.png" id="2_qjksh"]
 [ext_resource type="FontFile" uid="uid://x07w57hnrhsp" path="res://addons/fonts/PL Benguiat Caslon/PL Benguiat Caslon.ttf" id="3_3db5c"]
 [ext_resource type="Texture2D" uid="uid://b1jnmt4pxltk6" path="res://sprites/Untitled80_20240416124734.png" id="4_0itwl"]
@@ -97,7 +96,6 @@ corner_radius_bottom_left = 15
 [node name="Camera2D" type="Camera2D"]
 position = Vector2(379, 232)
 zoom = Vector2(3, 3)
-script = ExtResource("1_l3l3i")
 
 [node name="profile" type="Sprite2D" parent="."]
 z_index = 24
