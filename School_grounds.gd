@@ -11,20 +11,12 @@ var COLLECTION_ID = "user_data"
 @onready  var talk: Button = $NPC/interact
 
 
-#enntancemarker where user is loaded
-#@onready var entrance_marker : Marker2D = $EntranceMarkers/any
-#var Camera_scene : PackedScene = preload("res://camera_2d.tscn")
-#var Player : PackedScene = preload("res://World-player.tscn")
-# Called when the node enters the scene tree for the first time.
 
 func _ready():
 	Firebase.Auth.login_with_email_and_password(email, password)
 	Firebase.Auth.connect("login_succeeded", self._on_FirebaseAuth_login_succeeded)
 	convo.hide()
-	#var player = Player.instantiate()
-	#var Camera = Camera_scene.instantiate()
-	#entrance_marker.add_child(player)
-	#entrance_marker.add_child(Camera)
+
 	pass # Replace with function body.
 
 
@@ -45,6 +37,15 @@ func _on_FirebaseAuth_login_succeeded(auth_info):
 			if document.doc_fields.points:
 				var points= str(document.doc_fields.points)
 				$worldPlayer/Camera2D/profile/points.text = points
+				
+				if document.doc_fields.points >= 0:
+					$profile/LabelPoints.text = "Novice"
+				elif document.doc_fields.points >= 50:
+					$profile/LabelPoints.text = "Intermmediate"
+				elif document.doc_fields.points >= 100:
+					$profile/LabelPoints.text = "Expert"
+				else:
+					$profile/LabelPoints.text = "Master"
 			print(finished_task.error)
 
 

@@ -109,5 +109,3 @@ common/max_physics_steps_per_frame=1
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
-textures/lossless_compression/force_png=true
-occlusion_culling/use_occlusion_culling=true

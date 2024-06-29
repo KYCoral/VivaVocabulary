@@ -10593,7 +10593,6 @@ connected_scene = "School_grounds"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SceneTrigger"]
 position = Vector2(-20.1124, 26.8109)
 rotation = -1.06465
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_kgxwj")
 
 [node name="lessons" type="Button" parent="."]

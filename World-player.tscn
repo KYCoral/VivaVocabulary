@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://World-player.gd" id="2_muvss"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6sgnq"]
-radius = 85.6692
+radius = 85.669
 height = 171.338
 
 [node name="worldPlayer" type="CharacterBody2D"]
