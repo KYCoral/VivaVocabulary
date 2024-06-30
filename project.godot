@@ -37,7 +37,7 @@ GameManager="*res://GameManager.gd"
 [debug]
 
 settings/physics_ticks_per_second=20
-settings/max_physics_steps_per_frame=1
+settings/max_physics_steps_per_frame=2
 settings/lossless_compression/force_png=false
 settings/delta_smoothing=true
 settings/low_processor_mode=false
