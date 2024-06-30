@@ -1,6 +1,16 @@
 class_name main_control
 extends Control
 
+
+
+
+# Called when the node enters the scene tree for the first time.
+@export var email : String = Global.login_data.username
+@export var password : String = Global.login_data.password
+var userinfo = null
+var COLLECTION_ID = "user_data"
+
+@onready var Continue : Button = $Background/Menu/startGame
 @onready var StartGame = $Background/Menu/startGame as Button
 @onready var NewGame = $Background/Menu/newGame as Button
 @onready var Settings = $Background/Menu/settings as Button
@@ -12,6 +22,8 @@ var exit_instance: Node
 var settings_instance: Node
 
 func _ready():
+	Firebase.Auth.login_with_email_and_password(email, password)
+	Firebase.Auth.connect("login_succeeded", self._on_FirebaseAuth_login_succeeded)
 	Exit.button_down.connect(on_exit_pressed)
 	Settings.button_down.connect(on_settings_pressed)
 	StartGame.button_down.connect(on_start_pressed)
@@ -23,6 +35,7 @@ func _ready():
 	settings_instance = settings.instantiate()
 	add_child(settings_instance)
 	settings_instance.hide()
+	Continue.disabled = true
 
 func on_start_pressed() -> void:
 	get_tree().change_scene_to_packed(map_page)
@@ -32,3 +45,42 @@ func on_exit_pressed() -> void:
 
 func on_settings_pressed() -> void:
 	settings_instance.show()
+
+
+@warning_ignore("unused_parameter")
+func _on_FirebaseAuth_login_succeeded(auth_info):
+	print("Success!")
+	#userinfo = auth_info
+	
+	##GameManager.userInfo = userinfo
+	#Firebase.Auth.save_auth(auth_info)
+	var auth = Firebase.Auth.auth
+	if auth.localid:
+		var collection: FirestoreCollection = Firebase.Firestore.collection(COLLECTION_ID)
+		
+		var task: FirestoreTask = await collection.get_doc(email)
+		var finished_task: FirestoreTask = await task.task_finished
+		var document = finished_task.document
+		if document && document.doc_fields:
+			if document.doc_fields.points > 0:
+				Continue.disabled = false
+			else:
+				Continue.disabled = true
+			print(finished_task.error)
+
+
+func _on_new_game_button_up():
+	var auth = Firebase.Auth.auth
+	if auth.localid:
+		var collection: FirestoreCollection = Firebase.Firestore.collection(COLLECTION_ID)
+		var data: Dictionary = {
+		'level' : 0,
+		'points' : 1,
+		'score': 0 
+	}
+		
+		@warning_ignore("unused_variable")
+		var task: FirestoreTask = await collection.update(auth.localid,data)
+		
+	get_tree().change_scene_to_packed(map_page)
+	pass # Replace with function body.

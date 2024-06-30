@@ -15,3 +15,16 @@ func finish_changescenes():
 			current_scene = "World_school"
 		else: 
 			current_scene = "School_grounds"
+
+var login_data = {
+	"username": "",
+	"password": ""
+}
+
+func set_login_data(username: String, password: String):
+	login_data.username = username
+	login_data.password = password
+
+func get_login_data() -> Dictionary:
+	return login_data
+

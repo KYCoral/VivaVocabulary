@@ -43,7 +43,7 @@ const _AUTH_PROVIDERS : String = "firebase/auth_providers"
 var _config : Dictionary = {
 	"apiKey": "AIzaSyCkFYCYwU0E8DAO386akDgU4KKA1W4cRFQ",
 	"authDomain": "vivavocabulario-70a1a.firebaseapp.com",
-	"databaseURL": "",
+	"databaseURL": "https://vivavocabulario-70a1a-default-rtdb.asia-southeast1.firebasedatabase.app",
 	"projectId": "vivavocabulario-70a1a",
 	"storageBucket": "vivavocabulario-70a1a.appspot.com",
 	"messagingSenderId": "217019085358",

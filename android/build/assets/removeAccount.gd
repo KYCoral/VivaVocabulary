@@ -1,10 +1,17 @@
 extends Control
 
 @onready var no : Button = $validation/No
-@export var email := ""
-@export var password := ""
+
+@export var email : String = Global.login_data.username
+@export var password : String = Global.login_data.password
 var userinfo = null
+
+#@export var email : String = "kazumirimurutempest@gmail.com"
+#@export var password : String = "password123"
+#var userinfo = null
+
 # Called when the node enters the scene tree for the first time.
+
 func _ready():
 	Firebase.Auth.login_with_email_and_password(email,password)
 	Firebase.Auth.connect("login_succeeded", self._on_FirebaseAuth_login_succeeded)
@@ -24,3 +31,4 @@ func _on_yes_button_up():
 	var firestore_collection : FirestoreCollection = Firebase.Firestore.collection('user_data')
 	firestore_collection.delete(userinfo.email)
 	print("Document deleted successfully")
+	get_tree().change_scene_to_file("res://login.tscn")

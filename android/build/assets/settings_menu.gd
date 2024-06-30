@@ -1,6 +1,13 @@
 class_name settingsMenu
 extends Control
 
+
+
+@export var email : String = Global.login_data.username
+@export var password : String = Global.login_data.password
+var userinfo = null
+var COLLECTION_ID = "user_data"
+
 @onready var Cancel: Button = $TabContainer/Profile/cancel
 @onready var Save: Button = $TabContainer/Profile/saveChanges
 @onready var DeleteAccount : Button = $TabContainer/General/VBoxContainer/delete
@@ -10,6 +17,9 @@ var saveProgress_instance : Node
 var accountDelete_instance : Node
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Firebase.Auth.login_with_email_and_password(email, password)
+	Firebase.Auth.connect("login_succeeded", self._on_FirebaseAuth_login_succeeded)
+	
 	Cancel.button_down.connect(on_cancel_pressed)
 	Save.button_down.connect(on_save_pressed)
 	DeleteAccount.button_down.connect(_on_delete_button_up)
@@ -32,3 +42,27 @@ func on_save_pressed() -> void:
 
 func _on_delete_button_up():
 	accountDelete_instance.show()
+
+
+
+func _on_FirebaseAuth_login_succeeded(auth_info):
+	print("Success!")
+	userinfo = auth_info
+	##GameManager.userInfo = userinfo
+	
+	Firebase.Auth.save_auth(auth_info)
+	var auth = Firebase.Auth.auth
+	if auth.localid:
+		var collection: FirestoreCollection = Firebase.Firestore.collection(COLLECTION_ID)
+		var task: FirestoreTask = collection.get_doc(email)
+		var finished_task: FirestoreTask = await task.task_finished
+		var document = finished_task.document
+		if document && document.doc_fields:
+			if document.doc_fields.username:
+				$TabContainer/Profile/vb_username/Username/TextEdit/usernameInput.text = document.doc_fields.username
+				$TabContainer/Profile/vb_email/Email/TextEdit/emailInput.text = email
+			print(finished_task.error)
+
+
+
+

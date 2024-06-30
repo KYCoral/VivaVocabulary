@@ -4,7 +4,7 @@ class_name Player
 
 #@onready var animation = $AnimationPlayer
 @onready var sprite = $TopviewSprite
-@onready var joystick = $Camera2D2/joystick
+@onready var joystick = $Camera2D/joystick
 const speed = 300
 @onready var label = $id
 const RANDOM_SPAWN_RADIUS: float = 100
