@@ -61,6 +61,7 @@ window/ios/suppress_ui_gesture=false
 [dotnet]
 
 project/assembly_name="VivaVocabulary"
+project/rendering_method.web="gl_compatibility"
 
 [editor]
 
