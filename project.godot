@@ -78,6 +78,8 @@ enabled=PackedStringArray("res://addons/HTTPSSEClient/plugin.cfg", "res://addons
 [filesystem]
 
 import/blender/enabled=false
+import/blender/enabled.android=true
+import/fbx/enabled.android=true
 
 [firebase]
 
@@ -94,6 +96,11 @@ environment_variables/clientSecret=""
 environment_variables/domainUriPrefix=""
 environment_variables/cacheLocation="user://.firebase_cache"
 
+[gui]
+
+theme/rendering_method.web="forward_plus"
+theme/rendering_method.mobile="mobile"
+
 [importer_defaults]
 
 animation_library={
@@ -108,5 +115,5 @@ common/max_physics_steps_per_frame=1
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.web="forward_plus"
+renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true

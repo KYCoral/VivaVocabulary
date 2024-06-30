@@ -1,16 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bbvwljfwmi2r"]
+[gd_scene load_steps=10 format=3 uid="uid://d1am833xdxfcx"]
 
 [ext_resource type="Script" path="res://exit_popup.gd" id="1_2g4ui"]
 [ext_resource type="Texture2D" uid="uid://dknccekvublha" path="res://sprites/Untitled75_20240409205437.png" id="1_4dojf"]
 [ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://addons/fonts/FrancoisOne.ttf" id="2_3bcjm"]
-
-[sub_resource type="Gradient" id="Gradient_l7ibk"]
-offsets = PackedFloat32Array(0.019544, 0.143322)
-colors = PackedColorArray(0, 0, 0, 0.392157, 0, 0, 0, 0.392157)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_uc5rk"]
-gradient = SubResource("Gradient_l7ibk")
-fill = 1
+[ext_resource type="Texture2D" uid="uid://cspevjom8avp8" path="res://sprites/Untitled123_20240510122556.png" id="2_u4d4f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1xurt"]
 bg_color = Color(0, 0, 0, 1)
@@ -83,6 +76,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2g4ui")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.384314)
+layout_mode = 2
+offset_left = -1297.0
+offset_top = -641.0
+offset_right = 1281.0
+offset_bottom = 720.0
+texture = ExtResource("2_u4d4f")
+expand_mode = 1
+
 [node name="popUp" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -90,21 +93,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1422.0
-offset_top = -657.0
-offset_right = 1420.0
-offset_bottom = 669.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_stretch_ratio = 0.0
-texture = SubResource("GradientTexture2D_uc5rk")
-expand_mode = 1
 
 [node name="validation" type="TextureRect" parent="."]
 layout_mode = 1

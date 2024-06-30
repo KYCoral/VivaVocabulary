@@ -39,14 +39,15 @@ func _on_FirebaseAuth_login_succeeded(auth_info):
 			if document.doc_fields.points:
 				var points= str(document.doc_fields.points)
 				$worldPlayer/Camera2D/profile/points.text = points
-				if document.doc_fields.points >= 0:
-					$profile/LabelPoints.text = "Novice"
-				elif document.doc_fields.points >= 50:
+			if document.doc_fields.score:
+				if document.doc_fields.score > 0:
+					$profile/LabelPoints.score = "Novice"
+				elif document.doc_fields.score >= 50:
 					$profile/LabelPoints.text = "Intermmediate"
-				elif document.doc_fields.points >= 100:
-					$profile/LabelPoints.text = "Expert"
+				elif document.doc_fields.score >= 100:
+					$profile/LabelPoints.score = "Expert"
 				else:
-					$profile/LabelPoints.text = "Master"
+					$profile/LabelPoints.score = "Master"
 			print(finished_task.error)
 
 

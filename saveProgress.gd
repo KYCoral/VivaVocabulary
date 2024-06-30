@@ -25,14 +25,6 @@ func on_no_pressed() -> void:
 
 func on_yes_pressed() -> void:
 	save_data()
-	#var changeEmail = $"../TabContainer/Profile/vb_email".text
-	#var changeUsername = $"../TabContainer/Profile/vb_username" .text
-	#var firestore_collection = Firebase.Firestore.collection("user_data")
-	#var document = firestore_collection.get_doc("VivaVocabulario")
-	#firestore_collection.update(userinfo.email, 
-	#{
-	#	'username': changeUsername 
-	#})
 
 func _on_FirebaseAuth_login_succeeded(auth_info):
 	print("Success!")

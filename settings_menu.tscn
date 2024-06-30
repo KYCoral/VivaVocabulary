@@ -227,6 +227,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(640, 360)
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_xuwg1")
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -273,7 +275,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_left = 647.0
 offset_top = 396.0
-offset_right = -814.0
+offset_right = -646.0
 offset_bottom = 924.0
 grow_horizontal = 2
 theme_override_constants/side_margin = 24
@@ -289,7 +291,6 @@ theme_override_styles/tab_disabled = SubResource("StyleBoxFlat_irwkm")
 theme_override_styles/tab_focus = SubResource("StyleBoxFlat_vh4ma")
 theme_override_styles/panel = SubResource("StyleBoxFlat_sjxv5")
 theme_override_styles/tabbar_background = SubResource("StyleBoxFlat_1lbcc")
-current_tab = 1
 clip_tabs = false
 all_tabs_in_front = true
 drag_to_rearrange_enabled = true
@@ -362,9 +363,9 @@ max_tab_width = 15
 [node name="vb_username" type="VBoxContainer" parent="TabContainer/Profile"]
 layout_mode = 0
 offset_left = 9.0
-offset_top = 57.0
-offset_right = 91.0
-offset_bottom = 88.0
+offset_top = 114.0
+offset_right = 174.0
+offset_bottom = 171.0
 
 [node name="Username" type="Label" parent="TabContainer/Profile/vb_username"]
 layout_mode = 2
@@ -398,9 +399,9 @@ caret_blink = true
 [node name="vb_email" type="VBoxContainer" parent="TabContainer/Profile"]
 layout_mode = 2
 offset_left = 10.0
-offset_top = 125.0
+offset_top = 218.0
 offset_right = 289.0
-offset_bottom = 182.0
+offset_bottom = 275.0
 
 [node name="Email" type="Label" parent="TabContainer/Profile/vb_email"]
 layout_mode = 2

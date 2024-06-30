@@ -9,7 +9,7 @@ var COLLECTION_ID = "user_data"
 @onready var convo = $worldPlayer/convo
 @onready var talkButton : Button = $"../../NPC/interact"
 @onready  var talk: Button = $NPC/interact
-
+@onready var progressBar : ProgressBar = $worldPlayer/Camera2D/profile/ProgressBar
 
 
 func _ready():
@@ -37,15 +37,16 @@ func _on_FirebaseAuth_login_succeeded(auth_info):
 			if document.doc_fields.points:
 				var points= str(document.doc_fields.points)
 				$worldPlayer/Camera2D/profile/points.text = points
-				
-				if document.doc_fields.points >= 0:
-					$profile/LabelPoints.text = "Novice"
-				elif document.doc_fields.points >= 50:
-					$profile/LabelPoints.text = "Intermmediate"
-				elif document.doc_fields.points >= 100:
-					$profile/LabelPoints.text = "Expert"
+			if document.doc_fields.score:
+				if document.doc_fields.score > 0:
+					$worldPlayer/Camera2D/profile/LabelPoints.text = "Novice"
+				elif document.doc_fields.score >= 50:
+					$worldPlayer/Camera2D/profile/LabelPoints.text = "Intermmediate"
+				elif document.doc_fields.score >= 100: 
+					$worldPlayer/Camera2D/profile/LabelPoints.score = "Expert"
 				else:
-					$profile/LabelPoints.text = "Master"
+					$worldPlayer/Camera2D/profile/LabelPoints.score = "Master"
+				progressBar.value = document.doc_fields.score
 			print(finished_task.error)
 
 

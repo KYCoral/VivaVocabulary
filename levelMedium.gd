@@ -154,11 +154,11 @@ func save_data():
 		if document && document.doc_fields:
 			if document.doc_fields.points:
 				var data: Dictionary  = {
-			"points": document.doc_fields.points + 5
+			"points": document.doc_fields.points + 5,
+			"score" : document.doc_fields.score + killed_value
 			}
 				@warning_ignore("unused_variable")
-				#var update: FirestoreDocument = await collection.update(doc_fields.points)
-
+				task = collection.update(auth.localid,data)
 
 func _on_start_button_down() -> void:
 	start_screen.hide()
