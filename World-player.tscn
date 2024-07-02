@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddesem15hfna1"]
+[gd_scene load_steps=7 format=3 uid="uid://ddesem15hfna1"]
 
 [ext_resource type="Texture2D" uid="uid://ud2n87pqc5b1" path="res://sprites/topviewSprite.png" id="1_kswxk"]
 [ext_resource type="Script" path="res://World-player.gd" id="2_muvss"]
@@ -7,9 +7,23 @@
 radius = 85.669
 height = 171.338
 
+[sub_resource type="Animation" id="Animation_tpsd2"]
+resource_name = "IDLE"
+
+[sub_resource type="Animation" id="Animation_w1ggc"]
+resource_name = "WALK"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4vc3s"]
+_data = {
+"IDLE": SubResource("Animation_tpsd2"),
+"WALK": SubResource("Animation_w1ggc")
+}
+
 [node name="worldPlayer" type="CharacterBody2D"]
 position = Vector2(706, 488)
-collision_layer = 9
+collision_layer = 15
+collision_mask = 15
+motion_mode = 1
 script = ExtResource("2_muvss")
 
 [node name="TopviewSprite" type="Sprite2D" parent="."]
@@ -29,3 +43,8 @@ offset_right = 425.0
 offset_bottom = 264.0
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4vc3s")
+}

@@ -43,3 +43,8 @@ func _on_FirebaseAuth_login_succeeded(auth_info):
 				else:
 					$profile/LabelPoints.score = "Master"
 			print(finished_task.error)
+
+
+func _on_level_1_pressed():
+	get_tree().change_scene_to_file("res://levelEasy.tscn")
+	pass # Replace with function body.

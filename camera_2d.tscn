@@ -948,6 +948,6 @@ text = "No"
 [connection signal="pressed" from="Control/settingsMenu/TabContainer/General/VBoxContainer/delete" to="." method="_on_delete_pressed"]
 [connection signal="pressed" from="Control/settingsMenu/TabContainer/Profile/saveChanges" to="." method="_on_save_changes_pressed"]
 [connection signal="pressed" from="Control/settingsMenu/TabContainer/Profile/cancel" to="." method="_on_cancel_pressed"]
-[connection signal="pressed" from="Control/settingsMenu/TabContainer/Profile/TextureRect/validation/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="Control/settingsMenu/TabContainer/Profile/TextureRect/validation/Save" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="Control/settingsMenu/TabContainer/Profile/TextureRect/validation/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="Control/settingsMenu/TabContainer/Profile/TextureRect/validation/NoSave" to="." method="_on_no_save_pressed"]

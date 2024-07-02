@@ -39,7 +39,6 @@ func _ready() -> void:
 	spawn_timer.timeout.connect(self._on_spawn_timer_timeout)
 	difficulty_timer.timeout.connect(self._on_difficulty_timer_timeout)
 	buttonStart.button_down.connect(self._on_start_button_down)
-	DisplayServer.virtual_keyboard_show("")
 
 	spawn_timer.stop()
 	difficulty_timer.stop()
@@ -128,6 +127,7 @@ func game_over() -> void:
 	DisplayServer.virtual_keyboard_hide()
 
 func start_game() -> void:
+	DisplayServer.virtual_keyboard_show("")
 	game_over_screen.hide()
 	difficulty = 0
 	enemies_killed = 0
@@ -173,7 +173,7 @@ func _on_start_button_down() -> void:
 
 
 func _on_map_button_down() -> void:
-	get_tree().change_scene_to_file("res://World_school.tscn")
+	get_tree().change_scene_to_file("res://World_library.tscn")
 	pass # Replace with function body.
 
 

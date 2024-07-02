@@ -35205,4 +35205,18 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_s8jc8")
 theme_override_styles/focus = SubResource("StyleBoxFlat_03x5l")
 text = "Press To Read"
 
+[node name="level1" type="Button" parent="."]
+offset_left = -210.0
+offset_top = -209.0
+offset_right = -95.0
+offset_bottom = -178.0
+rotation = -0.45204
+theme_override_styles/normal = SubResource("StyleBoxFlat_xunwh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_c6w2p")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_q4wlm")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_s8jc8")
+theme_override_styles/focus = SubResource("StyleBoxFlat_03x5l")
+text = "Press To Play"
+
 [connection signal="pressed" from="lessons" to="." method="_on_lessons_pressed"]
+[connection signal="pressed" from="level1" to="." method="_on_level_1_pressed"]

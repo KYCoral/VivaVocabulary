@@ -231,6 +231,7 @@ position = Vector2(1430, 168)
 position = Vector2(1545, 151)
 
 [node name="BottomRow" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+visible = false
 layout_mode = 2
 
 [node name="DifficultyLabel" type="Label" parent="CanvasLayer/VBoxContainer/BottomRow"]
