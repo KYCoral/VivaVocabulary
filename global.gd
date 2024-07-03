@@ -15,6 +15,10 @@ func finish_changescenes():
 			current_scene = "World_school"
 		else: 
 			current_scene = "School_grounds"
+		if current_scene == "School_grounds":
+			current_scene = "World_library"
+		else: 
+			current_scene = "School_grounds"
 
 var login_data = {
 	"username": "",

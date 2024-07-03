@@ -9,13 +9,18 @@ var COLLECTION_ID = "user_data"
 @onready var interact : Button = $Untitled12720240510130540/interact
 @onready var chat_page: PackedScene = preload("res://scenes/chat.tscn")
 
+@onready var entranceAny = $Marker2D
+@onready var players = $worldPlayer
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Firebase.Auth.login_with_email_and_password(email, password)
 	Firebase.Auth.connect("login_succeeded", self._on_FirebaseAuth_login_succeeded)
 	level2.button_up.connect(_on_level_2_button_up)	
 	interact.button_down.connect(_on_interact_button_up)
+	
 
+	players.global_position = entranceAny.global_position
+	
 	interact.hide()
 	$level2/level2_play.stop()
 	pass # Replace with function body.r.player:
@@ -24,7 +29,6 @@ func _ready():
 func _on_FirebaseAuth_login_succeeded(auth_info):
 	print("Success!")
 	userinfo = auth_info
-	##GameManager.userInfo = userinfo
 	
 	Firebase.Auth.save_auth(auth_info)
 	var auth = Firebase.Auth.auth
@@ -86,3 +90,8 @@ func _on_interact_detection_body_exited(_body):
 	pass # Replace with function body.
 
 
+
+
+func _on_scene_trigger_body_entered(body):
+	get_tree().change_scene_to_file("res://School_grounds.tscn")
+	pass # Replace with function body.

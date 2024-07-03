@@ -1,12 +1,13 @@
 class_name SceneManager extends Node
 
 var player: Player
+var camera = preload("res://camera_2d.tscn")
 var last_scene_name: String
 var scene_dir_path = "res://"
 
 
 func change_scene(from, to_scene_name: String) -> void:
-	#last_scene_name = from.name
+	last_scene_name = from.name
 	player = from.player
 	player.get_parent().remove_child(player)
 	

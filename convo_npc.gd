@@ -4,7 +4,7 @@ extends Panel
 @onready var SendButton : Button = $InputEdit/SendButton
 @onready var ResponseEdit : TextEdit = $ResponseEdit
 @onready var InputEdit : TextEdit = $InputEdit/LineEdit
-
+@onready var convo = $"."
 var api_key = "AIzaSyA24uv8pVwaSNqwHG_2TLhnxyxDjxW6UN0"
 var http_request
 var conversations = []
@@ -90,3 +90,8 @@ func _on_request_completed(result, responseCode, headers, body):
 		ResponseEdit.text = newStr
 		conversations.append({"user": "%s" % last_user_prompt, "model": "%s" % newStr})
 
+
+
+func _on_done_pressed():
+	convo.hide()
+	pass # Replace with function body.

@@ -5,17 +5,23 @@ class_name School_grounds extends BaseScene
 var userinfo = null
 var COLLECTION_ID = "user_data"
 @onready var tile_map = $TileMap
-@onready var camera: Camera2D = $worldPlayer/Camera2D
-@onready var convo = $worldPlayer/convo
+#@onready var convo = $worldPlayer/convo
 @onready var talkButton : Button = $"../../NPC/interact"
 @onready  var talk: Button = $NPC/interact
 @onready var progressBar : ProgressBar = $worldPlayer/Camera2D/profile/ProgressBar
+@onready var convo = $worldPlayer/convo
+@onready var entranceAny = $Marker2D
+@onready var players = $worldPlayer
+@onready var camera = $worldPlayer/Camera2D
+
 
 
 func _ready():
 	Firebase.Auth.login_with_email_and_password(email, password)
 	Firebase.Auth.connect("login_succeeded", self._on_FirebaseAuth_login_succeeded)
-	convo.hide()
+
+
+	players.global_position = entranceAny.global_position
 
 	pass # Replace with function body.
 
@@ -23,6 +29,7 @@ func _ready():
 func _on_FirebaseAuth_login_succeeded(auth_info):
 	print("Success!")
 	userinfo = auth_info
+
 	
 	Firebase.Auth.save_auth(auth_info)
 	var auth = Firebase.Auth.auth
@@ -51,32 +58,10 @@ func _on_FirebaseAuth_login_succeeded(auth_info):
 
 
 
-func _on_option_button_down():
-	$menu.show()
-
-
-func _on_settings_button_down():
-	$Camera2D/menu.hide()
-	$Camera2D/settingsMenu.show()
-
-func _on_map_button_down():
-	$Camera2D/menu.hide()
-
-func _on_area_2d_body_exited(body):
-	if body is Player:
-		Global.transition_scene = false
-	pass # Replace with function
-
-func change_scene():
-	if Global.transition_scene == true:
-		if Global.current_scene == "School_grounds":
-			get_tree().change_scene_to_file("res://World_school.tscn")
-			Global.finish_changescenes()
-
 
 
 func _on_roof_body_entered(body):
-	if body is Player :
+	if body is Player:
 		tile_map. set_layer_enabled(4, false)
 	pass # Replace with function body.
 
@@ -90,8 +75,7 @@ func _on_roof_body_exited(body):
 
 func _on_scene_trigger_body_entered(body):
 	if body is Player:
-		change_scene()
- 
+		get_tree().change_scene_to_file("res://World_school.tscn")
 	pass # Replace with function body.
 
 
@@ -118,3 +102,11 @@ func _on_interact_detection_body_entered(body):
 func _on_interact_detection_body_exited(body):
 	talk.hide()
 	pass # Replace with function body.
+
+
+
+func _on_scene_trigger_library_body_entered(body):
+	if body is Player:
+		get_tree().change_scene_to_file("res://World_school.tscn")
+	pass # Replace with function body.
+

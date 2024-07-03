@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://ccgl31jis8c4e"]
+[gd_scene load_steps=24 format=3 uid="uid://ccgl31jis8c4e"]
 
 [ext_resource type="Texture2D" uid="uid://cgpep84gu6k55" path="res://sprites/room_colored.png" id="1_m3ysq"]
 [ext_resource type="Script" path="res://World_library.gd" id="1_miuq6"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://cojphe5yqds77" path="res://sprites/asset1.png" id="5_tynsy"]
 [ext_resource type="PackedScene" uid="uid://ddesem15hfna1" path="res://World-player.tscn" id="6_fvjps"]
 [ext_resource type="PackedScene" uid="uid://ca1fa2mfpl1mg" path="res://camera_2d.tscn" id="7_nbs1p"]
-[ext_resource type="PackedScene" uid="uid://dqh4vbey4jihq" path="res://SceneTrigger.tscn" id="8_ewrvn"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_ikx3x"]
 tile_data = PackedInt32Array(262144, 3276802, 36, 327680, 3276802, 37, 393216, 3276802, 38, 196609, 3342338, 35, 262145, 3342338, 36, 327681, 3342338, 37, 393217, 3342338, 38, 458753, 3342338, 39, 196610, 3407874, 35, 262146, 3407874, 36, 327682, 3407874, 37, 393218, 3407874, 38, 131075, 3473410, 34, 196611, 3473410, 35, 262147, 3473410, 36, 327683, 3473410, 37, 393219, 3473410, 38, 131076, 3538946, 34, 196612, 3538946, 35, 262148, 3538946, 36, 327684, 3538946, 37, 65541, 3473410, 34, 131077, 3473410, 35, 196613, 3473410, 36, 262149, 3473410, 37, 327685, 3604482, 37, 65542, 3538946, 34, 131078, 3538946, 35, 196614, 3538946, 36, 262150, 3538946, 37, 7, 3604482, 33, 65543, 3604482, 34, 131079, 3604482, 35, 196615, 3604482, 36, 262151, 3604482, 37, 65544, 3670018, 34, 131080, 3670018, 35, 196616, 3670018, 36)
@@ -35122,9 +35121,6 @@ sources/8 = SubResource("TileSetAtlasSource_mufae")
 sources/9 = SubResource("TileSetAtlasSource_srpbv")
 pattern_0 = SubResource("TileMapPattern_ikx3x")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kgxwj"]
-size = Vector2(64.7144, 66)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xunwh"]
 draw_center = false
 
@@ -35139,6 +35135,9 @@ draw_center = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_03x5l"]
 draw_center = false
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kgxwj"]
+size = Vector2(64.7144, 66)
 
 [node name="library" type="Node2D"]
 script = ExtResource("1_miuq6")
@@ -35166,8 +35165,9 @@ metadata/_edit_lock_ = true
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(-19, 37)
-collision_layer = 15
-collision_mask = 15
+disable_mode = 2
+collision_layer = 0
+collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 position = Vector2(-665, -519)
@@ -35176,21 +35176,6 @@ polygon = PackedVector2Array(140, 399, 133, 159, 589, -34, 1174, 245, 1153, 473,
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Area2D"]
 position = Vector2(-671, -521)
 polygon = PackedVector2Array(173, 385, 309, 451, 272, 481, 325, 513, 359, 474, 541, 569, 425, 637, 544, 560, 589, 590, 718, 654, 1146, 447, 1179, 537, 689, 823, 28, 480)
-
-[node name="worldPlayer" parent="." instance=ExtResource("6_fvjps")]
-position = Vector2(-22, 35)
-
-[node name="Camera2D" parent="worldPlayer" instance=ExtResource("7_nbs1p")]
-position = Vector2(-4, -10)
-
-[node name="SceneTrigger" parent="." instance=ExtResource("8_ewrvn")]
-position = Vector2(-258, -79)
-connected_scene = "School_grounds"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneTrigger"]
-position = Vector2(-104, 52)
-rotation = -1.06465
-shape = SubResource("RectangleShape2D_kgxwj")
 
 [node name="lessons" type="Button" parent="."]
 offset_left = 3.00001
@@ -35218,5 +35203,24 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_s8jc8")
 theme_override_styles/focus = SubResource("StyleBoxFlat_03x5l")
 text = "Press To Play"
 
+[node name="SceneTrigger" type="Area2D" parent="."]
+position = Vector2(-342, -26)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneTrigger"]
+position = Vector2(-10, 20)
+rotation = -1.06465
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_kgxwj")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-75, 66)
+
+[node name="worldPlayer" parent="." instance=ExtResource("6_fvjps")]
+position = Vector2(-441, -423)
+
+[node name="Camera2D" parent="worldPlayer" instance=ExtResource("7_nbs1p")]
+position = Vector2(-2, -6)
+
 [connection signal="pressed" from="lessons" to="." method="_on_lessons_pressed"]
 [connection signal="pressed" from="level1" to="." method="_on_level_1_pressed"]
+[connection signal="body_entered" from="SceneTrigger" to="." method="_on_scene_trigger_body_entered"]

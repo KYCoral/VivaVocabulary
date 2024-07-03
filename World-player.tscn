@@ -20,7 +20,7 @@ _data = {
 }
 
 [node name="worldPlayer" type="CharacterBody2D"]
-position = Vector2(706, 488)
+position = Vector2(1324, 669)
 collision_layer = 15
 collision_mask = 15
 motion_mode = 1

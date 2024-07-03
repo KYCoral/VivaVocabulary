@@ -4,10 +4,17 @@ extends Node2D
 @export var password : String = Global.login_data.password
 var userinfo = null
 var COLLECTION_ID = "user_data"
+
+@onready var entranceAny = $Marker2D
+@onready var players = $worldPlayer
 # Called when the node enters the scene tree for the first time.
+
+
 func _ready():
 	Firebase.Auth.login_with_email_and_password(email, password)
 	Firebase.Auth.connect("login_succeeded", self._on_FirebaseAuth_login_succeeded)
+	
+	players.global_position = entranceAny.global_position
 	pass # Replace with function body.
 
 
@@ -47,4 +54,9 @@ func _on_FirebaseAuth_login_succeeded(auth_info):
 
 func _on_level_1_pressed():
 	get_tree().change_scene_to_file("res://levelEasy.tscn")
+	pass # Replace with function body.
+
+
+func _on_scene_trigger_body_entered(body):
+	get_tree().change_scene_to_file("res://School_grounds.tscn")
 	pass # Replace with function body.

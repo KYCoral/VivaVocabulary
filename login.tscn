@@ -1,8 +1,9 @@
-[gd_scene load_steps=27 format=3 uid="uid://djd63bs3m84o3"]
+[gd_scene load_steps=28 format=3 uid="uid://djd63bs3m84o3"]
 
-[ext_resource type="Texture2D" uid="uid://xdsgc8bu05td" path="res://sprites/Untitled78_20240329161643.png" id="1_3ovxe"]
 [ext_resource type="Script" path="res://login.gd" id="1_q0dq4"]
+[ext_resource type="Texture2D" uid="uid://dgpmyd1cn0eb3" path="res://sprites/bg.png" id="2_a26nv"]
 [ext_resource type="Texture2D" uid="uid://blus3jct6drmr" path="res://sprites/Untitled78_20240409205301_edit_542478463116914.png" id="3_0h6jy"]
+[ext_resource type="Texture2D" uid="uid://dlld7cuqjqdrj" path="res://sprites/mic.png" id="3_jdk1j"]
 [ext_resource type="FontFile" uid="uid://cxo00kjcsmt7t" path="res://addons/fonts/BalooBhaijaan-Regular.ttf" id="4_7qned"]
 [ext_resource type="Texture2D" uid="uid://gwkv8dgira30" path="res://sprites/Untitled80_20240416124711.png" id="5_kowwg"]
 [ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://addons/fonts/FrancoisOne.ttf" id="6_y8exg"]
@@ -108,8 +109,13 @@ grow_vertical = 2
 
 [node name="LoginScreen" type="TextureRect" parent="mcLogin"]
 layout_mode = 2
-texture = ExtResource("1_3ovxe")
+texture = ExtResource("2_a26nv")
 expand_mode = 1
+
+[node name="Mic" type="Sprite2D" parent="mcLogin/LoginScreen"]
+position = Vector2(2071, 677.5)
+scale = Vector2(0.317057, 0.412435)
+texture = ExtResource("3_jdk1j")
 
 [node name="signup" type="TextureRect" parent="mcLogin/LoginScreen"]
 layout_mode = 1

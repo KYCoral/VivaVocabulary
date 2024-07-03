@@ -1,10 +1,9 @@
-[gd_scene load_steps=40 format=3 uid="uid://c5a3vah170vnn"]
+[gd_scene load_steps=39 format=3 uid="uid://c5a3vah170vnn"]
 
 [ext_resource type="Texture2D" uid="uid://j2y6m8u8cvwb" path="res://sprites/room.png" id="1_6c3sy"]
 [ext_resource type="Script" path="res://World_school.gd" id="1_n8u3a"]
 [ext_resource type="Texture2D" uid="uid://dl42qlph04jw2" path="res://sprites/room_blue.png" id="2_o3krb"]
 [ext_resource type="Texture2D" uid="uid://cojphe5yqds77" path="res://sprites/asset1.png" id="2_sjb8w"]
-[ext_resource type="PackedScene" uid="uid://dqh4vbey4jihq" path="res://SceneTrigger.tscn" id="4_86hcx"]
 [ext_resource type="Texture2D" uid="uid://btka86n3im6kk" path="res://sprites/asset_library.png" id="4_ttjba"]
 [ext_resource type="Texture2D" uid="uid://cgpep84gu6k55" path="res://sprites/room_colored.png" id="5_sen1m"]
 [ext_resource type="Texture2D" uid="uid://hil4n6svcyln" path="res://sprites/asset2.png" id="6_akcv5"]
@@ -35125,9 +35124,6 @@ sources/8 = SubResource("TileSetAtlasSource_1vjqe")
 sources/9 = SubResource("TileSetAtlasSource_s4qaa")
 pattern_0 = SubResource("TileMapPattern_ikx3x")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vvbn7"]
-size = Vector2(89.5998, 48)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_5aihr"]
 radius = 731.523
 
@@ -35273,6 +35269,9 @@ _data = {
 "level2": SubResource("Animation_yjrn4")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vvbn7"]
+size = Vector2(41.4161, 52.1167)
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_n8u3a")
 
@@ -35292,21 +35291,6 @@ layer_3/tile_data = PackedInt32Array(-1179650, 2293769, 26, -1114114, 2293769, 2
 layer_4/name = "komputer"
 layer_4/tile_data = PackedInt32Array(-1441792, 3342345, 10, -1376256, 3342345, 11, -1310720, 3342345, 12, -1245184, 3342345, 13, -1441791, 3407881, 10, -1376255, 3407881, 11, -1310719, 3407881, 12, -1245183, 3407881, 13, -1441790, 3473417, 10, -1376254, 3473417, 11, -1310718, 3473417, 12, -1245182, 3473417, 13, -1179646, 3473417, 14, -1376253, 3538953, 11, -1310717, 3538953, 12, -1245181, 3538953, 13, -1310716, 3342345, 10, -1245180, 3342345, 11, -1179644, 3342345, 12, -1114108, 3342345, 13, -1310715, 3407881, 10, -1245179, 3407881, 11, -1179643, 3407881, 12, -1114107, 3407881, 13, -1310714, 3473417, 10, -1245178, 3473417, 11, -1179642, 3473417, 12, -1114106, 3473417, 13, -1048570, 3473417, 14, -1245177, 3538953, 11, -1179641, 3538953, 12, -1114105, 3538953, 13, -851950, 3342345, 10, -786414, 3342345, 11, -720878, 3342345, 12, -655342, 3342345, 13, -851949, 3407881, 10, -786413, 3407881, 11, -720877, 3407881, 12, -655341, 3407881, 13, -851948, 3473417, 10, -786412, 3473417, 11, -720876, 3473417, 12, -655340, 3473417, 13, -589804, 3473417, 14, -786411, 3538953, 11, -720875, 3538953, 12, -655339, 3538953, 13, -720874, 3342345, 10, -655338, 3342345, 11, -589802, 3342345, 12, -524266, 3342345, 13, -720873, 3407881, 10, -655337, 3407881, 11, -589801, 3407881, 12, -524265, 3407881, 13, -720872, 3473417, 10, -655336, 3473417, 11, -589800, 3473417, 12, -524264, 3473417, 13, -458728, 3473417, 14, -655335, 3538953, 11, -589799, 3538953, 12, -524263, 3538953, 13, -262125, 3014665, 10, -196589, 3014665, 11, -131053, 3014665, 12, -65517, 3014665, 13, -262124, 3080201, 10, -196588, 3080201, 11, -131052, 3080201, 12, -65516, 3080201, 13, -262123, 3145737, 10, -196587, 3145737, 11, -131051, 3145737, 12, -131057, 3014665, 10, -65521, 3014665, 11, 15, 3014665, 12, 65551, 3014665, 13, -131056, 3080201, 10, -65520, 3080201, 11, 16, 3080201, 12, 65552, 3080201, 13, -131055, 3145737, 10, -65519, 3145737, 11, 17, 3145737, 12, 65545, 3014665, 10, 131081, 3014665, 11, 196617, 3014665, 12, 262153, 3014665, 13, 65546, 3080201, 10, 131082, 3080201, 11, 196618, 3080201, 12, 262154, 3080201, 13, 65547, 3145737, 10, 131083, 3145737, 11, 196619, 3145737, 12)
 
-[node name="SceneTrigger" parent="." instance=ExtResource("4_86hcx")]
-position = Vector2(-308, 94)
-connected_scene = "School_grounds"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneTrigger"]
-position = Vector2(7, -146)
-rotation = -0.855211
-shape = SubResource("RectangleShape2D_vvbn7")
-
-[node name="EntranceMarkers" type="Node2D" parent="."]
-position = Vector2(-88, 216)
-
-[node name="any" type="Marker2D" parent="EntranceMarkers"]
-position = Vector2(30, -37)
-
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(-19, 37)
 
@@ -35315,15 +35299,8 @@ position = Vector2(-603, -561)
 polygon = PackedVector2Array(140, 399, 133, 159, 589, -34, 1174, 245, 1151, 461, 594, 181)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Area2D"]
-position = Vector2(-612, -550)
-polygon = PackedVector2Array(173, 385, 309, 451, 272, 481, 325, 513, 359, 474, 541, 569, 425, 637, 544, 560, 589, 590, 718, 654, 1146, 447, 1179, 537, 689, 823, 28, 480)
-
-[node name="worldPlayer" parent="." instance=ExtResource("7_ovfp1")]
-visible = false
-position = Vector2(-8, 9)
-
-[node name="Camera2D" parent="worldPlayer" instance=ExtResource("8_ir6r1")]
-position = Vector2(-7, -31)
+position = Vector2(-625, -543)
+polygon = PackedVector2Array(173, 385, 309, 451, 272, 481, 325, 513, 359, 474, 541, 569, 425, 637, 521.831, 574.345, 544, 560, 589, 590, 718, 654, 1146, 447, 1179, 537, 689, 823, 28, 480)
 
 [node name="Untitled12720240510130540" type="Sprite2D" parent="."]
 position = Vector2(165, -205)
@@ -35398,7 +35375,24 @@ libraries = {
 "": SubResource("AnimationLibrary_2ofy0")
 }
 
+[node name="SceneTrigger" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneTrigger"]
+position = Vector2(-315.252, -32.4673)
+rotation = -0.855211
+shape = SubResource("RectangleShape2D_vvbn7")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-41, 42)
+
+[node name="worldPlayer" parent="." instance=ExtResource("7_ovfp1")]
+position = Vector2(-23, 19)
+
+[node name="Camera2D" parent="worldPlayer" instance=ExtResource("8_ir6r1")]
+position = Vector2(24, -20)
+
 [connection signal="body_entered" from="Untitled12720240510130540/interact_detection" to="." method="_on_interact_detection_body_entered"]
 [connection signal="body_exited" from="Untitled12720240510130540/interact_detection" to="." method="_on_interact_detection_body_exited"]
 [connection signal="body_entered" from="level2" to="." method="_on_level_2_body_entered"]
 [connection signal="body_exited" from="level2" to="." method="_on_level_2_body_exited"]
+[connection signal="body_entered" from="SceneTrigger" to="." method="_on_scene_trigger_body_entered"]
