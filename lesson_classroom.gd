@@ -18,7 +18,6 @@ func _ready():
 	# Authenticate with Firebase
 	Firebase.Auth.login_with_email_and_password(email, password)
 	Firebase.Auth.connect("login_succeeded", self._on_FirebaseAuth_login_succeeded)
-
 	# Connect goBack button press signal
 	$goBack.button_down.connect(self._on_go_back_pressed)
 	

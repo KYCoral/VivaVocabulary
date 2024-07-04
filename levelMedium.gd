@@ -65,7 +65,7 @@ func find_new_active_enemy(typed_character: String) -> void:
 			return
 
 func _unhandled_input(event: InputEvent) -> void:
-	#Input.show_virtual_keyboard()
+
 	if event is InputEventKey and event.pressed and not event.echo:
 		var typed_event = event as InputEventKey
 		var key_typed = PackedByteArray([typed_event.unicode]).get_string_from_utf8()
@@ -173,7 +173,7 @@ func _on_start_button_down() -> void:
 
 
 func _on_map_button_down() -> void:
-	get_tree().change_scene_to_file("res://World_library.tscn")
+	get_tree().change_scene_to_file("res://World_school.tscn")
 	pass # Replace with function body.
 
 

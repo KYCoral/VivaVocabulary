@@ -5,24 +5,21 @@ class_name School_grounds extends BaseScene
 var userinfo = null
 var COLLECTION_ID = "user_data"
 @onready var tile_map = $TileMap
-#@onready var convo = $worldPlayer/convo
-@onready var talkButton : Button = $"../../NPC/interact"
+
 @onready  var talk: Button = $NPC/interact
 @onready var progressBar : ProgressBar = $worldPlayer/Camera2D/profile/ProgressBar
 @onready var convo = $worldPlayer/convo
 @onready var entranceAny = $Marker2D
 @onready var players = $worldPlayer
 @onready var camera = $worldPlayer/Camera2D
-
+@onready var animationNPC : AnimationPlayer = $NPC/AnimationPlayer
 
 
 func _ready():
 	Firebase.Auth.login_with_email_and_password(email, password)
 	Firebase.Auth.connect("login_succeeded", self._on_FirebaseAuth_login_succeeded)
-
-
 	players.global_position = entranceAny.global_position
-
+	animationNPC.play("nps")
 	pass # Replace with function body.
 
 

@@ -8,7 +8,7 @@ var COLLECTION_ID = "user_data"
 @onready var level2_page: PackedScene = preload("res://levelMedium.tscn")
 @onready var interact : Button = $Untitled12720240510130540/interact
 @onready var chat_page: PackedScene = preload("res://scenes/chat.tscn")
-
+@onready var animationNPC : AnimationPlayer = $npc/AnimationPlayer
 @onready var entranceAny = $Marker2D
 @onready var players = $worldPlayer
 # Called when the node enters the scene tree for the first time.
@@ -16,8 +16,7 @@ func _ready():
 	Firebase.Auth.login_with_email_and_password(email, password)
 	Firebase.Auth.connect("login_succeeded", self._on_FirebaseAuth_login_succeeded)
 	level2.button_up.connect(_on_level_2_button_up)	
-	interact.button_down.connect(_on_interact_button_up)
-	
+	animationNPC.play("nps")
 
 	players.global_position = entranceAny.global_position
 	

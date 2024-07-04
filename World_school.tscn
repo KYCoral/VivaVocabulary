@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://c5a3vah170vnn"]
+[gd_scene load_steps=42 format=3 uid="uid://c5a3vah170vnn"]
 
 [ext_resource type="Texture2D" uid="uid://j2y6m8u8cvwb" path="res://sprites/room.png" id="1_6c3sy"]
 [ext_resource type="Script" path="res://World_school.gd" id="1_n8u3a"]
@@ -35148,6 +35148,43 @@ border_color = Color(0.8, 0.8, 0.8, 0)
 draw_center = false
 border_color = Color(0.8, 0.8, 0.8, 0)
 
+[sub_resource type="Animation" id="Animation_t4par"]
+resource_name = "nps"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("6_ube2v"), ExtResource("6_ube2v"), ExtResource("14_lbxrp"), ExtResource("14_lbxrp")]
+}
+
+[sub_resource type="Animation" id="Animation_lnny0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_ube2v")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_11hr3"]
+_data = {
+"RESET": SubResource("Animation_lnny0"),
+"nps": SubResource("Animation_t4par")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7e1aq"]
 size = Vector2(363.31, 397.455)
 
@@ -35189,7 +35226,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Untitled12720240510130540:texture")
+tracks/1/path = NodePath("npc:texture")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -35201,7 +35238,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Untitled12720240510130540/interact:position")
+tracks/2/path = NodePath("npc/interact:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -35217,7 +35254,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Untitled12720240510130540:texture")
+tracks/0/path = NodePath("npc:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -35234,7 +35271,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Untitled12720240510130540/interact:position")
+tracks/0/path = NodePath("npc/interact:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -35302,19 +35339,19 @@ polygon = PackedVector2Array(140, 399, 133, 159, 589, -34, 1174, 245, 1151, 461,
 position = Vector2(-625, -543)
 polygon = PackedVector2Array(173, 385, 309, 451, 272, 481, 325, 513, 359, 474, 541, 569, 425, 637, 521.831, 574.345, 544, 560, 589, 590, 718, 654, 1146, 447, 1179, 537, 689, 823, 28, 480)
 
-[node name="Untitled12720240510130540" type="Sprite2D" parent="."]
+[node name="npc" type="Sprite2D" parent="."]
 position = Vector2(165, -205)
 scale = Vector2(0.164189, 0.161149)
 texture = ExtResource("6_ube2v")
 
-[node name="interact_detection" type="Area2D" parent="Untitled12720240510130540"]
+[node name="interact_detection" type="Area2D" parent="npc"]
 position = Vector2(66.996, 68.2595)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Untitled12720240510130540/interact_detection"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="npc/interact_detection"]
 position = Vector2(-60.9055, -117.903)
 shape = SubResource("CircleShape2D_5aihr")
 
-[node name="interact" type="Button" parent="Untitled12720240510130540"]
+[node name="interact" type="Button" parent="npc"]
 visible = false
 offset_left = -176.625
 offset_top = -546.08
@@ -35337,6 +35374,11 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_kfgch")
 theme_override_styles/focus = SubResource("StyleBoxFlat_w3r2b")
 text = "Press to Talk
 "
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="npc"]
+libraries = {
+"": SubResource("AnimationLibrary_11hr3")
+}
 
 [node name="level2" type="Area2D" parent="."]
 position = Vector2(363, -130)
@@ -35391,8 +35433,8 @@ position = Vector2(-23, 19)
 [node name="Camera2D" parent="worldPlayer" instance=ExtResource("8_ir6r1")]
 position = Vector2(24, -20)
 
-[connection signal="body_entered" from="Untitled12720240510130540/interact_detection" to="." method="_on_interact_detection_body_entered"]
-[connection signal="body_exited" from="Untitled12720240510130540/interact_detection" to="." method="_on_interact_detection_body_exited"]
+[connection signal="body_entered" from="npc/interact_detection" to="." method="_on_interact_detection_body_entered"]
+[connection signal="body_exited" from="npc/interact_detection" to="." method="_on_interact_detection_body_exited"]
 [connection signal="body_entered" from="level2" to="." method="_on_level_2_body_entered"]
 [connection signal="body_exited" from="level2" to="." method="_on_level_2_body_exited"]
 [connection signal="body_entered" from="SceneTrigger" to="." method="_on_scene_trigger_body_entered"]
