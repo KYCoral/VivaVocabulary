@@ -1,22 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://iyjeg6ldipci"]
+[gd_scene load_steps=4 format=3 uid="uid://bc53oswkrckcs"]
 
 [ext_resource type="Script" path="res://Enemy.gd" id="1_253kq"]
 [ext_resource type="Texture2D" uid="uid://bb8ftrfl1343i" path="res://sprites/head.png" id="2_li7ry"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wqw22"]
-size = Vector2(51, 104)
+size = Vector2(38.125, 76.625)
 
 [node name="Enemy" type="CharacterBody2D"]
-position = Vector2(1372, 59)
+position = Vector2(3, 9)
 motion_mode = 1
 script = ExtResource("1_253kq")
 speed = 1.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 81.0
-offset_top = 148.0
-offset_right = 226.0
-offset_bottom = 175.0
+offset_left = -62.0
+offset_top = 20.0
+offset_right = 129.0
+offset_bottom = 37.0
 theme_override_font_sizes/normal_font_size = 40
 theme_override_font_sizes/bold_font_size = 40
 theme_override_font_sizes/italics_font_size = 40
@@ -29,10 +29,10 @@ autowrap_mode = 0
 language = "en"
 
 [node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(151, 111)
-scale = Vector2(0.0751955, 0.0636719)
+position = Vector2(23, -12)
+scale = Vector2(0.0719727, 0.0701172)
 texture = ExtResource("2_li7ry")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(151.5, 129)
+position = Vector2(25.0625, -11.3125)
 shape = SubResource("RectangleShape2D_wqw22")

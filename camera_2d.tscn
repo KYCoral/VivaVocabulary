@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://ca1fa2mfpl1mg"]
+[gd_scene load_steps=56 format=3 uid="uid://ca1fa2mfpl1mg"]
 
 [ext_resource type="Script" path="res://camera_2d.gd" id="1_u25vd"]
 [ext_resource type="Texture2D" uid="uid://c70hr2a3q7rnt" path="res://sprites/Untitled75_20240409205456_edit_943665059587675.png" id="2_qjksh"]
@@ -10,6 +10,7 @@
 [ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://addons/fonts/FrancoisOne.ttf" id="8_ttuw4"]
 [ext_resource type="FontFile" uid="uid://cnff5mjjigvl" path="res://addons/fonts/PoiretOne-Regular.ttf" id="9_685wy"]
 [ext_resource type="Texture2D" uid="uid://dknccekvublha" path="res://sprites/Untitled75_20240409205437.png" id="10_v00s8"]
+[ext_resource type="Script" path="res://settings_menu.gd" id="11_hgauu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sa8pu"]
 draw_center = false
@@ -455,6 +456,7 @@ offset_bottom = 34.0
 theme_override_styles/background = SubResource("StyleBoxFlat_sa8pu")
 theme_override_styles/fill = SubResource("StyleBoxFlat_5mt4x")
 rounded = true
+show_percentage = false
 
 [node name="LabelPoints" type="Label" parent="profile"]
 offset_left = -309.0
@@ -474,7 +476,7 @@ scale = Vector2(0.122887, 0.15145)
 texture = ExtResource("4_0itwl")
 
 [node name="joystick" parent="." instance=ExtResource("5_3mtry")]
-position = Vector2(320, 140)
+position = Vector2(-309, 130)
 
 [node name="option" type="Button" parent="."]
 offset_left = 350.0
@@ -685,6 +687,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("7_eu3mo")
 expand_mode = 1
+script = ExtResource("11_hgauu")
 
 [node name="TabContainer" type="TabContainer" parent="Control/settingsMenu"]
 layout_mode = 0
@@ -692,12 +695,14 @@ offset_left = 64.0
 offset_top = 38.0
 offset_right = 836.0
 offset_bottom = 417.0
+theme_override_font_sizes/font_size = 28
 current_tab = 1
 clip_tabs = false
 
 [node name="General" type="TabBar" parent="Control/settingsMenu/TabContainer"]
 visible = false
 layout_mode = 2
+theme_override_font_sizes/font_size = 40
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/settingsMenu/TabContainer/General"]
 layout_mode = 1

@@ -15,15 +15,19 @@ var COLLECTION_ID = "user_data"
 @onready var animationNPC : AnimationPlayer = $NPC/AnimationPlayer
 
 
+
 func _ready():
 	Firebase.Auth.login_with_email_and_password(email, password)
 	Firebase.Auth.connect("login_succeeded", self._on_FirebaseAuth_login_succeeded)
+	
 	players.global_position = entranceAny.global_position
 	animationNPC.play("nps")
-	pass # Replace with function body.
+	$worldPlayer/Control.visible = true
+
 
 
 func _on_FirebaseAuth_login_succeeded(auth_info):
+	$worldPlayer/Control.visible = false
 	print("Success!")
 	userinfo = auth_info
 
@@ -79,6 +83,7 @@ func _on_scene_trigger_body_entered(body):
 func _on_interact_pressed():
 	camera.visible = false
 	convo.show()
+	$NPC/AnimationPlayer.play("convo")
 	pass # Replace with function body.
 
 

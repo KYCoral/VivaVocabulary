@@ -7,7 +7,7 @@ var COLLECTION_ID = "user_data"
 @onready var Resume : Button = $CanvasLayer2/Paused/CenterContainer/VBoxContainer2/Resume
 @onready var Restart : Button = $CanvasLayer2/Paused/CenterContainer/VBoxContainer2/Restart
 @onready var Map : Button = $CanvasLayer2/Paused/CenterContainer/VBoxContainer2/Map
-@onready var Enemy: PackedScene = preload("res://Enemy.tscn")
+@onready var enemy: PackedScene = preload("res://Enemy.tscn")
 @onready var buttonStart: Button = $CanvasLayer2/startGame/CenterContainer/VBoxContainer/start
 @onready var enemy_container = $CanvasLayer/VBoxContainer/MiddleRow/EnemyContainer
 @onready var spawn_container = $CanvasLayer/VBoxContainer/MiddleRow/SpawnContainer
@@ -28,6 +28,8 @@ var current_letter_index: int = -1
 var difficulty: int = 0
 var enemies_killed: int = 0
 
+
+
 func _ready() -> void:
 	# Connect the timers to their respective functions
 	Firebase.Auth.login_with_email_and_password(email, password)
@@ -39,7 +41,9 @@ func _ready() -> void:
 	spawn_timer.timeout.connect(self._on_spawn_timer_timeout)
 	difficulty_timer.timeout.connect(self._on_difficulty_timer_timeout)
 	buttonStart.button_down.connect(self._on_start_button_down)
-
+	
+	$CanvasLayer2/loading.visible = true
+	
 	spawn_timer.stop()
 	difficulty_timer.stop()
 	active_enemy = null
@@ -48,10 +52,8 @@ func _ready() -> void:
 		enemy.queue_free()
 
 
-
-
 func _on_FirebaseAuth_login_succeeded(auth_info):
-	print("Firebase login success!")
+	$CanvasLayer2/loading.visible = false
 
 func find_new_active_enemy(typed_character: String) -> void:
 	for enemy in enemy_container.get_children():
@@ -92,7 +94,7 @@ func _on_spawn_timer_timeout() -> void:
 	spawn_enemy()
 
 func spawn_enemy() -> void:
-	var enemy_instance = Enemy.instantiate()
+	var enemy_instance = enemy.instantiate()
 	var spawns = spawn_container.get_children()
 	var index = randi() % spawns.size()
 	enemy_instance.global_position = spawns[index].global_position
@@ -104,7 +106,7 @@ func _on_difficulty_timer_timeout() -> void:
 	GlobalSignals.emit_signal("difficulty_increased", difficulty)
 	print("Difficulty increased to %d" % difficulty)
 	var new_wait_time = spawn_timer.wait_time - 0.2
-	spawn_timer.wait_time = clamp(new_wait_time, 1.0, spawn_timer.wait_time)
+	spawn_timer.wait_time = clamp(new_wait_time, 0.2, spawn_timer.wait_time)
 	difficulty_value.text = str(difficulty)
 	
 	if difficulty >= 20:
@@ -180,7 +182,7 @@ func _on_map_button_down() -> void:
 func _on_option_button_down():
 	DisplayServer.virtual_keyboard_hide()
 	pause_screen.show()
-	#get_tree().paused = true
+	get_tree().paused
 	pass # Replace with function body.
 
 
@@ -188,6 +190,7 @@ func _on_resume_button_down():
 	DisplayServer.virtual_keyboard_show("")
 	#get_tree().paused = false
 	pause_screen.hide()
+	
 	pass # Replace with function body.
 	
 

@@ -16,7 +16,8 @@ var terms_instance : Node
 var login_instance : Node
 @onready var signup : Button = $mcSignup/SignupScreen/signup/vb_confirmPassword/ConfirmPassword/vb_signupButton/signUp
 @onready var signup_complete : CanvasLayer = $CanvasLayer
-
+@onready var signUp_loading: PackedScene = preload("res://loadingLogin.tscn")
+var loading_instance: Node
 
 var userinfo = null
 signal signup_succeeded(user_info)  
@@ -27,8 +28,7 @@ func _ready():
 	exitSignup.button_down.connect(on_exit_pressed)
 	signup.button_up.connect(_on_sign_up_button_up)
 	terms.button_down.connect(_on_terms_services_pressed)
-	
-	##Firebase.Auth.connect("signup_succeeded", self, "_on_FirebaseAuth_signup_succeeded")
+
 	Firebase.Auth.connect("signup_succeeded", self._on_FirebaseAuth_signup_succeeded)
 
 	# Instantiate exit popup and add it to the scene tree
@@ -41,7 +41,11 @@ func _ready():
 	terms_instance = terms_page.instantiate()
 	add_child(terms_instance)
 	terms_instance.hide()
-
+	
+	loading_instance = signUp_loading.instantiate()
+	add_child(loading_instance)
+	loading_instance.hide()
+	
 	login_instance = login_page.instantiate()
 	add_child(login_instance)
 	login_instance.hide()
@@ -50,7 +54,6 @@ func _ready():
 func _on_terms_services_pressed() -> void:
 	terms_instance.show()
 	pass # Replace with function body.
-
 
 # Function to switch to login scene
 func on_login_pressed() -> void:
@@ -66,37 +69,56 @@ func on_exit_pressed() -> void:
 	exit_instance.show()
 
 func _on_sign_up_button_up():
+	loading_instance.show()
 	$errorMessage.hide()
 	var email = $mcSignup/SignupScreen/signup/vb_account/Account/signup/Email/emailEnter.text
 	var password = $mcSignup/SignupScreen/signup/vb_password/Password/password/passwordEnter.text
 	var confirmPassword = $mcSignup/SignupScreen/signup/vb_confirmPassword/ConfirmPassword/confirmPassword/confirmPasswordEnter.text 
 	var username = str(email).split("@")[-1]
-
-	print(username)
 	var valid = email.find("@")
 	#var invalid_characters = [" ", "!", "#", "$", "%", "^", "&", "*", "(", ")", "+", "=", "{", "}", "|", "\\", ":", ";", "'", "\"", "<", ">", ",", "/", "?", "`", "~"]
 	
 	
 	 # Get confirm password
 	if password != confirmPassword:
+		loading_instance.hide()
 		$errorMessage.text = "Password does not match"
 		$errorMessage.show()
 		return  # Exit the function if email is invalid
+	elif email == "":
+		loading_instance.hide()
+		$errorMessage.text = "Please enter your email."
+		$errorMessage.show()
+		return  # Exit the function if email is invalid
+	elif password == "":
+		loading_instance.hide()
+		$errorMessage.text = "Please enter your password."
+		$errorMessage.show()
+		return  # Exit the function if email is invalid
+	elif confirmPassword == "":
+		loading_instance.hide()
+		$errorMessage.text = "Password must be confirmed."
+		$errorMessage.show()
+		return  # Exit the function if email is invalid
 	elif not agree_checkbox.is_pressed():
+		loading_instance.hide()
 		$errorMessage.text = "User must agree to the Terms and Services"
 		$errorMessage.show()
 		return  # Exit the function if checkbox is not checked
 	elif valid == -1:
+		loading_instance.hide()
 		$errorMessage.text = "Not a valid email address."
 		$errorMessage.show()
 	else:
 		if username != "gmail.com":
+			loading_instance.hide()
 			$errorMessage.text = "Not valid email format: ex. Email@gmail.com"
 			$errorMessage.show()
 		else:
 			Firebase.Auth.signup_with_email_and_password(email,password)
 
 func _on_FirebaseAuth_signup_succeeded(auth_info):
+	loading_instance.hide()
 	$mcSignup/SignupScreen/signup/vb_account/Account/signup/Email/emailEnter.clear()
 	$mcSignup/SignupScreen/signup/vb_password/Password/password/passwordEnter.clear()
 	$mcSignup/SignupScreen/signup/vb_confirmPassword/ConfirmPassword/confirmPassword/confirmPasswordEnter.clear()
@@ -120,6 +142,7 @@ func _on_FirebaseAuth_signup_succeeded(auth_info):
 	var addedUser = add_task
 	print("User added successfully:", addedUser)
 	signup_complete.show()
+
 
 
 func _on_close_button_down():

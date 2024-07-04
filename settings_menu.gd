@@ -31,6 +31,8 @@ func _ready():
 	accountDelete_instance = accountDeletePopup.instantiate()
 	add_child(accountDelete_instance)
 	accountDelete_instance.hide()
+	
+
 
 
 func on_cancel_pressed() -> void:

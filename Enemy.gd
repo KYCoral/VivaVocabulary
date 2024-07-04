@@ -21,7 +21,7 @@ func set_difficulty(difficulty: int) -> void:
 	handle_difficulty_increased(difficulty)
 
 func handle_difficulty_increased(new_difficulty: int) -> void:
-	var new_speed = speed + (0.125 * new_difficulty)
+	var new_speed = speed + (0.2 * new_difficulty)
 	speed = clamp(new_speed, speed, 3.0)
 
 func get_prompt() -> String:

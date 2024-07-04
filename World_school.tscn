@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://c5a3vah170vnn"]
+[gd_scene load_steps=53 format=3 uid="uid://c5a3vah170vnn"]
 
 [ext_resource type="Texture2D" uid="uid://j2y6m8u8cvwb" path="res://sprites/room.png" id="1_6c3sy"]
 [ext_resource type="Script" path="res://World_school.gd" id="1_n8u3a"]
@@ -10,8 +10,15 @@
 [ext_resource type="Texture2D" uid="uid://n2v8rowgnpn8" path="res://sprites/Untitled127_20240510130540.png" id="6_ube2v"]
 [ext_resource type="PackedScene" uid="uid://ddesem15hfna1" path="res://World-player.tscn" id="7_ovfp1"]
 [ext_resource type="PackedScene" uid="uid://ca1fa2mfpl1mg" path="res://camera_2d.tscn" id="8_ir6r1"]
+[ext_resource type="Script" path="res://loading.gd" id="13_b2dov"]
 [ext_resource type="Texture2D" uid="uid://cblswhmnd5dj" path="res://sprites/Untitled127_20240510130545.png" id="13_v00g1"]
 [ext_resource type="Texture2D" uid="uid://1umat3ha0r8b" path="res://sprites/Untitled127_20240510130543.png" id="14_lbxrp"]
+[ext_resource type="Texture2D" uid="uid://dgpmyd1cn0eb3" path="res://sprites/bg.png" id="14_tgkdj"]
+[ext_resource type="Texture2D" uid="uid://chs3kl71oemqu" path="res://sprites/1.png" id="15_1hptt"]
+[ext_resource type="Texture2D" uid="uid://dts8ih5n5tnhd" path="res://sprites/3.png" id="16_kb4qp"]
+[ext_resource type="Texture2D" uid="uid://bs8mfg2mj4i7s" path="res://sprites/4.png" id="17_84m2u"]
+[ext_resource type="Texture2D" uid="uid://bg11ouasv3reb" path="res://sprites/5.png" id="18_hn67t"]
+[ext_resource type="FontFile" uid="uid://x07w57hnrhsp" path="res://addons/fonts/PL Benguiat Caslon/PL Benguiat Caslon.ttf" id="19_asw62"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_ikx3x"]
 tile_data = PackedInt32Array(262144, 3276802, 36, 327680, 3276802, 37, 393216, 3276802, 38, 196609, 3342338, 35, 262145, 3342338, 36, 327681, 3342338, 37, 393217, 3342338, 38, 458753, 3342338, 39, 196610, 3407874, 35, 262146, 3407874, 36, 327682, 3407874, 37, 393218, 3407874, 38, 131075, 3473410, 34, 196611, 3473410, 35, 262147, 3473410, 36, 327683, 3473410, 37, 393219, 3473410, 38, 131076, 3538946, 34, 196612, 3538946, 35, 262148, 3538946, 36, 327684, 3538946, 37, 65541, 3473410, 34, 131077, 3473410, 35, 196613, 3473410, 36, 262149, 3473410, 37, 327685, 3604482, 37, 65542, 3538946, 34, 131078, 3538946, 35, 196614, 3538946, 36, 262150, 3538946, 37, 7, 3604482, 33, 65543, 3604482, 34, 131079, 3604482, 35, 196615, 3604482, 36, 262151, 3604482, 37, 65544, 3670018, 34, 131080, 3670018, 35, 196616, 3670018, 36)
@@ -35148,6 +35155,21 @@ border_color = Color(0.8, 0.8, 0.8, 0)
 draw_center = false
 border_color = Color(0.8, 0.8, 0.8, 0)
 
+[sub_resource type="Animation" id="Animation_lnny0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_ube2v")]
+}
+
 [sub_resource type="Animation" id="Animation_t4par"]
 resource_name = "nps"
 loop_mode = 1
@@ -35162,21 +35184,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("6_ube2v"), ExtResource("6_ube2v"), ExtResource("14_lbxrp"), ExtResource("14_lbxrp")]
-}
-
-[sub_resource type="Animation" id="Animation_lnny0"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("6_ube2v")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_11hr3"]
@@ -35309,6 +35316,72 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vvbn7"]
 size = Vector2(41.4161, 52.1167)
 
+[sub_resource type="Animation" id="Animation_i3gq0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("1:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("15_1hptt")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("loading:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Loading..."]
+}
+
+[sub_resource type="Animation" id="Animation_07re5"]
+resource_name = "idle"
+
+[sub_resource type="Animation" id="Animation_8kqcy"]
+resource_name = "loading"
+length = 1.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("1:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("15_1hptt"), ExtResource("16_kb4qp"), ExtResource("17_84m2u"), ExtResource("18_hn67t"), ExtResource("17_84m2u"), ExtResource("16_kb4qp")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("loading:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.7, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": ["Loading", "Loading.", "Loading..", "Loading...", "Loading..."]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t3m6n"]
+_data = {
+"RESET": SubResource("Animation_i3gq0"),
+"idle": SubResource("Animation_07re5"),
+"loading": SubResource("Animation_8kqcy")
+}
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_n8u3a")
 
@@ -35432,6 +35505,63 @@ position = Vector2(-23, 19)
 
 [node name="Camera2D" parent="worldPlayer" instance=ExtResource("8_ir6r1")]
 position = Vector2(24, -20)
+
+[node name="Control" type="Control" parent="worldPlayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 441.0
+offset_top = 423.0
+offset_right = 481.0
+offset_bottom = 463.0
+script = ExtResource("13_b2dov")
+
+[node name="bg" type="TextureRect" parent="worldPlayer/Control"]
+z_index = 26
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -852.0
+offset_top = -660.0
+offset_right = -21.0
+offset_bottom = -259.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_tgkdj")
+expand_mode = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="worldPlayer/Control"]
+z_index = 26
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -812.0
+offset_top = -571.0
+offset_right = -65.0
+offset_bottom = -339.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="worldPlayer/Control/CenterContainer"]
+libraries = {
+"": SubResource("AnimationLibrary_t3m6n")
+}
+
+[node name="1" type="Sprite2D" parent="worldPlayer/Control/CenterContainer"]
+position = Vector2(24, 278)
+scale = Vector2(0.0969594, 0.101351)
+texture = ExtResource("15_1hptt")
+
+[node name="loading" type="Label" parent="worldPlayer/Control/CenterContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.992157)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("19_asw62")
+theme_override_font_sizes/font_size = 80
+text = "Loading..."
+metadata/_edit_lock_ = true
 
 [connection signal="body_entered" from="npc/interact_detection" to="." method="_on_interact_detection_body_entered"]
 [connection signal="body_exited" from="npc/interact_detection" to="." method="_on_interact_detection_body_exited"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://bb07iiqaksx8n"]
+[gd_scene load_steps=10 format=3 uid="uid://bb07iiqaksx8n"]
 
 [ext_resource type="Script" path="res://terms_services.gd" id="1_03n8r"]
-[ext_resource type="Texture2D" uid="uid://dxyfsny2ph1vm" path="res://sprites/Untitled95_20240423015247.png" id="2_0pkd0"]
 [ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://addons/fonts/FrancoisOne.ttf" id="2_813gp"]
+[ext_resource type="Texture2D" uid="uid://b70i01bly4f06" path="res://sprites/panel.png" id="2_y0a67"]
+[ext_resource type="FontFile" uid="uid://x07w57hnrhsp" path="res://addons/fonts/PL Benguiat Caslon/PL Benguiat Caslon.ttf" id="3_jy8wv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o11ag"]
 bg_color = Color(0, 0, 0, 0)
@@ -24,24 +25,23 @@ bg_color = Color(0.255659, 0.255659, 0.255659, 1)
 draw_center = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nayqn"]
-draw_center = false
+bg_color = Color(0.603922, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
 border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wkvek"]
-draw_center = false
-border_color = Color(0.8, 0.8, 0.8, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rxvo4"]
-draw_center = false
-border_color = Color(0.8, 0.8, 0.8, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yjlxf"]
-draw_center = false
-border_color = Color(0.8, 0.8, 0.8, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7an42"]
-draw_center = false
-border_color = Color(0.8, 0.8, 0.8, 0)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ts6vl"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_03n8r")
@@ -50,24 +50,24 @@ script = ExtResource("1_03n8r")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -551.0
-offset_top = -213.0
-offset_right = 2996.0
-offset_bottom = 1868.0
+offset_left = 172.0
+offset_top = 74.0
+offset_right = 2308.0
+offset_bottom = 1208.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_0pkd0")
+texture = ExtResource("2_y0a67")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-offset_left = 39.0
-offset_top = 184.0
-offset_right = 2545.0
-offset_bottom = 1254.0
+offset_left = 207.0
+offset_top = 228.0
+offset_right = 2277.0
+offset_bottom = 1029.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_o11ag")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer"]
 layout_mode = 2
-theme_override_colors/default_color = Color(0.637843, 0.637843, 0.637843, 1)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 35
 theme_override_font_sizes/bold_font_size = 35
 theme_override_font_sizes/italics_font_size = 35
@@ -131,19 +131,20 @@ If you have any questions or concerns about these Terms, please contact us at su
 scroll_following = true
 
 [node name="Label" type="Label" parent="."]
-offset_left = 42.0
-offset_top = 133.0
-offset_right = 411.0
-offset_bottom = 216.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 40
+offset_left = 234.0
+offset_top = 109.0
+offset_right = 603.0
+offset_bottom = 192.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_jy8wv")
+theme_override_font_sizes/font_size = 59
 text = "Terms and Services"
 
 [node name="goBack" type="Button" parent="."]
-offset_left = 3.0
-offset_top = 2.0
-offset_right = 216.0
-offset_bottom = 87.0
+offset_left = 2030.0
+offset_top = 1071.0
+offset_right = 2243.0
+offset_bottom = 1156.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.254902, 0.47451, 1, 1)
@@ -153,8 +154,10 @@ theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_813gp")
 theme_override_font_sizes/font_size = 34
 theme_override_styles/normal = SubResource("StyleBoxFlat_nayqn")
-theme_override_styles/hover = SubResource("StyleBoxFlat_wkvek")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_rxvo4")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_yjlxf")
-theme_override_styles/focus = SubResource("StyleBoxFlat_7an42")
-text = "↩ Go Back"
+theme_override_styles/hover = SubResource("StyleBoxFlat_ts6vl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nayqn")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_nayqn")
+theme_override_styles/focus = SubResource("StyleBoxFlat_nayqn")
+text = "Close"
+
+[connection signal="pressed" from="goBack" to="." method="_on_go_back_pressed"]

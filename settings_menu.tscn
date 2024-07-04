@@ -296,7 +296,6 @@ all_tabs_in_front = true
 drag_to_rearrange_enabled = true
 
 [node name="General" type="TabBar" parent="TabContainer"]
-visible = false
 layout_mode = 2
 theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hovered_color = Color(1, 1, 1, 1)
@@ -343,6 +342,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_latvp")
 text = "Delete Account"
 
 [node name="Profile" type="TabBar" parent="TabContainer"]
+visible = false
 layout_mode = 2
 theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hovered_color = Color(1, 1, 1, 1)

@@ -14,6 +14,8 @@ func _ready():
 	Firebase.Auth.login_with_email_and_password(email, password)
 	Firebase.Auth.connect("login_succeeded", self._on_FirebaseAuth_login_succeeded)
 	
+	$worldPlayer/Control.visible = true
+
 	players.global_position = entranceAny.global_position
 	pass # Replace with function body.
 
@@ -24,6 +26,7 @@ func _on_lessons_pressed():
 	pass # Replace with function body.
 
 func _on_FirebaseAuth_login_succeeded(auth_info):
+	$worldPlayer/Control.visible = false
 	print("Success!")
 	userinfo = auth_info
 	

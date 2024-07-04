@@ -160,3 +160,6 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_83g08")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_50kdw")
 theme_override_styles/focus = SubResource("StyleBoxFlat_pesat")
 text = "No"
+
+[connection signal="pressed" from="validation/Yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="validation/No" to="." method="_on_no_pressed"]

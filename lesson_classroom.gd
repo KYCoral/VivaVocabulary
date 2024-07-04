@@ -14,11 +14,19 @@ var CustomButton: PackedScene = preload("res://lessons.tscn")
 @onready var school_page: PackedScene = preload("res://World_school.tscn")
 @onready var lessonView : RichTextLabel = $lessonView/RichTextLabel
 
+#instance of loading screen if user is still not validated
+@onready var loading: PackedScene = preload("res://loading.tscn")
+var loading_instance: Node
+
 func _ready():
 	# Authenticate with Firebase
 	Firebase.Auth.login_with_email_and_password(email, password)
 	Firebase.Auth.connect("login_succeeded", self._on_FirebaseAuth_login_succeeded)
 	# Connect goBack button press signal
+	loading_instance = loading.instantiate()
+	add_child(loading_instance)
+	loading_instance.show()
+	
 	$goBack.button_down.connect(self._on_go_back_pressed)
 	
 # Function to handle Firebase login success

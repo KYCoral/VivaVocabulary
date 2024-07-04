@@ -7,6 +7,8 @@ extends Control
 var userinfo = null
 var COLLECTION_ID = "user_data"
 
+
+
 # Predefined questions and answers
 var questions = [
 	{"question": "Hello", "answer": "Hola"},
@@ -50,9 +52,10 @@ func _ready():
 	show_question()
 	update_score()
 	done_screen.hide()
-
+	$CanvasLayer2/loading.visible = true
 
 func _on_FirebaseAuth_login_succeeded(auth_info):
+	$CanvasLayer2/loading.visible = false
 	print("Firebase login success!")
 
 

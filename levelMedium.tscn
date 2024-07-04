@@ -1,12 +1,13 @@
-[gd_scene load_steps=27 format=3 uid="uid://dl1od1gcmhude"]
+[gd_scene load_steps=28 format=3 uid="uid://dl1od1gcmhude"]
 
 [ext_resource type="Script" path="res://levelMedium.gd" id="1_1gur2"]
 [ext_resource type="FontFile" uid="uid://x07w57hnrhsp" path="res://addons/fonts/PL Benguiat Caslon/PL Benguiat Caslon.ttf" id="4_hkgif"]
 [ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://addons/fonts/FrancoisOne.ttf" id="5_un0h5"]
 [ext_resource type="FontFile" uid="uid://cxo00kjcsmt7t" path="res://addons/fonts/BalooBhaijaan-Regular.ttf" id="6_0ekk2"]
-[ext_resource type="PackedScene" path="res://Enemy.tscn" id="6_et41b"]
+[ext_resource type="PackedScene" uid="uid://bc53oswkrckcs" path="res://Enemy.tscn" id="6_et41b"]
 [ext_resource type="Texture2D" uid="uid://c5i6mfte4gr7j" path="res://sprites/1-back.png" id="7_10swi"]
 [ext_resource type="FontFile" uid="uid://cnff5mjjigvl" path="res://addons/fonts/PoiretOne-Regular.ttf" id="8_7woce"]
+[ext_resource type="PackedScene" uid="uid://brvhmdiaxfp52" path="res://loading.tscn" id="9_csfj4"]
 [ext_resource type="Texture2D" uid="uid://bksm6qj8vs12y" path="res://sprites/pause.png" id="10_hogn5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8vqqn"]
@@ -158,13 +159,12 @@ corner_radius_bottom_left = 15
 [node name="Main" type="Node2D"]
 script = ExtResource("1_1gur2")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_right = 2811.0
-offset_bottom = 1280.0
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
-layout_mode = 2
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_top = -85.0
+offset_right = 2645.0
+offset_bottom = 1447.0
 texture = ExtResource("7_10swi")
+expand_mode = 1
 
 [node name="LoseArea" type="Area2D" parent="."]
 position = Vector2(30, 60)
@@ -174,10 +174,10 @@ position = Vector2(-81, 560)
 shape = SubResource("RectangleShape2D_8vqqn")
 
 [node name="SpawnTimer" type="Timer" parent="."]
-wait_time = 15.0
+wait_time = 5.0
 
 [node name="DifficultyTimer" type="Timer" parent="."]
-wait_time = 12.0
+wait_time = 15.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -213,16 +213,16 @@ size_flags_vertical = 3
 [node name="SpawnContainer" type="CanvasLayer" parent="CanvasLayer/VBoxContainer/MiddleRow"]
 
 [node name="Marker2D" type="Marker2D" parent="CanvasLayer/VBoxContainer/MiddleRow/SpawnContainer"]
-position = Vector2(2818, 211)
+position = Vector2(2576, 479)
 
 [node name="Marker2D2" type="Marker2D" parent="CanvasLayer/VBoxContainer/MiddleRow/SpawnContainer"]
-position = Vector2(2816, 392)
+position = Vector2(2577, 625)
 
 [node name="Marker2D4" type="Marker2D" parent="CanvasLayer/VBoxContainer/MiddleRow/SpawnContainer"]
-position = Vector2(2817, 601)
+position = Vector2(2577, 332)
 
 [node name="Marker2D3" type="Marker2D" parent="CanvasLayer/VBoxContainer/MiddleRow/SpawnContainer"]
-position = Vector2(2813, 865)
+position = Vector2(2578, 208)
 
 [node name="EnemyContainer" type="Node2D" parent="CanvasLayer/VBoxContainer/MiddleRow"]
 position = Vector2(1430, 168)
@@ -449,6 +449,9 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_ejv3i")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_vxj16")
 theme_override_styles/focus = SubResource("StyleBoxFlat_hh6b5")
 text = "QUIT"
+
+[node name="loading" parent="CanvasLayer2" instance=ExtResource("9_csfj4")]
+visible = false
 
 [connection signal="body_entered" from="LoseArea" to="." method="_on_lose_area_body_entered"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

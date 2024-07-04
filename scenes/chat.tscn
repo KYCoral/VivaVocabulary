@@ -1,9 +1,11 @@
-[gd_scene load_steps=24 format=3 uid="uid://bstnmruoashay"]
+[gd_scene load_steps=30 format=3 uid="uid://bstnmruoashay"]
 
 [ext_resource type="Script" path="res://chat_text1_5.gd" id="1_8vjfb"]
 [ext_resource type="Texture2D" uid="uid://7ympmf8u77u0" path="res://sprites/Untitled64_20240516114802.png" id="2_nty2j"]
 [ext_resource type="Texture2D" uid="uid://bki8hvqf7sbvm" path="res://sprites/11.png" id="3_5cyuw"]
 [ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://addons/fonts/FrancoisOne.ttf" id="4_ku61i"]
+[ext_resource type="Texture2D" uid="uid://dwgo5034gyb7b" path="res://sprites/22.png" id="5_oqfik"]
+[ext_resource type="PackedScene" uid="uid://brvhmdiaxfp52" path="res://loading.tscn" id="6_n7gjx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_msekt"]
 content_margin_left = 10.0
@@ -196,6 +198,72 @@ border_color = Color(0.8, 0.8, 0.8, 0)
 draw_center = false
 border_color = Color(0.8, 0.8, 0.8, 0)
 
+[sub_resource type="Animation" id="Animation_dm6d5"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("11:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.6, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("5_oqfik"), ExtResource("3_5cyuw"), ExtResource("3_5cyuw")]
+}
+
+[sub_resource type="Animation" id="Animation_aruix"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("11:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_5cyuw")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("11:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1147, 405.5)]
+}
+
+[sub_resource type="Animation" id="Animation_1ofcx"]
+resource_name = "present"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("11:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-1256, 1407), Vector2(-1236.25, 686.875)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hjt7i"]
+_data = {
+"RESET": SubResource("Animation_aruix"),
+"idle": SubResource("Animation_dm6d5"),
+"present": SubResource("Animation_1ofcx")
+}
+
 [node name="chat" type="Node2D"]
 position = Vector2(1662, 279)
 script = ExtResource("1_8vjfb")
@@ -209,14 +277,14 @@ texture = ExtResource("2_nty2j")
 expand_mode = 1
 
 [node name="11" type="Sprite2D" parent="."]
-position = Vector2(-1143, 417)
-scale = Vector2(0.414063, 0.395833)
+position = Vector2(-1147, 405.5)
+scale = Vector2(0.235352, 0.246053)
 texture = ExtResource("3_5cyuw")
 
 [node name="InputEdit" type="TextEdit" parent="."]
 custom_minimum_size = Vector2(240, 280)
-offset_left = -485.0
-offset_top = 649.0
+offset_left = -909.0
+offset_top = 405.0
 offset_right = 879.0
 offset_bottom = 984.0
 size_flags_horizontal = 3
@@ -229,29 +297,29 @@ wrap_mode = 1
 
 [node name="LineEdit" type="TextEdit" parent="InputEdit"]
 layout_mode = 0
-offset_left = 25.0
-offset_top = 27.0
-offset_right = 1237.0
-offset_bottom = 314.0
-theme_override_font_sizes/font_size = 40
+offset_left = 37.0
+offset_top = 19.0
+offset_right = 1465.0
+offset_bottom = 566.0
+theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_r57kl")
 theme_override_styles/focus = SubResource("StyleBoxFlat_t7q3p")
 theme_override_styles/read_only = SubResource("StyleBoxFlat_if5g5")
-placeholder_text = "Ask anything..."
+placeholder_text = "Say something..."
 wrap_mode = 1
 
 [node name="ResponseEdit" type="TextEdit" parent="."]
 custom_minimum_size = Vector2(250, 280)
-offset_left = -634.0
-offset_top = -129.0
-offset_right = 894.0
-offset_bottom = 607.0
+offset_left = -1079.0
+offset_top = -218.0
+offset_right = 822.0
+offset_bottom = 276.0
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
 theme_override_colors/font_readonly_color = Color(1, 1, 1, 1)
 theme_override_colors/font_placeholder_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_nneum")
 theme_override_styles/focus = SubResource("StyleBoxFlat_xl4tp")
 theme_override_styles/read_only = SubResource("StyleBoxFlat_84aok")
@@ -259,8 +327,8 @@ editable = false
 wrap_mode = 1
 
 [node name="SendButton" type="Button" parent="."]
-offset_left = 770.0
-offset_top = 887.0
+offset_left = 574.0
+offset_top = 447.0
 offset_right = 844.0
 offset_bottom = 956.0
 mouse_default_cursor_shape = 2
@@ -277,7 +345,7 @@ theme_override_colors/icon_hover_color = Color(0.129412, 0.698039, 1, 1)
 theme_override_colors/icon_hover_pressed_color = Color(0, 0.8, 0.8, 1)
 theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 120
 theme_override_styles/normal = SubResource("StyleBoxFlat_0vqbr")
 theme_override_styles/hover = SubResource("StyleBoxFlat_53huk")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_401cs")
@@ -297,13 +365,25 @@ theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_ku61i")
-theme_override_font_sizes/font_size = 34
+theme_override_font_sizes/font_size = 80
 theme_override_styles/normal = SubResource("StyleBoxFlat_oowpy")
 theme_override_styles/hover = SubResource("StyleBoxFlat_8u433")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_hwgfk")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_jd7ls")
 theme_override_styles/focus = SubResource("StyleBoxFlat_f4vi0")
 text = "↩ Go Back"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hjt7i")
+}
+
+[node name="loading" parent="." instance=ExtResource("6_n7gjx")]
+visible = false
+offset_left = -1671.0
+offset_top = -283.0
+offset_right = 920.0
+offset_bottom = 1020.0
 
 [connection signal="pressed" from="SendButton" to="." method="_on_send_button_pressed"]
 [connection signal="pressed" from="goBack" to="." method="_on_go_back_pressed"]

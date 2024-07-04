@@ -5,6 +5,7 @@ extends Node2D
 var userinfo = null
 var COLLECTION_ID = "user_data"
 
+
 @onready var SendButton : Button = $SendButton
 @onready var ResponseEdit : TextEdit = $ResponseEdit
 @onready var InputEdit : TextEdit = $InputEdit/LineEdit
@@ -17,6 +18,7 @@ var last_user_prompt
 
 @onready var goBack : Button = $goBack
 
+
 # Define the AI character role
 var ai_character_role = "You are Spanish-speaking student."
 
@@ -26,17 +28,18 @@ func _ready():
 	Firebase.Auth.login_with_email_and_password(email, password)
 	Firebase.Auth.connect("login_succeeded", self._on_FirebaseAuth_login_succeeded)
 	
+	$loading.visible = true
 	goBack.button_down.connect(_on_go_back_button_down)
 	http_request = HTTPRequest.new()
 	add_child(http_request)
 	http_request.request_completed.connect(_on_request_completed)
-
 	var name = target_model.split("/")[-1]
 
-func _process(delta):
-	pass
+
+
 
 func _on_FirebaseAuth_login_succeeded(auth_info):
+	$loading.visible = false
 	print("Success!")
 
 func _on_send_button_pressed():
@@ -92,6 +95,7 @@ func _request_chat(prompt):
 	var error = http_request.request(url, ["Content-Type: application/json"], HTTPClient.METHOD_POST, body)
 
 func _on_request_completed(result, responseCode, headers, body):
+	$AnimationPlayer.play("idle")
 	save_data()
 	InputEdit.text = ""
 	SendButton.disabled = false

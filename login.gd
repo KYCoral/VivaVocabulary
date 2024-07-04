@@ -13,6 +13,8 @@ var signUp_instance: Node
 var exit_instance: Node
 @onready var login : Button = $mcLogin/LoginScreen/Options/Login
 
+@onready var signUp_loading: PackedScene = preload("res://loadingLogin.tscn")
+var loading_instance: Node
 #@onready var game_page: PackedScene = preload("res://game.tscn")
 #@onready var menu_page: PackedScene = preload("res://mainMenu.tscn")
 var userinfo = null
@@ -33,10 +35,15 @@ func _ready():
 	exit_instance = exitPopup.instantiate()
 	add_child(exit_instance)
 	exit_instance.hide()
+	
+	loading_instance = signUp_loading.instantiate()
+	add_child(loading_instance)
+	loading_instance.hide()
 
 
 
 func _on_FirebaseAuth_login_succeeded(auth_info):
+	loading_instance.hide()
 	print("Success!")
 	userinfo = auth_info
 	Firebase.Auth.save_auth(auth_info)
@@ -44,7 +51,8 @@ func _on_FirebaseAuth_login_succeeded(auth_info):
 
 
 func _on_FirebaseAuth_login_failed(error_code, message):
-	$errorMessage.text = "Invalid Email. Please try again."
+	loading_instance.hide()
+	$errorMessage.text = "Invalid Attempt. Please try again."
 	$errorMessage.show()
 	print("error code: " + str(error_code))
 	print("message: " + str(message))
@@ -54,7 +62,7 @@ func _on_FirebaseAuth_login_failed(error_code, message):
 
 func _on_create_account_pressed():
 	#get_tree().change_scene_to_packed(signup_page)
-	signUp_instance.show()
+	loading_instance.show()
 	#get_tree().change_scene_to_file("res://signup.tscn")
 	pass # Replace with function body.
 
@@ -68,12 +76,26 @@ func _on_forgot_password_pressed():
 
 
 func _on_login_pressed():
+	loading_instance.show()
 	var email = $mcLogin/LoginScreen/vb_account/Account/Email/emailEnter.text
 	var password = $mcLogin/LoginScreen/vb_password/Password/password/passwordEnter.text
-	$mcLogin/LoginScreen/vb_account/Account/Email/emailEnter.clear()
-	$mcLogin/LoginScreen/vb_password/Password/password/passwordEnter.clear()
-	Global.set_login_data(email,password)
-	Firebase.Auth.login_with_email_and_password(email,password)
+	
+	
+	if email == "":
+		loading_instance.hide()
+		$errorMessage.text = "Please enter your email."
+		$errorMessage.show()
+		return  # Exit the function if email is invalid
+	elif password == "":
+		loading_instance.hide()
+		$errorMessage.text = "Please enter your password."
+		$errorMessage.show()
+		return  # Exit the function if email is invalid
+	else:
+		Global.set_login_data(email,password)
+		Firebase.Auth.login_with_email_and_password(email,password)
+		$mcLogin/LoginScreen/vb_account/Account/Email/emailEnter.clear()
+		$mcLogin/LoginScreen/vb_password/Password/password/passwordEnter.clear()
 	pass # Replace with function body.
 
 

@@ -1,0 +1,81 @@
+[gd_scene load_steps=7 format=3 uid="uid://u2rdyqq3f5ut"]
+
+[ext_resource type="Texture2D" uid="uid://c2deqf6k10vim" path="res://sprites/Untitled123_20240510122558.png" id="1_mvoc1"]
+[ext_resource type="Script" path="res://loadingLogin.gd" id="1_pmla4"]
+[ext_resource type="Texture2D" uid="uid://bb8ftrfl1343i" path="res://sprites/head.png" id="2_31grx"]
+
+[sub_resource type="Animation" id="Animation_3qkd7"]
+resource_name = "checking"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.791, 0.897, 0.967, 1.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_4ov6b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rvdue"]
+_data = {
+"RESET": SubResource("Animation_4ov6b"),
+"checking": SubResource("Animation_3qkd7")
+}
+
+[node name="loadingLogin" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pmla4")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.376471)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_mvoc1")
+
+[node name="Head" type="Sprite2D" parent="."]
+position = Vector2(1287, 474)
+scale = Vector2(0.463281, 0.414063)
+texture = ExtResource("2_31grx")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 845.0
+offset_top = 742.0
+offset_right = 1748.0
+offset_bottom = 984.0
+theme_override_font_sizes/font_size = 120
+text = "Checking..."
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rvdue")
+}

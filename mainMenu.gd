@@ -20,6 +20,8 @@ var COLLECTION_ID = "user_data"
 var exit_instance: Node
 @onready var settings: PackedScene = preload("res://settings_menu.tscn")
 var settings_instance: Node
+@onready var loading: PackedScene = preload("res://loading.tscn")
+var loading_instance: Node
 
 func _ready():
 	Firebase.Auth.login_with_email_and_password(email, password)
@@ -31,6 +33,11 @@ func _ready():
 	exit_instance = exitPopup.instantiate()
 	add_child(exit_instance)
 	exit_instance.hide()
+	
+	loading_instance = loading.instantiate()
+	add_child(loading_instance)
+	loading_instance.show()
+	
 	# Instantiate settings popup and add it to the scene tree
 	settings_instance = settings.instantiate()
 	add_child(settings_instance)
@@ -49,11 +56,7 @@ func on_settings_pressed() -> void:
 
 @warning_ignore("unused_parameter")
 func _on_FirebaseAuth_login_succeeded(auth_info):
-	print("Success!")
-	#userinfo = auth_info
-	
-	##GameManager.userInfo = userinfo
-	#Firebase.Auth.save_auth(auth_info)
+	loading_instance.hide()
 	var auth = Firebase.Auth.auth
 	if auth.localid:
 		var collection: FirestoreCollection = Firebase.Firestore.collection(COLLECTION_ID)

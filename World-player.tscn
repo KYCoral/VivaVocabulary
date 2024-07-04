@@ -31,6 +31,21 @@ tracks/0/keys = {
 "values": [ExtResource("4_8225p"), ExtResource("4_8225p"), ExtResource("4_4vgm3"), ExtResource("5_e0qg0")]
 }
 
+[sub_resource type="Animation" id="Animation_xrk7n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TopviewSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_kswxk")]
+}
+
 [sub_resource type="Animation" id="Animation_w1ggc"]
 resource_name = "WALK"
 length = 0.7
@@ -46,21 +61,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("5_e0qg0"), ExtResource("4_8225p"), ExtResource("5_afwrr"), ExtResource("6_nht7t"), ExtResource("1_kswxk"), ExtResource("7_ogwix"), ExtResource("1_kswxk"), ExtResource("8_yidcw")]
-}
-
-[sub_resource type="Animation" id="Animation_xrk7n"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TopviewSprite:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("1_kswxk")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4vc3s"]

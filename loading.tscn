@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://brvhmdiaxfp52"]
+[gd_scene load_steps=12 format=3 uid="uid://brvhmdiaxfp52"]
 
 [ext_resource type="Texture2D" uid="uid://dgpmyd1cn0eb3" path="res://sprites/bg.png" id="1_704t8"]
+[ext_resource type="Script" path="res://loading.gd" id="1_vpyay"]
 [ext_resource type="Texture2D" uid="uid://chs3kl71oemqu" path="res://sprites/1.png" id="2_jktbp"]
 [ext_resource type="FontFile" uid="uid://x07w57hnrhsp" path="res://addons/fonts/PL Benguiat Caslon/PL Benguiat Caslon.ttf" id="2_vja6w"]
 [ext_resource type="Texture2D" uid="uid://dts8ih5n5tnhd" path="res://sprites/3.png" id="3_5pmot"]
@@ -20,6 +21,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("2_jktbp")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("loading:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Loading..."]
 }
 
 [sub_resource type="Animation" id="Animation_07re5"]
@@ -41,6 +54,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("2_jktbp"), ExtResource("3_5pmot"), ExtResource("4_5gs3l"), ExtResource("5_3u5pc"), ExtResource("4_5gs3l"), ExtResource("3_5pmot")]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("loading:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.7, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": ["Loading", "Loading.", "Loading..", "Loading...", "Loading..."]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t3m6n"]
 _data = {
@@ -49,13 +74,14 @@ _data = {
 "loading": SubResource("Animation_8kqcy")
 }
 
-[node name="Control" type="Control"]
+[node name="loading" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_vpyay")
 
 [node name="bg" type="TextureRect" parent="."]
 layout_mode = 1
