@@ -8,6 +8,8 @@ class_name Player
 const speed = 300
 @onready var label = $id
 const RANDOM_SPAWN_RADIUS: float = 100
+
+@onready var animation: AnimationPlayer = $AnimationPlayer
 #const jump_velocity = -400.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 #var gravity = 1
@@ -21,8 +23,10 @@ func _physics_process(_delta):
 	var input_direction = direction
 	if direction: 
 		velocity = direction * speed
+		animation.play("WALK")
 	else:
 		#velocity.x = move_toward(velocity.x, 0, speed)
+		animation.play("IDLE")
 		velocity = Vector2()
 	
 	move_and_slide()

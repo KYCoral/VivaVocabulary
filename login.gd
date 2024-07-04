@@ -12,6 +12,7 @@ var signUp_instance: Node
 @onready var exitPopup: PackedScene = preload("res://exit_popup.tscn")
 var exit_instance: Node
 @onready var login : Button = $mcLogin/LoginScreen/Options/Login
+
 #@onready var game_page: PackedScene = preload("res://game.tscn")
 #@onready var menu_page: PackedScene = preload("res://mainMenu.tscn")
 var userinfo = null
@@ -20,11 +21,6 @@ func _ready():
 	Firebase.Auth.connect("login_succeeded", self._on_FirebaseAuth_login_succeeded)
 	Firebase.Auth.connect("login_failed", self._on_FirebaseAuth_login_failed)	
 	# Connect signals for login scene
-	login.button_down.connect(_on_login_button_up)
-	forgotPassword.button_down.connect(on_forgotPassword_pressed)
-	signupLogin.button_down.connect(on_createAccount_pressed)
-	exitLogin.button_down.connect(on_exit_pressed)
-	
 	signUp_instance = signup_page.instantiate()
 	add_child(signUp_instance)
 	signUp_instance.hide()
@@ -38,34 +34,6 @@ func _ready():
 	add_child(exit_instance)
 	exit_instance.hide()
 
-
-# Function to switch to forgot password scene
-func on_forgotPassword_pressed() -> void:
-	#get_tree().change_scene_to_packed(forgotPassword_page)
-	#get_tree().change_scene_to_file("res://forgot_password.tscn")
-	forgotPassword_instance.show()
-
-# Function to switch to signup scene
-func on_createAccount_pressed() -> void:
-	#get_tree().change_scene_to_packed(signup_page)
-	signUp_instance.show()
-	#get_tree().change_scene_to_file("res://signup.tscn")
-	hide()
-
-
-# Function to show exit popup
-func on_exit_pressed() -> void:
-	exit_instance.show()
-
-
-func _on_login_button_up():
-	$errorMessage.hide()
-	var email = $mcLogin/LoginScreen/vb_account/Account/Email/emailEnter.text
-	var password = $mcLogin/LoginScreen/vb_password/Password/password/passwordEnter.text
-	$mcLogin/LoginScreen/vb_account/Account/Email/emailEnter.clear()
-	$mcLogin/LoginScreen/vb_password/Password/password/passwordEnter.clear()
-	Global.set_login_data(email,password)
-	Firebase.Auth.login_with_email_and_password(email,password)
 
 
 func _on_FirebaseAuth_login_succeeded(auth_info):
@@ -82,3 +50,33 @@ func _on_FirebaseAuth_login_failed(error_code, message):
 	print("message: " + str(message))
 
 
+
+
+func _on_create_account_pressed():
+	#get_tree().change_scene_to_packed(signup_page)
+	signUp_instance.show()
+	#get_tree().change_scene_to_file("res://signup.tscn")
+	pass # Replace with function body.
+
+
+func _on_forgot_password_pressed():
+	#get_tree().change_scene_to_packed(forgotPassword_page)
+	#get_tree().change_scene_to_file("res://forgot_password.tscn")
+	forgotPassword_instance.show()
+
+	pass # Replace with function body.
+
+
+func _on_login_pressed():
+	var email = $mcLogin/LoginScreen/vb_account/Account/Email/emailEnter.text
+	var password = $mcLogin/LoginScreen/vb_password/Password/password/passwordEnter.text
+	$mcLogin/LoginScreen/vb_account/Account/Email/emailEnter.clear()
+	$mcLogin/LoginScreen/vb_password/Password/password/passwordEnter.clear()
+	Global.set_login_data(email,password)
+	Firebase.Auth.login_with_email_and_password(email,password)
+	pass # Replace with function body.
+
+
+func _on_exit_pressed():
+	exit_instance.show()
+	pass # Replace with function body.
