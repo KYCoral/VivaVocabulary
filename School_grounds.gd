@@ -22,7 +22,7 @@ func _ready():
 	
 	players.global_position = entranceAny.global_position
 	animationNPC.play("nps")
-	$worldPlayer/Control.visible = true
+	$worldPlayer/Control.visible = false
 
 
 

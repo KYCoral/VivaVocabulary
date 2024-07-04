@@ -76,9 +76,16 @@ func _on_sign_up_button_up():
 	var confirmPassword = $mcSignup/SignupScreen/signup/vb_confirmPassword/ConfirmPassword/confirmPassword/confirmPasswordEnter.text 
 	var username = str(email).split("@")[-1]
 	var valid = email.find("@")
-	#var invalid_characters = [" ", "!", "#", "$", "%", "^", "&", "*", "(", ")", "+", "=", "{", "}", "|", "\\", ":", ";", "'", "\"", "<", ">", ",", "/", "?", "`", "~"]
-	
-	
+	var special_characters = [" ", "!", "#", "$", "%", "^", "&", "*", "(", ")", "+", "=", "{", "}", "|", "\\", ":", ";", "'", "\"", "<", ">", ",", "/", "?", "`", "~"]
+
+	for char in special_characters:
+		if password.find(char) != -1:
+			loading_instance.hide()
+			$errorMessage.text = "Password must contrain atleast  1 special characters."
+			$errorMessage.show()
+			return  
+		break
+
 	 # Get confirm password
 	if password != confirmPassword:
 		loading_instance.hide()

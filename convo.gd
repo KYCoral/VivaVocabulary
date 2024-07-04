@@ -1,9 +1,9 @@
 extends Panel
 
-
 @onready var SendButton : Button = $InputEdit/SendButton
 @onready var ResponseEdit : TextEdit = $ResponseEdit
 @onready var InputEdit : TextEdit = $InputEdit/LineEdit
+
 var api_key = "AIzaSyA24uv8pVwaSNqwHG_2TLhnxyxDjxW6UN0"
 var http_request
 var conversations = []
@@ -12,28 +12,24 @@ var last_user_prompt
 
 
 # Define the AI character role
-var ai_character_role = "Your name is Rachel and you are my hyper friend."
-
+var ai_character_role = "I am a human named Rachel.Who likes gossip."
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+
 	http_request = HTTPRequest.new()
 	add_child(http_request)
 	http_request.request_completed.connect(_on_request_completed)
-
 	var name = target_model.split("/")[-1]
 
-func _process(delta):
-	pass
-
-
 func _on_send_button_pressed():
-	SendButton.disabled = true
 	var input = InputEdit.text
-	
-	_request_chat(input)
+	_request_chat(append_spanish_prompt(input))
 
-func _request_chat(prompt):
+func append_spanish_prompt(prompt: String) -> String:
+	return prompt + " (Sorry but I am a human named Rachel.)"
+
+func _request_chat(prompt: String):
 	var url = "https://generativelanguage.googleapis.com/%s:generateContent?key=%s" % [target_model, api_key]
 	
 	var contents_value = []
@@ -69,7 +65,8 @@ func _request_chat(prompt):
 	print("send-content" + str(body))
 	var error = http_request.request(url, ["Content-Type: application/json"], HTTPClient.METHOD_POST, body)
 
-func _on_request_completed(result, responseCode, headers, body):
+func _on_request_completed(result: int, responseCode: int, headers: Array, body: PackedByteArray) -> void:
+
 	InputEdit.text = ""
 	SendButton.disabled = false
 	var json = JSON.new()
@@ -88,6 +85,3 @@ func _on_request_completed(result, responseCode, headers, body):
 		var newStr = response.candidates[0].content.parts[0].text
 		ResponseEdit.text = newStr
 		conversations.append({"user": "%s" % last_user_prompt, "model": "%s" % newStr})
-
-
-
