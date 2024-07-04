@@ -78,7 +78,7 @@ content_margin_left = 10.0
 content_margin_top = 10.0
 content_margin_right = 10.0
 content_margin_bottom = 10.0
-bg_color = Color(0, 0, 0, 0.560784)
+bg_color = Color(0, 0, 0, 0.796078)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -229,33 +229,9 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("3_5cyuw")]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("11:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-1147, 405.5)]
-}
 
 [sub_resource type="Animation" id="Animation_1ofcx"]
 resource_name = "present"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("11:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-1256, 1407), Vector2(-1236.25, 686.875)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hjt7i"]
 _data = {
@@ -277,7 +253,7 @@ texture = ExtResource("2_nty2j")
 expand_mode = 1
 
 [node name="11" type="Sprite2D" parent="."]
-position = Vector2(-1147, 405.5)
+position = Vector2(-1331, 646)
 scale = Vector2(0.235352, 0.246053)
 texture = ExtResource("3_5cyuw")
 
@@ -313,7 +289,7 @@ custom_minimum_size = Vector2(250, 280)
 offset_left = -1079.0
 offset_top = -218.0
 offset_right = 822.0
-offset_bottom = 276.0
+offset_bottom = 352.0
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
@@ -354,10 +330,10 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_q02kw")
 text = "➤"
 
 [node name="goBack" type="Button" parent="."]
-offset_left = -1634.0
-offset_top = -242.0
-offset_right = -1421.0
-offset_bottom = -157.0
+offset_left = -1606.0
+offset_top = -190.0
+offset_right = -1256.0
+offset_bottom = -76.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.254902, 0.47451, 1, 1)

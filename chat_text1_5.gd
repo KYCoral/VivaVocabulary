@@ -5,7 +5,6 @@ extends Node2D
 var userinfo = null
 var COLLECTION_ID = "user_data"
 
-
 @onready var SendButton : Button = $SendButton
 @onready var ResponseEdit : TextEdit = $ResponseEdit
 @onready var InputEdit : TextEdit = $InputEdit/LineEdit
@@ -18,10 +17,8 @@ var last_user_prompt
 
 @onready var goBack : Button = $goBack
 
-
 # Define the AI character role
-var ai_character_role = "You are Spanish-speaking student."
-
+var ai_character_role = "You are a Spanish-speaking student."
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -29,14 +26,11 @@ func _ready():
 	Firebase.Auth.connect("login_succeeded", self._on_FirebaseAuth_login_succeeded)
 	
 	$loading.visible = true
-	goBack.button_down.connect(_on_go_back_button_down)
+	goBack.pressed.connect(_on_go_back_button_down)
 	http_request = HTTPRequest.new()
 	add_child(http_request)
 	http_request.request_completed.connect(_on_request_completed)
 	var name = target_model.split("/")[-1]
-
-
-
 
 func _on_FirebaseAuth_login_succeeded(auth_info):
 	$loading.visible = false
@@ -54,11 +48,14 @@ func _on_send_button_pressed():
 				SendButton.disabled = true
 				var input = InputEdit.text
 				
-				_request_chat(input)
+				_request_chat(append_spanish_prompt(input))
 			else:
 				ResponseEdit.text =  "Lo siento, no puedo hablar contigo ahora mismo. Gana más puntos para chatear."
 
-func _request_chat(prompt):
+func append_spanish_prompt(prompt: String) -> String:
+	return prompt + " (Por favor, responde en español.)"
+
+func _request_chat(prompt: String):
 	var url = "https://generativelanguage.googleapis.com/%s:generateContent?key=%s" % [target_model, api_key]
 	
 	var contents_value = []
@@ -94,7 +91,7 @@ func _request_chat(prompt):
 	print("send-content" + str(body))
 	var error = http_request.request(url, ["Content-Type: application/json"], HTTPClient.METHOD_POST, body)
 
-func _on_request_completed(result, responseCode, headers, body):
+func _on_request_completed(result: int, responseCode: int, headers: Array, body: PackedByteArray) -> void:
 	$AnimationPlayer.play("idle")
 	save_data()
 	InputEdit.text = ""

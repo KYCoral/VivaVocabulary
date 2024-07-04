@@ -23,9 +23,13 @@ func _ready():
 	process_user_prompt("What is OpenAI")
 
 func process_user_prompt(prompt: String) -> void:
-	# Send request to AI model
-	messages.append({"role": "user", "content": prompt})
+	# Append instruction to the user's prompt to respond in Spanish
+	var spanish_prompt = prompt + " (Por favor, responde en español.)"
+	
+	# Add the modified prompt to the messages array
+	messages.append({"role": "user", "content": spanish_prompt})
 
+	# Create the request body
 	var body = {
 		"messages": messages,
 		"temperature": temperature,
@@ -35,17 +39,21 @@ func process_user_prompt(prompt: String) -> void:
 
 	var body_json = JSON.stringify(body)
 
+	# Prepare the headers
 	var headers_array = PackedStringArray()
 	for key in headers_dict.keys():
 		headers_array.append(key + ": " + headers_dict[key])
 
+	# Add the authorization header
 	var authorization_header = "Authorization: Bearer " + api_key
-	headers_array.append(authorization_header)  # Add authorization header
+	headers_array.append(authorization_header)
 
+	# Debug print statements
 	print("Sending request to:", url)
 	print("Request headers:", headers_array)
 	print("Request body:", body_json)
 
+	# Send the HTTP request
 	var send_request = request.request(url, headers_array, HTTPClient.METHOD_POST, body_json)
 	if send_request != OK:
 		print("There was an error sending the request:", send_request)
