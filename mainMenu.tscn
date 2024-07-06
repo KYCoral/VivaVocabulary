@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dgpmyd1cn0eb3" path="res://sprites/bg.png" id="2_1frax"]
 [ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://addons/fonts/FrancoisOne.ttf" id="4_uu1ny"]
 [ext_resource type="Texture2D" uid="uid://bpsppdi8aqpcf" path="res://sprites/Untitled78_20240418014742.png" id="7_4k4ik"]
-[ext_resource type="PackedScene" path="res://exit_popup.tscn" id="8_8uaj2"]
+[ext_resource type="PackedScene" uid="uid://d1am833xdxfcx" path="res://exit_popup.tscn" id="8_8uaj2"]
 [ext_resource type="Texture2D" uid="uid://xyoly0ftan1i" path="res://sprites/book.png" id="8_esiel"]
 [ext_resource type="Texture2D" uid="uid://nrhf6dop83yu" path="res://sprites/pencil.png" id="9_hkmgr"]
 [ext_resource type="FontFile" uid="uid://bnw5ghde11g7m" path="res://addons/fonts/Monoton-Regular.ttf" id="9_r47v4"]
@@ -198,4 +198,5 @@ texture = ExtResource("9_hkmgr")
 visible = false
 layout_mode = 1
 
+[connection signal="pressed" from="Background/Menu/startGame" to="." method="_on_start_game_pressed"]
 [connection signal="button_up" from="Background/Menu/newGame" to="." method="_on_new_game_button_up"]

@@ -28,7 +28,6 @@ func _ready():
 	Firebase.Auth.connect("login_succeeded", self._on_FirebaseAuth_login_succeeded)
 	Exit.button_down.connect(on_exit_pressed)
 	Settings.button_down.connect(on_settings_pressed)
-	StartGame.button_down.connect(on_start_pressed)
 	# Instantiate exit popup and add it to the scene tree
 	exit_instance = exitPopup.instantiate()
 	add_child(exit_instance)
@@ -44,8 +43,6 @@ func _ready():
 	settings_instance.hide()
 	Continue.disabled = true
 
-func on_start_pressed() -> void:
-	get_tree().change_scene_to_packed(map_page)
 
 func on_exit_pressed() -> void:
 	exit_instance.show()
@@ -85,5 +82,10 @@ func _on_new_game_button_up():
 		@warning_ignore("unused_variable")
 		var task: FirestoreTask = await collection.update(auth.localid,data)
 		
+	get_tree().change_scene_to_packed(map_page)
+	pass # Replace with function body.
+
+
+func _on_start_game_pressed():
 	get_tree().change_scene_to_packed(map_page)
 	pass # Replace with function body.

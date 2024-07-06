@@ -57,10 +57,10 @@ func _on_terms_services_pressed() -> void:
 
 # Function to switch to login scene
 func on_login_pressed() -> void:
-	#get_tree().change_scene_to_packed(login_page)
+	get_tree().change_scene_to_packed(login_page)
 	#login_instance.show()
 	#hide()
-	get_tree().change_scene_to_file("res://login.tscn")
+	#get_tree().change_scene_to_file("res://login.tscn")
 	pass
 
 
@@ -68,7 +68,7 @@ func on_login_pressed() -> void:
 func on_exit_pressed() -> void:
 	exit_instance.show()
 
-func _on_sign_up_button_up():
+func _on_sign_up_button_up() -> void:
 	loading_instance.show()
 	$errorMessage.hide()
 	var email = $mcSignup/SignupScreen/signup/vb_account/Account/signup/Email/emailEnter.text
@@ -76,15 +76,15 @@ func _on_sign_up_button_up():
 	var confirmPassword = $mcSignup/SignupScreen/signup/vb_confirmPassword/ConfirmPassword/confirmPassword/confirmPasswordEnter.text 
 	var username = str(email).split("@")[-1]
 	var valid = email.find("@")
-	var special_characters = [" ", "!", "#", "$", "%", "^", "&", "*", "(", ")", "+", "=", "{", "}", "|", "\\", ":", ";", "'", "\"", "<", ">", ",", "/", "?", "`", "~"]
+	#var special_characters = [" ", "!", "#", "$", "%", "^", "&", "*", "(", ")", "+", "=", "{", "}", "|", "\\", ":", ";", "'", "\"", "<", ">", ",", "/", "?", "`", "~"]
 
-	for char in special_characters:
-		if password.find(char) != -1:
-			loading_instance.hide()
-			$errorMessage.text = "Password must contrain atleast  1 special characters."
-			$errorMessage.show()
-			return  
-		break
+	#for char in special_characters:
+	#	if password.find(char) != -1:
+	#		loading_instance.hide()
+	#		$errorMessage.text = "Password must contrain atleast  1 special characters."
+	#		$errorMessage.show()
+	#		return  
+	#	break
 
 	 # Get confirm password
 	if password != confirmPassword:

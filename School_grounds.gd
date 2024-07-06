@@ -22,7 +22,7 @@ func _ready():
 	
 	players.global_position = entranceAny.global_position
 	animationNPC.play("nps")
-	$worldPlayer/Control.visible = false
+	$worldPlayer/Control.visible = true
 
 
 
@@ -109,6 +109,6 @@ func _on_interact_detection_body_exited(body):
 
 func _on_scene_trigger_library_body_entered(body):
 	if body is Player:
-		get_tree().change_scene_to_file("res://World_school.tscn")
+		get_tree().change_scene_to_file("res://World_library.tscn")
 	pass # Replace with function body.
 

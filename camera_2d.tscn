@@ -1,15 +1,9 @@
-[gd_scene load_steps=56 format=3 uid="uid://ca1fa2mfpl1mg"]
+[gd_scene load_steps=50 format=3 uid="uid://ca1fa2mfpl1mg"]
 
 [ext_resource type="Script" path="res://camera_2d.gd" id="1_u25vd"]
 [ext_resource type="Texture2D" uid="uid://c70hr2a3q7rnt" path="res://sprites/Untitled75_20240409205456_edit_943665059587675.png" id="2_qjksh"]
-[ext_resource type="FontFile" uid="uid://x07w57hnrhsp" path="res://addons/fonts/PL Benguiat Caslon/PL Benguiat Caslon.ttf" id="3_3db5c"]
 [ext_resource type="Texture2D" uid="uid://b1jnmt4pxltk6" path="res://sprites/Untitled80_20240416124734.png" id="4_0itwl"]
 [ext_resource type="PackedScene" uid="uid://terav7u15oa6" path="res://joystick.tscn" id="5_3mtry"]
-[ext_resource type="Texture2D" uid="uid://bksm6qj8vs12y" path="res://sprites/pause.png" id="7_clpdx"]
-[ext_resource type="Texture2D" uid="uid://cspevjom8avp8" path="res://sprites/Untitled123_20240510122556.png" id="7_eu3mo"]
-[ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://addons/fonts/FrancoisOne.ttf" id="8_ttuw4"]
-[ext_resource type="FontFile" uid="uid://cnff5mjjigvl" path="res://addons/fonts/PoiretOne-Regular.ttf" id="9_685wy"]
-[ext_resource type="Texture2D" uid="uid://dknccekvublha" path="res://sprites/Untitled75_20240409205437.png" id="10_v00s8"]
 [ext_resource type="Script" path="res://settings_menu.gd" id="11_hgauu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sa8pu"]
@@ -422,8 +416,8 @@ script = ExtResource("1_u25vd")
 
 [node name="profile" type="Sprite2D" parent="."]
 z_index = 15
-position = Vector2(-235, -156)
-scale = Vector2(0.540039, 0.442231)
+position = Vector2(-268.188, -156)
+scale = Vector2(0.453613, 0.442231)
 texture = ExtResource("2_qjksh")
 
 [node name="username" type="Label" parent="profile"]
@@ -431,7 +425,6 @@ offset_left = -133.0
 offset_top = -86.0
 offset_right = 273.0
 offset_bottom = -11.0
-theme_override_fonts/font = ExtResource("3_3db5c")
 theme_override_font_sizes/font_size = 33
 text = "[Name of User]"
 horizontal_alignment = 1
@@ -496,14 +489,12 @@ theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("8_ttuw4")
 theme_override_font_sizes/font_size = 29
 theme_override_styles/normal = SubResource("StyleBoxFlat_i7xbx")
 theme_override_styles/hover = SubResource("StyleBoxTexture_tcn4w")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ritk0")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_il4s7")
 theme_override_styles/focus = SubResource("StyleBoxFlat_67q1v")
-icon = ExtResource("7_clpdx")
 icon_alignment = 2
 expand_icon = true
 
@@ -520,7 +511,6 @@ offset_right = 428.0
 offset_bottom = 218.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("7_eu3mo")
 expand_mode = 1
 
 [node name="Paused" type="PanelContainer" parent="menu"]
@@ -542,7 +532,6 @@ theme_override_constants/separation = 11
 
 [node name="Label" type="Label" parent="menu/Paused/CenterContainer/VBoxContainer2"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("9_685wy")
 theme_override_font_sizes/font_size = 70
 text = "Paused"
 horizontal_alignment = 1
@@ -553,7 +542,6 @@ theme_override_colors/font_pressed_color = Color(0.505882, 0.427451, 1, 1)
 theme_override_colors/font_hover_color = Color(0.8, 0.8, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.505882, 0.427451, 1, 1)
 theme_override_colors/font_disabled_color = Color(0.8, 0.8, 1, 1)
-theme_override_fonts/font = ExtResource("8_ttuw4")
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_miy61")
 theme_override_styles/hover = SubResource("StyleBoxFlat_m2etk")
@@ -568,7 +556,6 @@ theme_override_colors/font_pressed_color = Color(0.505882, 0.427451, 1, 1)
 theme_override_colors/font_hover_color = Color(0.8, 0.8, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.505882, 0.427451, 1, 1)
 theme_override_colors/font_disabled_color = Color(0.8, 0.8, 1, 1)
-theme_override_fonts/font = ExtResource("8_ttuw4")
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_miy61")
 theme_override_styles/hover = SubResource("StyleBoxFlat_m2etk")
@@ -583,7 +570,6 @@ theme_override_colors/font_pressed_color = Color(0.505882, 0.427451, 1, 1)
 theme_override_colors/font_hover_color = Color(0.8, 0.8, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.505882, 0.427451, 1, 1)
 theme_override_colors/font_disabled_color = Color(0.8, 0.8, 1, 1)
-theme_override_fonts/font = ExtResource("8_ttuw4")
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_miy61")
 theme_override_styles/hover = SubResource("StyleBoxFlat_m2etk")
@@ -605,7 +591,6 @@ offset_right = 428.0
 offset_bottom = 218.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("7_eu3mo")
 expand_mode = 1
 
 [node name="TextureRect" type="TextureRect" parent="validation"]
@@ -614,7 +599,6 @@ offset_left = 42.0
 offset_top = -47.0
 offset_right = 810.0
 offset_bottom = 721.0
-texture = ExtResource("10_v00s8")
 
 [node name="Label" type="Label" parent="validation/TextureRect"]
 layout_mode = 0
@@ -622,7 +606,6 @@ offset_left = 148.0
 offset_top = 171.0
 offset_right = 651.0
 offset_bottom = 231.0
-theme_override_fonts/font = ExtResource("8_ttuw4")
 theme_override_font_sizes/font_size = 40
 text = "Are you sure you want to exit?"
 horizontal_alignment = 1
@@ -637,7 +620,6 @@ theme_override_colors/font_pressed_color = Color(0.505882, 0.427451, 1, 1)
 theme_override_colors/font_hover_color = Color(0.8, 0.8, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.505882, 0.427451, 1, 1)
 theme_override_colors/font_disabled_color = Color(0.8, 0.8, 1, 1)
-theme_override_fonts/font = ExtResource("8_ttuw4")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_6iga4")
 theme_override_styles/hover = SubResource("StyleBoxFlat_mffwf")
@@ -656,7 +638,6 @@ theme_override_colors/font_pressed_color = Color(0.505882, 0.427451, 1, 1)
 theme_override_colors/font_hover_color = Color(0.8, 0.8, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.505882, 0.427451, 1, 1)
 theme_override_colors/font_disabled_color = Color(0.8, 0.8, 1, 1)
-theme_override_fonts/font = ExtResource("8_ttuw4")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_6iga4")
 theme_override_styles/hover = SubResource("StyleBoxFlat_mffwf")
@@ -685,7 +666,6 @@ offset_right = 393.0
 offset_bottom = 193.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("7_eu3mo")
 expand_mode = 1
 script = ExtResource("11_hgauu")
 
@@ -741,7 +721,6 @@ theme_override_colors/font_unselected_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_colors/drop_mark_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("8_ttuw4")
 theme_override_font_sizes/font_size = 14
 theme_override_styles/tab_selected = SubResource("StyleBoxFlat_tvywq")
 theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_y6fps")
@@ -760,7 +739,6 @@ offset_bottom = 88.0
 
 [node name="Username" type="Label" parent="Control/settingsMenu/TabContainer/Profile/vb_username"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("8_ttuw4")
 theme_override_font_sizes/font_size = 24
 text = "Username"
 
@@ -798,7 +776,6 @@ theme_override_colors/font_pressed_color = Color(0.505882, 0.427451, 1, 1)
 theme_override_colors/font_hover_color = Color(0.8, 0.8, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.505882, 0.427451, 1, 1)
 theme_override_colors/font_disabled_color = Color(0.8, 0.8, 1, 1)
-theme_override_fonts/font = ExtResource("8_ttuw4")
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_yspoi")
 theme_override_styles/hover = SubResource("StyleBoxFlat_34m12")
@@ -817,7 +794,6 @@ theme_override_colors/font_pressed_color = Color(0.505882, 0.427451, 1, 1)
 theme_override_colors/font_hover_color = Color(0.8, 0.8, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.505882, 0.427451, 1, 1)
 theme_override_colors/font_disabled_color = Color(0.8, 0.8, 1, 1)
-theme_override_fonts/font = ExtResource("8_ttuw4")
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_yspoi")
 theme_override_styles/hover = SubResource("StyleBoxFlat_34m12")
@@ -835,7 +811,6 @@ offset_bottom = 182.0
 
 [node name="Email" type="Label" parent="Control/settingsMenu/TabContainer/Profile/vb_email"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("8_ttuw4")
 theme_override_font_sizes/font_size = 24
 text = "Email"
 
@@ -892,7 +867,6 @@ offset_bottom = 528.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(409, 350)
-texture = ExtResource("10_v00s8")
 
 [node name="Label" type="Label" parent="Control/settingsMenu/TabContainer/Profile/TextureRect/validation"]
 layout_mode = 0
@@ -900,7 +874,6 @@ offset_left = 63.0
 offset_top = 179.0
 offset_right = 703.0
 offset_bottom = 262.0
-theme_override_fonts/font = ExtResource("8_ttuw4")
 theme_override_font_sizes/font_size = 28
 text = "Are you sure you want to save 
 this details?"
@@ -916,7 +889,6 @@ theme_override_colors/font_pressed_color = Color(0.505882, 0.427451, 1, 1)
 theme_override_colors/font_hover_color = Color(0.8, 0.8, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.505882, 0.427451, 1, 1)
 theme_override_colors/font_disabled_color = Color(0.8, 0.8, 1, 1)
-theme_override_fonts/font = ExtResource("8_ttuw4")
 theme_override_font_sizes/font_size = 34
 theme_override_styles/normal = SubResource("StyleBoxFlat_gkfab")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fst0r")
@@ -935,7 +907,6 @@ theme_override_colors/font_pressed_color = Color(0.505882, 0.427451, 1, 1)
 theme_override_colors/font_hover_color = Color(0.8, 0.8, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.505882, 0.427451, 1, 1)
 theme_override_colors/font_disabled_color = Color(0.8, 0.8, 1, 1)
-theme_override_fonts/font = ExtResource("8_ttuw4")
 theme_override_font_sizes/font_size = 34
 theme_override_styles/normal = SubResource("StyleBoxFlat_gkfab")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fst0r")

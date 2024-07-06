@@ -31,6 +31,7 @@ var enemies_killed: int = 0
 
 
 func _ready() -> void:
+	DisplayServer.virtual_keyboard_show("")
 	# Connect the timers to their respective functions
 	Firebase.Auth.login_with_email_and_password(email, password)
 	Firebase.Auth.connect("login_succeeded", self._on_FirebaseAuth_login_succeeded)

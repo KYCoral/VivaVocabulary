@@ -62,8 +62,7 @@ func _on_FirebaseAuth_login_failed(error_code, message):
 
 func _on_create_account_pressed():
 	#get_tree().change_scene_to_packed(signup_page)
-	loading_instance.show()
-	#get_tree().change_scene_to_file("res://signup.tscn")
+	get_tree().change_scene_to_file("res://signup.tscn")
 	pass # Replace with function body.
 
 

@@ -32,7 +32,7 @@ func _ready():
 # Function to handle Firebase login success
 func _on_FirebaseAuth_login_succeeded(auth_info):
 	print("Firebase login success!")
-	
+	loading_instance.hide()
 	var auth = Firebase.Auth.auth
 	
 	if auth.localid:

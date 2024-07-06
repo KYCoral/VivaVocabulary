@@ -20,7 +20,6 @@ func _ready():
 	animationNPC.play("nps")
 	players.global_position = entranceAny.global_position
 	$worldPlayer/Control.visible = true
-	
 	interact.hide()
 	$level2/level2_play.stop()
 	pass # Replace with function body.r.player:
@@ -44,15 +43,6 @@ func _on_FirebaseAuth_login_succeeded(auth_info):
 			if document.doc_fields.points:
 				var points= str(document.doc_fields.points)
 				$worldPlayer/Camera2D/profile/points.text = points
-			if document.doc_fields.score:
-				if document.doc_fields.score > 0:
-					$profile/LabelPoints.score = "Novice"
-				elif document.doc_fields.score >= 50:
-					$profile/LabelPoints.text = "Intermmediate"
-				elif document.doc_fields.score >= 100:
-					$profile/LabelPoints.score = "Expert"
-				else:
-					$profile/LabelPoints.score = "Master"
 			print(finished_task.error)
 
 
@@ -74,11 +64,6 @@ func _on_level_2_body_exited(_body):
 	pass # Replace with function body.
 
 
-func _on_interact_button_up():
-	get_tree().change_scene_to_packed(chat_page)
-	pass # Replace with function body.
-
-
 func _on_interact_detection_body_entered(_body):
 	interact.show()
 	$level2/level2_play.play("interact")
@@ -94,5 +79,11 @@ func _on_interact_detection_body_exited(_body):
 
 
 func _on_scene_trigger_body_entered(body):
-	get_tree().change_scene_to_file("res://School_grounds.tscn")
+	if body is Player:
+		get_tree().change_scene_to_file("res://School_grounds.tscn")
+	pass # Replace with function body.
+
+
+func _on_interact_pressed():
+	get_tree().change_scene_to_packed(chat_page)
 	pass # Replace with function body.

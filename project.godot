@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="VivaVocabulary"
-run/main_scene="res://signup.tscn"
+run/main_scene="res://login.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 run/max_fps=20
 run/delta_smoothing=false
