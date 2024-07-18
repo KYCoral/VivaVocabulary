@@ -1,6 +1,5 @@
 extends Camera2D
 
-
 @onready var pause =  $menu
 @onready var leave = $validation
 @onready var validation = $Control/settingsMenu/TabContainer/Profile/TextureRect
@@ -10,7 +9,6 @@ extends Camera2D
 @export var password : String = Global.login_data.password
 var userinfo = null
 var COLLECTION_ID = "user_data"
-
 
 func _ready():
 	Firebase.Auth.login_with_email_and_password(email, password)

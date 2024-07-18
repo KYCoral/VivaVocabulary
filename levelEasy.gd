@@ -91,6 +91,12 @@ func _on_map_pressed():
 
 
 func _on_answer_pressed():
+	if answer_input.text == "":
+		$TextureRect/answer.disabled
+	else:
+		answers()
+
+func answers():
 	var user_answer = answer_input.text
 	var correct_answer = questions[current_question_index]["answer"]
 	if user_answer.strip_edges().to_lower() == correct_answer.strip_edges().to_lower():

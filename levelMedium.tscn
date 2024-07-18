@@ -1,14 +1,15 @@
-[gd_scene load_steps=28 format=3 uid="uid://dl1od1gcmhude"]
+[gd_scene load_steps=34 format=3 uid="uid://dl1od1gcmhude"]
 
 [ext_resource type="Script" path="res://levelMedium.gd" id="1_1gur2"]
 [ext_resource type="FontFile" uid="uid://x07w57hnrhsp" path="res://addons/fonts/PL Benguiat Caslon/PL Benguiat Caslon.ttf" id="4_hkgif"]
 [ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://addons/fonts/FrancoisOne.ttf" id="5_un0h5"]
 [ext_resource type="FontFile" uid="uid://cxo00kjcsmt7t" path="res://addons/fonts/BalooBhaijaan-Regular.ttf" id="6_0ekk2"]
 [ext_resource type="PackedScene" uid="uid://bc53oswkrckcs" path="res://Enemy.tscn" id="6_et41b"]
+[ext_resource type="Texture2D" uid="uid://xyjnthjc66mh" path="res://sprites/icons8-pause-48.png" id="6_iba12"]
 [ext_resource type="Texture2D" uid="uid://c5i6mfte4gr7j" path="res://sprites/1-back.png" id="7_10swi"]
+[ext_resource type="Texture2D" uid="uid://cf5gs03q6bx1j" path="res://sprites/icons8-keyboard-80.png" id="7_mcufh"]
 [ext_resource type="FontFile" uid="uid://cnff5mjjigvl" path="res://addons/fonts/PoiretOne-Regular.ttf" id="8_7woce"]
 [ext_resource type="PackedScene" uid="uid://brvhmdiaxfp52" path="res://loading.tscn" id="9_csfj4"]
-[ext_resource type="Texture2D" uid="uid://bksm6qj8vs12y" path="res://sprites/pause.png" id="10_hogn5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8vqqn"]
 size = Vector2(96, 1410)
@@ -77,8 +78,13 @@ corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oe7rk"]
+bg_color = Color(1, 1, 1, 1)
 draw_center = false
 border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w6l2n"]
 draw_center = false
@@ -92,6 +98,47 @@ draw_center = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p3jic"]
 draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ukm50"]
+content_margin_left = 15.0
+content_margin_right = 15.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ofik2"]
+content_margin_left = 15.0
+content_margin_right = 15.0
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xna3y"]
+content_margin_left = 15.0
+content_margin_right = 15.0
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i78o2"]
+content_margin_left = 15.0
+content_margin_right = 15.0
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hmq63"]
+content_margin_left = 15.0
+content_margin_right = 15.0
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4rvbm"]
 bg_color = Color(0.254902, 0.254902, 0.254902, 0.713726)
@@ -313,10 +360,10 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_xojeu")
 text = "Back to Map"
 
 [node name="option" type="Button" parent="CanvasLayer"]
-offset_left = 2439.0
-offset_top = 24.0
-offset_right = 2508.0
-offset_bottom = 96.0
+offset_left = 2345.0
+offset_top = 49.0
+offset_right = 2457.0
+offset_bottom = 140.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.345098, 0.176471, 0.0313726, 1)
@@ -337,9 +384,21 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_w6l2n")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ydod0")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_aqtej")
 theme_override_styles/focus = SubResource("StyleBoxFlat_p3jic")
-icon = ExtResource("10_hogn5")
+icon = ExtResource("6_iba12")
 icon_alignment = 2
 expand_icon = true
+
+[node name="keyboard" type="Button" parent="CanvasLayer"]
+offset_left = 131.0
+offset_top = 1150.0
+offset_right = 241.0
+offset_bottom = 1230.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ukm50")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ofik2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xna3y")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_i78o2")
+theme_override_styles/focus = SubResource("StyleBoxFlat_hmq63")
+icon = ExtResource("7_mcufh")
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
@@ -369,7 +428,7 @@ theme_override_colors/font_hover_color = Color(0.8, 0.8, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.505882, 0.427451, 1, 1)
 theme_override_colors/font_disabled_color = Color(0.8, 0.8, 1, 1)
 theme_override_fonts/font = ExtResource("5_un0h5")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_xbxyj")
 theme_override_styles/hover = SubResource("StyleBoxFlat_qagrc")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_jvcnq")
@@ -396,7 +455,7 @@ layout_mode = 2
 [node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer2/Paused/CenterContainer"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
-theme_override_constants/separation = 11
+theme_override_constants/separation = 13
 
 [node name="Label" type="Label" parent="CanvasLayer2/Paused/CenterContainer/VBoxContainer2"]
 layout_mode = 2
@@ -412,7 +471,7 @@ theme_override_colors/font_hover_color = Color(0.8, 0.8, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.505882, 0.427451, 1, 1)
 theme_override_colors/font_disabled_color = Color(0.8, 0.8, 1, 1)
 theme_override_fonts/font = ExtResource("5_un0h5")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_r8tlm")
 theme_override_styles/hover = SubResource("StyleBoxFlat_nr5hk")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ejv3i")
@@ -427,7 +486,7 @@ theme_override_colors/font_hover_color = Color(0.8, 0.8, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.505882, 0.427451, 1, 1)
 theme_override_colors/font_disabled_color = Color(0.8, 0.8, 1, 1)
 theme_override_fonts/font = ExtResource("5_un0h5")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_r8tlm")
 theme_override_styles/hover = SubResource("StyleBoxFlat_nr5hk")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ejv3i")
@@ -442,7 +501,7 @@ theme_override_colors/font_hover_color = Color(0.8, 0.8, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.505882, 0.427451, 1, 1)
 theme_override_colors/font_disabled_color = Color(0.8, 0.8, 1, 1)
 theme_override_fonts/font = ExtResource("5_un0h5")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_r8tlm")
 theme_override_styles/hover = SubResource("StyleBoxFlat_nr5hk")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ejv3i")

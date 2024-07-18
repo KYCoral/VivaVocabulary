@@ -1,4 +1,4 @@
-class_name School_grounds extends BaseScene
+class_name School_grounds extends Node2D
 
 @export var email : String = Global.login_data.username
 @export var password : String = Global.login_data.password
@@ -15,16 +15,15 @@ var COLLECTION_ID = "user_data"
 @onready var animationNPC : AnimationPlayer = $NPC/AnimationPlayer
 
 
-
 func _ready():
 	Firebase.Auth.login_with_email_and_password(email, password)
 	Firebase.Auth.connect("login_succeeded", self._on_FirebaseAuth_login_succeeded)
 	
 	players.global_position = entranceAny.global_position
 	animationNPC.play("nps")
-	$worldPlayer/Control.visible = true
-
-
+	$worldPlayer/Control.visible = false
+	
+	
 
 func _on_FirebaseAuth_login_succeeded(auth_info):
 	$worldPlayer/Control.visible = false

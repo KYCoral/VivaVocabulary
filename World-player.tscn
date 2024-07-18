@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://ddesem15hfna1"]
+[gd_scene load_steps=16 format=3 uid="uid://ddesem15hfna1"]
 
 [ext_resource type="Texture2D" uid="uid://ud2n87pqc5b1" path="res://sprites/topviewSprite.png" id="1_kswxk"]
 [ext_resource type="Script" path="res://World-player.gd" id="2_muvss"]
+[ext_resource type="FontFile" uid="uid://bjlufvcjvcqil" path="res://addons/fonts/riffic.otf" id="3_xsgjr"]
 [ext_resource type="Texture2D" uid="uid://dt8styfqp0emn" path="res://sprites/animationSprites/Untitled176_20240702100108.png" id="4_4vgm3"]
 [ext_resource type="Texture2D" uid="uid://dbe32bqm1ell3" path="res://sprites/animationSprites/Untitled176_20240702100122.png" id="4_8225p"]
 [ext_resource type="Texture2D" uid="uid://6rj7e3vuni" path="res://sprites/animationSprites/Untitled176_20240702100129.png" id="5_afwrr"]
@@ -78,8 +79,8 @@ motion_mode = 1
 script = ExtResource("2_muvss")
 
 [node name="TopviewSprite" type="Sprite2D" parent="."]
-position = Vector2(2, -10)
-scale = Vector2(0.074817, 0.0734375)
+position = Vector2(3.44147, -11)
+scale = Vector2(0.0725647, 0.075)
 texture = ExtResource("1_kswxk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -88,12 +89,16 @@ scale = Vector2(0.200195, 0.198438)
 shape = SubResource("CapsuleShape2D_6sgnq")
 
 [node name="id" type="Label" parent="."]
-offset_left = 276.0
-offset_top = 241.0
-offset_right = 425.0
-offset_bottom = 264.0
+offset_left = -112.0
+offset_top = -99.0
+offset_right = 120.0
+offset_bottom = -51.0
+theme_override_fonts/font = ExtResource("3_xsgjr")
+theme_override_font_sizes/font_size = 12
+text = "player name"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -156,9 +156,9 @@ func sync_players():
 			if "col" in pd:
 				player_nodes[id].set_color(Color(pd["col"]))
 			
-		player_nodes[id].set_player_name(id)
+#		player_nodes[id].set_player_name(id)
 		
-	for id in player_nodes:
+#	for id in player_nodes:
 		if id not in players:
 			player_nodes[id].queue_free()
 			player_nodes.erase(id)

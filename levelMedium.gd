@@ -199,3 +199,8 @@ func _on_resume_button_down():
 func _on_restart_button_down():
 	start_game()
 	pass # Replace with function body.
+
+
+func _on_keyboard_pressed():
+	DisplayServer.virtual_keyboard_show("")
+	pass # Replace with function body.

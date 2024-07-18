@@ -1,7 +1,7 @@
 class_name BaseScene extends Node
 
 @onready var player : Player = $worldPlayer
-@onready var entrance_markers: Node2D = $EntranceMarkers
+@onready var entrance_markers: Node2D = $Marker2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
