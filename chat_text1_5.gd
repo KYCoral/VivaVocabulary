@@ -27,9 +27,7 @@ var introductory_message = "Hola, soy tu asistente virtual. ¿En qué puedo ayud
 func _ready():
 	Firebase.Auth.login_with_email_and_password(email, password)
 	Firebase.Auth.connect("login_succeeded", self._on_FirebaseAuth_login_succeeded)
-	
 	$loading.visible = true
-	goBack.pressed.connect(_on_go_back_button_down)
 	http_request = HTTPRequest.new()
 	add_child(http_request)
 	http_request.request_completed.connect(_on_request_completed)
@@ -144,7 +142,9 @@ func save_data():
 				@warning_ignore("unused_variable")
 				var update: FirestoreTask = collection.update(email, data)
 
-# Handles go back button press
-func _on_go_back_button_down():
-	get_tree().change_scene_to_file("res://World_school.tscn")
+
+
+
+func _on_go_back_pressed():
+	get_tree().change_scene_to_file("res://World_library.tscn")
 	pass # Replace with function body.

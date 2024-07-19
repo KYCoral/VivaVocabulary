@@ -1,5 +1,0 @@
-[gd_scene format=3 uid="uid://dgywfx7xpf84b"]
-
-[node name="ConnectionMaster" type="Node"]
-
-[node name="HTTPRequest" type="HTTPRequest" parent="."]

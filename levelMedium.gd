@@ -1,7 +1,7 @@
 extends Node2D
 
-@export var email : String = Global.login_data.username
-@export var password : String = Global.login_data.password
+@export var email : String = "kazumirimurutempest@gmail.com"#Global.login_data.username
+@export var password : String = "password123"#Global.login_data.password
 var userinfo = null
 var COLLECTION_ID = "user_data"
 @onready var Resume : Button = $CanvasLayer2/Paused/CenterContainer/VBoxContainer2/Resume
@@ -31,7 +31,6 @@ var enemies_killed: int = 0
 
 
 func _ready() -> void:
-	DisplayServer.virtual_keyboard_show("")
 	# Connect the timers to their respective functions
 	Firebase.Auth.login_with_email_and_password(email, password)
 	Firebase.Auth.connect("login_succeeded", self._on_FirebaseAuth_login_succeeded)
@@ -44,7 +43,7 @@ func _ready() -> void:
 	buttonStart.button_down.connect(self._on_start_button_down)
 	
 	$CanvasLayer2/loading.visible = true
-	
+	start_screen.visible = true
 	spawn_timer.stop()
 	difficulty_timer.stop()
 	active_enemy = null
@@ -106,13 +105,13 @@ func _on_difficulty_timer_timeout() -> void:
 	difficulty += 1
 	GlobalSignals.emit_signal("difficulty_increased", difficulty)
 	print("Difficulty increased to %d" % difficulty)
-	var new_wait_time = spawn_timer.wait_time - 0.2
-	spawn_timer.wait_time = clamp(new_wait_time, 0.2, spawn_timer.wait_time)
+	var new_wait_time = spawn_timer.wait_time - 0.3
+	spawn_timer.wait_time = clamp(new_wait_time, 0.3, spawn_timer.wait_time)
 	difficulty_value.text = str(difficulty)
 	
-	if difficulty >= 20:
+	if difficulty >= 10:
 		difficulty_timer.stop()
-		difficulty = 20
+		difficulty = 10
 		return
 
 func _on_lose_area_body_entered(_body: Node) -> void:
@@ -131,6 +130,7 @@ func game_over() -> void:
 
 func start_game() -> void:
 	DisplayServer.virtual_keyboard_show("")
+	pause_screen.hide()
 	game_over_screen.hide()
 	difficulty = 0
 	enemies_killed = 0
@@ -143,7 +143,7 @@ func start_game() -> void:
 
 func _on_restart_button_pressed() -> void:
 	start_game()
-	if killed_value.text > 10:
+	if enemies_killed > 5:
 		save_data()
 
 
@@ -183,15 +183,14 @@ func _on_map_button_down() -> void:
 func _on_option_button_down():
 	DisplayServer.virtual_keyboard_hide()
 	pause_screen.show()
-	get_tree().paused
+	#get_tree().paused = true
 	pass # Replace with function body.
 
 
 func _on_resume_button_down():
 	DisplayServer.virtual_keyboard_show("")
-	#get_tree().paused = false
 	pause_screen.hide()
-	
+	#get_tree().paused = false
 	pass # Replace with function body.
 	
 
@@ -203,4 +202,16 @@ func _on_restart_button_down():
 
 func _on_keyboard_pressed():
 	DisplayServer.virtual_keyboard_show("")
+	pass # Replace with function body.
+
+
+func _on_how_pressed():
+	pause_screen.hide()
+	$CanvasLayer2/howToPlay.visible = true
+	pass # Replace with function body.
+
+
+func _on_done_pressed():
+	pause_screen.show()
+	$CanvasLayer2/howToPlay.visible = false
 	pass # Replace with function body.

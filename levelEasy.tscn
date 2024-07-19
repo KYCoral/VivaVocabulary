@@ -1,19 +1,26 @@
-[gd_scene load_steps=30 format=3 uid="uid://belrt22bgvl0v"]
+[gd_scene load_steps=47 format=3 uid="uid://belrt22bgvl0v"]
 
 [ext_resource type="Script" path="res://levelEasy.gd" id="1_5ulic"]
-[ext_resource type="Texture2D" uid="uid://lftx7crj2cwn" path="res://sprites/Untitled102_20240508084044.png" id="1_uxpwl"]
+[ext_resource type="Texture2D" uid="uid://7ympmf8u77u0" path="res://sprites/Untitled64_20240516114802.png" id="2_ebkse"]
 [ext_resource type="FontFile" uid="uid://cxo00kjcsmt7t" path="res://addons/fonts/BalooBhaijaan-Regular.ttf" id="3_cowe8"]
+[ext_resource type="Texture2D" uid="uid://c3kkpr2mnebn4" path="res://sprites/paper.png" id="3_iqtvp"]
 [ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://addons/fonts/FrancoisOne.ttf" id="4_4ceru"]
+[ext_resource type="FontFile" uid="uid://bjlufvcjvcqil" path="res://addons/fonts/riffic.otf" id="5_s6do8"]
 [ext_resource type="FontFile" uid="uid://x07w57hnrhsp" path="res://addons/fonts/PL Benguiat Caslon/PL Benguiat Caslon.ttf" id="5_vme0f"]
 [ext_resource type="FontFile" uid="uid://cnff5mjjigvl" path="res://addons/fonts/PoiretOne-Regular.ttf" id="6_kibtb"]
 [ext_resource type="PackedScene" uid="uid://brvhmdiaxfp52" path="res://loading.tscn" id="7_imgf3"]
+[ext_resource type="Texture2D" uid="uid://xyjnthjc66mh" path="res://sprites/icons8-pause-48.png" id="8_pns5m"]
+[ext_resource type="Texture2D" uid="uid://cspevjom8avp8" path="res://sprites/Untitled123_20240510122556.png" id="10_gt1rm"]
+[ext_resource type="Texture2D" uid="uid://rvrk67k6f7ka" path="res://sprites/tutorial/levelmedium.jpg" id="11_vghli"]
+[ext_resource type="AudioStream" uid="uid://bw6icbgss4yp8" path="res://audio/Soft Wind Sound Sounds To Help Sleep.mp3" id="13_htgwq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nkoxb"]
 draw_center = false
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 15
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
@@ -21,39 +28,21 @@ corner_radius_bottom_left = 15
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v75c8"]
 bg_color = Color(2.69532e-06, 0.723539, 0.2568, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 15
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nhabr"]
-content_margin_left = 15.0
-content_margin_top = 15.0
-content_margin_right = 15.0
 content_margin_bottom = 15.0
 draw_center = false
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
 border_width_bottom = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vf6bq"]
-content_margin_left = 15.0
-content_margin_top = 15.0
-content_margin_right = 15.0
-content_margin_bottom = 15.0
-draw_center = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rjuox"]
-content_margin_left = 15.0
-content_margin_top = 15.0
-content_margin_right = 15.0
-content_margin_bottom = 15.0
-draw_center = false
+border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uc3p6"]
 bg_color = Color(0, 0, 0, 1)
@@ -62,7 +51,7 @@ border_width_left = 3
 border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
-border_color = Color(1, 1, 1, 1)
+border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 15
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
@@ -111,6 +100,13 @@ border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
 border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hsv5u"]
+bg_color = Color(0.226707, 0.226708, 0.226707, 1)
 corner_radius_top_left = 15
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
@@ -242,6 +238,102 @@ corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0rrnm"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ibom"]
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8, 0.8, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j78ju"]
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.505882, 0.427451, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aleme"]
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8, 0.8, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l37yd"]
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dowfh"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v4vxj"]
+draw_center = false
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_246pi"]
+bg_color = Color(1, 1, 1, 1)
+draw_center = false
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xwdaw"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lypus"]
+draw_center = false
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_djxbg"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4hnic"]
+draw_center = false
+
 [node name="EASYControl" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -266,15 +358,23 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_uxpwl")
+texture = ExtResource("2_ebkse")
 expand_mode = 1
+
+[node name="note" type="TextureRect" parent="TextureRect"]
+layout_mode = 0
+offset_left = -332.0
+offset_top = -287.0
+offset_right = 2906.0
+offset_bottom = 1550.0
+texture = ExtResource("3_iqtvp")
 
 [node name="ProgressBar" type="ProgressBar" parent="TextureRect"]
 layout_mode = 0
-offset_left = 148.0
-offset_top = 85.0
-offset_right = 2415.0
-offset_bottom = 133.0
+offset_left = 223.0
+offset_top = 1113.0
+offset_right = 1142.0
+offset_bottom = 1161.0
 theme_override_styles/background = SubResource("StyleBoxFlat_nkoxb")
 theme_override_styles/fill = SubResource("StyleBoxFlat_v75c8")
 max_value = 10.0
@@ -283,41 +383,53 @@ show_percentage = false
 
 [node name="answerInput" type="LineEdit" parent="TextureRect"]
 layout_mode = 0
-offset_left = 177.0
-offset_top = 745.0
-offset_right = 2366.0
-offset_bottom = 1077.0
-theme_override_fonts/font = ExtResource("3_cowe8")
-theme_override_font_sizes/font_size = 200
+offset_left = 1383.0
+offset_top = 361.0
+offset_right = 2422.0
+offset_bottom = 562.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0.359069, 0.359069, 0.359069, 1)
+theme_override_fonts/font = ExtResource("4_4ceru")
+theme_override_font_sizes/font_size = 100
 theme_override_styles/normal = SubResource("StyleBoxFlat_nhabr")
-theme_override_styles/focus = SubResource("StyleBoxFlat_vf6bq")
-theme_override_styles/read_only = SubResource("StyleBoxFlat_rjuox")
+theme_override_styles/focus = SubResource("StyleBoxFlat_nhabr")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_nhabr")
+placeholder_text = "type answer..."
 alignment = 1
 max_length = 50
 
 [node name="question" type="Label" parent="TextureRect"]
 layout_mode = 0
-offset_left = 3.0
-offset_top = 303.0
-offset_right = 2546.0
-offset_bottom = 609.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("3_cowe8")
-theme_override_font_sizes/font_size = 200
+offset_left = 184.0
+offset_top = 397.0
+offset_right = 1224.0
+offset_bottom = 699.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_s6do8")
+theme_override_font_sizes/font_size = 120
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="answer" type="Button" parent="TextureRect"]
 layout_mode = 0
-offset_left = 203.0
-offset_top = 1129.0
-offset_right = 2333.0
-offset_bottom = 1227.0
-theme_override_colors/font_pressed_color = Color(0.505882, 0.427451, 1, 1)
-theme_override_colors/font_hover_color = Color(0.8, 0.8, 1, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.505882, 0.427451, 1, 1)
-theme_override_colors/font_disabled_color = Color(0.8, 0.8, 1, 1)
+offset_left = 1404.0
+offset_top = 582.0
+offset_right = 2416.0
+offset_bottom = 673.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_4ceru")
 theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_uc3p6")
@@ -326,6 +438,29 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_8xiqa")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_2dtod")
 theme_override_styles/focus = SubResource("StyleBoxFlat_h3b2w")
 text = "ANSWER"
+
+[node name="correctAnswer" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 185.0
+offset_top = 684.0
+offset_right = 1228.0
+offset_bottom = 827.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_4ceru")
+theme_override_font_sizes/font_size = 80
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="next" type="Button" parent="TextureRect"]
+layout_mode = 0
+offset_left = 2172.0
+offset_top = 1103.0
+offset_right = 2402.0
+offset_bottom = 1189.0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_hsv5u")
+text = "Next"
 
 [node name="GameOverScreen" type="PanelContainer" parent="."]
 visible = false
@@ -440,6 +575,21 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_yguye")
 theme_override_styles/focus = SubResource("StyleBoxFlat_2jnh1")
 text = "Restart"
 
+[node name="How" type="Button" parent="Paused/CenterContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0.505882, 0.427451, 1, 1)
+theme_override_colors/font_hover_color = Color(0.8, 0.8, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.505882, 0.427451, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.8, 0.8, 1, 1)
+theme_override_fonts/font = ExtResource("4_4ceru")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_0rrnm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2ibom")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_j78ju")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_aleme")
+theme_override_styles/focus = SubResource("StyleBoxFlat_l37yd")
+text = "How to Play"
+
 [node name="Map" type="Button" parent="Paused/CenterContainer/VBoxContainer2"]
 layout_mode = 2
 theme_override_colors/font_pressed_color = Color(0.505882, 0.427451, 1, 1)
@@ -456,7 +606,6 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_2jnh1")
 text = "QUIT"
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="startGame" type="PanelContainer" parent="CanvasLayer2"]
 offset_right = 2582.0
@@ -494,6 +643,79 @@ text = "Start Game"
 
 [node name="loading" parent="CanvasLayer2" instance=ExtResource("7_imgf3")]
 visible = false
+
+[node name="howToPlay2" type="Control" parent="CanvasLayer2"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="back" type="TextureRect" parent="CanvasLayer2/howToPlay2"]
+modulate = Color(1, 1, 1, 0.466667)
+layout_mode = 0
+offset_left = -8.0
+offset_top = -4.0
+offset_right = 2584.0
+offset_bottom = 1288.0
+texture = ExtResource("10_gt1rm")
+
+[node name="Panel" type="Panel" parent="CanvasLayer2/howToPlay2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 164.0
+offset_top = 124.0
+offset_right = -152.0
+offset_bottom = -156.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dowfh")
+
+[node name="done" type="Button" parent="CanvasLayer2/howToPlay2/Panel"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 877.0
+offset_right = 396.0
+offset_bottom = 966.0
+theme_override_fonts/font = ExtResource("4_4ceru")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_v4vxj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v4vxj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_v4vxj")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_v4vxj")
+theme_override_styles/focus = SubResource("StyleBoxFlat_v4vxj")
+text = "Done
+"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer2/howToPlay2/Panel"]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 69.0
+offset_right = 1166.0
+offset_bottom = 585.0
+texture = ExtResource("11_vghli")
+
+[node name="Label" type="Label" parent="CanvasLayer2/howToPlay2/Panel"]
+layout_mode = 0
+offset_left = 1237.0
+offset_top = 63.0
+offset_right = 2161.0
+offset_bottom = 756.0
+theme_override_font_sizes/font_size = 40
+text = "1)  Read the spanish word that needs to be translated.
+
+2)  Enter your answer. Be careful on using word indicators!
+
+3) Click on the answer button when your think you got the right answer.
+
+4) A point will be added to the progress bar once you got it correct! Complete the task by typing the correct answers, consecutively.
+
+5) You can pause each game if you think you want to restart or simply quit."
+autowrap_mode = 3
 
 [node name="congrats" type="PanelContainer" parent="."]
 visible = false
@@ -556,9 +778,51 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_syaxq")
 theme_override_styles/focus = SubResource("StyleBoxFlat_px1nt")
 text = "Back to Map"
 
+[node name="option" type="Button" parent="."]
+layout_mode = 0
+offset_left = 2322.0
+offset_top = 112.0
+offset_right = 2434.0
+offset_bottom = 203.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.345098, 0.176471, 0.0313726, 1)
+theme_override_colors/font_focus_color = Color(0.345098, 0.176471, 0.0313726, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_4ceru")
+theme_override_font_sizes/font_size = 29
+theme_override_styles/normal = SubResource("StyleBoxFlat_246pi")
+theme_override_styles/hover = SubResource("StyleBoxTexture_xwdaw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lypus")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_djxbg")
+theme_override_styles/focus = SubResource("StyleBoxFlat_4hnic")
+icon = ExtResource("8_pns5m")
+icon_alignment = 2
+expand_icon = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(1295, 630)
+stream = ExtResource("13_htgwq")
+autoplay = true
+
 [connection signal="pressed" from="TextureRect/answer" to="." method="_on_answer_pressed"]
+[connection signal="pressed" from="TextureRect/next" to="." method="_on_next_pressed"]
 [connection signal="pressed" from="GameOverScreen/CenterContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="GameOverScreen/CenterContainer/VBoxContainer/Map" to="." method="_on_map_pressed"]
+[connection signal="pressed" from="Paused/CenterContainer/VBoxContainer2/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Paused/CenterContainer/VBoxContainer2/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Paused/CenterContainer/VBoxContainer2/How" to="." method="_on_how_pressed"]
+[connection signal="pressed" from="Paused/CenterContainer/VBoxContainer2/Map" to="." method="_on_map_pressed"]
 [connection signal="pressed" from="CanvasLayer2/startGame/CenterContainer/VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CanvasLayer2/howToPlay2/Panel/done" to="." method="_on_done_pressed"]
 [connection signal="pressed" from="congrats/CenterContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="congrats/CenterContainer/VBoxContainer/Map" to="." method="_on_map_pressed"]
+[connection signal="pressed" from="option" to="." method="_on_option_pressed"]

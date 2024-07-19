@@ -1,15 +1,18 @@
-[gd_scene load_steps=34 format=3 uid="uid://dl1od1gcmhude"]
+[gd_scene load_steps=39 format=3 uid="uid://dl1od1gcmhude"]
 
 [ext_resource type="Script" path="res://levelMedium.gd" id="1_1gur2"]
+[ext_resource type="Texture2D" uid="uid://cubtucc4ng0mb" path="res://sprites/blackie.png" id="2_6a4rc"]
 [ext_resource type="FontFile" uid="uid://x07w57hnrhsp" path="res://addons/fonts/PL Benguiat Caslon/PL Benguiat Caslon.ttf" id="4_hkgif"]
 [ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://addons/fonts/FrancoisOne.ttf" id="5_un0h5"]
 [ext_resource type="FontFile" uid="uid://cxo00kjcsmt7t" path="res://addons/fonts/BalooBhaijaan-Regular.ttf" id="6_0ekk2"]
 [ext_resource type="PackedScene" uid="uid://bc53oswkrckcs" path="res://Enemy.tscn" id="6_et41b"]
 [ext_resource type="Texture2D" uid="uid://xyjnthjc66mh" path="res://sprites/icons8-pause-48.png" id="6_iba12"]
-[ext_resource type="Texture2D" uid="uid://c5i6mfte4gr7j" path="res://sprites/1-back.png" id="7_10swi"]
 [ext_resource type="Texture2D" uid="uid://cf5gs03q6bx1j" path="res://sprites/icons8-keyboard-80.png" id="7_mcufh"]
 [ext_resource type="FontFile" uid="uid://cnff5mjjigvl" path="res://addons/fonts/PoiretOne-Regular.ttf" id="8_7woce"]
 [ext_resource type="PackedScene" uid="uid://brvhmdiaxfp52" path="res://loading.tscn" id="9_csfj4"]
+[ext_resource type="Texture2D" uid="uid://cspevjom8avp8" path="res://sprites/Untitled123_20240510122556.png" id="11_7gf4c"]
+[ext_resource type="Texture2D" uid="uid://bkjcwos12nmj3" path="res://sprites/tutorial/leveleasy.jpg" id="11_awc5f"]
+[ext_resource type="AudioStream" uid="uid://bw6icbgss4yp8" path="res://audio/Soft Wind Sound Sounds To Help Sleep.mp3" id="13_8cowg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8vqqn"]
 size = Vector2(96, 1410)
@@ -203,14 +206,29 @@ corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6xt2n"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vldfn"]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
 [node name="Main" type="Node2D"]
 script = ExtResource("1_1gur2")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_top = -85.0
-offset_right = 2645.0
-offset_bottom = 1447.0
-texture = ExtResource("7_10swi")
+[node name="bg" type="TextureRect" parent="."]
+modulate = Color(1, 1, 0.870588, 1)
+offset_top = 3.0
+offset_right = 2577.0
+offset_bottom = 1287.0
+texture = ExtResource("2_6a4rc")
 expand_mode = 1
 
 [node name="LoseArea" type="Area2D" parent="."]
@@ -221,10 +239,11 @@ position = Vector2(-81, 560)
 shape = SubResource("RectangleShape2D_8vqqn")
 
 [node name="SpawnTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 6.0
+autostart = true
 
 [node name="DifficultyTimer" type="Timer" parent="."]
-wait_time = 15.0
+wait_time = 12.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -260,16 +279,16 @@ size_flags_vertical = 3
 [node name="SpawnContainer" type="CanvasLayer" parent="CanvasLayer/VBoxContainer/MiddleRow"]
 
 [node name="Marker2D" type="Marker2D" parent="CanvasLayer/VBoxContainer/MiddleRow/SpawnContainer"]
-position = Vector2(2576, 479)
+position = Vector2(2579, 661)
 
 [node name="Marker2D2" type="Marker2D" parent="CanvasLayer/VBoxContainer/MiddleRow/SpawnContainer"]
-position = Vector2(2577, 625)
+position = Vector2(2581, 867)
 
 [node name="Marker2D4" type="Marker2D" parent="CanvasLayer/VBoxContainer/MiddleRow/SpawnContainer"]
-position = Vector2(2577, 332)
+position = Vector2(2580, 520)
 
 [node name="Marker2D3" type="Marker2D" parent="CanvasLayer/VBoxContainer/MiddleRow/SpawnContainer"]
-position = Vector2(2578, 208)
+position = Vector2(2578, 336)
 
 [node name="EnemyContainer" type="Node2D" parent="CanvasLayer/VBoxContainer/MiddleRow"]
 position = Vector2(1430, 168)
@@ -360,10 +379,10 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_xojeu")
 text = "Back to Map"
 
 [node name="option" type="Button" parent="CanvasLayer"]
-offset_left = 2345.0
-offset_top = 49.0
-offset_right = 2457.0
-offset_bottom = 140.0
+offset_left = 2329.0
+offset_top = 73.0
+offset_right = 2441.0
+offset_bottom = 164.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.345098, 0.176471, 0.0313726, 1)
@@ -390,9 +409,9 @@ expand_icon = true
 
 [node name="keyboard" type="Button" parent="CanvasLayer"]
 offset_left = 131.0
-offset_top = 1150.0
+offset_top = 1102.0
 offset_right = 241.0
-offset_bottom = 1230.0
+offset_bottom = 1182.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_ukm50")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ofik2")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_xna3y")
@@ -455,7 +474,7 @@ layout_mode = 2
 [node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer2/Paused/CenterContainer"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
-theme_override_constants/separation = 13
+theme_override_constants/separation = 20
 
 [node name="Label" type="Label" parent="CanvasLayer2/Paused/CenterContainer/VBoxContainer2"]
 layout_mode = 2
@@ -494,6 +513,21 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_vxj16")
 theme_override_styles/focus = SubResource("StyleBoxFlat_hh6b5")
 text = "Restart"
 
+[node name="How" type="Button" parent="CanvasLayer2/Paused/CenterContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0.505882, 0.427451, 1, 1)
+theme_override_colors/font_hover_color = Color(0.8, 0.8, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.505882, 0.427451, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.8, 0.8, 1, 1)
+theme_override_fonts/font = ExtResource("5_un0h5")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_r8tlm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nr5hk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ejv3i")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_vxj16")
+theme_override_styles/focus = SubResource("StyleBoxFlat_hh6b5")
+text = "How to Play"
+
 [node name="Map" type="Button" parent="CanvasLayer2/Paused/CenterContainer/VBoxContainer2"]
 layout_mode = 2
 theme_override_colors/font_pressed_color = Color(0.505882, 0.427451, 1, 1)
@@ -512,13 +546,93 @@ text = "QUIT"
 [node name="loading" parent="CanvasLayer2" instance=ExtResource("9_csfj4")]
 visible = false
 
+[node name="howToPlay" type="Control" parent="CanvasLayer2"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="back" type="TextureRect" parent="CanvasLayer2/howToPlay"]
+modulate = Color(1, 1, 1, 0.466667)
+layout_mode = 0
+offset_left = -8.0
+offset_top = -4.0
+offset_right = 2584.0
+offset_bottom = 1288.0
+texture = ExtResource("11_7gf4c")
+
+[node name="Panel" type="Panel" parent="CanvasLayer2/howToPlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 164.0
+offset_top = 124.0
+offset_right = -152.0
+offset_bottom = -156.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6xt2n")
+
+[node name="done" type="Button" parent="CanvasLayer2/howToPlay/Panel"]
+layout_mode = 0
+offset_left = 1994.0
+offset_top = 896.0
+offset_right = 2206.0
+offset_bottom = 963.0
+theme_override_fonts/font = ExtResource("5_un0h5")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_vldfn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vldfn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vldfn")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_vldfn")
+theme_override_styles/focus = SubResource("StyleBoxFlat_vldfn")
+text = "Done
+"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer2/howToPlay/Panel"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 213.0
+offset_right = 1187.0
+offset_bottom = 729.0
+texture = ExtResource("11_awc5f")
+
+[node name="Label" type="Label" parent="CanvasLayer2/howToPlay/Panel"]
+layout_mode = 0
+offset_left = 1237.0
+offset_top = 63.0
+offset_right = 2161.0
+offset_bottom = 756.0
+theme_override_font_sizes/font_size = 40
+text = "1) Click the keyboard button to open your device's keyboard.
+
+2) When keyboard is available, type the words that will be displayed in the screen.
+
+3) Look out for the incoming words! Type the first letter to move your screen. Be careful, once the word crosses your screen it's game over!
+
+4) You can pause the game if it gets hard."
+autowrap_mode = 3
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(1295, 630)
+stream = ExtResource("13_8cowg")
+autoplay = true
+
 [connection signal="body_entered" from="LoseArea" to="." method="_on_lose_area_body_entered"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="DifficultyTimer" to="." method="_on_difficulty_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/GameOverScreen/CenterContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="button_down" from="CanvasLayer/GameOverScreen/CenterContainer/VBoxContainer/Map" to="." method="_on_map_button_down"]
 [connection signal="button_down" from="CanvasLayer/option" to="." method="_on_option_button_down"]
+[connection signal="pressed" from="CanvasLayer/keyboard" to="." method="_on_keyboard_pressed"]
 [connection signal="button_down" from="CanvasLayer2/startGame/CenterContainer/VBoxContainer/start" to="." method="_on_start_button_down"]
 [connection signal="button_down" from="CanvasLayer2/Paused/CenterContainer/VBoxContainer2/Resume" to="." method="_on_resume_button_down"]
+[connection signal="pressed" from="CanvasLayer2/Paused/CenterContainer/VBoxContainer2/Resume" to="." method="_on_resume_pressed"]
 [connection signal="button_down" from="CanvasLayer2/Paused/CenterContainer/VBoxContainer2/Restart" to="." method="_on_restart_button_down"]
+[connection signal="pressed" from="CanvasLayer2/Paused/CenterContainer/VBoxContainer2/How" to="." method="_on_how_pressed"]
 [connection signal="button_down" from="CanvasLayer2/Paused/CenterContainer/VBoxContainer2/Map" to="." method="_on_map_button_down"]
+[connection signal="pressed" from="CanvasLayer2/howToPlay/Panel/done" to="." method="_on_done_pressed"]

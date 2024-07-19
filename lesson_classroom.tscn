@@ -1,29 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://bsn7sigh43nfv"]
+[gd_scene load_steps=16 format=3 uid="uid://bsn7sigh43nfv"]
 
 [ext_resource type="Texture2D" uid="uid://c83d5aewtdtpn" path="res://sprites/classroom.jpg" id="1_0cxs4"]
 [ext_resource type="Script" path="res://lesson_classroom.gd" id="1_m7vfd"]
+[ext_resource type="Texture2D" uid="uid://fh3kp3gr0jds" path="res://sprites/paper1.png" id="3_wxl8g"]
 [ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://addons/fonts/FrancoisOne.ttf" id="4_g4bo0"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_houv5"]
-bg_color = Color(0, 0, 0, 0.470588)
-corner_radius_top_left = 25
-corner_radius_top_right = 25
-corner_radius_bottom_right = 25
-corner_radius_bottom_left = 25
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xy2ux"]
-content_margin_left = 10.0
-content_margin_top = 10.0
-content_margin_right = 10.0
-content_margin_bottom = 10.0
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1hems"]
-content_margin_left = 10.0
-content_margin_top = 10.0
-content_margin_right = 10.0
-content_margin_bottom = 10.0
-bg_color = Color(0.6, 0.6, 0.6, 0)
+[ext_resource type="FontFile" uid="uid://x07w57hnrhsp" path="res://addons/fonts/PL Benguiat Caslon/PL Benguiat Caslon.ttf" id="4_h1fxl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q3qy7"]
 content_margin_left = 5.0
@@ -45,19 +26,49 @@ content_margin_left = 15.0
 content_margin_top = 15.0
 content_margin_right = 15.0
 content_margin_bottom = 15.0
-bg_color = Color(0, 0, 0, 0.34902)
+bg_color = Color(0, 0, 0, 0)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
+border_color = Color(0.8, 0.8, 0.8, 0)
 corner_radius_top_left = 25
 corner_radius_top_right = 25
 corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_houv5"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xy2ux"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1hems"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ygwsg"]
-draw_center = false
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
 border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_515fg"]
 draw_center = false
@@ -97,35 +108,8 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_0cxs4")
 
-[node name="lessonView" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 785.0
-offset_top = 17.0
-offset_right = 2533.0
-offset_bottom = 1263.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_houv5")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="lessonView"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 3.0
-offset_top = 3.0
-offset_bottom = -3.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 40
-theme_override_font_sizes/bold_font_size = 40
-theme_override_font_sizes/italics_font_size = 40
-theme_override_font_sizes/bold_italics_font_size = 40
-theme_override_font_sizes/mono_font_size = 40
-theme_override_styles/focus = SubResource("StyleBoxFlat_xy2ux")
-theme_override_styles/normal = SubResource("StyleBoxFlat_1hems")
-fit_content = true
-scroll_following = true
-
 [node name="lessons" type="Label" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 59.0
 offset_top = 153.0
@@ -158,9 +142,9 @@ vertical_alignment = 1
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 2
 offset_left = 73.0
-offset_top = 294.0
-offset_right = 597.0
-offset_bottom = 1240.0
+offset_top = 142.0
+offset_right = 594.0
+offset_bottom = 1236.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_p5gk6")
@@ -170,12 +154,55 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="noteoob" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 613.0
+offset_right = 2574.0
+offset_bottom = 1290.0
+texture = ExtResource("3_wxl8g")
+
+[node name="lessonView" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 785.0
+offset_top = 17.0
+offset_right = 2533.0
+offset_bottom = 1263.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_houv5")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="lessonView"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -104.0
+offset_top = 105.0
+offset_right = -102.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/selection_color = Color(0, 0, 0, 1)
+theme_override_colors/table_odd_row_bg = Color(0, 0, 0, 1)
+theme_override_colors/table_even_row_bg = Color(0, 0, 0, 1)
+theme_override_colors/table_border = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_h1fxl")
+theme_override_font_sizes/normal_font_size = 60
+theme_override_font_sizes/bold_font_size = 60
+theme_override_font_sizes/italics_font_size = 60
+theme_override_font_sizes/bold_italics_font_size = 60
+theme_override_font_sizes/mono_font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxFlat_xy2ux")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1hems")
+fit_content = true
+scroll_following = true
+
 [node name="goBack" type="Button" parent="."]
 layout_mode = 0
-offset_left = 15.0
-offset_top = -9.0
-offset_right = 228.0
-offset_bottom = 76.0
+offset_left = 65.0
+offset_top = 26.0
+offset_right = 487.0
+offset_bottom = 115.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.254902, 0.47451, 1, 1)
@@ -183,7 +210,7 @@ theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_g4bo0")
-theme_override_font_sizes/font_size = 34
+theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_ygwsg")
 theme_override_styles/hover = SubResource("StyleBoxFlat_515fg")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_yd7vn")

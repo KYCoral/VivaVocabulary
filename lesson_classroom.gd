@@ -5,13 +5,13 @@ extends Control
 # should be imported or initialized properly.
 
 # Variables for Firebase
-@export var email : String = Global.login_data.username
-@export var password : String = Global.login_data.password
+@export var email : String = "kazumirimurutempest@gmail.com"#Global.login_data.username
+@export var password : String = "password123"#Global.login_data.password
 var COLLECTION_ID = "professor"
 var CustomButton: PackedScene = preload("res://lessons.tscn")
 # Godot UI elements
 @onready var vbox_container = $ScrollContainer/VBoxContainer
-@onready var school_page: PackedScene = preload("res://World_school.tscn")
+@onready var school_page: PackedScene = preload("res://World_library.tscn")
 @onready var lessonView : RichTextLabel = $lessonView/RichTextLabel
 
 #instance of loading screen if user is still not validated

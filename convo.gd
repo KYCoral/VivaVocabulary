@@ -27,7 +27,7 @@ func _on_send_button_pressed():
 	_request_chat(append_spanish_prompt(input))
 
 func append_spanish_prompt(prompt: String) -> String:
-	return prompt + " (Sorry but I am a human named Rachel.)"
+	return prompt + " (your word(the spanish translation))"
 
 func _request_chat(prompt: String):
 	var url = "https://generativelanguage.googleapis.com/%s:generateContent?key=%s" % [target_model, api_key]

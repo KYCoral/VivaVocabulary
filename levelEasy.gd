@@ -17,7 +17,6 @@ var questions = [
 	{"question": "Thank you", "answer": "Gracias"},
 	{"question": "Yes", "answer": "Sí"},
 	{"question": "No", "answer": "No"},
-	{"question": "Excuse me", "answer": "Perdón"},
 	{"question": "I'm sorry", "answer": "Lo siento"},
 	{"question": "Good morning", "answer": "Buenos días"},
 	{"question": "Good night", "answer": "Buenas noches"},
@@ -33,13 +32,14 @@ var questions = [
 	{"question": "Good afternoon", "answer": "Buenas tardes"}
 ]
 
-
 var current_question_index = 0
 var score = 0
-@onready var start_screen = $CanvasLayer2
+@onready var start_screen = $CanvasLayer2/startGame
 @onready var congrats_screen = $congrats
+@onready var pause_screen = $Paused
 # References to the UI elements
 @onready var question_label = $TextureRect/question
+@onready var correct_label = $TextureRect/correctAnswer
 @onready var answer_input = $TextureRect/answerInput
 @onready var scoreBar = $TextureRect/ProgressBar
 @onready var  done_screen = $GameOverScreen
@@ -48,10 +48,10 @@ func _ready():
 	Firebase.Auth.login_with_email_and_password(email, password)
 	Firebase.Auth.connect("login_succeeded", self._on_FirebaseAuth_login_succeeded)
 	randomize() # Seed the random number generator
-	shuffle_questions()
-	show_question()
-	update_score()
 	done_screen.hide()
+	pause_screen.hide()
+	$TextureRect/next.visible = false
+	start_screen.visible = true
 	$CanvasLayer2/loading.visible = true
 
 func _on_FirebaseAuth_login_succeeded(auth_info):
@@ -86,7 +86,7 @@ func congrats() -> void:
 
 
 func _on_map_pressed():
-	get_tree().change_scene_to_file("res://World_library.tscn")
+	get_tree().change_scene_to_file("res://World_school.tscn")
 	pass # Replace with function body.
 
 
@@ -99,17 +99,26 @@ func _on_answer_pressed():
 func answers():
 	var user_answer = answer_input.text
 	var correct_answer = questions[current_question_index]["answer"]
+	if answer_input.text == "":
+		$TextureRect/answer.disabled
 	if user_answer.strip_edges().to_lower() == correct_answer.strip_edges().to_lower():
 		score += 1
+		correct_label.text = "Correct✓"
+		$TextureRect/answer.disabled
+		#correct_answer.text == ""
+		$TextureRect/next.visible = true
 	else:
+		correct_label.text = "Correct Answer: " + correct_answer
 		score -= 1
+		$TextureRect/answer.disabled
+		answer_input.text == ""
+		$TextureRect/next.visible = true
 	
 	# Move to the next question or loop back to the first one
 	current_question_index = (current_question_index + 1) % questions.size()
 	update_score()
 	check_game_over()
-
-	show_question()
+	#show_question()
 
 	pass # Replace with function body.
 
@@ -118,8 +127,14 @@ func _on_restart_button_pressed():
 	congrats_screen.hide()
 	done_screen.hide()
 	current_question_index = 0
-	_ready()
+	score = 0
+	#_ready()
 	save_data()
+	shuffle_questions()
+	show_question()
+	update_score()
+	$TextureRect/next.visible = false
+	$TextureRect/correctAnswer.text = ""
 	pass # Replace with function body.
 
 
@@ -141,5 +156,57 @@ func save_data():
 
 
 func _on_start_pressed():
+	shuffle_questions()
+	show_question()
+	update_score()
 	start_screen.hide()
+	$TextureRect/next.visible = false
+	pass # Replace with function body.
+
+
+func _on_next_pressed():
+	shuffle_questions()
+	show_question()
+	update_score()
+	$TextureRect/answer.disabled
+	$TextureRect/next.visible = false
+	$TextureRect/correctAnswer.text = ""
+	$TextureRect/answer.text = ""
+
+
+func _on_option_pressed():
+	pause_screen.show()
+	pass # Replace with function body.
+
+
+func _on_restart_pressed():
+	congrats_screen.hide()
+	done_screen.hide()
+	pause_screen.hide()
+	current_question_index = 0
+	score = 0
+	#_ready()
+	save_data()
+	shuffle_questions()
+	show_question()
+	update_score()
+	$TextureRect/next.visible = false
+	$TextureRect/correctAnswer.text = ""
+	pass # Replace with function body.
+
+
+func _on_resume_pressed():
+	pause_screen.hide()
+	pass # Replace with function body.
+
+
+func _on_how_pressed():
+	pause_screen.hide()
+	$CanvasLayer2/howToPlay2.visible = true
+	pass # Replace with function body.
+	
+
+func _on_done_pressed():
+	pause_screen.show()
+	$CanvasLayer2/howToPlay2.visible = false
 	pass # Replace with function body.

@@ -12,8 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://cc7pr5sshoqxv" path="res://sprites/animationSprites/Untitled176_20240702100143.png" id="8_yidcw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6sgnq"]
-radius = 85.669
-height = 171.338
+radius = 59.9419
+height = 201.574
 
 [sub_resource type="Animation" id="Animation_tpsd2"]
 resource_name = "IDLE"
@@ -72,30 +72,30 @@ _data = {
 }
 
 [node name="worldPlayer" type="CharacterBody2D"]
-position = Vector2(1324, 669)
+position = Vector2(1319, 663)
 collision_layer = 15
 collision_mask = 15
 motion_mode = 1
 script = ExtResource("2_muvss")
 
 [node name="TopviewSprite" type="Sprite2D" parent="."]
-position = Vector2(3.44147, -11)
-scale = Vector2(0.0725647, 0.075)
+position = Vector2(-12.125, -16.625)
+scale = Vector2(0.0654297, 0.0802735)
 texture = ExtResource("1_kswxk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.999971, 2)
+position = Vector2(-15, -18)
 scale = Vector2(0.200195, 0.198438)
 shape = SubResource("CapsuleShape2D_6sgnq")
 
 [node name="id" type="Label" parent="."]
-offset_left = -112.0
-offset_top = -99.0
-offset_right = 120.0
-offset_bottom = -51.0
+offset_left = -88.0
+offset_top = -73.0
+offset_right = 63.0
+offset_bottom = -59.0
 theme_override_fonts/font = ExtResource("3_xsgjr")
 theme_override_font_sizes/font_size = 12
-text = "player name"
+text = "player"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3

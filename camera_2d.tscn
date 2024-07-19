@@ -1,9 +1,14 @@
-[gd_scene load_steps=50 format=3 uid="uid://ca1fa2mfpl1mg"]
+[gd_scene load_steps=57 format=3 uid="uid://ca1fa2mfpl1mg"]
 
 [ext_resource type="Script" path="res://camera_2d.gd" id="1_u25vd"]
 [ext_resource type="Texture2D" uid="uid://c70hr2a3q7rnt" path="res://sprites/Untitled75_20240409205456_edit_943665059587675.png" id="2_qjksh"]
 [ext_resource type="Texture2D" uid="uid://b1jnmt4pxltk6" path="res://sprites/Untitled80_20240416124734.png" id="4_0itwl"]
 [ext_resource type="PackedScene" uid="uid://terav7u15oa6" path="res://joystick.tscn" id="5_3mtry"]
+[ext_resource type="Texture2D" uid="uid://xyjnthjc66mh" path="res://sprites/icons8-pause-48.png" id="5_f7bbp"]
+[ext_resource type="Texture2D" uid="uid://cspevjom8avp8" path="res://sprites/Untitled123_20240510122556.png" id="6_5vk3h"]
+[ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://addons/fonts/FrancoisOne.ttf" id="7_661ij"]
+[ext_resource type="Texture2D" uid="uid://6ywnpc33x2h7" path="res://sprites/validation.png" id="7_m62is"]
+[ext_resource type="Texture2D" uid="uid://cpmgdf1336ias" path="res://sprites/tutorial/walkthrough.jpg" id="8_e4emx"]
 [ext_resource type="Script" path="res://settings_menu.gd" id="11_hgauu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sa8pu"]
@@ -409,8 +414,22 @@ corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_etm5v"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_68rkd"]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
 [node name="Camera2D" type="Camera2D"]
-position = Vector2(379, 232)
+position = Vector2(449, 236)
 zoom = Vector2(3, 3)
 script = ExtResource("1_u25vd")
 
@@ -469,7 +488,7 @@ scale = Vector2(0.122887, 0.15145)
 texture = ExtResource("4_0itwl")
 
 [node name="joystick" parent="." instance=ExtResource("5_3mtry")]
-position = Vector2(-309, 130)
+position = Vector2(-305, 115)
 
 [node name="option" type="Button" parent="."]
 offset_left = 350.0
@@ -495,13 +514,14 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_tcn4w")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ritk0")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_il4s7")
 theme_override_styles/focus = SubResource("StyleBoxFlat_67q1v")
+icon = ExtResource("5_f7bbp")
 icon_alignment = 2
 expand_icon = true
 
 [node name="menu" type="TextureRect" parent="."]
 visible = false
 modulate = Color(1, 1, 1, 0.764706)
-z_index = 16
+z_index = 26
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -564,6 +584,20 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_uf73d")
 theme_override_styles/focus = SubResource("StyleBoxFlat_xvk46")
 text = "Settings"
 
+[node name="how" type="Button" parent="menu/Paused/CenterContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0.505882, 0.427451, 1, 1)
+theme_override_colors/font_hover_color = Color(0.8, 0.8, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.505882, 0.427451, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.8, 0.8, 1, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_miy61")
+theme_override_styles/hover = SubResource("StyleBoxFlat_m2etk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_30cto")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_uf73d")
+theme_override_styles/focus = SubResource("StyleBoxFlat_xvk46")
+text = "How to Play"
+
 [node name="Map" type="Button" parent="menu/Paused/CenterContainer/VBoxContainer2"]
 layout_mode = 2
 theme_override_colors/font_pressed_color = Color(0.505882, 0.427451, 1, 1)
@@ -581,41 +615,43 @@ text = "QUIT"
 [node name="validation" type="TextureRect" parent="."]
 visible = false
 modulate = Color(1, 1, 1, 0.764706)
-z_index = 16
+z_index = 26
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -428.0
-offset_top = -218.0
+offset_left = -430.0
+offset_top = -215.0
 offset_right = 428.0
 offset_bottom = 218.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("6_5vk3h")
 expand_mode = 1
 
 [node name="TextureRect" type="TextureRect" parent="validation"]
 layout_mode = 0
-offset_left = 42.0
+offset_left = -7.0
 offset_top = -47.0
-offset_right = 810.0
+offset_right = 871.0
 offset_bottom = 721.0
+texture = ExtResource("7_m62is")
 
 [node name="Label" type="Label" parent="validation/TextureRect"]
 layout_mode = 0
-offset_left = 148.0
-offset_top = 171.0
-offset_right = 651.0
-offset_bottom = 231.0
+offset_left = 170.0
+offset_top = 188.0
+offset_right = 747.0
+offset_bottom = 248.0
 theme_override_font_sizes/font_size = 40
 text = "Are you sure you want to exit?"
 horizontal_alignment = 1
 
 [node name="No" type="Button" parent="validation/TextureRect/Label"]
 layout_mode = 0
-offset_left = 279.0
-offset_top = 87.0
-offset_right = 520.0
-offset_bottom = 150.0
+offset_left = 326.0
+offset_top = 89.0
+offset_right = 567.0
+offset_bottom = 152.0
 theme_override_colors/font_pressed_color = Color(0.505882, 0.427451, 1, 1)
 theme_override_colors/font_hover_color = Color(0.8, 0.8, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.505882, 0.427451, 1, 1)
@@ -630,10 +666,10 @@ text = "No"
 
 [node name="Yes" type="Button" parent="validation/TextureRect/Label"]
 layout_mode = 0
-offset_left = -14.0
-offset_top = 87.0
-offset_right = 232.0
-offset_bottom = 150.0
+offset_left = 13.0
+offset_top = 89.0
+offset_right = 259.0
+offset_bottom = 152.0
 theme_override_colors/font_pressed_color = Color(0.505882, 0.427451, 1, 1)
 theme_override_colors/font_hover_color = Color(0.8, 0.8, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.505882, 0.427451, 1, 1)
@@ -647,15 +683,17 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_rjmin")
 text = "Yes"
 
 [node name="Control" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -439.0
+offset_top = -217.0
+offset_right = 425.0
+offset_bottom = 218.0
 
 [node name="settingsMenu" type="TextureRect" parent="Control"]
-visible = false
 modulate = Color(1, 1, 1, 0.764706)
-z_index = 16
+z_index = 26
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -669,12 +707,26 @@ grow_vertical = 2
 expand_mode = 1
 script = ExtResource("11_hgauu")
 
+[node name="TextureRect" type="TextureRect" parent="Control/settingsMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 422.0
+offset_top = 216.0
+offset_right = -393.0
+offset_bottom = -189.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_5vk3h")
+expand_mode = 1
+
 [node name="TabContainer" type="TabContainer" parent="Control/settingsMenu"]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 38.0
-offset_right = 836.0
-offset_bottom = 417.0
+offset_left = 479.0
+offset_top = 258.0
+offset_right = 1260.0
+offset_bottom = 606.0
 theme_override_font_sizes/font_size = 28
 current_tab = 1
 clip_tabs = false
@@ -915,15 +967,163 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_yjkuu")
 theme_override_styles/focus = SubResource("StyleBoxFlat_lyvcl")
 text = "No"
 
+[node name="howToPlay3" type="Control" parent="."]
+visible = false
+z_index = 36
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="back" type="TextureRect" parent="howToPlay3"]
+modulate = Color(1, 1, 1, 0.466667)
+layout_mode = 0
+offset_left = -440.0
+offset_top = -232.0
+offset_right = 438.0
+offset_bottom = 229.0
+texture = ExtResource("6_5vk3h")
+expand_mode = 1
+
+[node name="Panel" type="Panel" parent="howToPlay3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -369.0
+offset_top = -166.0
+offset_right = 348.0
+offset_bottom = 170.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_etm5v")
+
+[node name="done" type="Button" parent="howToPlay3/Panel"]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 269.0
+offset_right = 129.0
+offset_bottom = 302.0
+theme_override_fonts/font = ExtResource("7_661ij")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_68rkd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_68rkd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_68rkd")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_68rkd")
+theme_override_styles/focus = SubResource("StyleBoxFlat_68rkd")
+text = "Done
+"
+
+[node name="TextureRect" type="TextureRect" parent="howToPlay3/Panel"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 42.0
+offset_right = 339.0
+offset_bottom = 204.0
+texture = ExtResource("8_e4emx")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="howToPlay3/Panel"]
+layout_mode = 0
+offset_left = 358.0
+offset_top = 22.0
+offset_right = 704.0
+offset_bottom = 328.0
+theme_override_font_sizes/font_size = 15
+text = "1) Use the joystick on the screen for navigation.
+
+2) Inside the school, user has a random color to identify characters.
+
+3) A unique character id is also displayed on top of its head so you can interact with other users anonymously .
+
+4 )Player can still see their account id, progress and points while still in the open world!"
+autowrap_mode = 3
+
+[node name="validationDelete" type="TextureRect" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.764706)
+z_index = 26
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -430.0
+offset_top = -215.0
+offset_right = 428.0
+offset_bottom = 218.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_5vk3h")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="validationDelete"]
+layout_mode = 0
+offset_left = -7.0
+offset_top = -47.0
+offset_right = 871.0
+offset_bottom = 721.0
+texture = ExtResource("7_m62is")
+
+[node name="Label" type="Label" parent="validationDelete/TextureRect"]
+layout_mode = 0
+offset_left = 126.0
+offset_top = 196.0
+offset_right = 786.0
+offset_bottom = 256.0
+theme_override_font_sizes/font_size = 30
+text = "Are you sure you want to delete this account?"
+horizontal_alignment = 1
+
+[node name="Noo" type="Button" parent="validationDelete/TextureRect/Label"]
+layout_mode = 0
+offset_left = 385.0
+offset_top = 73.0
+offset_right = 626.0
+offset_bottom = 136.0
+theme_override_colors/font_pressed_color = Color(0.505882, 0.427451, 1, 1)
+theme_override_colors/font_hover_color = Color(0.8, 0.8, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.505882, 0.427451, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.8, 0.8, 1, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_6iga4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mffwf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_v8tkx")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ibkxp")
+theme_override_styles/focus = SubResource("StyleBoxFlat_rjmin")
+text = "No"
+
+[node name="Yess" type="Button" parent="validationDelete/TextureRect/Label"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 71.0
+offset_right = 293.0
+offset_bottom = 134.0
+theme_override_colors/font_pressed_color = Color(0.505882, 0.427451, 1, 1)
+theme_override_colors/font_hover_color = Color(0.8, 0.8, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.505882, 0.427451, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.8, 0.8, 1, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_6iga4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mffwf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_v8tkx")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ibkxp")
+theme_override_styles/focus = SubResource("StyleBoxFlat_rjmin")
+text = "Yes"
+
 [connection signal="pressed" from="option" to="." method="_on_option_pressed"]
 [connection signal="pressed" from="menu/Paused/CenterContainer/VBoxContainer2/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="menu/Paused/CenterContainer/VBoxContainer2/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="menu/Paused/CenterContainer/VBoxContainer2/how" to="." method="_on_how_pressed"]
 [connection signal="pressed" from="menu/Paused/CenterContainer/VBoxContainer2/Map" to="." method="_on_map_pressed"]
 [connection signal="pressed" from="validation/TextureRect/Label/No" to="." method="_on_no_pressed"]
 [connection signal="pressed" from="validation/TextureRect/Label/Yes" to="." method="_on_yes_pressed"]
 [connection signal="pressed" from="Control/settingsMenu/TabContainer/General/VBoxContainer/delete" to="." method="_on_delete_pressed"]
 [connection signal="pressed" from="Control/settingsMenu/TabContainer/Profile/saveChanges" to="." method="_on_save_changes_pressed"]
 [connection signal="pressed" from="Control/settingsMenu/TabContainer/Profile/cancel" to="." method="_on_cancel_pressed"]
-[connection signal="pressed" from="Control/settingsMenu/TabContainer/Profile/TextureRect/validation/Save" to="." method="_on_yes_pressed"]
 [connection signal="pressed" from="Control/settingsMenu/TabContainer/Profile/TextureRect/validation/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="Control/settingsMenu/TabContainer/Profile/TextureRect/validation/Save" to="." method="_on_yes_pressed"]
 [connection signal="pressed" from="Control/settingsMenu/TabContainer/Profile/TextureRect/validation/NoSave" to="." method="_on_no_save_pressed"]
+[connection signal="pressed" from="howToPlay3/Panel/done" to="." method="_on_done_pressed"]
+[connection signal="pressed" from="validationDelete/TextureRect/Label/Noo" to="." method="_on_noo_pressed"]
+[connection signal="pressed" from="validationDelete/TextureRect/Label/Yess" to="." method="_on_yess_pressed"]

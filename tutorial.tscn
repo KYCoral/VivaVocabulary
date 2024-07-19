@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpxswqpfl82uu"]
+
+[ext_resource type="FontFile" uid="uid://ba8tt4gxqogjq" path="res://addons/fonts/FrancoisOne.ttf" id="1_lbvqc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ey0ol"]
+draw_center = false
+
+[node name="tutorialControl" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(593, 372)
+zoom = Vector2(3, 3)
+
+[node name="Panel" type="Panel" parent="Camera2D"]
+offset_left = -356.0
+offset_top = -191.0
+offset_right = 377.0
+offset_bottom = 193.0
+
+[node name="Button" type="Button" parent="Camera2D/Panel"]
+layout_mode = 0
+offset_left = 599.0
+offset_top = 10.0
+offset_right = 716.0
+offset_bottom = 57.0
+theme_override_fonts/font = ExtResource("1_lbvqc")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ey0ol")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ey0ol")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ey0ol")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ey0ol")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ey0ol")
+text = "Skip"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Camera2D/Panel"]
+layout_mode = 0
+offset_right = 733.0
+offset_bottom = 383.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

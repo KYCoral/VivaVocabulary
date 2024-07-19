@@ -117,6 +117,12 @@ ui_left={
 ]
 }
 
+[layer_names]
+
+2d_render/layer_1="user"
+2d_render/layer_2="player"
+2d_render/layer_3="map"
+
 [physics]
 
 common/physics_ticks_per_second=30

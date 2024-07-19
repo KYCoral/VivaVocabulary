@@ -1,6 +1,6 @@
 extends Node
 
-const host = "vivavocabulario-70a1a-default-rtdb.asia-southeast1.firebasedatabase.app"#"godot-firebase-test-game-default-rtdb.europe-west1.firebasedatabase.app"
+const host = "vivavocabulario-70a1a-default-rtdb.asia-southeast1.firebasedatabase.app"
 const base_url = "https://%s" % host
 const Utils = preload("res://scripts/utils.gd")
 
@@ -13,12 +13,14 @@ var player_nodes = {}
 var local_player = {}
 var local_player_buffer = []
 
+#signal scene_change_requested(new_scene: String)
+
 func _ready():
 	get_tree().set_auto_accept_quit(false)
-	
 	await connect_player()
 	start_player_stream()
 	start_write_player()
+
 
 func _process(_delta):
 	var new_local_player = {
@@ -32,15 +34,14 @@ func _process(_delta):
 		local_player_buffer.append(new_local_player)
 
 func _notification(what):
-	if (what == NOTIFICATION_WM_CLOSE_REQUEST):
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		await disconnect_player()
 		get_tree().quit()
 
 func start_write_player():
 	while true:
 		if local_player_buffer.size() > 0:
-			var curr_player_data = local_player_buffer[local_player_buffer.size() -1]
-			local_player_buffer.clear()
+			var curr_player_data = local_player_buffer.pop_back()
 			await write_player(player_manager.local_player_id, curr_player_data)
 		await get_tree().process_frame
 
@@ -52,27 +53,29 @@ func connect_player():
 	await write_player(player_manager.local_player_id, player)
 	print("Player initialized!")
 
-func disconnect_player():
+func disconnect_player() -> void:
 	print("Disconnecting player '%s' ..." % player_manager.local_player_id)
 	await delete_player(player_manager.local_player_id)
 	print("Player disconnected!")
-	
+
 func start_player_stream():
 	print("Connecting to host...")
 	var tcp = StreamPeerTCP.new()
 	var err = tcp.connect_to_host(host, 443)
-	assert(err == OK) # Make sure connection is OK.
+	assert(err == OK) # Ensure connection is OK.
 	
 	while tcp.get_status() == StreamPeerTCP.STATUS_CONNECTING:
 		tcp.poll()
 		await get_tree().process_frame
-	print("Conected: ", tcp.get_status() == StreamPeerTCP.STATUS_CONNECTED)
+	print("Connected: ", tcp.get_status() == StreamPeerTCP.STATUS_CONNECTED)
 
 	print("Connecting to stream...")
 	var stream = StreamPeerTLS.new()
 	err = stream.connect_to_stream(tcp, host, TLSOptions.client())
 	print("Stream connect error: ", err)
-	assert(err == OK) # Make sure connection is OK.
+	assert(err == OK) # Ensure connection is OK.
+	if err != OK:
+		$"../worldPlayer/problem".visible = true
 	
 	while true:
 		stream.poll()
@@ -89,12 +92,10 @@ func start_player_stream():
 	
 	var initialRequest = false
 	while true:
-		# Poll the stream to ensure connection is valid and check for availalbe bytes.
 		stream.poll()
 		var available_bytes: int = stream.get_available_bytes()
 		if available_bytes > 0:
 			var data: Array = stream.get_partial_data(available_bytes)
-			# Check for read error.
 			if data[0] != OK:
 				printerr("Error getting data from stream: ", data[0])
 			else:
@@ -105,9 +106,8 @@ func start_player_stream():
 					else:
 						print("Stream started listening!")
 						await load_all_players()
-				else :
+				else:
 					process_event(response)
-				
 				initialRequest = true
 		await get_tree().process_frame
 	
@@ -123,7 +123,7 @@ func process_event(event_data: String):
 	var jsonData = json.get_data()
 	
 	if event != "put":
-		print("unhandled event '%s' with data '%s'" % [event, data])
+		print("Unhandled event '%s' with data '%s'" % [event, data])
 	else:
 		var path = jsonData["path"]
 		var id = path.split("/")[1]
@@ -131,7 +131,6 @@ func process_event(event_data: String):
 		if id == "":
 			return
 		
-		# ignore local player
 		if id == player_manager.local_player_id:
 			return
 		
@@ -150,19 +149,19 @@ func sync_players():
 		var pd = players[id]
 		
 		if pd is Dictionary:
-			if "px" in pd and "py" in pd:
-				player_nodes[id].set_target_position(Vector2(pd["px"], pd["py"]))
-			
-			if "col" in pd:
-				player_nodes[id].set_color(Color(pd["col"]))
-			
-#		player_nodes[id].set_player_name(id)
+			if id in player_nodes:
+				if "px" in pd and "py" in pd:
+					player_nodes[id].set_target_position(Vector2(pd["px"], pd["py"]))
+				
+				if "col" in pd:
+					player_nodes[id].set_color(Color(pd["col"]))
+			else:
+				print("Warning: Player node with ID %s not found" % str(id))
 		
-#	for id in player_nodes:
+	for id in player_nodes.keys():
 		if id not in players:
 			player_nodes[id].queue_free()
 			player_nodes.erase(id)
-			break
 
 func delete_player(player_id: String):
 	local_player_buffer.clear()
@@ -190,5 +189,15 @@ func load_all_players():
 			if player_id != player_manager.local_player_id:
 				players[player_id] = data[player_id]
 				
-	print("loaded players: ", players)
+	print("Loaded players: ", players)
 	sync_players()
+
+func request_scene_change(new_scene: String):
+	emit_signal("scene_change_requested", new_scene)
+
+
+func _on_scene_trigger_body_entered(body):
+	if body is Player:
+		await disconnect_player()
+		get_tree().change_scene_to_file("res://School_grounds.tscn")
+	pass # Replace with function body.

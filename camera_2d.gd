@@ -3,7 +3,7 @@ extends Camera2D
 @onready var pause =  $menu
 @onready var leave = $validation
 @onready var validation = $Control/settingsMenu/TabContainer/Profile/TextureRect
-@onready var settings = $Control/settingsMenu
+@onready var settings = $Control
 # Called when the node enters the scene tree for the first time.
 @export var email : String = Global.login_data.username
 @export var password : String = Global.login_data.password
@@ -49,6 +49,7 @@ func _on_map_pressed():
 
 
 func _on_settings_pressed():
+	pause.hide()
 	settings.show()
 	pass # Replace with function body.
 
@@ -80,6 +81,7 @@ func _on_save_changes_pressed():
 
 func _on_cancel_pressed():
 	settings.hide()
+	pause.show()
 	pass # Replace with function body.
 
 
@@ -94,4 +96,28 @@ func _on_no_save_pressed():
 
 
 func _on_delete_pressed():
+	$validationDelete.visible = true
+	pass # Replace with function body.
+
+
+func _on_how_pressed():
+	$howToPlay3.show()
+	pass # Replace with function body.
+
+
+func _on_done_pressed():
+	$howToPlay3.hide()
+	pass # Replace with function body.
+
+
+func _on_noo_pressed():
+	$validationDelete.visible = false
+	pass # Replace with function body.
+
+
+func _on_yess_pressed():
+	var firestore_collection : FirestoreCollection = Firebase.Firestore.collection('user_data')
+	firestore_collection.delete(userinfo.email)
+	print("Document deleted successfully")
+	get_tree().change_scene_to_file("res://login.tscn")
 	pass # Replace with function body.

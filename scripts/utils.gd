@@ -14,7 +14,8 @@ static func generate_random_string(length : int, char_set = "ABCDEFGHIJKLMNOPQRS
 static func generate_random_player_name():
 	var prefix = generate_random_string(5, "ABCDEFGHIJKLMNOPQRSTUVWXYZ")
 	var suffix = generate_random_string(3, "0123456789")
-	return prefix + "_" + suffix
+	var fixed = prefix + "_" + suffix
+	return fixed
 
 static func generate_random_player_color():
 	var r = randf_range(0.4, 1.0)
